@@ -1,0 +1,35 @@
+language: python
+python:
+  - "2.7"
+install:
+  - pip install -e .
+before_script:
+  - echo $TRAVIS_TAG
+  - echo $pypi_username
+  - pip install -r requirements.txt
+script:
+   - nosetests -w tests -v --with-coverage 12345
+   - nosetests -w pydna --with-coverage --with-doctest -v
+
+deploy:
+  provider: pypi
+  distributions: "sdist --formats=gztar,zip bdist_wheel"
+  user: bjorn
+  password:
+    secure: "PLNlCt++35qR1sLrlzT0ys/WUxUNPh8isnxpEvAbfDWvgLBZc2vMWMr4HHNqv6UK4jvu9cwfAHJIcH+1tUxdMfs9Q8InqtyrFJgTU+VREhO/nyJgLah1CdmJ9ZixynOTUu8tuZNjX17ycPDM2fRxv0svY/mT2Z0U6nqX4eFFjic="
+  on:
+    tags: true
+    all_branches: true
+    repo: BjornFJohansson/pydna
+
+after_success:
+  - coveralls
+
+notifications:
+  email:
+    recipients:
+      - pydna@googlegroups.com
+    on_success: change # default: change
+    on_failure: change # default: always
+  
+#condition: "$TRAVIS_TAG == ^[0-9][.][0-9][.][0-9]"

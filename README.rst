@@ -1,0 +1,112 @@
+========
+pygenome
+========
+
+Pygenome provide a module for acessing the Saccharomyces cerevisiae genome 
+programatically from Python. Genes, promoters, terminators and intergenic
+sequences are available by systematic names (like YPR080w) or by standard name.
+DNA sequences are returned as Biopython SeqRecord objects. Biopython, percache and
+appdirs are required for installation.
+
+Typical usage at the command line could look like this::
+
+    >>> from pygenome import sg            
+    >>> sg.locus("TEF1")
+    SeqRecord(seq=Seq('CTTCATCGGTATCTTCGCTATATTCTTTTTAGTCGAATTTGCGGGGAGAAGATG...AAC', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='TPA: Saccharomyces cerevisiae S288c chromosome XVI.', dbxrefs=[])
+    >>> sg.locus("YPR080w")
+    SeqRecord(seq=Seq('CTTCATCGGTATCTTCGCTATATTCTTTTTAGTCGAATTTGCGGGGAGAAGATG...AAC', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='TPA: Saccharomyces cerevisiae S288c chromosome XVI.', dbxrefs=[])
+    >>> a=sg.locus("TEF1")
+    >>> b=sg.locus("YPR080w")
+    >>> str(a.seq) == str(b.seq)
+    True
+    >>> prom=sg.promoter("TEF1")
+    >>> prom
+    SeqRecord(seq=Seq('ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATA...AAA', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='TPA: Saccharomyces cerevisiae S288c chromosome XVI.', dbxrefs=[])
+    >>> term=sg.terminator("TEF1")
+    >>> term
+    SeqRecord(seq=Seq('GGAGATTGATAAGACTTTTCTAGTTGCATATCTTTTATATTTAAATCTTATCTA...CAG', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='TPA: Saccharomyces cerevisiae S288c chromosome XVI.', dbxrefs=[])
+    
+    
+
+
+    
+
+NEWS
+====
+
+=======   ========== =============================================================
+version   date       comment
+=======   ========== =============================================================
+0.0.6     2014-06-17 Bugfix
+
+0.0.5     2014-06-14 Simpler api (see example above)
+
+0.0.1     2013-08-01 first release
+=======   ========== =============================================================
+
+System Requirements
+===================
+
+- `Python 2.7 <http://www.python.org>`_.
+
+- `biopython >= 1.6 <http://pypi.python.org/pypi/biopython>`_.
+
+- `percache >= 0.2.1 <http://pypi.python.org/pypi/percache>`_.
+
+- `appdirs >= 1.6 <http://pypi.python.org/pypi/appdirs>`_.
+
+Python 2.x
+----------
+
+Versions other than 2.7 has not been tried with this software.
+Version 2.7.3 was used to build the distribution.
+
+Python 3.x
+----------
+
+This code has not been tested with python 3.
+
+Installation
+============
+
+Source
+------
+
+Open the pydna source code directory (containing the setup.py file) in
+terminal and type:
+
+    sudo python setup.py install <enter>
+
+If you need to do additional configuration, e.g. changing the base
+directory, please type `python setup.py`, or see the documentation for
+Setuptools.
+
+
+Source Code Repository
+----------------------
+
+pydna is hosted by google code:
+
+http://code.google.com/p/py-genome/
+
+
+Distribution Structure
+======================
+
+README.txt          -- This file.
+
+LICENSE.txt         -- What you can do with the code.
+
+MANIFEST.in         -- Tells distutils what files to distribute
+
+setup.py            -- Installation file.
+
+run_tests.py        -- run tests by "python run_tests.py"<enter>
+
+pygenome/           -- The actual code.
+
+docs/               -- Documentation.
+
+scripts/            -- Miscellaneous perhaps useful scripts
+
+tests/              -- Testing code
