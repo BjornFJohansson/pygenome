@@ -6,10 +6,10 @@
 # as part of this package.
 
 
-__version__      = "0.06"
-__date__         = "2014-06-17"
+__version__      = "0.5.0"
+__date__         = "2015-03-02"
 __author__       = "Björn Johansson"
-__copyright__    = "Copyright 2013,2014, Björn Johansson"
+__copyright__    = "Copyright 2013-2015, Björn Johansson"
 __credits__      = ["Björn Johansson"]
 __license__      = "BSD"
 __maintainer__   = "Björn Johansson"

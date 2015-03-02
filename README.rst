@@ -2,8 +2,8 @@
 pygenome
 ========
 
-Pygenome provide a module for acessing the Saccharomyces cerevisiae genome 
-programatically from Python. Genes, promoters, terminators and intergenic
+Pygenome provide a module for accessing the Saccharomyces cerevisiae genome from 
+Python. Genes, promoters, terminators and intergenic
 sequences are available by systematic names (like YPR080w) or by standard name.
 DNA sequences are returned as Biopython SeqRecord objects. Biopython, percache and
 appdirs are required for installation.
@@ -27,16 +27,14 @@ Typical usage at the command line could look like this::
     SeqRecord(seq=Seq('GGAGATTGATAAGACTTTTCTAGTTGCATATCTTTTATATTTAAATCTTATCTA...CAG', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='TPA: Saccharomyces cerevisiae S288c chromosome XVI.', dbxrefs=[])
     
     
-
-
-    
-
 NEWS
 ====
 
 =======   ========== =============================================================
 version   date       comment
 =======   ========== =============================================================
+0.5.0     2015-03-02 Documentation
+
 0.0.6     2014-06-17 Bugfix
 
 0.0.5     2014-06-14 Simpler api (see example above)
@@ -85,9 +83,9 @@ Setuptools.
 Source Code Repository
 ----------------------
 
-pydna is hosted by google code:
+pydna source code is hosted on Github:
 
-http://code.google.com/p/py-genome/
+https://github.com/BjornFJohansson/pygenome
 
 
 Distribution Structure
