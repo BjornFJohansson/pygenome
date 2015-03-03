@@ -26,12 +26,12 @@ for root, dirs, files in os.walk(os.path.abspath(os.path.dirname(__file__))):
 
 from setuptools import setup
 
-setup(  name='py-genome',
+setup(  name='pygenome',
         version         =__version__,
         author          =__author__,
         author_email    =__email__,
         packages=['pygenome'],
-        url='http://pypi.python.org/pypi/py-genome/',
+        url='http://pypi.python.org/pypi/pygenome/',
         license='LICENSE.txt',
         description='''Accessing the Saccharomyces cerevisiae genome from Python''',
         long_description=open('README.rst').read(),

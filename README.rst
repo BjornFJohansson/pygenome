@@ -13,7 +13,7 @@ pygenome
     :alt: Documentation Status
 
 .. image:: https://pypip.in/download/pygenome/badge.svg
-    :target: https://pypi.python.org/pypi//pygenome/
+    :target: https://pypi.python.org/pypi/pygenome/
     :alt: Downloads
     
 .. image:: https://pypip.in/version/pygenome/badge.svg
