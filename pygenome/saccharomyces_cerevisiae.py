@@ -57,6 +57,8 @@ class saccharomyces_cerevisiae_genome():
             if not os.path.exists(os.path.join(self.data_dir, file_)):
                 print "data file", file_, "is missing"
                 missing_files.append(file_)
+            else:
+                print "data file", file_, "found."
 
         if missing_files:
             self.download(missing_files)
@@ -188,28 +190,22 @@ class saccharomyces_cerevisiae_genome():
             else: # total size is unknown
                 sys.stderr.write("read %d\n" % (readsofar,))
 
-        print "do you want to download missing files from {}?".format(self.base_url)
-        print "missing files are:"
         if not missing_files:
-            missing_files = self.chromosome_files.values()
+            missing_files = sorted(self.chromosome_files.values())
+
+        sys.stderr.write("Data files to be downloaded are:")
+
+        for file_ in missing_files:
+            sys.stderr.write(file_+"\n")
+
+        sys.stderr.write("these files will be put in {}\n".format(self.data_dir))
 
         for file_ in sorted(missing_files):
-            print file_
-
-        print "these files will be put in", self.data_dir
-
-        answer = raw_input("yes/no <return>")
-
-        if  not "y" in answer.lower():
-            return
-        sys.stderr.write("\n")
-
-        for file_ in sorted(missing_files):
-            sys.stderr.write("downloading {}\n".format(file_))
+            sys.stderr.write("downloading {} ".format(file_))
             urllib.urlretrieve( urlparse.urljoin(self.base_url, file_),
                                 os.path.join(self.data_dir ,file_),
                                 reporthook = reporthook)
-            sys.stderr.write("{} successfully downloaded\n\n".format(file_))
+            sys.stderr.write("{} successfully downloaded\n".format(file_))
 
 
 
