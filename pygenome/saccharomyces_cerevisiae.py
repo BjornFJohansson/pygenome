@@ -28,7 +28,7 @@ class saccharomyces_cerevisiae_genome():
     if os.getenv("DRONE") or os.getenv("CI"):
         datadir = os.path.join(os.getcwd(),"DATA")
     else:
-        datadir = data_dir = appdirs.user_data_dir("sgd_genome_data_files")
+        datadir = appdirs.user_data_dir("sgd_genome_data_files")
         #/home/bjorn/.local/share/sgd_genome_data_files
 
     if not os.path.isdir(data_dir):
