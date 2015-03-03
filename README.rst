@@ -115,15 +115,13 @@ https://github.com/BjornFJohansson/pygenome
 Distribution Structure
 ======================
 
-README.txt          -- This file.
+README.rst          -- This file.
 
 LICENSE.txt         -- What you can do with the code.
 
 MANIFEST.in         -- Tells distutils what files to distribute
 
 setup.py            -- Installation file.
-
-run_tests.py        -- run tests by "python run_tests.py"<enter>
 
 pygenome/           -- The actual code.
 
