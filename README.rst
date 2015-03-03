@@ -5,8 +5,8 @@ pygenome
 .. image:: https://travis-ci.org/BjornFJohansson/pygenome.svg 
     :target: https://travis-ci.org/BjornFJohansson/pygenome
     
-.. image:: https://coveralls.io/repos/BjornFJohansson/pygenome/badge.svg 
-    :target: https://coveralls.io/r/BjornFJohansson/pygenome
+.. image:: https://coveralls.io/repos/BjornFJohansson/pygenome/badge.svg?branch=master 
+    :target: https://coveralls.io/r/BjornFJohansson/pygenome?branch=master
   
 .. image:: https://readthedocs.org/projects/pygenome/badge/?version=latest
     :target: https://readthedocs.org/projects/pygenome/?badge=latest
