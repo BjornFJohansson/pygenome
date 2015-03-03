@@ -52,10 +52,11 @@ Typical usage at the command line could look like this::
 NEWS
 ====
 
+
 =======   ========== =============================================================
 version   date       comment
 =======   ========== =============================================================
-0.5.0     2015-03-02 Documentation
+0.5.0     2015-03-03 Documentation, automatic build,test and deployment
 
 0.0.6     2014-06-17 Bugfix
 
@@ -64,16 +65,17 @@ version   date       comment
 0.0.1     2013-08-01 first release
 =======   ========== =============================================================
 
+
 System Requirements
 ===================
 
 - `Python 2.7 <http://www.python.org>`_.
 
-- `biopython >= 1.6 <http://pypi.python.org/pypi/biopython>`_.
+- `biopython <http://pypi.python.org/pypi/biopython>`_.
 
-- `percache >= 0.2.1 <http://pypi.python.org/pypi/percache>`_.
+- `percache  <http://pypi.python.org/pypi/percache>`_.
 
-- `appdirs >= 1.6 <http://pypi.python.org/pypi/appdirs>`_.
+- `appdirs <http://pypi.python.org/pypi/appdirs>`_.
 
 Python 2.x
 ----------
