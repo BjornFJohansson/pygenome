@@ -6,17 +6,11 @@
 Welcome to pygenome's documentation!
 ====================================
 
-Contents:
+pygenome.saccharomyces_cerevisiae module
+----------------------------------------
 
-.. toctree::
-   :maxdepth: 2
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. automodule:: pygenome.saccharomyces_cerevisiae
+    :members:
+    :undoc-members:
+    :show-inheritance:
 

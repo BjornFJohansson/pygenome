@@ -8,7 +8,7 @@ before_script:
   - echo $pypi_username
   - pip install -r requirements.txt
 script:
-   - nosetests -w tests -v --with-coverage
+   - nosetests -w tests -v --with-coverage --with-doctest
 
 deploy:
   provider: pypi

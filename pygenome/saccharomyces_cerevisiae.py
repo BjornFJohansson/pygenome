@@ -57,8 +57,6 @@ class saccharomyces_cerevisiae_genome():
             if not os.path.exists(os.path.join(self.data_dir, file_)):
                 print "data file", file_, "is missing"
                 missing_files.append(file_)
-            else:
-                print "data file", file_, "found."
 
         if missing_files:
             self.download(missing_files)

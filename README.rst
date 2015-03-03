@@ -2,6 +2,28 @@
 pygenome
 ========
 
+.. image:: https://travis-ci.org/BjornFJohansson/pygenome.svg 
+    :target: https://travis-ci.org/BjornFJohansson/pygenome
+
+.. image:: https://coveralls.io/repos/BjornFJohansson/pygenome/badge.svg 
+    :target: https://coveralls.io/r/BjornFJohansson/pygenome
+  
+.. image:: https://readthedocs.org/projects/pygenome/badge/?version=latest
+    :target: https://readthedocs.org/projects/pygenome/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://pypip.in/download/pygenome/badge.svg
+    :target: https://pypi.python.org/pypi//pygenome/
+    :alt: Downloads
+    
+.. image:: https://pypip.in/version/pygenome/badge.svg
+    :target: https://pypi.python.org/pygenome/pydna/
+    :alt: Latest Version
+
+.. image:: https://pypip.in/wheel/pydna/badge.svg
+    :target: https://pypi.python.org/pypi/pydna/
+    :alt: Wheel Status
+
 Pygenome provide a module for accessing the Saccharomyces cerevisiae genome from 
 Python. Genes, promoters, terminators and intergenic
 sequences are available by systematic names (like YPR080w) or by standard name.
