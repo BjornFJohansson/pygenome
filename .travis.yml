@@ -8,8 +8,7 @@ before_script:
   - echo $pypi_username
   - pip install -r requirements.txt
 script:
-   - nosetests -w tests -v --with-coverage 12345
-   - nosetests -w pydna --with-coverage --with-doctest -v
+   - nosetests -w tests -v --with-coverage
 
 deploy:
   provider: pypi
@@ -20,7 +19,7 @@ deploy:
   on:
     tags: true
     all_branches: true
-    repo: BjornFJohansson/pydna
+    repo: BjornFJohansson/pygenome
 
 after_success:
   - coveralls

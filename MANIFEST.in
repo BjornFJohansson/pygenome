@@ -5,7 +5,6 @@ include LICENSE.txt
 include README.rst
 include MANIFEST.in
 include setup.py
-include run_tests.py
 
 recursive-include tests *
 recursive-include docs *
