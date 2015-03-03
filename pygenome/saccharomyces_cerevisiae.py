@@ -25,7 +25,11 @@ class pretty_str(str):
 
 class saccharomyces_cerevisiae_genome():
 
-    data_dir = appdirs.user_data_dir("sgd_genome_data_files") #/home/bjorn/.local/share/sgd_genome_data_files
+    if os.getenv("DRONE") or os.getenv("CI"):
+        datadir = os.path.join(os.getcwd(),"DATA")
+    else:
+        datadir = data_dir = appdirs.user_data_dir("sgd_genome_data_files")
+        #/home/bjorn/.local/share/sgd_genome_data_files
 
     if not os.path.isdir(data_dir):
         os.mkdir(data_dir)
@@ -80,14 +84,14 @@ class saccharomyces_cerevisiae_genome():
             pickle.dump( self.syst_to_genbank_accession, open( os.path.join(self.data_dir,"gene_to_genbank_accession.p"), "wb" ), -1 )
 
     def chromosome(self, id):
-        '''       
+        '''
         Returns the chromosome associated with the number id
-        
+
         Parameters
         ----------
         id : int or str
             chromosome number (1-16) or ("A"-"P")
-            
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -99,12 +103,12 @@ class saccharomyces_cerevisiae_genome():
 
         Notes
         -----
-        Some of the yeast chromosomes 
+        Some of the yeast chromosomes
         return large sequences:
-        
+
         ------- --------
          chr    size(bp)
-        ------- --------           
+        ------- --------
         chr A   230218
         chr B   316620
         chr C   813184
@@ -121,8 +125,8 @@ class saccharomyces_cerevisiae_genome():
         chr N   1091291
         chr O   784333
         ------- -------
-        
-        
+
+
         Examples
         --------
         >>> from pygenome import sg
@@ -145,8 +149,8 @@ class saccharomyces_cerevisiae_genome():
             return SeqIO.read(os.path.join(self.data_dir, self.chromosome_files[id.upper()]),"gb")
 
     def chromosomes(self):
-        ''' Returns a generator containing all yeast chromosomes in the form of Bio.SeqRecord objects 
-           
+        ''' Returns a generator containing all yeast chromosomes in the form of Bio.SeqRecord objects
+
         Returns
         -------
         out : Generator
@@ -157,7 +161,7 @@ class saccharomyces_cerevisiae_genome():
         chromosome
 
         Examples
-        -------- 
+        --------
         >>> from pygenome import sg
         >>> sg.chromosomes().next()
         SeqRecord(seq=Seq('CCACACCACACCCACACACCCACACACCACACCACACACCACACCACACCCACA...GGG', IUPACAmbiguousDNA()), id='BK006935.2', name='BK006935', description='TPA: Saccharomyces cerevisiae S288c chromosome I.', dbxrefs=[])
@@ -171,7 +175,7 @@ class saccharomyces_cerevisiae_genome():
         Download the sequence files from Saccharomyces Genome Database (www.sgd.org)
         This is typically only done once.
         '''
-        
+
         def reporthook(blocknum, blocksize, totalsize):
             readsofar = blocknum * blocksize
             if totalsize > 0:
@@ -188,10 +192,10 @@ class saccharomyces_cerevisiae_genome():
         print "missing files are:"
         if not missing_files:
             missing_files = self.chromosome_files.values()
-        
+
         for file_ in sorted(missing_files):
             print file_
-        
+
         print "these files will be put in", self.data_dir
 
         answer = raw_input("yes/no <return>")
@@ -208,22 +212,22 @@ class saccharomyces_cerevisiae_genome():
             sys.stderr.write("{} successfully downloaded\n\n".format(file_))
 
 
-        
+
     @cache
     def promoter(self, gene):
         '''
-        Returns the sequence of the promoter assciated with 
+        Returns the sequence of the promoter assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
-        
-        The promoter is defined as the sequence between the start codon 
+
+        The promoter is defined as the sequence between the start codon
         of the gene and the nearest start or stop codon of the upstream
         gene.
-        
+
         Parameters
         ----------
         gene : str
             standard name (eg. CYC1) or a systematic name (eg. YJR048W)
-            
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -233,8 +237,8 @@ class saccharomyces_cerevisiae_genome():
         --------
         promoter_genbank_accession
         promoter_pydna_code
-        
-        
+
+
         Examples
         --------
         >>> from pygenome import sg
@@ -242,12 +246,12 @@ class saccharomyces_cerevisiae_genome():
         SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
         >>> str(sg.promoter("TDH3")) == str(sg.promoter("YGR192C"))
         True
-        >>>       
-        
+        >>>
+
         '''
-    
-    
-    
+
+
+
         gene = self.systematic_name(gene)
         if not gene:
             return
@@ -264,14 +268,14 @@ class saccharomyces_cerevisiae_genome():
 
     def cds(self, gene):
         '''
-        Returns the coding sequence assciated with a standard name 
+        Returns the coding sequence assciated with a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
-        
+
         Parameters
         ----------
         gene : str
             standard name (eg. CYC1) or a systematic name (eg. YJR048W)
-            
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -280,8 +284,8 @@ class saccharomyces_cerevisiae_genome():
         See Also
         --------
         cds_genbank_accession
-        cds_pydna_code 
-        
+        cds_pydna_code
+
         Examples
         --------
         >>> from pygenome import sg
@@ -294,17 +298,17 @@ class saccharomyces_cerevisiae_genome():
         >>> len(sg.cds("YJR048W"))
         330
         >>>
-        
+
         '''
-    
+
         return self.locus(gene, upstream=0, downstream=0)
 
     @cache
     def locus(self, gene, upstream=1000, downstream=1000):
         '''
-        Returns the sequence from the locus assciated with a standard name 
+        Returns the sequence from the locus assciated with a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
-        
+
         Parameters
         ----------
         gene : str
@@ -313,7 +317,7 @@ class saccharomyces_cerevisiae_genome():
             Number of nucleotides before gene (default is 1000bp)
         downstream : int
             Number of nucleotides after gene (default is 1000bp)
-        
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -321,8 +325,8 @@ class saccharomyces_cerevisiae_genome():
 
         See Also
         --------
-        cds        
-        
+        cds
+
         Examples
         --------
         >>> from pygenome import sg
@@ -332,7 +336,7 @@ class saccharomyces_cerevisiae_genome():
         2330
         >>> len(sg.locus("YJR048W", upstream = 100, downstream = 100))
         530
-        >>> 
+        >>>
 
         '''
         gene = self.systematic_name(gene)
@@ -358,22 +362,22 @@ class saccharomyces_cerevisiae_genome():
             return lcs
         else:
             return lcs.reverse_complement()
-            
+
     @cache
     def terminator(self, gene):
         '''
-        Returns the sequence of the terminator assciated with 
+        Returns the sequence of the terminator assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
-        
-        The promoter is defined as the sequence between the stop codon 
+
+        The promoter is defined as the sequence between the stop codon
         of the gene and the nearest start or stop codon of the downstream
         gene.
-        
+
         Parameters
         ----------
         gene : str
             standard name (eg. CYC1) or a systematic name (eg. YJR048W)
-            
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -383,8 +387,8 @@ class saccharomyces_cerevisiae_genome():
         --------
         terminator_genbank_accession
         terinator_pydna_code
-        
-        
+
+
         Examples
         --------
         >>> sg.terminator("TDH3")
@@ -396,7 +400,7 @@ class saccharomyces_cerevisiae_genome():
         >>> str(sg.terminator("YGR193C")) == str(sg.promoter("TDH3"))
 
         '''
-    
+
         gene = self.systematic_name(gene)
         if not gene:
             return
@@ -414,15 +418,15 @@ class saccharomyces_cerevisiae_genome():
     @cache
     def intergenic_sequence(self, upgene, dngene):
         '''
-        Returns the intergenic sequence between two genes on the same chromosome. 
-        
+        Returns the intergenic sequence between two genes on the same chromosome.
+
         Parameters
         ----------
         upgene : str
             standard name (eg. CYC1) or a systematic name (eg. YJR048W)
         dngene : str
             standard name (eg. CYC1) or a systematic name (eg. YJR048W)
-            
+
         Returns
         -------
         out : Bio.SeqRecord
@@ -430,13 +434,13 @@ class saccharomyces_cerevisiae_genome():
 
         See Also
         --------
-        intergenic_sequence_genbank_accession        
-        
+        intergenic_sequence_genbank_accession
+
         Examples
         --------
         >>> from pygenome import sg
         >>> sg.systematic_name("TDH3")
-        'YGR192C'        
+        'YGR192C'
         >>> sg.upstream_gene("TDH3")
         'YGR193C'
         >>> sg.upstream_gene("YGR193C")
@@ -445,11 +449,11 @@ class saccharomyces_cerevisiae_genome():
         698
         >>> len(sg.intergenic_sequence("YGR192C", "YGR194C"))
         2262
-        >>>         
-        
+        >>>
+
         '''
-    
-    
+
+
         upgene = self.systematic_name(upgene)
         dngene = self.systematic_name(dngene)
         if not upgene and dngene and upgene[1] == dngene[1]:
@@ -478,12 +482,12 @@ class saccharomyces_cerevisiae_genome():
         ----------
         gene : str
             standard name (eg. CYC1 or TDH3)
- 
+
         Returns
         -------
         out : str
             String
-        
+
         Examples
         --------
         >>> from pygenome import sg
@@ -493,9 +497,9 @@ class saccharomyces_cerevisiae_genome():
         'YJR048W'
         >>> sg.systematic_name("TDH3")
         'YGR192C'
-        >>> 
+        >>>
         '''
-    
+
         gene = gene.upper()
         import re
         if re.match("Y[A-P](R|L)\d{3}(W|C)(-.)*", gene[:7]) and gene in self.feature_list:
@@ -509,12 +513,12 @@ class saccharomyces_cerevisiae_genome():
 
     def upstream_gene(self, gene):
         '''
-        Returns the coding sequence (cds) assciated with the gene upstream 
-        of gene. This is defined as the gene on the chromosome located 
-        5' of the transcription start point of gene.      
-        The gene can be given as a standard name 
+        Returns the coding sequence (cds) assciated with the gene upstream
+        of gene. This is defined as the gene on the chromosome located
+        5' of the transcription start point of gene.
+        The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
-        
+
         Examples
         --------
         >>> from pygenome import sg
@@ -528,7 +532,7 @@ class saccharomyces_cerevisiae_genome():
         'YAL039C'
         >>>
         '''
-    
+
         gene = self.systematic_name(gene)
         if gene[6]=="W":
             return self.feature_list[self.feature_list.index(gene)-1]
@@ -537,12 +541,12 @@ class saccharomyces_cerevisiae_genome():
 
     def downstream_gene(self, gene):
         '''
-        Returns the coding sequence (cds) assciated with the gene downstream 
-        of gene. This is defined as the gene on the chromosome located 
-        3' of the transcription stop point of gene.      
-        The gene can be given as a standard name 
+        Returns the coding sequence (cds) assciated with the gene downstream
+        of gene. This is defined as the gene on the chromosome located
+        3' of the transcription stop point of gene.
+        The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
-        
+
         Examples
         --------
         >>> from pygenome import sg
@@ -566,7 +570,7 @@ class saccharomyces_cerevisiae_genome():
         '''
         Same as the promoter_genbank method, but returns a string representing
         a portion of a Genbank file.
-                
+
         Examples
         --------
         >>> from pygenome import sg
@@ -574,7 +578,7 @@ class saccharomyces_cerevisiae_genome():
         'BK006941.2 REGION: complement(883811..884508)'
         >>>
         '''
-        
+
         dngene = self.systematic_name(gene)
         if not gene:
             return
@@ -602,21 +606,21 @@ class saccharomyces_cerevisiae_genome():
         '''
         Same as the cds method, but returns a string representing
         a portion of a Genbank file.
-        
+
         Examples
         --------
         >>> from pygenome import sg
         >>> sg.cds_genbank_accession("TDH3")
         'BK006941.2 REGION: complement(882812..883810)'
         >>>
-        '''    
+        '''
         return self.syst_to_genbank_accession[self.systematic_name(gene)]
 
     def intergenic_sequence_genbank_accession(self, upgene, dngene):
         '''
         Same as the cds method, but returns a string representing
         a portion of a Genbank file.
-        
+
         Examples
         --------
         >>> from pygenome import sg
@@ -624,7 +628,7 @@ class saccharomyces_cerevisiae_genome():
         'BK006941.2 REGION: 883811..884508'
 
         '''
-        
+
         upgene = self.systematic_name(upgene)
         dngene = self.systematic_name(dngene)
         if not upgene and dngene and upgene[1] == dngene[1]:
@@ -651,29 +655,29 @@ class saccharomyces_cerevisiae_genome():
         '''
         Returns True if a gene is expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
-        
+
         ::
             Tandem genes:
-            
+
             Gene1 Gene2
             ----> ---->
-            
+
             bidirectional genes:
-            
+
             Gene1 Gene2
-            ----> <----    
-            
-                
+            ----> <----
+
+
         Parameters
         ----------
         gene : str
             standard name (eg. CYC1 or TDH3)
- 
+
         Returns
         -------
         out : bool
             Boolean; True or False
-        
+
         '''
         return self.systematic_name(gene)[6] == self.systematic_name(self.upstream_gene(gene))[6]
 
@@ -681,35 +685,35 @@ class saccharomyces_cerevisiae_genome():
         '''
         Returns True if a gene is not expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
-        
+
         ::
             Tandem genes:
-            
+
             Gene1 Gene2
             ----> ---->
-            
+
             bidirectional genes:
-            
+
             Gene1 Gene2
-            ----> <----  
-            
+            ----> <----
+
             Gene1 Gene2
-            <---- ---->   
-            
-                
+            <---- ---->
+
+
         Parameters
         ----------
         gene : str
             standard name (eg. CYC1 or TDH3)
- 
+
         Returns
         -------
         out : bool
             Boolean; True or False
-        
+
         '''
         return not self.tandem(gene)
-        
+
     def promoter_pydna_code(self, gene):
         return pretty_str("seq = gb.nucleotide('{}')".format(self.promoter_genbank_accession(self.systematic_name(gene))))
 
