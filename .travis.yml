@@ -4,8 +4,6 @@ python:
 install:
   - pip install -e .
 before_script:
-  - echo $TRAVIS_TAG
-  - echo $pypi_username
   - pip install -r requirements.txt
   - pip install coveralls
 script:
@@ -16,7 +14,7 @@ deploy:
   distributions: "sdist --formats=gztar,zip bdist_wheel"
   user: bjorn
   password:
-    secure: "PLNlCt++35qR1sLrlzT0ys/WUxUNPh8isnxpEvAbfDWvgLBZc2vMWMr4HHNqv6UK4jvu9cwfAHJIcH+1tUxdMfs9Q8InqtyrFJgTU+VREhO/nyJgLah1CdmJ9ZixynOTUu8tuZNjX17ycPDM2fRxv0svY/mT2Z0U6nqX4eFFjic="
+    secure: "JmOLwHng4XWCCfwdkSfkwIZRzTh1Zhil3ZYDekW/y0kaHhQbXthObdPRAp9zqVhzERxBuPJqz4nMkcp8rNDcX+0maP8EjhT8oLphSAUmbaSpw1yAhELbwO3abxRzlL3pcSiLL2rx+vr2le9t3rGs9skfN9c+pASupbwDSBt+F+o="
   on:
     tags: true
     all_branches: true
