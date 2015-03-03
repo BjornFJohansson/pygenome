@@ -20,7 +20,5 @@ from saccharomyces_cerevisiae import saccharomyces_cerevisiae_genome
 
 sg = saccharomyces_cerevisiae_genome()
 
-#del saccharomyces_cerevisiae
-
 del saccharomyces_cerevisiae_genome
 
