@@ -32,7 +32,7 @@ class saccharomyces_cerevisiae_genome():
         #/home/bjorn/.local/share/sgd_genome_data_files
 
     if not os.path.isdir(data_dir):
-        os.mkdir(data_dir)
+        os.makedirs(data_dir)
 
     cache = percache.Cache( os.path.join( data_dir, "sgd-cache" ))
 

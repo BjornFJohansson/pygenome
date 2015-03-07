@@ -20,8 +20,8 @@ pygenome
     :target: https://pypi.python.org/pygenome/pydna/
     :alt: Latest Version
 
-.. image:: https://pypip.in/wheel/pydna/badge.svg
-    :target: https://pypi.python.org/pypi/pydna/
+.. image:: https://pypip.in/wheel/pygenome/badge.svg
+    :target: https://pypi.python.org/pypi/pygenome/
     :alt: Wheel Status
 
 Pygenome provide a module for accessing the Saccharomyces cerevisiae genome from 
