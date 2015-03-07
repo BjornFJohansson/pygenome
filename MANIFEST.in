@@ -11,3 +11,5 @@ recursive-include docs *
 recursive-include scripts *
 global-exclude *.pyc
 global-exclude *~
+include versioneer.py
+include pygenome/_version.py

@@ -1,10 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import versioneer
+versioneer.VCS = 'git'
+versioneer.versionfile_source = 'pygenome/_version.py'
+versioneer.versionfile_build = None
+versioneer.tag_prefix = '' # tags are like 1.2.0
+versioneer.parentdir_prefix = '' # dirname like 'myproject-1.2.0'
+
 # Read version numbers, author etc..
 __version__ = "Undefined"
 for line in open('pygenome/__init__.py'):
-    if line.startswith('__'):
+    if line.startswith('__') and not line.startswith('__version__'):
         exec(line.strip())
 
 # Change line ending to windows for all text files
@@ -27,7 +34,8 @@ for root, dirs, files in os.walk(os.path.abspath(os.path.dirname(__file__))):
 from setuptools import setup
 
 setup(  name='pygenome',
-        version         =__version__,
+        version=versioneer.get_version(),
+        cmdclass=versioneer.get_cmdclass(), 
         author          =__author__,
         author_email    =__email__,
         packages=['pygenome'],
