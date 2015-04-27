@@ -16,10 +16,3 @@ __status__       = "Development" # "Production" #"Prototype"
 from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions
-
-from saccharomyces_cerevisiae import saccharomyces_cerevisiae_genome
-
-sg = saccharomyces_cerevisiae_genome()
-
-del saccharomyces_cerevisiae_genome
-

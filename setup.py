@@ -4,7 +4,7 @@
 import versioneer
 versioneer.VCS = 'git'
 versioneer.versionfile_source = 'pygenome/_version.py'
-versioneer.versionfile_build = None
+versioneer.versionfile_build = 'pygenome/_version.py'
 versioneer.tag_prefix = '' # tags are like 1.2.0
 versioneer.parentdir_prefix = '' # dirname like 'myproject-1.2.0'
 
@@ -35,7 +35,7 @@ from setuptools import setup
 
 setup(  name='pygenome',
         version=versioneer.get_version(),
-        cmdclass=versioneer.get_cmdclass(), 
+        cmdclass=versioneer.get_cmdclass(),
         author          =__author__,
         author_email    =__email__,
         packages=['pygenome'],
