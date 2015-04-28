@@ -11,7 +11,7 @@ before_install:
 - wget https://www.python.org/ftp/python/2.7.9/python-2.7.9.amd64.msi --output-document=python.msi
 - wine msiexec /i python.msi /qn
 - wine c:\\Python27\\python.exe -m pip install pypiwin32
-- wine c:\\Python27\\python.exe ~/.wine/drive_c/Python27/Scripts/pywin32_postinstall.py
+#- wine c:\\Python27\\python.exe ~/.wine/drive_c/Python27/Scripts/pywin32_postinstall.py
 - wine c:\\Python27\\python.exe -m pip install -e .
 install:
   - pip install -e .
