@@ -10,6 +10,8 @@ before_install:
 - sudo apt-get install -qq wine
 - wget https://www.python.org/ftp/python/2.7.9/python-2.7.9.amd64.msi --output-document=python.msi
 - wine msiexec /i python.msi /qn
+- wget http://www.microsoft.com/en-us/download/confirmation.aspx?id=44266 --output-document=vc.msi
+- wine msiexec /i vc.msi /qn
 - wine c:\\Python27\\python.exe -m pip install pypiwin32
 #- wine c:\\Python27\\python.exe ~/.wine/drive_c/Python27/Scripts/pywin32_postinstall.py
 - wget http://biopython.org/DIST/biopython-1.65.win32-py2.7.exe --output-document=biopython.exe
