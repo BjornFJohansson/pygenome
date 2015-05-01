@@ -168,10 +168,11 @@ primer_url = "http://www-sequence.stanford.edu/group/yeast_deletion_project/Dele
 url, fn = os.path.split(primer_url)
 
 if not os.path.exists(os.path.join(data_dir, fn)):
+    sys.stderr.write("\nData file Deletion_primers_PCR_sizes.txt not found")
     urllib.urlretrieve( primer_url,
                         os.path.join(data_dir, fn),
                         reporthook = reporthook)
-    sys.stderr.write("{} successfully downloaded\n".format(fn))
+    sys.stderr.write("{} successfully downloaded and saved in {}\n".format(fn, data_dir))
 
 
 
