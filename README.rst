@@ -17,7 +17,7 @@ pygenome
     :alt: Downloads
     
 .. image:: https://pypip.in/version/pygenome/badge.svg
-    :target: https://pypi.python.org/pygenome/pydna/
+    :target: https://pypi.python.org/pygenome/
     :alt: Latest Version
 
 .. image:: https://pypip.in/wheel/pygenome/badge.svg
