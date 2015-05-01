@@ -639,7 +639,7 @@ class _locus():
         from pFA6a_kanMX4 import plasmid
         pFA6_kanMX4 = pydna.read(plasmid) # AJ002680
 
-        print pFA6_kanMX4.features
+        #print pFA6_kanMX4.features
 
         upt = SeqRecord( Seq( p.UPTAG_primer_sequence ))
         dnt = SeqRecord( Seq( p.DNTAG_primer_sequence ))
@@ -650,7 +650,6 @@ class _locus():
         dnt.id  = "DNTAG_primer_{}".format(self.sys)
         ups.id  = "UPstream45_{}".format(self.sys)
         dns.id  = "DNstream45_{}".format(self.sys)
-
 
         cas = pydna.pcr( ups, dns, pydna.pcr( upt, dnt, pFA6_kanMX4))
 
