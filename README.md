@@ -11,23 +11,14 @@ pygenome
 .. image:: https://readthedocs.org/projects/pygenome/badge/?version=latest
     :target: https://readthedocs.org/projects/pygenome/?badge=latest
     :alt: Documentation Status
-
-.. image:: https://pypip.in/download/pygenome/badge.svg
-    :target: https://pypi.python.org/pypi/pygenome/
-    :alt: Downloads
     
-.. image:: https://pypip.in/version/pygenome/badge.svg
-    :target: https://pypi.python.org/pygenome/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/wheel/pygenome/badge.svg
-    :target: https://pypi.python.org/pypi/pygenome/
-    :alt: Wheel Status
+.. image:: https://badge.fury.io/py/pygenome.svg
+    :target: http://badge.fury.io/py/pygenome
 
 Pygenome provide access to the Saccharomyces cerevisiae genome from 
 Python. Genes, promoters, terminators and intergenic
 sequences as well as the deletion loci created by the genome wide deletion project 
-are available by their systematic names (like YPR080w) or by standard name (like CYC1).
+are available by their systematic names (like [YPR080w](http://www.yeastgenome.org/locus/S000006284/overview)) or by standard name (like [CYC1](http://www.yeastgenome.org/locus/S000003809/overview)).
 DNA sequences are returned as Biopython SeqRecord objects.
 
 Typical usage at the [IPython](http://ipython.org/) command line could look like this::

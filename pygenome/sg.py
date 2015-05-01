@@ -27,6 +27,9 @@ import appdirs
 
 import pydna
 
+from pFA6a_kanMX4 import plasmid
+pFA6_kanMX4 = pydna.read(plasmid) # AJ002680
+
 os.environ["pydna_cache"]="refresh"
 
 def reporthook(blocknum, blocksize, totalsize):
@@ -168,13 +171,11 @@ primer_url = "http://www-sequence.stanford.edu/group/yeast_deletion_project/Dele
 url, fn = os.path.split(primer_url)
 
 if not os.path.exists(os.path.join(data_dir, fn)):
-    sys.stderr.write("\nData file Deletion_primers_PCR_sizes.txt not found")
+    sys.stderr.write("\nData file {} not found\n\n".format(fn))
     urllib.urlretrieve( primer_url,
                         os.path.join(data_dir, fn),
                         reporthook = reporthook)
     sys.stderr.write("{} successfully downloaded and saved in {}\n".format(fn, data_dir))
-
-
 
 primertuple = collections.namedtuple("primertuple",  '''rec_num
                                                         ORF_name
@@ -210,11 +211,38 @@ except IOError:
         rd = csv.reader(csvfile, delimiter='\t')
         field_names = [x.strip() for x in rd.next()]
         rd.next()
-        primers = collections.defaultdict(primertuple)
+        primers = collections.defaultdict(tuple)
         for line_ in rd:
             v = primertuple(*[x.strip() for x in line_])
             primers[v.ORF_name] = v
         pickle.dump( primers, open( os.path.join(data_dir,"primers.p"), "wb" ), -1 )
+
+not_done_url = "http://www-sequence.stanford.edu/group/yeast_deletion_project/ORFs_not_available.txt"
+url, fn = os.path.split(not_done_url)
+if not os.path.exists(os.path.join(data_dir, fn)):
+    sys.stderr.write("\nData file {} not found\n\n".format(fn))
+    urllib.urlretrieve( not_done_url,
+                        os.path.join(data_dir, fn),
+                        reporthook = reporthook)
+    sys.stderr.write("{} successfully downloaded and saved in {}\n".format(fn, data_dir))
+
+not_done_tuple=collections.namedtuple("not_done_tuple", "ORF_name Gene_name SGD_class")
+
+try:
+    not_done = pickle.load( open( os.path.join(data_dir, "not_done.p"), "rb" ) )
+except IOError:
+    with open(os.path.join(data_dir, fn), 'rb') as csvfile:
+        rd = csv.reader(csvfile, delimiter='\t')
+        rd.next()
+        rd.next()
+        rd.next()
+        field_names = [x.strip() for x in rd.next()]
+        rd.next()
+        not_done = collections.defaultdict(tuple)
+        for line_ in rd:
+            v = not_done_tuple(*[x.strip() for x in line_])
+            not_done[v.ORF_name] = v
+        pickle.dump( primers, open( os.path.join(data_dir,"not_done.p"), "wb" ), -1 )
 
 try:
     feature_list = pickle.load( open( os.path.join(data_dir, "feature_list.p"), "rb" ) )
@@ -634,17 +662,19 @@ class _locus():
         return not self.tandem()
 
     def deletion_locus(self, upstream=1000, downstream=1000):
+
         p = primers[self.sys]
 
-        from pFA6a_kanMX4 import plasmid
-        pFA6_kanMX4 = pydna.read(plasmid) # AJ002680
-
-        #print pFA6_kanMX4.features
+        if not p:
+            return "No deletion primers available!"
 
         upt = SeqRecord( Seq( p.UPTAG_primer_sequence ))
         dnt = SeqRecord( Seq( p.DNTAG_primer_sequence ))
         ups = SeqRecord( Seq( p.UPstream45_primer_sequence ))
         dns = SeqRecord( Seq( p.DNstream45_primer_sequence ))
+
+        if "" in [str(x.seq).strip() for x in [upt,dnt,ups,dns]]:
+            return "One deletion primer missing!"
 
         upt.id  = "UPTAG_primer_{}".format(self.sys)
         dnt.id  = "DNTAG_primer_{}".format(self.sys)
