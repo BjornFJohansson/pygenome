@@ -19,7 +19,8 @@ before_install:
 - wine c:\\Python27\\Scripts\\conda init
 - wine c:\\Python27\\Scripts\\conda install --yes biopython
 #- wine c:\\Python27\\Scripts\\conda install --yes bsddb 
-- wine c:\\Python27\\Scripts\\conda install -c https://conda.binstar.org/bnoon bsddb3
+#- wine c:\\Python27\\Scripts\\conda install -c https://conda.binstar.org/bnoon bsddb3
+- wine c:\\Python27\\python.exe -m pip install bsddb3
 - wine c:\\Python27\\Scripts\\conda install --yes nose
 - wine c:\\Python27\\python.exe -c "import Bio;print Bio"
 - wine c:\\Python27\\python.exe -m pip install -e .
