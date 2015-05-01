@@ -25,7 +25,7 @@ before_install:
 - wine c:\\Python27\\python.exe -c "import Bio;print Bio"
 - wine c:\\Python27\\python.exe -m pip install -e .
 #- wine c:\\Python27\\python.exe -m pip install nose
-- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-coverage --with-doctest
+- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-doctest
 install:
   - pip install -e .
 before_script:
