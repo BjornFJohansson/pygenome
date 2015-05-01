@@ -22,7 +22,7 @@ Python. `Genes <http://en.wikipedia.org/wiki/Gene>`_, `promoters <http://en.wiki
 sequences as well as the deletion `loci <http://en.wikipedia.org/wiki/Locus_(genetics)>`_ created by the `genome wide deletion project <http://www-sequence.stanford.edu/group/yeast_deletion_project/deletions3.html>`_ 
 are available by their systematic names (like `YPR080w <http://www.yeastgenome.org/locus/S000006284/overview>`_) or by 
 standard name (like `CYC1 <http://www.yeastgenome.org/locus/S000003809/overview>`_).
-DNA sequences are returned as `Biopython <http://biopython.org/wiki/Main_Page>`_ `SeqRecord <http://biopython.org/wiki/SeqRecord>`_ objects.
+DNA sequences are returned as Biopython `SeqRecord <http://biopython.org/wiki/SeqRecord>`_ objects.
 
 Typical usage at the `IPython <http://ipython.org/>`_ command line could look like this::
 
