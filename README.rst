@@ -16,8 +16,12 @@ pygenome
     :target: http://badge.fury.io/py/pygenome
 
 Pygenome provide access to the `Saccharomyces cerevisiae <https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae>`_ genome from 
-Python. Genes, promoters, terminators and intergenic
-sequences as well as the deletion loci created by the genome wide deletion project 
+Python. 
+`Genes <http://en.wikipedia.org/wiki/Gene>`_, 
+`promoters<http://en.wikipedia.org/wiki/Promoter_(genetics)>`_,
+`terminators<http://en.wikipedia.org/wiki/Terminator_(genetics)>`_, and 
+`intergenic<http://en.wikipedia.org/wiki/Intergenic_region>`_,
+sequences as well as the deletion `loci <http://en.wikipedia.org/wiki/Locus_(genetics)>`_ created by the `genome wide deletion project <http://www-sequence.stanford.edu/group/yeast_deletion_project/deletions3.html>`_ 
 are available by their systematic names (like `YPR080w <http://www.yeastgenome.org/locus/S000006284/overview>`_) or by 
 standard name (like `CYC1 <http://www.yeastgenome.org/locus/S000003809/overview>`_).
 DNA sequences are returned as `Biopython <http://biopython.org/wiki/Main_Page>`_ `SeqRecord <http://biopython.org/wiki/SeqRecord>`_ objects.
