@@ -12,8 +12,12 @@ before_install:
 - wine msiexec /i python.msi /qn
 - wine c:\\Python27\\python.exe -m pip install pypiwin32
 #- wine c:\\Python27\\python.exe ~/.wine/drive_c/Python27/Scripts/pywin32_postinstall.py
-- wget http://biopython.org/DIST/biopython-1.65.win32-py2.7.exe --output-document=biopython.exe
-- wine biopython.exe
+#- wget http://biopython.org/DIST/biopython-1.65.win32-py2.7.exe --output-document=biopython.exe
+#- wine biopython.exe
+#- wine c:\\Python27\\python.exe -m pip install biopython
+- wine c:\\Python27\\python.exe -m pip install conda
+- wine conda init
+- wine conda install --yes biopython
 - wine c:\\Python27\\python.exe -c "import Bio;print Bio.__version__"
 - wine c:\\Python27\\python.exe -m pip install -e .
 install:
