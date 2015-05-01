@@ -34,8 +34,8 @@ before_script:
 script:
    - nosetests -w tests -v --with-coverage --with-doctest
 after_script:
-#- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-doctest
-wine c:\\Python27\\Scripts\\nosetests -w tests -v
+  #- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-doctest
+  - wine c:\\Python27\\Scripts\\nosetests -w tests -v
 deploy:
   provider: pypi
   distributions: "sdist --formats=gztar,zip bdist_wheel"
