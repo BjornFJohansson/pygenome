@@ -15,7 +15,7 @@ pygenome
 .. image:: https://badge.fury.io/py/pygenome.svg
     :target: http://badge.fury.io/py/pygenome
 
-Pygenome provide access to the `Saccharomyces cerevisiae <https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae>`_ genome from 
+Pygenome provide access to the `*Saccharomyces cerevisiae* <https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae>`_ genome from 
 Python. `Genes <http://en.wikipedia.org/wiki/Gene>`_, `promoters <http://en.wikipedia.org/wiki/Promoter_(genetics)>`_,
 `terminators <http://en.wikipedia.org/wiki/Terminator_(genetics)>`_, and 
 `intergenic <http://en.wikipedia.org/wiki/Intergenic_region>`_,
