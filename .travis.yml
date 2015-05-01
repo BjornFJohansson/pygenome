@@ -16,8 +16,8 @@ before_install:
 #- wine biopython.exe
 #- wine c:\\Python27\\python.exe -m pip install biopython
 - wine c:\\Python27\\python.exe -m pip install conda
-- wine c:\\Python27\\conda init
-- wine c:\\Python27\\conda install --yes biopython
+- wine c:\\Python27\\Scripts\\conda init
+- wine c:\\Python27\\Scripts\\conda install --yes biopython
 - wine c:\\Python27\\python.exe -c "import Bio;print Bio.__version__"
 - wine c:\\Python27\\python.exe -m pip install -e .
 install:
