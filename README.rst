@@ -15,12 +15,12 @@ pygenome
 .. image:: https://badge.fury.io/py/pygenome.svg
     :target: http://badge.fury.io/py/pygenome
 
-Pygenome provide access to the Saccharomyces cerevisiae genome from 
+Pygenome provide access to the `Saccharomyces cerevisiae <https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae>`_ genome from 
 Python. Genes, promoters, terminators and intergenic
 sequences as well as the deletion loci created by the genome wide deletion project 
 are available by their systematic names (like `YPR080w <http://www.yeastgenome.org/locus/S000006284/overview>`_) or by 
 standard name (like `CYC1 <http://www.yeastgenome.org/locus/S000003809/overview>`_).
-DNA sequences are returned as Biopython SeqRecord objects.
+DNA sequences are returned as `Biopython <http://biopython.org/wiki/Main_Page>`_ `SeqRecord <http://biopython.org/wiki/SeqRecord>`_ objects.
 
 Typical usage at the `IPython <http://ipython.org/>`_ command line could look like this::
 
