@@ -18,7 +18,8 @@ pygenome
 Pygenome provide access to the Saccharomyces cerevisiae genome from 
 Python. Genes, promoters, terminators and intergenic
 sequences as well as the deletion loci created by the genome wide deletion project 
-are available by their systematic names (like `YPR080w <http://www.yeastgenome.org/locus/S000006284/overview)) or by standard name (like `CYC1 <http://www.yeastgenome.org/locus/S000003809/overview>`_).
+are available by their systematic names (like `YPR080w <http://www.yeastgenome.org/locus/S000006284/overview>`_) or by 
+standard name (like `CYC1 <http://www.yeastgenome.org/locus/S000003809/overview>`_).
 DNA sequences are returned as Biopython SeqRecord objects.
 
 Typical usage at the `IPython <http://ipython.org/>`_ command line could look like this::
