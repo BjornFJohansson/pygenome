@@ -21,10 +21,11 @@ def test_TPI1():
     assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
 
 def test_TEF1_genbank_accession():
-    assert sg.gene["TEF1"].promoter().description == 'BK006949 REGION: 700015..700593'
+    print
+    assert sg.gene["TEF1"].promoter().description == 'BK006949.2 REGION: 700015..700593'
 
 def test_TPI1_genbank_accession():
-    assert sg.gene["TPI1"].promoter().description == 'BK006938 REGION: complement(556473..557055)'
+    assert sg.gene["TPI1"].promoter().description == 'BK006938.2 REGION: complement(556473..557055)'
 
 def test_fun26():
     assert len(sg.gene["FUN26"].locus()) == 3554

@@ -1,4 +1,4 @@
-plasmid = '''
+plasmid='''
 LOCUS       AJ002680                3941 bp    DNA     linear   SYN 01-SEP-2004
 DEFINITION  Synthetic DNA containing Escherichia coli plasmid pFA6a-kanMX4,
             kanamycin and geneticin (G418) resistance gene, bla gene, multiple
@@ -57,8 +57,7 @@ FEATURES             Location/Qualifiers
                      /citation=[3]
      gene            115..458
                      /gene="TEF"
-     regulatory      115..458
-                     /regulatory_class="promoter"
+     promoter        115..458
                      /gene="TEF"
                      /note="Translation elongation factor 1 alpha"
                      /citation=[2]
@@ -69,25 +68,28 @@ FEATURES             Location/Qualifiers
                      /transl_table=11
                      /protein_id="CAA05683.1"
                      /db_xref="GI:2623976"
+                     /db_xref="InterPro:IPR002575"
+                     /db_xref="InterPro:IPR008266"
+                     /db_xref="InterPro:IPR011009"
+                     /db_xref="InterPro:IPR012149"
                      /translation="MGKEKTHVSRPRLNSNMDADLYGYKWARDNVGQSGATIYRLYGK
                      PDAPELFLKHGKGSVANDVTDEMVRLNWLTEFMPLPTIKHFIRTPDDAWLLTTAIPGK
                      TAFQVLEEYPDSGENIVDALAVFLRRLHSIPVCNCPFNSDRVFRLAQAQSRMNNGLVD
                      ASDFDDERNGWPVEQVWKEMHKLLPFSPDSVVTHGDFSLDNLIFDEGKLIGCIDVGRV
                      GIADRYQDLAILWNCLGEFSPSLQKRLFQKYGIDNPDMNKLQFHLMLDEFF"
-     mobile_element  483..1271
-                     /mobile_element_type="transposon:Tn903"
+     repeat_region   483..1271
+                     /mobile_element="transposon:Tn903"
      misc_feature    1272..1276
                      /note="artificial sequence"
      gene            1277..1471
                      /gene="TEF"
-     regulatory      1277..1471
-                     /regulatory_class="terminator"
+     terminator      1277..1471
                      /gene="TEF"
                      /note="translation elongation factor 1 alpha"
                      /citation=[2]
      misc_feature    1502..3941
                      /note="artificial sequence"
-ORIGIN      
+ORIGIN
         1 gaacgcggcc gccagctgaa gcttcgtacg ctgcaggtcg acggatcccc gggttaatta
        61 aggcgcgcca gatctgttta gcttgcctcg tccccgccgg gtcacccggc cagcgacatg
       121 gaggcccaga ataccctcct tgacagtctt gacgtgcgca gctcaggggc atgatgtgac

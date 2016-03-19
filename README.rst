@@ -93,14 +93,9 @@ Installation
 Source
 ------
 
-Open the pydna source code directory (containing the setup.py file) in
-terminal and type:
+The best way of installing pygenome is by using `pip <https://packaging.python.org/en/latest/installing.html#installing-from-pypi>`_
 
-    sudo python setup.py install <enter>
-
-If you need to do additional configuration, e.g. changing the base
-directory, please type `python setup.py`, or see the documentation for
-Setuptools.
+    sudo pip install pygenome
 
 
 Source Code Repository
