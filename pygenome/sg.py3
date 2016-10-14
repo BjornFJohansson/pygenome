@@ -65,13 +65,13 @@ def _download(_missing_files=None):
 
     for _file_ in sorted(_missing_files):
         _sys.stderr.write("downloading {} ".format(_file_))
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
+        remotedate = _urllib.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
 
 
         rdate2 = int(_time.mktime(remotedate))
 
 
-        _urllib.request.urlretrieve( _urlparse.urljoin(base_url, _file_),
+        _urllib.urlretrieve( _urlparse.urljoin(base_url, _file_),
                             _os.path.join(data_dir ,_file_),
                             reporthook = _reporthook)
 
@@ -110,7 +110,7 @@ def update():
     print("checking for updated chromosome files at\n{}".format(base_url))
     for _file_ in sorted(_chromosome_files.values()):
 
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
+        remotedate = _urllib.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
 
         _missing_files = []
 
@@ -186,7 +186,7 @@ _url, _fn =_os.path.split(primer_url)
 
 if not _os.path.exists(_os.path.join(data_dir, _fn)):
     _sys.stderr.write("\nData file {} not found\n\n".format(_fn))
-    _urllib.request.urlretrieve( primer_url,
+    _urllib.urlretrieve( primer_url,
                        _os.path.join(data_dir, _fn),
                         _reporthook = _reporthook)
     _sys.stderr.write("{} successfully downloaded and saved in {}\n".format(_fn, data_dir))
@@ -221,7 +221,7 @@ primertuple = _collections.namedtuple("primertuple", '''rec_num
 try:
     _primers = _pickle.load( open(_os.path.join(data_dir, "primers.p"), "rb" ) )
 except IOError:
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    with open(_os.path.join(data_dir, _fn), 'rb') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
         field_names = [x.strip() for x in next(rd)]
         next(rd)
@@ -235,7 +235,7 @@ _not_done_url = _ps("http://www-sequence.stanford.edu/group/yeast_deletion_proje
 _url, _fn =_os.path.split(_not_done_url)
 if not _os.path.exists(_os.path.join(data_dir, _fn)):
     _sys.stderr.write("\nData file {} not found\n\n".format(_fn))
-    _urllib.request.urlretrieve(_not_done_url,
+    _urllib.urlretrieve(_not_done_url,
                        _os.path.join(data_dir, _fn),
                         reporthook = _reporthook)
     _sys.stderr.write("{} successfully downloaded and saved in {}\n".format(_fn, data_dir))
@@ -245,7 +245,7 @@ _not_done_tuple=_collections.namedtuple("not_done_tuple", "ORF_name Gene_name SG
 try:
     _not_done = _pickle.load( open(_os.path.join(data_dir, "not_done.p"), "rb" ) )
 except IOError:
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    with open(_os.path.join(data_dir, _fn), 'rb') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
         next(rd)
         next(rd)
@@ -374,9 +374,9 @@ class _locus():
 
         feature = {f.qualifiers['locus_tag'][0] :  f for f in [f for f in _krom.features if f.type=="CDS"]}[self.sys]
 
-        color = '#%02x%02x%02x' % (int(_random.uniform(150,255)),
-                                   int(_random.uniform(150,255)),
-                                   int(_random.uniform(150,255)),)
+        color = '#%02x%02x%02x' % (_random.uniform(150,255),
+                                   _random.uniform(150,255),
+                                   _random.uniform(150,255),)
 
         feature.qualifiers.update({"ApEinfo_fwdcolor" : color,
                                    "ApEinfo_revcolor" : color,

@@ -9,8 +9,8 @@ import random as _random
 import os as _os
 import itertools as _itertools
 import urllib as _urllib
-import urllib.parse as _urlparse
-import pickle as _pickle
+import urlparse as _urlparse
+import cPickle as _pickle
 import sys as _sys
 import csv as _csv
 import collections as _collections
@@ -29,7 +29,7 @@ import appdirs  as _appdirs
 from pydna._pretty import pretty_string as _ps
 import pydna as _pydna
 
-from ._pFA6a_kanMX4 import plasmid as _plasmid
+from _pFA6a_kanMX4 import plasmid as _plasmid
 _pFA6_kanMX4 = _pydna.read(_plasmid) # AJ002680
 
 #os.environ["pydna_cache"]="refresh"
@@ -65,13 +65,13 @@ def _download(_missing_files=None):
 
     for _file_ in sorted(_missing_files):
         _sys.stderr.write("downloading {} ".format(_file_))
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
+        remotedate = _urllib.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
 
 
         rdate2 = int(_time.mktime(remotedate))
 
 
-        _urllib.request.urlretrieve( _urlparse.urljoin(base_url, _file_),
+        _urllib.urlretrieve( _urlparse.urljoin(base_url, _file_),
                             _os.path.join(data_dir ,_file_),
                             reporthook = _reporthook)
 
@@ -107,18 +107,18 @@ def _systematic_name(gene):
     return _ps(gene)
 
 def update():
-    print("checking for updated chromosome files at\n{}".format(base_url))
+    print "checking for updated chromosome files at\n{}".format(base_url)
     for _file_ in sorted(_chromosome_files.values()):
 
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
+        remotedate = _urllib.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
 
         _missing_files = []
 
         if _datetime.datetime(*remotedate[:-2]) > _datetime.datetime.fromtimestamp((_os.path.getmtime(_os.path.join(data_dir, _file_)))):
             _missing_files.append(_file_)
-            print("{} is available in a newer version".format(_file_))
+            print "{} is available in a newer version".format(_file_)
         else:
-            print("{} is the newest version".format(_file_))
+            print "{} is the newest version".format(_file_)
 
         if _missing_files:
             _download(_missing_files)
@@ -148,9 +148,9 @@ _chromosome_files = { "A":"chr01.gb", "B":"chr02.gb",
 
 _missing_files=[]
 
-for _file_ in list(_chromosome_files.values()):
+for _file_ in _chromosome_files.values():
     if not _os.path.exists(_os.path.join(data_dir, _file_)):
-        print("data file", _file_, "is missing")
+        print "data file", _file_, "is missing"
         _missing_files.append(_file_)
 
 if _missing_files:
@@ -186,7 +186,7 @@ _url, _fn =_os.path.split(primer_url)
 
 if not _os.path.exists(_os.path.join(data_dir, _fn)):
     _sys.stderr.write("\nData file {} not found\n\n".format(_fn))
-    _urllib.request.urlretrieve( primer_url,
+    _urllib.urlretrieve( primer_url,
                        _os.path.join(data_dir, _fn),
                         _reporthook = _reporthook)
     _sys.stderr.write("{} successfully downloaded and saved in {}\n".format(_fn, data_dir))
@@ -221,10 +221,10 @@ primertuple = _collections.namedtuple("primertuple", '''rec_num
 try:
     _primers = _pickle.load( open(_os.path.join(data_dir, "primers.p"), "rb" ) )
 except IOError:
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    with open(_os.path.join(data_dir, _fn), 'rb') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
-        field_names = [x.strip() for x in next(rd)]
-        next(rd)
+        field_names = [x.strip() for x in rd.next()]
+        rd.next()
         _primers = _collections.defaultdict(tuple)
         for line_ in rd:
             v = primertuple(*[x.strip() for x in line_])
@@ -235,7 +235,7 @@ _not_done_url = _ps("http://www-sequence.stanford.edu/group/yeast_deletion_proje
 _url, _fn =_os.path.split(_not_done_url)
 if not _os.path.exists(_os.path.join(data_dir, _fn)):
     _sys.stderr.write("\nData file {} not found\n\n".format(_fn))
-    _urllib.request.urlretrieve(_not_done_url,
+    _urllib.urlretrieve(_not_done_url,
                        _os.path.join(data_dir, _fn),
                         reporthook = _reporthook)
     _sys.stderr.write("{} successfully downloaded and saved in {}\n".format(_fn, data_dir))
@@ -245,13 +245,13 @@ _not_done_tuple=_collections.namedtuple("not_done_tuple", "ORF_name Gene_name SG
 try:
     _not_done = _pickle.load( open(_os.path.join(data_dir, "not_done.p"), "rb" ) )
 except IOError:
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    with open(_os.path.join(data_dir, _fn), 'rb') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
-        next(rd)
-        next(rd)
-        next(rd)
-        field_names = [x.strip() for x in next(rd)]
-        next(rd)
+        rd.next()
+        rd.next()
+        rd.next()
+        field_names = [x.strip() for x in rd.next()]
+        rd.next()
         _not_done = _collections.defaultdict(tuple)
         for line_ in rd:
             v = _not_done_tuple(*[x.strip() for x in line_])
@@ -269,14 +269,14 @@ except IOError:
     _standard_to_systematic = {}
     _systematic_to_genbank_accession = {}
 
-    for _f in list(_chromosome_files.values()):
+    for _f in _chromosome_files.values():
         _krom  =  _SeqIO.read(_os.path.join(data_dir, _f), "gb")
         _features = [f for f in _krom.features if f.type=="CDS"]
         _systematic_to_genbank_accession.update( {_ps(f.qualifiers['locus_tag'][0]) : _ps("{} REGION: ".format(_krom.id)+{ 1:"{}..{}".format(f.location.start+1, f.location.end), -1:"complement({}..{})".format(f.location.start+1, f.location.end)}[f.location.strand]) for f in _features })
         _feature_list.extend( [_ps(f.qualifiers['locus_tag'][0]) for f in _features] )
-        _standard_to_systematic.update( {_ps(f.qualifiers['gene'][0]):_ps(f.qualifiers['locus_tag'][0]) for f in _features if "gene" in list(f.qualifiers.keys())} )
+        _standard_to_systematic.update( {_ps(f.qualifiers['gene'][0]):_ps(f.qualifiers['locus_tag'][0]) for f in _features if "gene" in f.qualifiers.keys()} )
 
-    _systematic_to_standard = {v: k for k, v in list(_standard_to_systematic.items())}
+    _systematic_to_standard = {v: k for k, v in _standard_to_systematic.items()}
     _pickle.dump( _feature_list, open(_os.path.join(data_dir,"feature_list.p"), "wb" ), -1 )
     _pickle.dump( _standard_to_systematic, open(_os.path.join(data_dir,"_standard_to_systematic.p"), "wb" ), -1 )
     _pickle.dump( _systematic_to_genbank_accession, open(_os.path.join(data_dir,"_systematic_to_genbank_accession.p"), "wb" ), -1 )
@@ -374,9 +374,9 @@ class _locus():
 
         feature = {f.qualifiers['locus_tag'][0] :  f for f in [f for f in _krom.features if f.type=="CDS"]}[self.sys]
 
-        color = '#%02x%02x%02x' % (int(_random.uniform(150,255)),
-                                   int(_random.uniform(150,255)),
-                                   int(_random.uniform(150,255)),)
+        color = '#%02x%02x%02x' % (_random.uniform(150,255),
+                                   _random.uniform(150,255),
+                                   _random.uniform(150,255),)
 
         feature.qualifiers.update({"ApEinfo_fwdcolor" : color,
                                    "ApEinfo_revcolor" : color,
@@ -740,7 +740,7 @@ except IOError:
     for _f in _feature_list:
         gene[_f] = _locus(_f)
 
-    for _f,_g in list(_standard_to_systematic.items()):
+    for _f,_g in _standard_to_systematic.items():
         gene[_f] = _locus(_g)
 
     _pickle.dump( gene, open( _os.path.join(data_dir,"gene.p"), "wb" ), -1 )
