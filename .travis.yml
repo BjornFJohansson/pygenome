@@ -8,7 +8,8 @@ before_install:
 - sudo add-apt-repository ppa:ubuntu-wine/ppa -y
 - sudo apt-get update -qq
 - sudo apt-get install -qq wine
-- wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.exe --output-document=python.exe
+- wget https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe --output-document=python.exe
+       
 - wine msiexec /i python.exe /qn
 - wine c:\\Python35\\python.exe -m pip install pypiwin32
 - wine c:\\Python35\\python.exe -m pip install conda

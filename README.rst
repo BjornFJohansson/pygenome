@@ -68,13 +68,13 @@ version   date       comment
 System Requirements
 ===================
 
-- `Python 3.5 <http://www.python.org>`_.
+- `Python 3.5 <http://www.python.org>`_
 
-- `biopython <http://pypi.python.org/pypi/biopython>`_.
+- `biopython <http://pypi.python.org/pypi/biopython>`_
 
-- `percache  <http://pypi.python.org/pypi/percache>`_.
+- `percache  <http://pypi.python.org/pypi/percache>`_
 
-- `appdirs <http://pypi.python.org/pypi/appdirs>`_.
+- `appdirs <http://pypi.python.org/pypi/appdirs>`_
 
 Python 2.7
 ----------
