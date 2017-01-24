@@ -17,4 +17,4 @@ from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions
 
-from .sg import gene as genedict
+from pygenome.sg import gene as genedict

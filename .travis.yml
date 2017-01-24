@@ -8,24 +8,20 @@ before_install:
 - sudo add-apt-repository ppa:ubuntu-wine/ppa -y
 - sudo apt-get update -qq
 - sudo apt-get install -qq wine
-- wget https://www.python.org/ftp/python/2.7.9/python-2.7.9.amd64.msi --output-document=python.msi
-- wine msiexec /i python.msi /qn
-- wine c:\\Python27\\python.exe -m pip install pypiwin32
-#- wine c:\\Python27\\python.exe ~/.wine/drive_c/Python27/Scripts/pywin32_postinstall.py
-#- wget http://biopython.org/DIST/biopython-1.65.win32-py2.7.exe --output-document=biopython.exe
-#- wine biopython.exe
-#- wine c:\\Python27\\python.exe -m pip install biopython
-- wine c:\\Python27\\python.exe -m pip install conda
-- wine c:\\Python27\\Scripts\\conda init
-- wine c:\\Python27\\Scripts\\conda install --yes biopython
-#- wine c:\\Python27\\Scripts\\conda install --yes bsddb 
-#- wine c:\\Python27\\Scripts\\conda install -c https://conda.binstar.org/bnoon bsddb3
-#- wine c:\\Python27\\python.exe -m pip install bsddb3
-- wine c:\\Python27\\Scripts\\conda install --yes nose
-- wine c:\\Python27\\python.exe -c "import Bio;print Bio"
-- wine c:\\Python27\\python.exe -m pip install -e .
-#- wine c:\\Python27\\python.exe -m pip install nose
-#- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-doctest
+- wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.exe --output-document=python.exe
+- wine msiexec /i python.exe /qn
+- wine c:\\Python35\\python.exe -m pip install pypiwin32
+- wine c:\\Python35\\python.exe -m pip install conda
+- wine c:\\Python35\\Scripts\\conda init
+- wine c:\\Python35\\Scripts\\conda install --yes biopython
+#- wine c:\\Python35\\Scripts\\conda install --yes bsddb 
+#- wine c:\\Python35\\Scripts\\conda install -c https://conda.binstar.org/bnoon bsddb3
+#- wine c:\\Python35\\python.exe -m pip install bsddb3
+- wine c:\\Python35\\Scripts\\conda install --yes nose
+- wine c:\\Python35\\python.exe -c "import Bio;print Bio"
+- wine c:\\Python35\\python.exe -m pip install -e .
+#- wine c:\\Python35\\python.exe -m pip install nose
+#- wine c:\\Python35\\Scripts\\nosetests -w tests -v --with-doctest
 install:
   - pip install -e .
 before_script:
@@ -34,9 +30,9 @@ before_script:
 script:
    - nosetests -w tests -v --with-coverage --with-doctest
 after_script:
-  #- wine c:\\Python27\\Scripts\\nosetests -w tests -v --with-doctest
-  #- wine c:\\Python27\\Scripts\\nosetests -w tests -v
-   - wine c:\\Python27\\Scripts\\nosetests
+  #- wine c:\\Python35\\Scripts\\nosetests -w tests -v --with-doctest
+  #- wine c:\\Python35\\Scripts\\nosetests -w tests -v
+   - wine c:\\Python35\\Scripts\\nosetests
 deploy:
   provider: pypi
   distributions: "sdist --formats=gztar,zip bdist_wheel"
@@ -50,3 +46,6 @@ deploy:
 
 after_success:
   - coveralls
+
+notifications:
+  email: false

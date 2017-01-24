@@ -21,15 +21,15 @@ for root, dirs, files in os.walk(os.path.abspath(os.path.dirname(__file__))):
         if not name.lower().endswith(".txt"):
             continue
         filename = os.path.join(root, name)
-        with open(filename, "rb") as f:
+        with open(filename) as f:
             data = f.read()
         temp = data.replace('\r\n', '\n')
         temp = temp.replace('\r', '\n')
         temp = temp.replace('\n', '\r\n')
         if not data == temp:
-            with open(filename, "wb") as f:
+            with open(filename, "w") as f:
                 f.write(temp)
-                print "changed", filename
+                print("changed", filename)
 
 from setuptools import setup
 
@@ -52,6 +52,8 @@ setup(  name='pygenome',
                        'Intended Audience :: Education',
                        'Intended Audience :: Science/Research',
                        'License :: OSI Approved :: BSD License',
-                       'Programming Language :: Python :: 3',
+                       'Programming Language :: Python :: 3.5',
                        'Topic :: Education',
                        'Topic :: Scientific/Engineering :: Bio-Informatics',])
+
+#https://pypi.python.org/pypi?%3Aaction=list_classifiers

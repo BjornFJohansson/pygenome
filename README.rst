@@ -68,7 +68,7 @@ version   date       comment
 System Requirements
 ===================
 
-- `Python 2.7 <http://www.python.org>`_.
+- `Python 3.5 <http://www.python.org>`_.
 
 - `biopython <http://pypi.python.org/pypi/biopython>`_.
 
@@ -76,16 +76,10 @@ System Requirements
 
 - `appdirs <http://pypi.python.org/pypi/appdirs>`_.
 
-Python 2.x
+Python 2.7
 ----------
 
-Versions other than 2.7 has not been tried with this software.
-Version 2.7.3 was used to build the distribution.
-
-Python 3.x
-----------
-
-This code has not been tested with python 3.
+Version 0.9.0 was the last one to support Python 2.7.
 
 Installation
 ============

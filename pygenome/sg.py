@@ -4,32 +4,32 @@
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
 '''
 
-import re as _re
-import random as _random
-import os as _os
-import itertools as _itertools
-import urllib as _urllib
-import urllib.parse as _urlparse
-import pickle as _pickle
-import sys as _sys
-import csv as _csv
-import collections as _collections
-import time as _time
-import datetime as _datetime
+import re            as _re
+import random        as _random
+import os            as _os
+import itertools     as _itertools
+import urllib        as _urllib
+import urllib.parse  as _urlparse
+import pickle        as _pickle
+import sys           as _sys
+import csv           as _csv
+import collections   as _collections
+import time          as _time
+import datetime      as _datetime
 
-from Bio             import SeqIO      as _SeqIO
-from Bio.Seq         import Seq        as _Seq
-from Bio.SeqRecord   import SeqRecord  as _SeqRecord
-from Bio.SeqFeature  import SeqFeature as _SeqFeature
+from Bio             import SeqIO           as _SeqIO
+from Bio.Seq         import Seq             as _Seq
+from Bio.SeqRecord   import SeqRecord       as _SeqRecord
+from Bio.SeqFeature  import SeqFeature      as _SeqFeature
 from Bio.SeqFeature  import FeatureLocation as _FeatureLocation
 
 import percache as _percache
 import appdirs  as _appdirs
 
-from pydna._pretty import pretty_string as _ps
+from pydna._pretty import pretty_str as _ps
 import pydna as _pydna
 
-from ._pFA6a_kanMX4 import plasmid as _plasmid
+from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
 _pFA6_kanMX4 = _pydna.read(_plasmid) # AJ002680
 
 #os.environ["pydna_cache"]="refresh"
@@ -219,7 +219,7 @@ primertuple = _collections.namedtuple("primertuple", '''rec_num
 
 
 try:
-    _primers = _pickle.load( open(_os.path.join(data_dir, "primers.p"), "rb" ) )
+    _primers = _pickle.load( open(_os.path.join(data_dir, "primers.pickle"), "rb" ) )
 except IOError:
     with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
@@ -229,7 +229,7 @@ except IOError:
         for line_ in rd:
             v = primertuple(*[x.strip() for x in line_])
             _primers[v.ORF_name] = v
-        _pickle.dump( _primers, open(_os.path.join(data_dir,"primers.p"), "wb" ), -1 )
+        _pickle.dump( _primers, open(_os.path.join(data_dir,"primers.pickle"), "wb" ), -1 )
 
 _not_done_url = _ps("http://www-sequence.stanford.edu/group/yeast_deletion_project/ORFs_not_available.txt")
 _url, _fn =_os.path.split(_not_done_url)
@@ -243,7 +243,7 @@ if not _os.path.exists(_os.path.join(data_dir, _fn)):
 _not_done_tuple=_collections.namedtuple("not_done_tuple", "ORF_name Gene_name SGD_class")
 
 try:
-    _not_done = _pickle.load( open(_os.path.join(data_dir, "not_done.p"), "rb" ) )
+    _not_done = _pickle.load( open(_os.path.join(data_dir, "not_done.pickle"), "rb" ) )
 except IOError:
     with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
@@ -256,13 +256,13 @@ except IOError:
         for line_ in rd:
             v = _not_done_tuple(*[x.strip() for x in line_])
             _not_done[v.ORF_name] = v
-        _pickle.dump( _primers, open(_os.path.join(data_dir,"not_done.p"), "wb" ), -1 )
+        _pickle.dump( _primers, open(_os.path.join(data_dir,"not_done.pickle"), "wb" ), -1 )
 
 try:
-    _feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.p"), "rb" ) )
-    _standard_to_systematic = _pickle.load( open(_os.path.join(data_dir, "_standard_to_systematic.p"), "rb" ) )
-    _systematic_to_standard = _pickle.load( open(_os.path.join(data_dir, "_systematic_to_standard.p"), "rb" ) )
-    _systematic_to_genbank_accession = _pickle.load( open(_os.path.join(data_dir, "_systematic_to_genbank_accession.p"), "rb" ) )
+    _feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
+    _standard_to_systematic = _pickle.load( open(_os.path.join(data_dir, "_standard_to_systematic.pickle"), "rb" ) )
+    _systematic_to_standard = _pickle.load( open(_os.path.join(data_dir, "_systematic_to_standard.pickle"), "rb" ) )
+    _systematic_to_genbank_accession = _pickle.load( open(_os.path.join(data_dir, "_systematic_to_genbank_accession.pickle"), "rb" ) )
 except IOError:
     _cds          = {}
     _feature_list  = []
@@ -277,10 +277,10 @@ except IOError:
         _standard_to_systematic.update( {_ps(f.qualifiers['gene'][0]):_ps(f.qualifiers['locus_tag'][0]) for f in _features if "gene" in list(f.qualifiers.keys())} )
 
     _systematic_to_standard = {v: k for k, v in list(_standard_to_systematic.items())}
-    _pickle.dump( _feature_list, open(_os.path.join(data_dir,"feature_list.p"), "wb" ), -1 )
-    _pickle.dump( _standard_to_systematic, open(_os.path.join(data_dir,"_standard_to_systematic.p"), "wb" ), -1 )
-    _pickle.dump( _systematic_to_genbank_accession, open(_os.path.join(data_dir,"_systematic_to_genbank_accession.p"), "wb" ), -1 )
-    _pickle.dump( _systematic_to_standard, open(_os.path.join(data_dir,"_systematic_to_standard.p"), "wb" ), -1 )
+    _pickle.dump( _feature_list, open(_os.path.join(data_dir,"feature_list.pickle"), "wb" ), -1 )
+    _pickle.dump( _standard_to_systematic, open(_os.path.join(data_dir,"_standard_to_systematic.pickle"), "wb" ), -1 )
+    _pickle.dump( _systematic_to_genbank_accession, open(_os.path.join(data_dir,"_systematic_to_genbank_accession.pickle"), "wb" ), -1 )
+    _pickle.dump( _systematic_to_standard, open(_os.path.join(data_dir,"_systematic_to_standard.pickle"), "wb" ), -1 )
 
 _cache = _percache.Cache(_os.path.join( data_dir, "sgd-cache" ))
 
@@ -734,7 +734,7 @@ class _locus():
         return "{} {}".format(self.sys, self.std)
 
 try:
-    gene = _pickle.load( open( _os.path.join(data_dir, "gene.p"), "rb" ) )
+    gene = _pickle.load( open( _os.path.join(data_dir, "gene.pickle"), "rb" ) )
 except IOError:
     gene = {}
     for _f in _feature_list:
@@ -743,7 +743,7 @@ except IOError:
     for _f,_g in list(_standard_to_systematic.items()):
         gene[_f] = _locus(_g)
 
-    _pickle.dump( gene, open( _os.path.join(data_dir,"gene.p"), "wb" ), -1 )
+    _pickle.dump( gene, open( _os.path.join(data_dir,"gene.pickle"), "wb" ), -1 )
 
 #class _g(object):
 #    pass
@@ -758,8 +758,8 @@ except IOError:
 
 
 if __name__=="__main__":
-
-    x = gene["CYC1"]
+    pass
+    #x = gene["CYC1"]
 
     #update()
 
