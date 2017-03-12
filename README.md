@@ -1,13 +1,12 @@
 pygenome
 ========
 
-![image](https://travis-ci.org/BjornFJohansson/pygenome.svg%20%0A%20:target:%20https://travis-ci.org/BjornFJohansson/pygenome)
+[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)
 
 ![image](https://coveralls.io/repos/BjornFJohansson/pygenome/badge.svg?branch=master%20%0A%20:target:%20https://coveralls.io/r/BjornFJohansson/pygenome?branch=master)
 
 ![image](https://readthedocs.org/projects/pygenome/badge/?version=latest%0A%20:target:%20https://readthedocs.org/projects/pygenome/?badge=latest%0A%20:alt:%20Documentation%20Status)
 
-![image](https://badge.fury.io/py/pygenome.svg%0A%20:target:%20http://badge.fury.io/py/pygenome)
 
 Pygenome provide access to the [Saccharomyces cerevisiae](https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae)
 genome from Python. [Genes](http://en.wikipedia.org/wiki/Gene),
