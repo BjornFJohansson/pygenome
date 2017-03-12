@@ -1,5 +1,4 @@
-pygenome
-========
+# pygenome
 
 [![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Coverage Status](https://coveralls.io/repos/github/BjornFJohansson/pygenome/badge.svg?branch=master)](https://coveralls.io/github/BjornFJohansson/pygenome?branch=master)[![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
                 
@@ -47,24 +46,39 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
 | 0.0.5 | 2014-06-14 | Simpler api (see example above)                     |
 | 0.0.1 | 2013-08-01 | first release                                       |
 
-System Requirements
--------------------
+## Installation using conda on Anaconda
 
--   [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
--   [biopython](http://pypi.python.org/pypi/biopython)
--   [percache](http://pypi.python.org/pypi/percache)
--   [appdirs](http://pypi.python.org/pypi/appdirs)
+The absolutely best way of installing and using pygenome is to use the 
+free [Anaconda](https://store.continuum.io/cshop/anaconda) or [Miniconda](http://conda.pydata.org/miniconda.html) python distributions.
 
-Installation
-------------
+Anaconda is a large download (about 400 Mb) while Miniconda is about 40-50 Mb. 
 
+Once Anaconda (or Miniconda) is installed, the conda package manager can be used to install pygenome 
+from the [BjornFJohansson](https://anaconda.org/bjornfjohansson) package channel.
 
+The first step is to add the channel by typing the command below followed by return:
+
+    conda config --append channels BjornFJohansson
+
+Then pydna can be installed by typing the command below followed by return:
+
+    conda install pydna
+
+This works on Windows, MacOSX and Linux, and installs all necessary and optional dependencies automatically.
+
+## Requirements
+
+- [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
+- [pydna](http://pypi.python.org/pypi/pydna)
+- [percache](http://pypi.python.org/pypi/percache)
+
+## Install with pip
 
 The second best way of installing pygenome is by using
 [pip](https://packaging.python.org/en/latest/installing.html#installing-from-pypi)
 
-> sudo pip install pygenome
+    sudo pip install pygenome
 
 ### Source Code Repository
 
-pydna source code is hosted on [Github](https://github.com/BjornFJohansson/pygenome)
+pydna source code is hosted on [Github](https://github.com/BjornFJohansson/pygenome).
