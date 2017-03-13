@@ -26,7 +26,7 @@ test:
     - pygenome
   source_files:
     - tests
-    - pydna
+    - pygenome
 about:
   home: https://github.com/BjornFJohansson/pygenome
   summary: An object oritented biopython api for the Saccharomyces cerevisiae genome.
