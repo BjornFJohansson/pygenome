@@ -20,14 +20,39 @@ except ImportError:
     with open("README.md", encoding="utf-8") as f:
         long_description = f.read()
 else:
-    long_description = convert_file("README.md", 'rst') 
+    long_description = convert_file("README.md", 'rst')
+    
+import os, sys
+from setuptools.command.install import install as _install
+
+class install(_install):
+    def run(self):
+        _install.run(self)
+        import appdirs 
+        data_dir = appdirs.user_data_dir(os.path.join("pygenome", "Saccharomyces_cerevisiae"))
+        try:
+            os.makedirs( data_dir )
+        except OSError:
+            if os.path.isdir( data_dir ):
+                pass
+            else:
+                raise            
+        import shutil
+        shutil.copy("Saccharomyces_cerevisiae.zip", data_dir)
+        import zipfile
+        with zipfile.ZipFile(os.path.join(data_dir, "Saccharomyces_cerevisiae.zip"), "r") as z:
+            z.extractall( data_dir )
+
+cmdclass={'install': install}
+cmdclass.update( versioneer.get_cmdclass() )
 
 setup(  name='pygenome',
         version=versioneer.get_version(),
-        cmdclass=versioneer.get_cmdclass(),
+        cmdclass=cmdclass,
         author          =__author__,
         author_email    =__email__,
         packages=['pygenome'],
+        package_data={'zip': [ os.path.join('data','*') ]},
         url='http://pypi.python.org/pypi/pygenome/',
         license='LICENSE.txt',
         description='''Accessing the Saccharomyces cerevisiae genome from Python''',
@@ -46,10 +71,3 @@ setup(  name='pygenome',
                        'Programming Language :: Python :: 3.6',
                        'Topic :: Education',
                        'Topic :: Scientific/Engineering :: Bio-Informatics',])
-
-#versioneer.VCS = 'git'
-#versioneer.versionfile_source = 'pygenome/_version.py'
-#versioneer.versionfile_build = 'pygenome/_version.py'
-#versioneer.tag_prefix = '' # tags are like 1.2.0
-#versioneer.parentdir_prefix = '' # dirname like 'myproject-1.2.0'
-#https://pypi.python.org/pypi?%3Aaction=list_classifiers

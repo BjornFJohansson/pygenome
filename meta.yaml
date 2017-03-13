@@ -1,0 +1,38 @@
+package:
+    name: pygenome
+    version: {{ environ.get('GIT_DESCRIBE_TAG', 'default') }}
+
+build:
+  number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+
+source:
+  git_url: .
+
+requirements:
+    build:
+        - python
+        - pydna
+        - percache
+
+    run:
+        - python
+        - pydna
+        - percache
+
+test:
+  requires:
+    - pytest
+  imports:
+    - pygenome
+  source_files:
+    - tests
+    - pydna
+about:
+  home: https://github.com/BjornFJohansson/pygenome
+  summary: An object oritented biopython api for the Saccharomyces cerevisiae genome.
+  license_file: LICENSE.txt
+  license: BSD-3-Clause
+  license_family: BSD
+extra:
+  maintainers:
+   - "Björn Johansson <bjorn_johansson@bio.uminho.pt>"

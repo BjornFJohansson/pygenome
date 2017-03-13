@@ -2,9 +2,10 @@
 # This tells distutils what files to distribute.
 
 include LICENSE.txt
-include README.rst
+include README.md
 include MANIFEST.in
 include setup.py
+include Saccharomyces_cerevisiae.zip
 
 recursive-include tests *
 recursive-include docs *

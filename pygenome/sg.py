@@ -65,11 +65,10 @@ def _download(_missing_files=None):
 
     for _file_ in sorted(_missing_files):
         _sys.stderr.write("downloading {} ".format(_file_))
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
-
-
+        #remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
+        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
+        # http://stackoverflow.com/questions/5022083/how-can-i-get-the-last-modified-time-with-python3-urllib
         rdate2 = int(_time.mktime(remotedate))
-
 
         _urllib.request.urlretrieve( _urlparse.urljoin(base_url, _file_),
                             _os.path.join(data_dir ,_file_),
@@ -111,7 +110,8 @@ def update():
     for _file_ in sorted(_chromosome_files.values()):
 
         remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
-
+        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
+        # http://stackoverflow.com/questions/5022083/how-can-i-get-the-last-modified-time-with-python3-urllib
         _missing_files = []
 
         if _datetime.datetime(*remotedate[:-2]) > _datetime.datetime.fromtimestamp((_os.path.getmtime(_os.path.join(data_dir, _file_)))):
@@ -129,7 +129,7 @@ def update():
 if _os.getenv("DRONE") or _os.getenv("CI"):
     data_dir =_os.path.join(os.getcwd(),"DATA")
 else:
-    data_dir = _ps(_appdirs.user_data_dir(_os.path.join("pygenome","saccharomyces_cerevisiae")))
+    data_dir = _ps(_appdirs.user_data_dir(_os.path.join("pygenome","Saccharomyces_cerevisiae")))
     #/home/bjorn/.local/share/sgd_genome_data_files
 
 if not _os.path.isdir(data_dir):
