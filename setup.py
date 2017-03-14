@@ -22,7 +22,7 @@ except ImportError:
 else:
     long_description = convert_file("README.md", 'rst')
     
-import os, sys
+import os
 from setuptools.command.install import install as _install
 
 class install(_install):
@@ -34,7 +34,10 @@ class install(_install):
             os.makedirs( data_dir )
         except OSError:
             if os.path.isdir( data_dir ):
-                pass
+                import glob
+                chfiles = glob.glob(os.path.join(data_dir, "chr*.gb"))
+                if len(chfiles) == 16:
+                    return
             else:
                 raise            
         import shutil
