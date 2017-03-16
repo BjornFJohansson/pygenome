@@ -27,13 +27,14 @@ import percache as _percache
 import appdirs  as _appdirs
 
 from pydna._pretty import pretty_str as _ps
-import pydna as _pydna
+from pydna.readers import read as _read
 
 from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
-_pFA6_kanMX4 = _pydna.read(_plasmid) # AJ002680
+_pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
-#os.environ["pydna_cache"]="refresh"
-
+from pydna.dseqrecord import Dseqrecord as _Dseqrecord
+from pydna.amplify    import pcr        as _pcr
+from pydna.assembly   import Assembly   as _Assembly
 
 def _reporthook(blocknum, blocksize, totalsize):
     readsofar = blocknum * blocksize
@@ -126,8 +127,8 @@ def update():
 
 
 
-if _os.getenv("DRONE") or _os.getenv("CI"):
-    data_dir =_os.path.join(os.getcwd(),"DATA")
+if _os.getenv("CI"):
+    data_dir =_os.path.join(_os.getcwd(),"DATA")
 else:
     data_dir = _ps(_appdirs.user_data_dir(_os.path.join("pygenome","Saccharomyces_cerevisiae")))
     #/home/bjorn/.local/share/sgd_genome_data_files
@@ -700,13 +701,13 @@ class _locus():
         ups.id  = "UPstream45_{}".format(self.sys)
         dns.id  = "DNstream45_{}".format(self.sys)
 
-        cas = _pydna.pcr( ups, dns, _pydna.pcr( upt, dnt, _pFA6_kanMX4))
+        cas = _pcr( ups, dns, _pcr( upt, dnt, _pFA6_kanMX4))
 
         cas.add_feature(0,len(cas), )
 
-        locus = _pydna.Dseqrecord( self.locus(upstream, downstream) )
+        locus = _Dseqrecord( self.locus(upstream, downstream) )
 
-        asm = _pydna.Assembly( (locus, cas), max_nodes=3 )
+        asm = _Assembly( (locus, cas), max_nodes=3 )
 
         candidate = asm.linear_products[0]
 
