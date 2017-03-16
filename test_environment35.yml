@@ -3,25 +3,10 @@ channels:
 - BjornFJohansson
 dependencies:
 - python=3.5
-- appdirs
-- biopython
-- prettytable
-- networkx
-- ordered-set
-- pyparsing
-
-- ipython
-- jupyter
-- numpy
-- scipy
-- matplotlib
-- mpldatacursor
-- pint
+- pydna
+- percache
 
 - pytest
-- coverage
-- python-coveralls
-- pytest-cov
 - pytest-runner
 - nbval
 

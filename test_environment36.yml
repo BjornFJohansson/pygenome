@@ -4,22 +4,8 @@ channels:
 - conda-forge
 dependencies:
 - python=3.6
-- appdirs
-- biopython
-- prettytable
-- networkx
-- ordered-set
-- pyparsing
-
-- requests
-
-- ipython
-- jupyter
-- numpy
-- scipy
-- matplotlib
-- mpldatacursor
-- pint
+- pydna
+- percache
 
 - pytest
 - pytest-runner
