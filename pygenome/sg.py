@@ -73,7 +73,7 @@ def _download(_missing_files=None):
         rdate2 = int(_time.mktime(remotedate))
 
         _urllib.request.urlretrieve( _urlparse.urljoin(base_url, _file_),
-                            _os.path.join(data_dir ,_file_),
+                            filename= _os.path.join(data_dir ,_file_),
                             reporthook = _reporthook)
 
         _os.utime(_os.path.join(data_dir ,_file_) ,(rdate2, rdate2))
@@ -189,8 +189,8 @@ _url, _fn =_os.path.split(primer_url)
 if not _os.path.exists(_os.path.join(data_dir, _fn)):
     _sys.stderr.write("\nData file {} not found\n\n".format(_fn))
     _urllib.request.urlretrieve( primer_url,
-                       _os.path.join(data_dir, _fn),
-                        _reporthook = _reporthook)
+                                 _os.path.join(data_dir, _fn),
+                                 reporthook = _reporthook)
     _sys.stderr.write("{} successfully downloaded and saved in {}\n".format(_fn, data_dir))
 
 primertuple = _collections.namedtuple("primertuple", '''rec_num
