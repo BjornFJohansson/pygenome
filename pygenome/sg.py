@@ -311,12 +311,12 @@ def intergenic_sequence(upgene, dngene):
     Examples
     --------
     >>> from pygenome import sg
-    >>> sg.systematic_name("TDH3")
-    'YGR192C'
-    >>> sg.upstream_gene("TDH3")
-    'YGR193C'
-    >>> sg.upstream_gene("YGR193C")
-    'YGR194C'
+    >>> sg.gene["TDH3"]
+    'YGR192C TDH3'
+    >>> sg.gene["TDH3"].upstream_gene
+    'YGR193C PDX1'
+    >>> sg.gene["YGR193C"].upstream_gene
+    'YGR194C XKS1'
     >>> len(sg.intergenic_sequence("YGR192C", "YGR193C"))
     698
     >>> len(sg.intergenic_sequence("YGR192C", "YGR194C"))
@@ -425,16 +425,10 @@ class _locus():
         Examples
         --------
         >>> from pygenome import sg
-        >>> sg.orf("TDH3")
+        >>> sg.gene["TDH3"].cds
         SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
-        >>> len(sg.cds("TDH3"))
+        >>> len(sg.gene["TDH3"].cds)
         999
-        >>> sg.orf("YJR048W")
-        SeqRecord(seq=Seq('ATGACTGAATTCAAGGCCGGTTCTGCTAAGAAAGGTGCTACACTTTTCAAGACT...TAA', IUPACAmbiguousDNA()), id='BK006943.2', name='BK006943', description='TPA: Saccharomyces cerevisiae S288c chromosome X.', dbxrefs=[])
-        >>> len(sg.cds("YJR048W"))
-        330
-        >>>
-
         '''
 
         return self.locus(upstream=0, downstream=0)
@@ -457,18 +451,6 @@ class _locus():
         The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
 
-        Examples
-        --------
-        >>> from pygenome import sg
-        >>> sg.systematic_name("RFA1")
-        'YAR007C'
-        >>> sg.upstream_gene("RFA1")
-        'YAR008W'
-        >>> sg.systematic_name("CYC3")
-        'YAL039C'
-        >>> sg.systematic_name("CYC3")
-        'YAL039C'
-        >>>
         '''
 
         if self.sys[6]=="W":
@@ -486,18 +468,6 @@ class _locus():
         The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
 
-        Examples
-        --------
-        >>> from pygenome import sg
-        >>> sg.downstream_gene("RFA1")
-        'YAR003W'
-        >>> sg.systematic_name("RFA1")
-        'YAR007C'
-        >>> sg.downstream_gene("CYC3")
-        'YAL040C'
-        >>> sg.systematic_name("CYC3")
-        'YAL039C'
-        >>>
         '''
 
         if self.sys[6]=="C":
@@ -539,12 +509,11 @@ class _locus():
         Examples
         --------
         >>> from pygenome import sg
-        >>> sg.promoter("TDH3")
+        >>> sg.gene["TDH3"].promoter
         SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
-        >>> str(sg.promoter("TDH3")) == str(sg.promoter("YGR192C"))
+        >>> str(sg.gene["TDH3"].promoter) == str(sg.gene["YGR192C"].promoter)
         True
         >>>
-
         '''
 
         pr = intergenic_sequence(self.upstream_gene.sys, self.sys)
@@ -597,7 +566,6 @@ class _locus():
         >>> sg.upstream_gene("TDH3")
         'YGR193C'
         >>> str(sg.terminator("YGR193C")) == str(sg.promoter("TDH3"))
-
         '''
 
 
