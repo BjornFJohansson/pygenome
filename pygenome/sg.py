@@ -66,9 +66,10 @@ def _download(_missing_files=None):
 
     for _file_ in sorted(_missing_files):
         _sys.stderr.write("downloading {} ".format(_file_))
-        #remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
-        # http://stackoverflow.com/questions/5022083/how-can-i-get-the-last-modified-time-with-python3-urllib
+
+        last_modified = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
+        remotedate = _time.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
+
         rdate2 = int(_time.mktime(remotedate))
 
         _urllib.request.urlretrieve( _urlparse.urljoin(base_url, _file_),
@@ -110,8 +111,8 @@ def update():
     print("checking for updated chromosome files at\n{}".format(base_url))
     for _file_ in sorted(_chromosome_files.values()):
 
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).info().getdate('last-modified')
-        remotedate = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
+        last_modified = _urllib.request.urlopen(_urlparse.urljoin(base_url, _file_)).headers['last-modified']
+        remotedate = _time.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
         # http://stackoverflow.com/questions/5022083/how-can-i-get-the-last-modified-time-with-python3-urllib
         _missing_files = []
 
