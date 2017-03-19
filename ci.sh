@@ -38,7 +38,8 @@ then
     then
         echo "Release tag indicate pre release"
         echo "deploy sdist zip package to pypi "
-        echo "conda package will be uploaded to anaconda.org under the label 'test'."
+        echo "conda package will be uploaded to anaconda.org"
+        echo "under the label 'test'."
         pypiserver="pypi"
         condalabel="test"
     else
@@ -117,8 +118,7 @@ then
     conda update -yq conda
     conda config --set always_yes yes --set show_channel_urls yes
     conda update -yq pip
-    conda install conda-verify -yq
-    conda install jinja2 -yq
+    conda install conda-verify jinja2 -yq
     conda config --add channels BjornFJohansson
 else
     echo "Not running on CI server, probably running on local computer"
@@ -157,9 +157,9 @@ then
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py build bdist_wheel bdist_egg
-        source activate pipbuild36
-        conda upgrade -yq pip
-        python setup.py build bdist_wheel bdist_egg
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py build bdist_wheel bdist_egg
         if [[ $condalabel = "main" ]]
         then
             twine upload -r $pypiserver dist/*.whl --skip-existing

@@ -15,11 +15,13 @@ requirements:
         - python
         - pydna
         - percache
+        - appdirs
 
     run:
         - python
         - pydna
         - percache
+        - appdirs
 
 test:
   requires:
