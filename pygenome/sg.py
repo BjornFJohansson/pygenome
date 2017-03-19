@@ -559,13 +559,15 @@ class _locus():
 
         Examples
         --------
-        >>> sg.terminator("TDH3")
-        SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
-        >>> len(sg.terminator("TDH3"))
+        >>> from pygenome import sg
+        >>> sg.gene["TDH3"].terminator
+        SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT', IUPACAmbiguousDNA()), id='YGR192C_YGR193C', name='.', description='Intergenic sequence between upstream gene YGR192C and downstream gene YGR191W HIP1', dbxrefs=[])
+        >>> len(sg.gene["TDH3"].terminator)
         580
-        >>> sg.upstream_gene("TDH3")
-        'YGR193C'
-        >>> str(sg.terminator("YGR193C")) == str(sg.promoter("TDH3"))
+        >>> sg.gene["TDH3"].upstream_gene
+        YGR193C PDX1
+        >>> str(sg.gene["PDX1"].terminator.seq) == str(sg.gene["TDH3"].promoter.seq)
+        True
         '''
 
 
