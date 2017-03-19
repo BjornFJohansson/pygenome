@@ -129,20 +129,20 @@ then
     conda install -yq conda-build
     conda-build -V
     conda create -yq -n condabuild35 python=3.5 anaconda-client pypandoc pandoc nbval
-    conda create -yq -n condabuild36 python=3.6 anaconda-client pypandoc pandoc nbval
+    #conda create -yq -n condabuild36 python=3.6 anaconda-client pypandoc pandoc nbval
     conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3 twine pypandoc pandoc
-    conda create -yq -n pipbuild36   python=3.6 anaconda-client urllib3 twine pypandoc pandoc
+    #conda create -yq -n pipbuild36   python=3.6 anaconda-client urllib3 twine pypandoc pandoc
     rm -rf dist
     rm -rf build
     rm -rf tests/htmlcov
     pth1="$(conda build . --output --py 3.5)"
-    pth2="$(conda build . --output --py 3.6)"
+    #pth2="$(conda build . --output --py 3.6)"
     echo $pth1
     echo $pth2
     source activate condabuild35
     conda build --python 3.5 .
-    source activate condabuild36
-    conda build --python 3.6 .
+    #source activate condabuild36
+    #conda build --python 3.6 .
     if [[ $CI = true ]]||[[ $CI = True ]]
     then
         anaconda -t $TOKEN upload $pth1 --label $condalabel --force
@@ -172,9 +172,9 @@ then
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py build bdist_wininst
-        source activate pipbuild36
-        conda upgrade -yq pip
-        python setup.py build bdist_wininst
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py build bdist_wininst
         twine upload -r $pypiserver dist/*.exe --skip-existing
         appveyor PushArtifact dist/*
     elif [[ $CIRCLECI = true ]] # Linux
@@ -183,9 +183,9 @@ then
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip
-        source activate pipbuild36
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip        
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py sdist --formats=zip        
         twine upload -r $pypiserver dist/*.zip --skip-existing
     elif [[ $(uname) = "Linux" ]]
     then
@@ -194,9 +194,9 @@ then
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
-        source activate pipbuild36
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip bdist_wheel
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py sdist --formats=zip bdist_wheel
         twine upload -r $pypiserver dist/*.zip --skip-existing
         twine upload -r $pypiserver dist/*.whl --skip-existing
     else
