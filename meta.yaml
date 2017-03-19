@@ -26,6 +26,7 @@ requirements:
 test:
   requires:
     - pytest
+    - percache
   imports:
     - pygenome
   source_files:

@@ -160,13 +160,8 @@ then
         #source activate pipbuild36
         #conda upgrade -yq pip
         #python setup.py build bdist_wheel bdist_egg
-        if [[ $condalabel = "main" ]]
-        then
-            twine upload -r $pypiserver dist/*.whl --skip-existing
-            twine upload -r $pypiserver dist/*.egg --skip-existing
-        else
-            echo "prerelease, no upload to pypi."
-        fi
+        twine upload -r $pypiserver dist/*.whl --skip-existing
+        twine upload -r $pypiserver dist/*.egg --skip-existing
     elif [[ $APPVEYOR = true ]]||[[ $APPVEYOR = True ]] # Windows
     then
         source activate pipbuild35
