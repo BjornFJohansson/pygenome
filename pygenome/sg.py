@@ -312,11 +312,11 @@ def intergenic_sequence(upgene, dngene):
     --------
     >>> from pygenome import sg
     >>> sg.gene["TDH3"]
-    'YGR192C TDH3'
+    YGR192C TDH3
     >>> sg.gene["TDH3"].upstream_gene
-    'YGR193C PDX1'
+    YGR193C PDX1
     >>> sg.gene["YGR193C"].upstream_gene
-    'YGR194C XKS1'
+    YGR194C XKS1
     >>> len(sg.intergenic_sequence("YGR192C", "YGR193C"))
     698
     >>> len(sg.intergenic_sequence("YGR192C", "YGR194C"))
@@ -426,7 +426,7 @@ class _locus():
         --------
         >>> from pygenome import sg
         >>> sg.gene["TDH3"].cds
-        SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
+        SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(883811..882811)', dbxrefs=[])
         >>> len(sg.gene["TDH3"].cds)
         999
         '''
@@ -510,7 +510,7 @@ class _locus():
         --------
         >>> from pygenome import sg
         >>> sg.gene["TDH3"].promoter
-        SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA', IUPACAmbiguousDNA()), id='<unknown id>', name='<unknown name>', description='<unknown description>', dbxrefs=[])
+        SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA', IUPACAmbiguousDNA()), id='YGR193C_YGR192C', name='.', description='BK006941.2 REGION: complement(883811..884508)', dbxrefs=[])
         >>> str(sg.gene["TDH3"].promoter) == str(sg.gene["YGR192C"].promoter)
         True
         >>>
