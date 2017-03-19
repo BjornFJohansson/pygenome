@@ -138,7 +138,7 @@ then
     pth1="$(conda build . --output --py 3.5)"
     #pth2="$(conda build . --output --py 3.6)"
     echo $pth1
-    echo $pth2
+    #echo $pth2
     source activate condabuild35
     conda build --python 3.5 .
     #source activate condabuild36
@@ -146,10 +146,10 @@ then
     if [[ $CI = true ]]||[[ $CI = True ]]
     then
         anaconda -t $TOKEN upload $pth1 --label $condalabel --force
-        anaconda -t $TOKEN upload $pth2 --label $condalabel --force
+        #anaconda -t $TOKEN upload $pth2 --label $condalabel --force
     else
         anaconda upload $pth1 --label $condalabel --force
-        anaconda upload $pth2 --label $condalabel --force
+        #anaconda upload $pth2 --label $condalabel --force
     fi
 
     if [[ $TRAVIS = true ]] # MacOSX
