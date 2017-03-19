@@ -38,7 +38,7 @@ then
     then
         echo "Release tag indicate pre release"
         echo "deploy sdist zip package to pypi "
-        echo "conda package anaconda.org with label 'test'."
+        echo "conda package will be uploaded to anaconda.org under the label 'test'."
         pypiserver="pypi"
         condalabel="test"
     else
@@ -223,6 +223,6 @@ else
     python --version
     python run_test.py
     source activate root
-    conda remove -n testenv35 --all
-    conda remove -n testenv36 --all
+    conda remove -n testenv35 --all -q
+    conda remove -n testenv36 --all -q
 fi
