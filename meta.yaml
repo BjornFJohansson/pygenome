@@ -16,6 +16,8 @@ requirements:
         - pydna
         - percache
         - appdirs
+        - pandoc
+        - pypandoc
 
     run:
         - python
