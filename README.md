@@ -1,7 +1,7 @@
 # pygenome
 
-[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Coverage Status](https://coveralls.io/repos/github/BjornFJohansson/pygenome/badge.svg?branch=master)](https://coveralls.io/github/BjornFJohansson/pygenome?branch=master)[![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
-                
+[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)[![CircleCI](https://circleci.com/gh/BjornFJohansson/pygenome.svg?style=svg)](https://circleci.com/gh/BjornFJohansson/pygenome)
+[![Coverage Status](https://coveralls.io/repos/github/BjornFJohansson/pygenome/badge.svg?branch=master)](https://coveralls.io/github/BjornFJohansson/pygenome?branch=master)[![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
 
 Pygenome provide access to the [Saccharomyces cerevisiae](https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae)
 genome from Python. [Genes](http://en.wikipedia.org/wiki/Gene),
