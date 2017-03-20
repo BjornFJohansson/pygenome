@@ -137,8 +137,8 @@ then
     rm -rf tests/htmlcov
     pth1="$(conda build . --output --py 3.5)"
     #pth2="$(conda build . --output --py 3.6)"
-    echo $pth1
-    #echo $pth2
+    echo BUILD PATH pth1 = $pth1
+    #echo BUILD PATH pth2 = $pth2
     source activate condabuild35
     conda build --python 3.5 .
     #source activate condabuild36

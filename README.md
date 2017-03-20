@@ -22,20 +22,25 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
     sg.gene["TEF1"]
     Out[2]: yeast gene YPR080W
 
-    sg.gene["TEF1"].cds()
-    Out[3]: SeqRecord(seq=Seq('ATGGGTAAAGAGAAGTCTCACATTAACGTTGTCGTTATCGGTCATGTCGATTCT...TAA', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 700594..701970', dbxrefs=[])
+    sg.gene["TEF1"].cds
+    Out[3]: SeqRecord(seq=Seq('ATGGGTAAAGAGAAGTCTCACATTAACGTTGTCGTTATCGGTCATGTCGATTCT...TAA',
+            IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 700594..701970', dbxrefs=[])
 
     sg.gene["TEF1"].locus()
-    Out[4]: SeqRecord(seq=Seq('CTTCATCGGTATCTTCGCTATATTCTTTTTAGTCGAATTTGCGGGGAGAAGATG...AAC', IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 699594..702970', dbxrefs=[])
+    Out[4]: SeqRecord(seq=Seq('CTTCATCGGTATCTTCGCTATATTCTTTTTAGTCGAATTTGCGGGGAGAAGATG...AAC',
+            IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 699594..702970', dbxrefs=[])
 
-    sg.gene["TEF1"].promoter()
-    Out[5]: SeqRecord(seq=Seq('ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATA...AAA', IUPACAmbiguousDNA()), id='YPR079W_YPR080W', name='.', description='BK006949 REGION: 700015..700593', dbxrefs=[])
+    sg.gene["TEF1"].promoter
+    Out[5]: SeqRecord(seq=Seq('ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATA...AAA',
+            IUPACAmbiguousDNA()), id='YPR079W_YPR080W', name='.', description='BK006949 REGION: 700015..700593', dbxrefs=[])
 
-    sg.gene["TEF1"].deletion_locus()
+    sg.gene["TEF1"].deletion_locus
     Out[6]: 'No deletion primers available!'
 
-     sg.gene["CYC1"].deletion_locus()
-    Out[7]: SeqRecord(seq=Seq('GAGGCACCAGCGTCAGCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAG...GTG', IUPACAmbiguousDNA()), id='yjr048w::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='yjr048w::KanMX4', description='<unknown description>', dbxrefs=[])
+     
+    Out[7]: SeqRecord(seq=Seq('GAGGCACCAGCGTCAGCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAG...GTG',
+            IUPACAmbiguousDNA()), id='yjr048w::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA',
+            name='yjr048w::KanMX4', description='<unknown description>', dbxrefs=[])
 
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
@@ -60,17 +65,18 @@ The first step is to add the channel by typing the command below followed by ret
 
     conda config --append channels BjornFJohansson
 
-Then pydna can be installed by typing the command below followed by return:
+Then pygenome can be installed by typing the command below followed by return:
 
-    conda install pydna
+    conda install pygenome
 
-This works on Windows, MacOSX and Linux, and installs all necessary and optional dependencies automatically.
+This works on Windows, MacOSX and Linux, and installs all necessary dependencies automatically.
 
 ## Requirements
 
 - [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
 - [pydna](http://pypi.python.org/pypi/pydna)
 - [percache](http://pypi.python.org/pypi/percache)
+- [appdirs]()
 
 ## Install with pip
 

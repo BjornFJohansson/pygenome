@@ -6,13 +6,12 @@ include README.md
 include MANIFEST.in
 include setup.py
 include Saccharomyces_cerevisiae.zip
-
-exclude dist
+include versioneer.py
+include pygenome/_version.py
 
 recursive-include tests *
 recursive-include docs *
 recursive-include scripts *
 global-exclude *.pyc
 global-exclude *~
-include versioneer.py
-include pygenome/_version.py
+
