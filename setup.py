@@ -20,7 +20,9 @@ except ImportError:
     with open("README.md", encoding="utf-8") as f:
         long_description = f.read()
 else:
-    long_description = convert_file("README.md", 'rst')
+    long_description = "\n"+convert_file("README.md", 'rst')
+
+
     
 import os
 from setuptools.command.install import install as _install

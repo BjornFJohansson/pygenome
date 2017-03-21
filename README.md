@@ -44,6 +44,7 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
 
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
+| 1.0.0 | 2017-      | ?                                                   |
 | 0.9.5 | 2017-01-01 | Python 3 release                                    |
 | 0.9.0 | 2015-05-01 | Changed interface to a more object oriented style   |
 | 0.5.0 | 2015-03-03 | Documentation, automatic build, test and deployment |
@@ -76,7 +77,7 @@ This works on Windows, MacOSX and Linux, and installs all necessary dependencies
 - [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
 - [pydna](http://pypi.python.org/pypi/pydna)
 - [percache](http://pypi.python.org/pypi/percache)
-- [appdirs]()
+- [appdirs](https://pypi.python.org/pypi/appdirs)
 
 ## Install with pip
 
