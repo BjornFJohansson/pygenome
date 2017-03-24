@@ -5,7 +5,7 @@ dependencies:
 - python=3.5
 - pydna
 - percache
-
+- tqdm
 - pytest
 - pytest-runner
 - nbval

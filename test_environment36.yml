@@ -6,7 +6,7 @@ dependencies:
 - python=3.6
 - pydna
 - percache
-
+- tqdm
 - pytest
 - pytest-runner
 - nbval
