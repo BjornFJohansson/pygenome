@@ -9,9 +9,9 @@ requirements:
     build:
         - python
         - pydna
-        - appdirs
-        - pandoc
-        - pypandoc
+        #- appdirs
+        #- pandoc
+        #- pypandoc
         - requests
         - tqdm
     run:
