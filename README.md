@@ -76,7 +76,7 @@ This works on Windows, MacOSX and Linux, and installs all necessary dependencies
 
 - [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
 - [pydna](http://pypi.python.org/pypi/pydna)
-- [percache](http://pypi.python.org/pypi/percache)
+- [requests](http://pypi.python.org/pypi/requests)
 - [appdirs](https://pypi.python.org/pypi/appdirs)
 
 ## Install with pip

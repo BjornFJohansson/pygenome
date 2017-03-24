@@ -45,7 +45,7 @@ def test_promoter_promoter():
     assert str(sg.gene["DEP1"].promoter.seq) == str(sg.gene["SYN8"].promoter.seq.reverse_complement())
     assert str(sg.gene["SPO7"].promoter.seq) == str(sg.gene["MDM10"].promoter.seq.reverse_complement())
 
-def test_teminator_terminator():
+def test_terminator_terminator():
     assert str(sg.gene["FUN14"].terminator.seq) == str(sg.gene["ERP2"].terminator.seq.reverse_complement())
 
 def test_promoter_terminator():
@@ -74,7 +74,8 @@ def test_misc():
     assert str(sg.gene["CDC24"].promoter.seq)   in str(sg.gene["CDC24"].locus().seq)
     assert str(sg.gene["CDC24"].terminator.seq) in str(sg.gene["CDC24"].locus().seq)
 
-    assert str( sg.intergenic_sequence("YAL021C","YAL023C").seq).lower() in str(sg.gene["FUN26"].locus().seq).lower()
+    from pygenome.intergenic import intergenic_sequence
+    assert str( intergenic_sequence("YAL021C","YAL023C").seq).lower() in str(sg.gene["FUN26"].locus().seq).lower()
 
 def test_kanmx4():
 

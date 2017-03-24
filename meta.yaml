@@ -1,37 +1,32 @@
 package:
     name: pygenome
     version: {{ environ.get('GIT_DESCRIBE_TAG', 'default') }}
-
 build:
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
-
 source:
-  #git_url: .
   path: .
-
 requirements:
-
     build:
         - python
         - pydna
-        - percache
         - appdirs
         - pandoc
         - pypandoc
-
+        - requests
+        - tqdm
     run:
         - python
         - pydna
-        - percache
         - appdirs
-
+        - requests
+        - tqdm
 test:
   requires:
     - python
     - pytest
-    - percache
     - pydna
     - appdirs
+    - requests
   imports:
     - pygenome
   source_files:

@@ -5,9 +5,9 @@ include LICENSE.txt
 include README.md
 include MANIFEST.in
 include setup.py
-include Saccharomyces_cerevisiae.zip
 include versioneer.py
 include pygenome/_version.py
+include pygenome/Saccharomyces_cerevisiae.zip
 
 recursive-include tests *
 recursive-include docs *

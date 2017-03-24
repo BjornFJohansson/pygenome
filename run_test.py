@@ -14,30 +14,30 @@ def main():
         cwd = os.getcwd()
         print("current working directory:", cwd)
         
-        os.environ["pydna_data_dir"]    = os.path.join(cwd,"DATA")
-        os.environ["pydna_log_dir"]     = os.path.join(cwd,"DATA")
-        os.environ["pydna_config_dir"]  = os.path.join(cwd,"DATA")
+        os.environ["pygenome_data_dir"]    = os.path.join(cwd,"DATA")
+        os.environ["pygenome_log_dir"]     = os.path.join(cwd,"DATA")
+        os.environ["pygenome_config_dir"]  = os.path.join(cwd,"DATA")
 
         # create data directory if not present
         try:
-            os.makedirs( os.environ["pydna_data_dir"] )
+            os.makedirs( os.environ["pygenome_data_dir"] )
         except OSError:
-            if os.path.isdir( os.environ["pydna_data_dir"] ):
+            if os.path.isdir( os.environ["pygenome_data_dir"] ):
                 pass
             else:
                 raise
 
-        print('os.environ["pydna_data_dir"] = ',  os.environ["pydna_data_dir"])
-        print('os.environ["pydna_log_dir"] = ',   os.environ["pydna_log_dir"])
-        print('os.environ["pydna_config_dir"] = ',os.environ["pydna_config_dir"])
+        print('os.environ["pygenome_data_dir"] = ',  os.environ["pygenome_data_dir"])
+        print('os.environ["pygenome_log_dir"] = ',   os.environ["pygenome_log_dir"])
+        print('os.environ["pygenome_config_dir"] = ',os.environ["pygenome_config_dir"])
         print('')
 
     else:
         print("Tests run locally")
-        os.environ["pydna_data_dir"]    = tempfile.mkdtemp(prefix="pydna_data_dir_")
-        os.environ["pydna_log_dir"]     = tempfile.mkdtemp(prefix="pydna_log_dir_")
-        os.environ["pydna_config_dir"]  = tempfile.mkdtemp(prefix="pydna_config_dir_")
-        os.environ["pydna_loglevel"]    = str( logging.DEBUG )
+        os.environ["pygenome_data_dir"]    = tempfile.mkdtemp(prefix="pygenome_data_dir_")
+        os.environ["pygenome_log_dir"]     = tempfile.mkdtemp(prefix="pygenome_log_dir_")
+        os.environ["pygenome_config_dir"]  = tempfile.mkdtemp(prefix="pygenome_config_dir_")
+        os.environ["pygenome_loglevel"]    = str( logging.DEBUG )
        
     print(" _            _   ")
     print("| |          | |  ")
