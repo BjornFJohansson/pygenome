@@ -1,10 +1,9 @@
-# [![icon](SuperYeast.jpg)](https://pypi.python.org/pypi/pygenome/) pygenome
-
+# [![icon](SuperYeast.jpg)](http://www.yeastgenome.org/) [pygenome](https://pypi.python.org/pypi/pygenome)
 
 [![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)[![CircleCI](https://circleci.com/gh/BjornFJohansson/pygenome.svg?style=svg)](https://circleci.com/gh/BjornFJohansson/pygenome)
 [![Coverage Status](https://coveralls.io/repos/github/BjornFJohansson/pygenome/badge.svg?branch=master)](https://coveralls.io/github/BjornFJohansson/pygenome?branch=master)[![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
 
-Pygenome provide access to the [Saccharomyces cerevisiae](https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae)
+Harness the awesome power of yeast genetics through python! Pygenome provide access to the [Saccharomyces cerevisiae](https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae)
 genome from Python. [Genes](http://en.wikipedia.org/wiki/Gene),
 [promoters](http://en.wikipedia.org/wiki/Promoter_(genetics)),
 [terminators](http://en.wikipedia.org/wiki/Terminator_(genetics)), and
@@ -14,7 +13,7 @@ as well as the deletion [loci](http://en.wikipedia.org/wiki/Locus_(genetics)) cr
 are available by their systematic names (like [YPR080w](http://www.yeastgenome.org/locus/S000006284/overview)) or by
 standard name (like [CYC1](http://www.yeastgenome.org/locus/S000003809/overview)). DNA
 sequences are returned as Biopython
-[SeqRecord](http://biopython.org/wiki/SeqRecord) objects.
+[SeqRecord](http://biopython.org/wiki/SeqRecord) objects. Thanks to [SGD](http://www.yeastgenome.org/) for letting me use the SuperYeast logotype above.
 
 Typical usage at the [IPython](http://ipython.org/) command line could look like this:
 
