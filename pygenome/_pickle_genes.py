@@ -18,17 +18,22 @@ from pygenome._locus import Gene
 
 def _pickle_genes():   
 
-    gene = CaseInsensitiveDict()
+    stdgene  = CaseInsensitiveDict()
+    sysgene  = CaseInsensitiveDict()
+    
     _sys.stdout.write("\n\nPickle systematic gene names\n")
+    
     for _f in _feature_list:
-        gene[_f] = Gene(_f)
-        _sys.stdout.write("{} ".format(_f))
-    _sys.stdout.write("\n\nPickle standard gene names\n")
-    for _f,_g in list(_standard_to_systematic.items()):
-        gene[_f] = Gene(_g)
+        sysgene[_f] = Gene(_f)
         _sys.stdout.write("{} ".format(_f))
         
-    _pickle.dump( gene, open( _os.path.join(data_dir,"gene.pickle"), "wb" ), -1 )
+    _sys.stdout.write("\n\nPickle standard gene names\n")
+    for _f,_g in list(_standard_to_systematic.items()):
+        stdgene[_f] = Gene(_g)
+        _sys.stdout.write("{} ".format(_f))
+    
+    _pickle.dump( sysgene, open( _os.path.join(data_dir,"sysgene.pickle"), "wb" ), -1 )
+    _pickle.dump( stdgene, open( _os.path.join(data_dir,"stdgene.pickle"), "wb" ), -1 )
 
 if __name__=="__main__":
     pass

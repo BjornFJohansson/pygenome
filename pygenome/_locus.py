@@ -33,7 +33,8 @@ from pygenome.intergenic      import  intergenic_sequence
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
 _feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
-_primers = _pickle.load( open(_os.path.join(data_dir, "primers.pickle"), "rb" ) ) 
+_primers = _pickle.load( open(_os.path.join(data_dir, "primers.pickle"), "rb" ) )
+_descriptions = _pickle.load( open(_os.path.join(data_dir, "systematic_to_description.pickle"), "rb" ) )
 
 
 class Gene():
@@ -41,8 +42,20 @@ class Gene():
     def __init__(self, gene_name):
         self.sys = _ps(_systematic_name(gene_name))
         self.std = _ps(_standard_name(gene_name) or self.sys)
-        self.chr = _ps(_chromosome_files[self.sys[1]])
-
+        self.chr = _ps(_chromosome_files[self.sys[1]])        
+        link = "<a href='http://www.yeastgenome.org/locus/{gene}' target='_blank'>{text}</a>"
+        self.sgd_link = _ps(link.format(gene=self.sys, text="Gene {}/{}".format(self.std, self.sys)))
+        
+    def __repr__(self):
+        return "Gene {}/{}".format(self.std, self.sys)
+    
+    def _repr_pretty_(self, p, cycle):
+        '''returns a short string representation of the object'''
+        p.text("Gene {}/{}".format(self.std, self.sys))
+            
+    def _repr_html_(self):        
+        return self.sgd_link
+    
     def __len__(self):
         return len(self.locus(upstream=0, downstream=0))
 
@@ -73,8 +86,9 @@ class Gene():
 
         lcs.id = _krom.id
 
-        lcs.pydna_code = _ps("gb = pydna.Genbank('my@email.com')\n"
-                             "seq = gb.nucleotide('{}')".format(lcs.description))
+        lcs.pydna_code = _ps( "from pydna.genbank import Genbank\n"
+                              "gb = Genbank('my@email.com')\n"
+                              "seq = gb.nucleotide('{}')".format(lcs.description))
         return lcs
 
     @property
@@ -154,7 +168,7 @@ class Gene():
 
     @property
     def short_description(self):
-        return _ps(self.locus(upstream=0, downstream=0).features[2].qualifiers["note"][0])
+        return _descriptions[self.sys]
 
     @property
     def promoter(self):
@@ -377,9 +391,6 @@ class Gene():
                       annotations = kanmx4_gene.annotations)
 
         return k
-
-    def __repr__(self):
-        return "Gene {}/{}".format(self.std, self.sys)
 
 if __name__=="__main__":
     pass

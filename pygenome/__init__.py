@@ -15,8 +15,6 @@ import zipfile          as _zipfile
 from pygenome._pretty      import pretty_str  as _pretty_str
 from pkg_resources   import resource_filename as _resource_filename
 
-
-
 '''
 # pygenome
 
@@ -212,6 +210,10 @@ if not _os.path.exists(_os.path.join(data_dir, "systematic_to_standard.pickle"))
     _do_pickle_lists = True
 if not _os.path.exists(_os.path.join(data_dir, "systematic_to_genbank_accession.pickle")):
     _do_pickle_lists = True    
+if not _os.path.exists(_os.path.join(data_dir, "systematic_to_description.pickle")):
+    _do_pickle_lists = True  
+
+
 
 if _do_pickle_lists:
     _sys.stdout.write("pickle lists.")
@@ -219,7 +221,7 @@ if _do_pickle_lists:
     _pickle_lists()
     _sys.stdout.write("pickle lists done.")
     
-if not _os.path.exists(_os.path.join(data_dir,"gene.pickle")):
+if not _os.path.exists(_os.path.join(data_dir,"stdgene.pickle")) or not _os.path.exists(_os.path.join(data_dir,"sysgene.pickle")):
     _sys.stdout.write("pickle locus list.")
     from pygenome._pickle_genes import _pickle_genes
     _pickle_genes()
