@@ -41,5 +41,6 @@ setup(  name='pygenome',
                        'Intended Audience :: Science/Research',
                        'License :: OSI Approved :: BSD License',
                        'Programming Language :: Python :: 3.5',
+                       'Programming Language :: Python :: 3.6',
                        'Topic :: Education',
                        'Topic :: Scientific/Engineering :: Bio-Informatics',])

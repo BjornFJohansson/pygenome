@@ -38,11 +38,11 @@ def intergenic_sequence(upgene, dngene):
     Examples
     --------
     >>> from pygenome import sg
-    >>> sg.gene["TDH3"]
+    >>> sg.stdgene["TDH3"]
     Gene TDH3/YGR192C
-    >>> sg.gene["TDH3"].upstream_gene
+    >>> sg.stdgene["TDH3"].upstream_gene
     Gene PDX1/YGR193C
-    >>> sg.gene["YGR193C"].upstream_gene
+    >>> sg.sysgene["YGR193C"].upstream_gene
     Gene XKS1/YGR194C
     >>> from pygenome.intergenic import intergenic_sequence
     >>> len(intergenic_sequence("YGR192C", "YGR193C"))

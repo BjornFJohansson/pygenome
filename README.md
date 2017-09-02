@@ -19,28 +19,37 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
 
     from pygenome import sg
 
-    sg.gene["TEF1"]
-    Out[2]: yeast gene YPR080W
+    mygene = sg.stdgene["XKS1"]
 
-    sg.gene["TEF1"].cds
-    Out[3]: SeqRecord(seq=Seq('ATGGGTAAAGAGAAGTCTCACATTAACGTTGTCGTTATCGGTCATGTCGATTCT...TAA',
-            IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 700594..701970', dbxrefs=[])
+    mygene
+    Out[3]: Gene XKS1/YGR194C
 
-    sg.gene["TEF1"].locus()
-    Out[4]: SeqRecord(seq=Seq('CTTCATCGGTATCTTCGCTATATTCTTTTTAGTCGAATTTGCGGGGAGAAGATG...AAC',
-            IUPACAmbiguousDNA()), id='BK006949.2', name='BK006949', description='BK006949 REGION: 699594..702970', dbxrefs=[])
+    mygene.short_description
+    Out[4]: Xylulokinase; converts D-xylulose and ATP to xylulose 5-phosphate and ADP; rate limiting step in fermentation of xylulose; required for xylose fermentation by recombinant S. cerevisiae strains
 
-    sg.gene["TEF1"].promoter
-    Out[5]: SeqRecord(seq=Seq('ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATA...AAA',
-            IUPACAmbiguousDNA()), id='YPR079W_YPR080W', name='.', description='BK006949 REGION: 700015..700593', dbxrefs=[])
+    sg.sysgene["YGR194C"]
+    Out[5]: Gene XKS1/YGR194C
 
-    sg.gene["TEF1"].deletion_locus
-    Out[6]: 'No deletion primers available!'
+    mygene.cds
+    Out[6]: SeqRecord(seq=Seq('ATGTTGTGTTCAGTAATTCAGAGACAGACAAGAGAGGTTTCCAACACAATGTCT...TAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(887876..886072)', dbxrefs=[])
 
-     
-    Out[7]: SeqRecord(seq=Seq('GAGGCACCAGCGTCAGCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAG...GTG',
-            IUPACAmbiguousDNA()), id='yjr048w::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA',
-            name='yjr048w::KanMX4', description='<unknown description>', dbxrefs=[])
+    mygene.locus()
+    Out[7]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(888876..885072)', dbxrefs=[])
+
+    mygene.promoter
+    Out[8]: SeqRecord(seq=Seq('ATGATGATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATA...TTA', IUPACAmbiguousDNA()), id='YGR195W_YGR194C', name='.', description='BK006941.2 REGION: complement(887876..888881)', dbxrefs=[])
+
+    mygene.terminator
+    Out[9]: SeqRecord(seq=Seq('AATATGTTTGAATAATTTATCATGCCCTGACAAGTACACACAAACACAGACACA...AAA', IUPACAmbiguousDNA()), id='YGR194C_YGR195W', name='.', description='Intergenic sequence between upstream gene YGR194C and downstream gene Gene PDX1/YGR193C', dbxrefs=[])
+
+    mygene.downstream_gene
+    Out[10]: Gene PDX1/YGR193C
+
+    mygene.upstream_gene
+    Out[11]: Gene SKI6/YGR195W
+
+    mygene.deletion_locus
+    Out[12]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='ygr194c::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='ygr194c::KanMX4', description='description?', dbxrefs=[])
 
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
