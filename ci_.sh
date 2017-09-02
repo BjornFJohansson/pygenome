@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 echo "=============================================================="
 echo "BASH_VERSION" $BASH_VERSION
-echo $(git --version)
 tagname="$(git describe --abbrev=0 --tags)"
 tag="$(git rev-list $tagname | head -n 1)"
 com="$(git rev-parse HEAD)"
@@ -20,7 +19,6 @@ echo "CI                   = $CI"
 echo "APPVEYOR             = $APPVEYOR"
 echo "CIRCLECI             = $CIRCLECI"
 echo "TRAVIS               = $TRAVIS"
-echo "CODESHIP             = $CI_NAME"
 echo "=============================================================="
 echo "Build information:"
 echo "=============================================================="
@@ -40,19 +38,19 @@ then
     then
         echo "Release tag indicate pre release"
         echo "deploy sdist zip package to pypi "
-        echo "conda package anaconda.org with label 'test'."
-        pypiserver="testpypi"
+        echo "conda package will be uploaded to anaconda.org"
+        echo "under the label 'test'."
+        pypiserver="pypi"
         condalabel="test"
     else
         echo "Build cancelled because"
-        echo "release tag ($tagname) was not recognized"
+        echo "Release tag ($tagname) was not recognized"
         echo "or"
         echo "$dirty != $tagname"
         exit 0
     fi
 elif [[ $msg = *"skip"* ]]
 then
-    echo "Not a tagged commit"
     echo "'skip' found in commit msg: '$msg'"
     echo "tests and builds skipped."
     echo "=============================================================="
@@ -101,16 +99,12 @@ then
     elif [[ $CIRCLECI = true ]]
     then
         miniconda="wget -q https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda_latest.sh"
-    elif [[ $CI_NAME = codeship ]]
-    then
-        miniconda="wget -q https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda_latest.sh"
     else
         echo "Running on CI server but none of the expected environment variables are set to true"
         echo "CI       = $CI"
         echo "TRAVIS   = $TRAVIS"
         echo "APPVEYOR = $APPVEYOR"
         echo "CIRCLECI = $CIRCLECI"
-        echo "CI_NAME  = $CI_NAME"
         exit 1
     fi
     echo "execute: $miniconda"
@@ -124,8 +118,7 @@ then
     conda update -yq conda
     conda config --set always_yes yes --set show_channel_urls yes
     conda update -yq pip
-    conda install conda-verify -yq
-    conda install jinja2 -yq
+    conda install conda-verify jinja2 -yq
     conda config --add channels BjornFJohansson
 else
     echo "Not running on CI server, probably running on local computer"
@@ -135,87 +128,72 @@ then
     echo "build conda package and setuptools package(s)"
     conda install -yq conda-build
     conda-build -V
-    conda create -yq -n pydnacondabuild35 python=3.5 anaconda-client pypandoc pandoc nbval
-    conda create -yq -n pydnacondabuild36 python=3.6 anaconda-client pypandoc pandoc nbval
-    conda create -yq -n pydnapipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc
-    conda create -yq -n pydnapipbuild36   python=3.6 anaconda-client pypandoc pandoc
-    conda create -yq -n twine             python=3.5 twine
+    conda create -yq -n condabuild35 python=3.5 anaconda-client pypandoc pandoc nbval appdirs
+    #conda create -yq -n condabuild36 python=3.6 anaconda-client pypandoc pandoc nbval
+    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3 twine pypandoc pandoc appdirs
+    #conda create -yq -n pipbuild36   python=3.6 anaconda-client urllib3 twine pypandoc pandoc
     rm -rf dist
     rm -rf build
     rm -rf tests/htmlcov
     pth1="$(conda build . --output --py 3.5)"
-    pth2="$(conda build . --output --py 3.6)"
-    echo $pth1
-    echo $pth2
-    source activate pydnacondabuild35
+    #pth2="$(conda build . --output --py 3.6)"
+    echo BUILD PATH pth1 = $pth1
+    #echo BUILD PATH pth2 = $pth2
+    source activate condabuild35
     conda build --python 3.5 .
-    source activate pydnacondabuild36
-    conda build --python 3.6 .
+    #source activate condabuild36
+    #conda build --python 3.6 .
     if [[ $CI = true ]]||[[ $CI = True ]]
     then
         anaconda -t $TOKEN upload $pth1 --label $condalabel --force
-        anaconda -t $TOKEN upload $pth2 --label $condalabel --force
+        #anaconda -t $TOKEN upload $pth2 --label $condalabel --force
     else
         anaconda upload $pth1 --label $condalabel --force
-        anaconda upload $pth2 --label $condalabel --force
+        #anaconda upload $pth2 --label $condalabel --force
     fi
 
     if [[ $TRAVIS = true ]] # MacOSX
     then
-        source activate pydnapipbuild35
+        source activate pipbuild35
         conda upgrade -yq pip
         python setup.py build bdist_wheel bdist_egg
-        source activate pydnapipbuild36
-        conda upgrade -yq pip
-        python setup.py build bdist_wheel bdist_egg
-        if [[ $condalabel = "main" ]] # bdist_egg, bdist_wheel do not handle alpha versions, so no upload unless final release.
-        then
-            source activate twine
-            twine upload -r $pypiserver dist/pydna*.whl --skip-existing
-            twine upload -r $pypiserver dist/pydna*.egg --skip-existing
-        else
-            echo "pre release, no upload to pypi."
-        fi
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py build bdist_wheel bdist_egg
+        twine upload -r $pypiserver dist/*.whl --skip-existing
+        twine upload -r $pypiserver dist/*.egg --skip-existing
     elif [[ $APPVEYOR = true ]]||[[ $APPVEYOR = True ]] # Windows
     then
-        source activate pydnapipbuild35
+        source activate pipbuild35
         conda upgrade -yq pip
         python setup.py build bdist_wininst
-        source activate pydnapipbuild36
-        conda upgrade -yq pip
-        python setup.py build bdist_wininst
-        if [[ $condalabel = "main" ]] # bdist_wininst does not handle alpha versions, so no upload unless final release.
-        then
-            source activate twine
-            twine upload -r $pypiserver dist/pydna*.exe --skip-existing
-        else
-            echo "pre release, no upload to pypi."
-        fi
-        appveyor PushArtifact dist/*        
-    elif [[ $CIRCLECI = true ]]||[[$CI_NAME = codeship]]  # Linux
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py build bdist_wininst
+        twine upload -r $pypiserver dist/*.exe --skip-existing
+        appveyor PushArtifact dist/*
+    elif [[ $CIRCLECI = true ]] # Linux
     then
         python setup.py register
-        source activate pydnapipbuild35
+        source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip
-        source activate pydnapipbuild36
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip
-        source activate twine       
-        twine upload -r $pypiserver dist/pydna*.zip --skip-existing
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py sdist --formats=zip        
+        twine upload -r $pypiserver dist/*.zip --skip-existing
     elif [[ $(uname) = "Linux" ]]
     then
         echo "Local linux: python setup.py sdist --formats=gztar,zip bdist_wheel"
         python setup.py register
-        source activate pydnapipbuild35
+        source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
-        source activate pydnapipbuild36
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip bdist_wheel
-        source activate twine
-        twine upload -r $pypiserver dist/pydna*.zip --skip-existing
-        twine upload -r $pypiserver dist/pydna*.whl --skip-existing
+        #source activate pipbuild36
+        #conda upgrade -yq pip
+        #python setup.py sdist --formats=zip bdist_wheel
+        twine upload -r $pypiserver dist/*.zip --skip-existing
+        twine upload -r $pypiserver dist/*.whl --skip-existing
     else
         echo "Running on CI server but none of the expected environment variables are set to true"
         echo "CI       = $CI"
@@ -224,7 +202,7 @@ then
         echo "CIRCLECI = $CIRCLECI"
         exit 1
     fi
-    #ls dist
+    ls dist
 else
     echo "create test environment for python 3.5"
     conda env create -f test_environment35.yml
