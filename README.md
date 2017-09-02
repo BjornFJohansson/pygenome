@@ -1,6 +1,6 @@
 # [![icon](SuperYeast.jpg)](http://www.yeastgenome.org/) [pygenome](https://pypi.python.org/pypi/pygenome)
 
-[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)[![CircleCI](https://circleci.com/gh/BjornFJohansson/pygenome.svg?style=svg)](https://circleci.com/gh/BjornFJohansson/pygenome)
+[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)[![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)[ ![Codeship Status for BjornFJohansson/pygenome](https://app.codeship.com/projects/f461d290-71e3-0135-828b-52ef08dd0262/status?branch=master)](https://app.codeship.com/projects/243478)
 [![Coverage Status](https://coveralls.io/repos/github/BjornFJohansson/pygenome/badge.svg?branch=master)](https://coveralls.io/github/BjornFJohansson/pygenome?branch=master)[![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
 
 Harness the awesome power of yeast genetics through python! Pygenome provide access to the [Saccharomyces cerevisiae](https://microbewiki.kenyon.edu/index.php/Saccharomyces_cerevisiae)
@@ -53,7 +53,8 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
 
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
-| 1.0.0 | 2017-      | ?                                                   |
+| 2.0.0 | 2017-09-02 | split sg.gene dict into sg.stdgene and sg.sysgene   |
+| 1.0.0 | 2017-03-24 | Internal stuff, automativ build & test              |
 | 0.9.5 | 2017-01-01 | Python 3 release                                    |
 | 0.9.0 | 2015-05-01 | Changed interface to a more object oriented style   |
 | 0.5.0 | 2015-03-03 | Documentation, automatic build, test and deployment |
@@ -83,7 +84,7 @@ This works on Windows, MacOSX and Linux, and installs all necessary dependencies
 
 ## Requirements
 
-- [Python 3](http://www.python.org) (0.9.0 was the last to support Python 2.7.)
+- [Python 3.5 or 3.6](http://www.python.org) (pygenome version 0.9.0 was the last to support Python 2.7.)
 - [pydna](http://pypi.python.org/pypi/pydna)
 - [requests](http://pypi.python.org/pypi/requests)
 - [appdirs](https://pypi.python.org/pypi/appdirs)
