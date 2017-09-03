@@ -93,14 +93,8 @@ class Gene():
 
     @property
     def orf(self):
-        '''
-        Returns the open reading frame associated with a standard name
+        '''Returns the open reading frame associated with a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
-
-        Parameters
-        ----------
-        gene : str
-            standard name (eg. CYC1) or a systematic name (eg. YJR048W)
 
         Returns
         -------
@@ -111,7 +105,7 @@ class Gene():
         --------
         cds_genbank_accession
         cds_pydna_code
-
+        
         Examples
         --------
         >>> from pygenome import sg
@@ -134,8 +128,7 @@ class Gene():
 
     @property
     def upstream_gene(self):
-        '''
-        Returns the coding sequence (cds) assciated with the gene upstream
+        '''Returns the coding sequence (cds) assciated with the gene upstream
         of gene. This is defined as the gene on the chromosome located
         5' of the transcription start point of gene.
         The gene can be given as a standard name
@@ -151,8 +144,7 @@ class Gene():
 
     @property
     def downstream_gene(self):
-        '''
-        Returns the coding sequence (cds) assciated with the gene downstream
+        '''Returns the coding sequence (cds) assciated with the gene downstream
         of gene. This is defined as the gene on the chromosome located
         3' of the transcription stop point of gene.
         The gene can be given as a standard name
@@ -172,8 +164,7 @@ class Gene():
 
     @property
     def promoter(self):
-        '''
-        Returns the sequence of the promoter assciated with
+        '''Returns the sequence of the promoter assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
 
         The promoter is defined as the sequence between the start codon
@@ -223,8 +214,7 @@ class Gene():
 
     @property
     def terminator(self):
-        '''
-        Returns the sequence of the terminator assciated with
+        '''Returns the sequence of the terminator assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
 
         The promoter is defined as the sequence between the stop codon
@@ -240,12 +230,11 @@ class Gene():
         -------
         out : Bio.SeqRecord
             Bio.SeqRecord object
-
+            
         See Also
         --------
         terminator_genbank_accession
-        terinator_pydna_code
-
+        terminator_pydna_code
 
         Examples
         --------
@@ -277,10 +266,9 @@ class Gene():
 
     @property
     def tandem(self):
-        '''
-        Returns True if a gene is expressed in the same direction on the chromosome as
+        '''Returns True if a gene is expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
-
+        
         ::
             Tandem genes:
 
@@ -292,11 +280,7 @@ class Gene():
             Gene1 Gene2
             ----> <----
 
-
-        Parameters
-        ----------
-        gene : str
-            standard name (eg. CYC1 or TDH3)
+        See also the bidirectional property.
 
         Returns
         -------
@@ -309,8 +293,7 @@ class Gene():
 
     @property
     def bidirectional(self):
-        '''
-        Returns True if a gene is not expressed in the same direction on the chromosome as
+        '''Returns True if a gene is NOT expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
 
         ::
@@ -320,24 +303,19 @@ class Gene():
             ----> ---->
 
             bidirectional genes:
-
+                
             Gene1 Gene2
             ----> <----
-
+            
             Gene1 Gene2
             <---- ---->
 
-
-        Parameters
-        ----------
-        gene : str
-            standard name (eg. CYC1 or TDH3)
-
+        See also the tandem property.
+ 
         Returns
         -------
         out : bool
             Boolean; True or False
-
         '''
         return not self.tandem
 

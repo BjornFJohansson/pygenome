@@ -14,10 +14,8 @@ from pygenome._data_files import _chromosome_files
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
-
 def intergenic_sequence(upgene, dngene):
-    '''
-    Returns the intergenic sequence between two genes on the same chromosome.
+    '''This function will return the intergenic sequence between two genes on the same chromosome.
 
     Parameters
     ----------
