@@ -2,7 +2,7 @@ name: readthedocsenv
 channels:
 - BjornFJohansson
 dependencies:
-- python
+- python=3.6
 - numpydoc
 - ipython
 - pydna
