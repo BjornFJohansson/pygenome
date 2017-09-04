@@ -4,14 +4,10 @@
    contain the root `toctree` directive.
 
 Welcome to pygenome's documentation!
-=================================
-
-Contents:
+====================================
 
 .. toctree::
    :maxdepth: 2
-
-   pygenome
    
 
 Indices and tables

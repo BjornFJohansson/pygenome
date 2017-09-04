@@ -270,15 +270,15 @@ class Gene():
         the gene immediatelly upstream.
         
         ::
-            Tandem genes:
+                Tandem genes:
 
-            Gene1 Gene2
-            ----> ---->
+                Gene1 Gene2
+                ----> ---->
 
-            bidirectional genes:
+                bidirectional genes:
 
-            Gene1 Gene2
-            ----> <----
+                Gene1 Gene2
+                ----> <----
 
         See also the bidirectional property.
 

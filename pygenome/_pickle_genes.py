@@ -14,7 +14,7 @@ data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevi
 _feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
 _standard_to_systematic = _pickle.load( open(_os.path.join(data_dir, "standard_to_systematic.pickle"), "rb" ) )
 
-from pygenome._locus import Gene
+from pygenome.locus import Gene
 
 def _pickle_genes():   
 

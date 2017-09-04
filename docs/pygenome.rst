@@ -12,6 +12,14 @@ pygenome\.intergenic module
     :undoc-members:
     :show-inheritance:
 
+pygenome\.locus module
+----------------------
+
+.. automodule:: pygenome.locus
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 pygenome\.sg module
 -------------------
 
