@@ -6,7 +6,11 @@ dependencies:
 - pydna
 - percache
 - tqdm
+
 - pytest
+- coverage
+- python-coveralls
+- pytest-cov
 - pytest-runner
 - nbval
 
