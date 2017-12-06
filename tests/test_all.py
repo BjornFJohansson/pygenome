@@ -14,7 +14,7 @@ def test_pretty():
     pp = MagicMock()
     x=pretty_str("abc")
     x._repr_pretty_(pp, None)
-    pp.text.assert_called_once()
+    pp.text.assert_called()
 
 
 def test_TEF1():
