@@ -10,6 +10,6 @@ class pretty_str(str):
     def _repr_pretty_(self, p, cycle):
         p.text(self)
 
-if __name__=="__main__":
+if __name__=="__main__":  # pragma: no cover
     import doctest
     doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
