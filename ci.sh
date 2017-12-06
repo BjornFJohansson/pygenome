@@ -163,6 +163,7 @@ then
 
     if [[ $TRAVIS = true ]] # MacOSX
     then
+        brew update
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py build bdist_wheel bdist_egg
