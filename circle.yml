@@ -4,6 +4,8 @@ dependencies:
 test:
     override:
         - bash ci.sh
+    post:
+        - bash <(curl -s https://codecov.io/bash)
 deployment:
   release:
     tag: /.*/
