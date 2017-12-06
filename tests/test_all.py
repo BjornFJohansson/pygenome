@@ -8,6 +8,8 @@ from pygenome import sg
 
 from pygenome._pretty import pretty_str
 
+from pygenome.systematic_name import _systematic_name
+
 
 def test_pretty():
     from unittest.mock import MagicMock
@@ -15,6 +17,11 @@ def test_pretty():
     x=pretty_str("abc")
     x._repr_pretty_(pp, None)
     pp.text.assert_called()
+    
+def test_names():
+    x=_systematic_name("TDH3")
+    with pytest.raises(KeyError):
+        _systematic_name("NOGENE")
 
 
 def test_TEF1():

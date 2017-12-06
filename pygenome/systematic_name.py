@@ -20,7 +20,7 @@ def _systematic_name(gene):
         try:
             gene = _standard_to_systematic[gene]
         except KeyError:
-            raise Exception("gene {} does not exist".format(gene))
+            raise KeyError("gene {} does not exist".format(gene))
     return _ps(gene)
 
 if __name__ is "__main__":
