@@ -63,14 +63,13 @@ def main():
     print("|___/\__,_|_|\__\___(_)")
     print("                       ")
     print("                       ")
-    
     try:
-        import coveralls
+        import pytest_cov
     except ImportError:
-        print("python-coveralls NOT installed!")
+        print("pytest_cov NOT installed!")
         args = []
     else:
-        del coveralls
+        del pytest_cov
         args = ["--cov=pygenome", "--cov-report=html", "--cov-report=xml"]    
     try:
         import nbval
