@@ -6,6 +6,16 @@ import logging
 import tempfile
 import pytest
 
+
+
+
+# Pytest plugin for measuring coverage.
+
+#- coverage
+#- python-coveralls
+#- pytest-cov
+
+
 def main():
 
     if os.getenv("CI"):
