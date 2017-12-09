@@ -10,7 +10,7 @@ from pygenome._pretty import pretty_str as _ps
 
 from pygenome.systematic_name import _systematic_name
 
-from pygenome._data_files import _chromosome_files
+from  pygenome._data import _data_files
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
@@ -60,7 +60,7 @@ def intergenic_sequence(upgene, dngene):
     if upgene[1] != dngene[1]:
         raise Exception("Both genes has to be on the same chromosome.")
 
-    _krom = _SeqIO.read(_os.path.join(data_dir, _chromosome_files[upgene[1]]),"gb")
+    _krom = _SeqIO.read(_os.path.join(data_dir, _data_files[ord(upgene[1])-65]),"gb")
     cds  = {f.qualifiers['locus_tag'][0] :  f for f in [f for f in _krom.features if f.type=="CDS"]}
     upfeature = cds[upgene]
     startup, stopup  = upfeature.location.start,upfeature.location.end

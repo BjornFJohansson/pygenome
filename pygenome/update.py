@@ -6,122 +6,62 @@
 
 import os            as _os
 import urllib        as _urllib
-import urllib.parse  as _urlparse
 import sys           as _sys
-import time          as _time
+import calendar      as _calendar
 import datetime      as _datetime
-
+from   email.utils   import parsedate_to_datetime
+import logging       as _logging
+_module_logger = _logging.getLogger("pygenome."+__name__)
 from tqdm import tqdm
 import requests
+import pathlib
 
 from pydna.readers import read as _read
 
 from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
 _pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
-from pygenome._data_files import _chromosome_files, _data_files
+from  pygenome._data import _data_urls
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
+def updater():
+    _sys.stdout.write("checking online for updated data files\n")
 
-
-def _download_chromosome_files(_missing_files=[]):
-    '''
-    Download the sequence files from Saccharomyces Genome Database (www.sgd.org)
-    This is typically only done once.
-    '''
-    url = _os.getenv("pygenome_base_url")
-    _sys.stdout.write("Data files to be downloaded are:\n")
-
-    for _file_ in _missing_files:
-        _sys.stdout.write(_file_+"\n")
-
-    _sys.stdout.write("these files will be put in {}\n".format(data_dir))
-
-    for _file_ in sorted(_missing_files):
-        _sys.stdout.write("downloading {} ".format(_file_))
-
-        last_modified = _urllib.request.urlopen(_urlparse.urljoin(url, _file_)).headers['last-modified']
-        remotedate = _time.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
-
-        rdate2 = int(_time.mktime(remotedate))
+    for url in _data_urls:
         
-        response = requests.get(_urlparse.urljoin(url, _file_), stream=True)
-        total = int(response.headers.get('content-length'))
+        fn = _urllib.parse.urlparse(url)[2].rpartition("/")[-1]
         
-        with open(_os.path.join(data_dir ,_file_), 'wb') as f:
-            for data in tqdm(response.iter_content(), total=total):
-                f.write(data)
+        path = pathlib.Path(data_dir).joinpath(fn)
 
-        _os.utime(_os.path.join(data_dir ,_file_) ,(rdate2, rdate2))
+        try:
+            local_last_mod = _datetime.datetime.fromtimestamp(path.stat().st_mtime, tz=_datetime.timezone.utc)
+        except FileNotFoundError:
+            local_last_mod = _datetime.datetime.fromtimestamp(0, tz=_datetime.timezone.utc)
+            
+        response = requests.get(url, stream=True)        
 
-        _sys.stdout.write("{} successfully downloaded\n".format(_file_))
-
-def _download_data_files(_missing_files=[]):
-    '''
-    Download data files.
-    This is typically only done once.
-    '''
-    url = _os.getenv("pygenome_primer_url")
-    _sys.stdout.write("Data files to be downloaded are:\n")
-
-    for _file_ in _missing_files:
-        _sys.stdout.write(_file_+"\n")
-
-    _sys.stdout.write("these files will be put in {}\n".format(data_dir))
-
-    for _file_ in sorted(_missing_files):
-    
-        from tqdm import tqdm
-        import requests
-    
-        response = requests.get(_urlparse.urljoin(url, _file_), stream=True)
-        total = int(response.headers.get('content-length'))
-    
-        with open(_os.path.join(data_dir ,_file_), 'wb') as f:
-            for data in tqdm(response.iter_content(), total=total):
-                f.write(data)
-
-
-def update():
-    url = _os.getenv("pygenome_base_url")
-    _sys.stdout.write("checking for updated chromosome files at\n{}\n".format(url))
-    
-    _missing_files = []
-
-    for _file_ in sorted(_chromosome_files.values()):
-
-        last_modified = _urllib.request.urlopen(_urlparse.urljoin(url, _file_)).headers['last-modified']
-        remotedate = _time.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
-        # http://stackoverflow.com/questions/5022083/how-can-i-get-the-last-modified-time-with-python3-urllib
+        remote_last_mod = parsedate_to_datetime(response.headers.get('last-modified'))
         
-        if _datetime.datetime(*remotedate[:-2]) > _datetime.datetime.fromtimestamp((_os.path.getmtime(_os.path.join(data_dir, _file_)))):
-            _missing_files.append(_file_)
-            _sys.stdout.write("{} is available in a newer version\n".format(_file_))
+        if   remote_last_mod < local_last_mod:
+            _module_logger.warning("local file %s %s is newer than remote file %s %s", fn, local_last_mod, url, remote_last_mod )
+        
+        if remote_last_mod > local_last_mod:
+            _sys.stdout.write("{} is available in a newer version --downloading\n".format(fn))
+
+            remote_last_mod_time_stamp = _calendar.timegm(remote_last_mod.timetuple())        
+            
+            total = int(response.headers.get('content-length'))
+            
+            with open(path, 'wb') as f:
+                for data in tqdm(response.iter_content(), total=total):
+                    f.write(data)
+    
+            _os.utime(path, times=(remote_last_mod_time_stamp,)*2)
+    
+            _sys.stdout.write("{} successfully downloaded\n".format(fn))            
         else:
-            _sys.stdout.write("{} is the newest version\n".format(_file_))
-
-    if _missing_files:
-        _download_chromosome_files(_missing_files)
-    
-    url = _os.getenv("pygenome_primer_url")
-    _sys.stdout.write("\nchecking for updated primer files at\n{}\n".format(url))
-    
-    _missing_files = []    
-    
-    for _file_ in _data_files:
-    
-        last_modified = _urllib.request.urlopen(_urlparse.urljoin(url, _file_)).headers['last-modified']
-        remotedate = _time.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
-    
-        if _datetime.datetime(*remotedate[:-2]) > _datetime.datetime.fromtimestamp((_os.path.getmtime(_os.path.join(data_dir, _file_)))):
-            _sys.stdout.write("{} is available in a newer version\n".format(_file_))
-            _missing_files.append(_file_)
-        else:
-            _sys.stdout.write("{} is the newest version\n".format(_file_))
-
-    if _missing_files:     
-        _download_data_files(_missing_files)
+            _sys.stdout.write("{} is the newest version ({})\n".format(fn, local_last_mod.isoformat()))
 
 if __name__=="__main__":
-    pass
+    updater()

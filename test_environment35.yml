@@ -12,6 +12,7 @@ dependencies:
 - pytest-cov
 - pytest-runner
 - nbval
+- requests-mock
 
 - setuptools
 

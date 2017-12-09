@@ -12,7 +12,7 @@ import configparser     as _configparser
 import prettytable      as _prettytable
 import shutil           as _shutil
 import zipfile          as _zipfile
-from pygenome._pretty      import pretty_str  as _pretty_str
+from pygenome._pretty   import pretty_str  as _pretty_str
 from pkg_resources   import resource_filename as _resource_filename
 
 '''
@@ -155,6 +155,10 @@ def _open_folder(pth):
             _subprocess.Popen(['xdg-open', pth])
         except OSError:
             return "no folder to open."
+
+def delete_data_folder():
+    import shutil as _shutil
+    _shutil.rmtree(_os.environ["pygenome_data_dir"])
             
 def get_env():
     _table = _prettytable.PrettyTable(["Variable", "Value"])
@@ -167,6 +171,8 @@ def get_env():
             _table.add_row([k,v])
     return _pretty_str(_table)
 
+
+
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
 try:
@@ -175,19 +181,28 @@ except OSError:
     if not _os.path.isdir( data_dir ):
        raise
 
-from pygenome._data_files import _chromosome_files, _data_files
+from  pygenome._data import _data_urls
+import urllib as _urllib
 
 _missing_files=[]
 
-for _file_ in (list(_chromosome_files.values()) + _data_files):
+for _url in _data_urls:
+    _file_= _urllib.parse.urlparse(_url)[2].rpartition("/")[-1]
     if not _os.path.exists(_os.path.join(data_dir, _file_)):
         _logger.warning("file %s missing", _file_)
         _missing_files.append(_file_)
 
+import time as _time
+import os as _os
+
 if _missing_files:
     _shutil.copy( _resource_filename("pygenome", "Saccharomyces_cerevisiae.zip"), data_dir )
-    with _zipfile.ZipFile(_os.path.join(data_dir, "Saccharomyces_cerevisiae.zip"), "r") as z:
-        z.extractall( data_dir )
+    zf = _zipfile.ZipFile(_os.path.join(data_dir, "Saccharomyces_cerevisiae.zip"), "r")
+    for zi in zf.infolist():
+        zf.extract(zi, path=data_dir)
+        date_time = _time.mktime(zi.date_time + (0, 0, -1))
+        _os.utime(_os.path.join(data_dir, zi.filename), (date_time, date_time))
+    zf.close()
         
 if not _os.path.exists(_os.path.join(data_dir, "primers.pickle")):
     _sys.stdout.write("pickle primers.")
@@ -216,12 +231,12 @@ if not _os.path.exists(_os.path.join(data_dir, "systematic_to_description.pickle
 
 
 if _do_pickle_lists:
-    _sys.stdout.write("pickle lists.")
+    _sys.stdout.write("pickle lists.\n")
     from pygenome._pickle_lists import _pickle_lists
     _pickle_lists()
-    _sys.stdout.write("pickle lists done.")
-    
+    _sys.stdout.write("pickle lists done.\n")
 if not _os.path.exists(_os.path.join(data_dir,"stdgene.pickle")) or not _os.path.exists(_os.path.join(data_dir,"sysgene.pickle")):
-    _sys.stdout.write("pickle locus list.")
+    _sys.stdout.write("pickle locus list.\n")
     from pygenome._pickle_genes import _pickle_genes
     _pickle_genes()
+    _sys.stdout.write("pickle locus list done.\n")

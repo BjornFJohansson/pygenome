@@ -6,9 +6,6 @@ import logging
 import tempfile
 import pytest
 
-
-
-
 # Pytest plugin for measuring coverage.
 
 #- coverage
@@ -66,20 +63,22 @@ def main():
     try:
         import pytest_cov
     except ImportError:
-        print("pytest_cov NOT installed!")
+        print("pytest_cov NOT installed")
         args = []
     else:
         del pytest_cov
-        args = ["--cov=pygenome", "--cov-report=html", "--cov-report=xml"]    
+        args = ["--cov=pygenome", "--cov-report=html", "--cov-report=xml"]
+        print("pytest_cov installed")
     try:
         import nbval
     except ImportError:
-        print("nbval NOT installed!")
+        print("nbval NOT installed")
     else:
         del nbval
-        args.append("--nbval")   
+        print("nbval installed")
+        args.append("--nbval") 
 
-    args = [".", "-v", "-s"] + args 
+    args = [".", "-v", "-s"] + args
     cwd = os.getcwd()
     os.chdir("tests")
     pytest.cmdline.main(args)

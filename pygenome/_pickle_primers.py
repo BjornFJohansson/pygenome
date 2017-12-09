@@ -29,7 +29,7 @@ import csv           as _csv
 import collections   as _collections
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
-from pygenome._data_files import _data_files
+from  pygenome._data import _data_files
 
 _primertuple = _collections.namedtuple("_primertuple", '''rec_num
                                                           ORF_name
@@ -57,8 +57,8 @@ _primertuple = _collections.namedtuple("_primertuple", '''rec_num
                                                           DNTAG_sequence_20mer''')
 
 def pickle_primers():
-    _fn = _data_files[0]
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    _fn = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae",_data_files[16])
+    with open(_fn, 'rt') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
         field_names = [x.strip() for x in next(rd)]
         next(rd)
@@ -67,15 +67,12 @@ def pickle_primers():
             v = _primertuple(*[x.strip() for x in line_])
             _primers[v.ORF_name] = v
     _pickle.dump( _primers, open(_os.path.join(data_dir,"primers.pickle"), "wb" ), -1 )
-
-
-
-
+    
 _not_done_tuple=_collections.namedtuple("_not_done_tuple", "ORF_name Gene_name SGD_class")
 
 def pickle_orfs_not_deleted():
-    _fn = _data_files[1]
-    with open(_os.path.join(data_dir, _fn), 'rt') as csvfile:
+    _fn = _fn = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae",_data_files[17])
+    with open(_fn, 'rt') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
         next(rd)
         next(rd)

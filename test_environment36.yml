@@ -10,6 +10,7 @@ dependencies:
 - pytest
 - pytest-runner
 - nbval
+- requests-mock
 
 - setuptools
 

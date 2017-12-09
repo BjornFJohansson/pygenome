@@ -4,7 +4,7 @@
 import os               as _os
 import re               as _re
 import pickle           as _pickle
-from pygenome._pretty import pretty_str as _ps
+from pygenome._pretty   import pretty_str as _ps
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 

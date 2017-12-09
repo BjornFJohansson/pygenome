@@ -8,7 +8,7 @@ import os                               as _os
 import pickle                           as _pickle
 from Bio             import SeqIO       as _SeqIO
 from pygenome._pretty   import pretty_str  as _ps
-from pygenome._data_files     import _chromosome_files
+from  pygenome._data import _data_files
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
@@ -25,8 +25,8 @@ def _pickle_lists():
         _systematic_to_genbank_accession = {}
         _systematic_to_description = {}
 
-    for _f in list(_chromosome_files.values()):
-        _krom  =  _SeqIO.read(_os.path.join(data_dir, _f), "gb")       
+    for _f in _data_files[:16]:
+        _krom  =  _SeqIO.read(_os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae", _f), "gb")       
         _features = [f for f in _krom.features if f.type=="CDS"]
          
         _systematic_to_genbank_accession.update( {_ps(f.qualifiers['locus_tag'][0]) : _ps("{} REGION: ".format(_krom.id)+{ 1:"{}..{}".format(f.location.start+1, f.location.end), -1:"complement({}..{})".format(f.location.start+1, f.location.end)}[f.location.strand]) for f in _features })

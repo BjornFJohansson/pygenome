@@ -27,8 +27,8 @@ _pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
 from pygenome.systematic_name import _systematic_name
 from pygenome.standard_name   import _standard_name
-from pygenome._data_files     import _chromosome_files
-from pygenome.intergenic      import  intergenic_sequence
+from  pygenome._data     import _data_files
+from pygenome.intergenic     import  intergenic_sequence
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
@@ -42,7 +42,7 @@ class Gene():
     def __init__(self, gene_name):
         self.sys = _ps(_systematic_name(gene_name))
         self.std = _ps(_standard_name(gene_name) or self.sys)
-        self.chr = _ps(_chromosome_files[self.sys[1]])        
+        self.chr = _ps(_data_files[ord(self.sys[1])-65])        
         link = "<a href='http://www.yeastgenome.org/locus/{gene}' target='_blank'>{text}</a>"
         self.sgd_link = _ps(link.format(gene=self.sys, text="Gene {}/{}".format(self.std, self.sys)))
         
@@ -60,9 +60,7 @@ class Gene():
         return len(self.locus(upstream=0, downstream=0))
 
     def locus(self, upstream=1000, downstream=1000):
-
-        _krom = _SeqIO.read( _os.path.join(data_dir,self.chr),"gb")
-
+        _krom = _SeqIO.read(_os.path.join(data_dir, _data_files[ord(self.sys[1])-65]), "gb")
         feature = {f.qualifiers['locus_tag'][0] :  f for f in [f for f in _krom.features if f.type=="CDS"]}[self.sys]
 
         color = '#%02x%02x%02x' % (int(_random.uniform(150,255)),
