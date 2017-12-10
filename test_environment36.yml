@@ -7,12 +7,12 @@ dependencies:
 - pydna
 - percache
 - tqdm
+
 - pytest
+- coverage
+- pytest-cov
 - pytest-runner
 - nbval
 - requests-mock
 
 - setuptools
-
-
-

@@ -8,8 +8,6 @@ dependencies:
 - tqdm
 
 - pytest
-- coverage
-- pytest-cov
 - pytest-runner
 - nbval
 - requests-mock

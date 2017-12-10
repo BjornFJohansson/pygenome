@@ -21,17 +21,16 @@ from pydna.readers import read as _read
 from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
 _pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
-from  pygenome._data import _data_urls
+from  pygenome._data import _data_urls, _data_files
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
 def updater():
     _sys.stdout.write("checking online for updated data files\n")
 
-    for url in _data_urls:
+    for url,fn in zip( _data_urls, _data_files):
         
-        fn = _urllib.parse.urlparse(url)[2].rpartition("/")[-1]
-        
+        print("datadir-------", data_dir)
         path = pathlib.Path(data_dir).joinpath(fn)
 
         try:
@@ -53,11 +52,11 @@ def updater():
             
             total = int(response.headers.get('content-length'))
             
-            with open(path, 'wb') as f:
+            with open(str(path), 'wb') as f:
                 for data in tqdm(response.iter_content(), total=total):
                     f.write(data)
     
-            _os.utime(path, times=(remote_last_mod_time_stamp,)*2)
+            _os.utime(str(path), times=(remote_last_mod_time_stamp,)*2)
     
             _sys.stdout.write("{} successfully downloaded\n".format(fn))            
         else:

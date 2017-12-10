@@ -57,7 +57,7 @@ def test_pretty():
     pp = MagicMock()
     x=pretty_str("abc")
     x._repr_pretty_(pp, None)
-    pp.text.assert_called()
+    pp.text.assert_any_call("abc")
     
 def test_names():
     x=_systematic_name("TDH3")
