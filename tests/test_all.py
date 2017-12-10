@@ -22,17 +22,18 @@ def requests_mock(request):
     request.addfinalizer(m.stop)
     return m
 
+
+
 def test_update(requests_mock):
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
-    tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp")
+    tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
     shutil.copytree(data_dir, tmp_data_dir)
     
     for fn, url in zip(_data_files,_data_urls): 
         # set data file to be really old....
         path = pathlib.Path( os.path.join(data_dir, fn) )
         os.utime(str(path), times=(path.stat().st_atime, 946684800))  #946684800 = Saturday 1st January 2000 12:00:00 AM
-        #flo = open(path, "rb")
-        flo = io.BytesIO(b"some text data")
+        flo = io.BytesIO(b"some text data")  # These files will be deemed newer and downloaded
         requests_mock.get(url, 
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
@@ -42,12 +43,22 @@ def test_update(requests_mock):
         # set data file to be the same age remote
         path = pathlib.Path( os.path.join(data_dir, fn) )
         os.utime(str(path), times=(path.stat().st_atime, 978307200))
-        flo = io.BytesIO(b"some text datathat will not be used")
+        flo = io.BytesIO(b"some text data that will not be used")
         requests_mock.get(url, 
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
                           body = flo)
     updater() # should keep the local files  
+    for fn, url in zip(_data_files,_data_urls):
+        path = pathlib.Path( os.path.join(data_dir, fn) )
+        path.unlink()
+        flo = io.BytesIO(b"some text data that will be used")
+        requests_mock.get(url, 
+                          headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
+                                   'content-length' : "100"}, 
+                          body = flo)
+        
+    updater()    
     shutil.rmtree(data_dir)
     shutil.copytree(tmp_data_dir, data_dir)
 
@@ -133,7 +144,13 @@ def test_misc():
     assert str(sg.stdgene["CDC24"].terminator.seq) in str(sg.stdgene["CDC24"].locus().seq)
 
     from pygenome.intergenic import intergenic_sequence
-    assert str( intergenic_sequence("YAL021C","YAL023C").seq).lower() in str(sg.stdgene["FUN26"].locus().seq).lower()
+    intseq = intergenic_sequence("YAL021C","YAL023C")
+    assert str( intseq.seq).lower() in str(sg.stdgene["FUN26"].locus().seq).lower()
+    
+
+    with pytest.raises(Exception):
+        intergenic_sequence("YAL021C","YBL023C")
+    
 
 def test_kanmx4():
 

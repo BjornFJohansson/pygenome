@@ -22,8 +22,3 @@ def _systematic_name(gene):
         except KeyError:
             raise KeyError("gene {} does not exist".format(gene))
     return _ps(gene)
-
-if __name__ is "__main__":
-    pass
-
-

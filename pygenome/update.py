@@ -29,8 +29,7 @@ def updater():
     _sys.stdout.write("checking online for updated data files\n")
 
     for url,fn in zip( _data_urls, _data_files):
-        
-        print("datadir-------", data_dir)
+
         path = pathlib.Path(data_dir).joinpath(fn)
 
         try:
@@ -62,5 +61,5 @@ def updater():
         else:
             _sys.stdout.write("{} is the newest version ({})\n".format(fn, local_last_mod.isoformat()))
 
-if __name__=="__main__":
+if __name__=="__main__": # pragma: no cover
     updater()

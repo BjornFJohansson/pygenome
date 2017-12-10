@@ -12,6 +12,3 @@ data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevi
 
 sysgene = _pickle.load( open( _os.path.join(data_dir, "sysgene.pickle"), "rb" ) )
 stdgene = _pickle.load( open( _os.path.join(data_dir, "stdgene.pickle"), "rb" ) )
-
-if __name__=="__main__":
-    pass

@@ -50,13 +50,10 @@ def intergenic_sequence(upgene, dngene):
     >>>
 
     '''
-
+        
     upgene = _systematic_name(upgene)
     dngene = _systematic_name(dngene)
 
-    if not upgene and dngene:
-        raise Exception("Both upgene and dngene are needed.")
-    #print upgene[1], dngene[1]
     if upgene[1] != dngene[1]:
         raise Exception("Both genes has to be on the same chromosome.")
 
@@ -85,9 +82,3 @@ def intergenic_sequence(upgene, dngene):
     igs.pydna_code = _ps("gb = pydna.Genbank('my@email.com')\n"
                          "seq = gb.nucleotide('{}')".format(igs.description))
     return igs
-
-
-if __name__ is "__main__":
-    pass
-
-

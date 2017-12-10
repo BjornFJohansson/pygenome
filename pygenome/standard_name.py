@@ -24,8 +24,3 @@ def _standard_name(gene):
         except KeyError:
             return None
     return _ps(gene)
-
-if __name__ is "__main__":
-    pass
-
-

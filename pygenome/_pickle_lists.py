@@ -46,6 +46,3 @@ def _pickle_lists():
         _pickle.dump( _systematic_to_genbank_accession, open(_os.path.join(data_dir,"systematic_to_genbank_accession.pickle"), "wb" ), -1 )
         _pickle.dump( _systematic_to_standard, open(_os.path.join(data_dir,"systematic_to_standard.pickle"), "wb" ), -1 )
         _pickle.dump( _systematic_to_description, open(_os.path.join(data_dir,"systematic_to_description.pickle"), "wb" ), -1 )
-
-if __name__=="__main__":
-    pass

@@ -367,6 +367,3 @@ class Gene():
                       annotations = kanmx4_gene.annotations)
 
         return k
-
-if __name__=="__main__":
-    pass

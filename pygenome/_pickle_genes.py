@@ -34,6 +34,3 @@ def _pickle_genes():
     
     _pickle.dump( sysgene, open( _os.path.join(data_dir,"sysgene.pickle"), "wb" ), -1 )
     _pickle.dump( stdgene, open( _os.path.join(data_dir,"stdgene.pickle"), "wb" ), -1 )
-
-if __name__=="__main__":
-    pass
