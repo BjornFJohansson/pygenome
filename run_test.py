@@ -4,6 +4,7 @@ import os
 import shutil
 import logging
 import tempfile
+import platform
 import pytest
 
 # Pytest plugin for measuring coverage.
@@ -12,6 +13,18 @@ import pytest
 #- python-coveralls
 #- pytest-cov
 
+try:
+    from pyfiglet import Figlet
+except ImportError:
+    class Figlet(object):
+        def __init__(self, *args,**kwargs): pass
+        def renderText(self,text): return text
+     
+f = Figlet(font='slant')
+
+pyversion = platform.python_version()
+
+print(f.renderText('python {}'.format(pyversion)))
 
 def main():
 
@@ -21,9 +34,9 @@ def main():
         cwd = os.getcwd()
         print("current working directory:", cwd)
         
-        os.environ["pygenome_data_dir"]    = os.path.join(cwd,"DATA")
-        os.environ["pygenome_log_dir"]     = os.path.join(cwd,"DATA")
-        os.environ["pygenome_config_dir"]  = os.path.join(cwd,"DATA")
+        os.environ["pygenome_data_dir"]    = os.path.join(cwd,"DATA_"+pyversion)
+        os.environ["pygenome_log_dir"]     = os.path.join(cwd,"DATA_"+pyversion)
+        os.environ["pygenome_config_dir"]  = os.path.join(cwd,"DATA_"+pyversion)
 
         # create data directory if not present
         try:
@@ -46,20 +59,7 @@ def main():
         os.environ["pygenome_config_dir"]  = tempfile.mkdtemp(prefix="pygenome_config_dir_")
         os.environ["pygenome_loglevel"]    = str( logging.DEBUG )
        
-    print(" _            _   ")
-    print("| |          | |  ")
-    print("| |_ ___  ___| |_ ")
-    print("| __/ _ \/ __| __|")
-    print("| ||  __/\__ \ |_ ")
-    print(" \__\___||___/\__|")
-    print("           _ _       _ ")
-    print("          (_) |     | |")
-    print(" ___ _   _ _| |_ ___| |")
-    print("/ __| | | | | __/ _ \ |")
-    print("\__ \ |_| | | ||  __/_|")
-    print("|___/\__,_|_|\__\___(_)")
-    print("                       ")
-    print("                       ")
+    print(f.renderText('tests'))
     try:
         import pytest_cov
     except ImportError:
@@ -88,15 +88,9 @@ def main():
     except FileNotFoundError:
         pass
     args = ["pygenome", "--doctest-modules", "-v", "-s"]
+    print(f.renderText('doctests'))
     pytest.cmdline.main(args)
-
-    print("  __ _       _     _              _ _ ")
-    print(" / _(_)     (_)   | |            | | |")
-    print("| |_ _ _ __  _ ___| |__   ___  __| | |")
-    print("|  _| | '_ \| / __| '_ \ / _ \/ _` | |")
-    print("| | | | | | | \__ \ | | |  __/ (_| |_|")
-    print("|_| |_|_| |_|_|___/_| |_|\___|\__,_(_)")
-
+    print(f.renderText('done!'))
 
 if __name__ == '__main__':
     main()

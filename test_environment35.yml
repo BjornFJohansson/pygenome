@@ -1,18 +1,19 @@
 name: testenv35
 channels:
 - BjornFJohansson
+- conda-forge
 dependencies:
 - python=3.5
 - pydna
 - percache
 - tqdm
+- setuptools
 
 - pytest
 - pytest-runner
 - nbval
 - requests-mock
+- pyfiglet
 
-- setuptools
-
-
-
+#- coverage
+#- pytest-cov
