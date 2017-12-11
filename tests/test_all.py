@@ -204,7 +204,7 @@ def test_kanmx4():
 def test_pickle():
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
     import pathlib
-    for p in pathlib.Path(data_dir).glob("*.pickle"): p.unlink()
+    pathlib.Path(data_dir).joinpath("systematic_to_description.pickle").unlink()
     
     from pygenome._pickle_primers import pickle_primers
     pickle_primers()
