@@ -85,7 +85,6 @@ then
     password = $pypipassword
 
     [pypi]
-    repository = https://upload.pypi.io/legacy/
     username = $pypiusername
     password = $pypipassword" > $HOME/.pypirc
 
@@ -136,10 +135,10 @@ then
     echo "build conda package and setuptools package(s)"
     conda install -yq conda-build
     conda-build -V
-    conda create -yq -n condabuild35 python=3.5 anaconda-client pypandoc pandoc nbval tqdm
-    conda create -yq -n condabuild36 python=3.6 anaconda-client pypandoc pandoc nbval tqdm
-    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc
-    conda create -yq -n pipbuild36   python=3.6 anaconda-client pypandoc pandoc
+    conda create -yq -n condabuild35 python=3.5 anaconda-client          pypandoc pandoc nbval tqdm requests_mock
+    conda create -yq -n condabuild36 python=3.6 anaconda-client          pypandoc pandoc nbval tqdm requests_mock
+    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc            requests_mock
+    conda create -yq -n pipbuild36   python=3.6 anaconda-client          pypandoc pandoc            requests_mock
     conda create -yq -n twine        python=3.5 twine
     rm -rf dist
     rm -rf build
@@ -182,14 +181,15 @@ then
     then
         source activate pipbuild35
         conda upgrade -yq pip
-        python setup.py build bdist_wininst
+        python setup.py build bdist_wheel bdist_egg
         source activate pipbuild36
         conda upgrade -yq pip
-        python setup.py build bdist_wininst
+        python setup.py build bdist_wheel bdist_egg
         if [[ $condalabel = "main" ]] # bdist_wininst does not handle alpha versions, so no upload unless final release.
         then
             source activate twine
-            twine upload -r $pypiserver dist/pygenome*.exe --skip-existing
+            twine upload -r $pypiserver dist/pygenome*.whl --skip-existing
+            twine upload -r $pypiserver dist/pygenome*.egg --skip-existing
         else
             echo "pre release, no upload to pypi."
         fi
