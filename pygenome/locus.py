@@ -322,7 +322,7 @@ class Gene():
 
         p = _primers[self.sys]
 
-        if not p:
+        if not p: # pragma: no cover
             return "No deletion primers available!"
 
         upt = _SeqRecord( _Seq( p.UPTAG_primer_sequence ))
@@ -330,7 +330,7 @@ class Gene():
         ups = _SeqRecord( _Seq( p.UPstream45_primer_sequence ))
         dns = _SeqRecord( _Seq( p.DNstream45_primer_sequence ))
 
-        if "" in [str(x.seq).strip() for x in [upt,dnt,ups,dns]]:
+        if "" in [str(x.seq).strip() for x in [upt,dnt,ups,dns]]: # pragma: no cover
             return "One deletion primer missing!"
 
         upt.id  = "UPTAG_primer_{}".format(self.sys)

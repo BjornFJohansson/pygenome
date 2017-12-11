@@ -23,15 +23,14 @@ def requests_mock(request):
     request.addfinalizer(m.stop)
     return m
 
-
-
 def test_update(requests_mock):
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
     tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
     shutil.copytree(data_dir, tmp_data_dir)
     
-    for fn, url in zip(_data_files,_data_urls): 
-        # set data file to be really old....
+    # set local data file to be really old....
+    # new files should be downloaded    
+    for fn, url in zip(_data_files,_data_urls):
         path = pathlib.Path( os.path.join(data_dir, fn) )
         os.utime(str(path), times=(path.stat().st_atime, 946684800))  #946684800 = Saturday 1st January 2000 12:00:00 AM
         flo = io.BytesIO(b"some text data")  # These files will be deemed newer and downloaded
@@ -39,9 +38,12 @@ def test_update(requests_mock):
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
                           body = flo)
-    updater()  # should "download" the newer files
+    updater()
+
+    # set local data file to be the same age remote
+    # local files should be kept    
     for fn, url in zip(_data_files,_data_urls): 
-        # set data file to be the same age remote
+
         path = pathlib.Path( os.path.join(data_dir, fn) )
         os.utime(str(path), times=(path.stat().st_atime, 978307200))
         flo = io.BytesIO(b"some text data that will not be used")
@@ -49,7 +51,10 @@ def test_update(requests_mock):
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
                           body = flo)
-    updater() # should keep the local files  
+    updater()
+    
+    # remove local data files
+    # new files should be downloaded 
     for fn, url in zip(_data_files,_data_urls):
         path = pathlib.Path( os.path.join(data_dir, fn) )
         path.unlink()
@@ -58,8 +63,18 @@ def test_update(requests_mock):
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
                           body = flo)
-        
-    updater()    
+    
+    # set local files newer than remote
+    # local files should be kept 
+    # a critical warning should be written to log
+    for fn, url in zip(_data_files,_data_urls):
+        path = pathlib.Path( os.path.join(data_dir, fn) )
+        flo = io.BytesIO(b"some text data that will not be used")
+        requests_mock.get(url, 
+                          headers={'last-modified'  : 'Sat, 01 Jan 2000 00:00:00 GMT', #978307200
+                                   'content-length' : "100"}, 
+                          body = flo)
+    updater()
     shutil.rmtree(data_dir)
     shutil.copytree(tmp_data_dir, data_dir)
 
@@ -200,6 +215,23 @@ def test_kanmx4():
     text = "".join([c.strip() for c in text])
 
     assert text.lower() == str(s.seq).lower()
+    
+def test_repr():
+    from unittest.mock import MagicMock
+    pp = MagicMock()
+    s = sg.stdgene["CYC1"]
+    s._repr_pretty_(pp, None)
+    pp.text.assert_any_call("Gene {}/{}".format(s.std, s.sys))   
+    
+    
+    
+    
+    assert s._repr_html_() == "<a href='http://www.yeastgenome.org/locus/YJR048W' target='_blank'>Gene CYC1/YJR048W</a>"
+    assert len(s) == 330    
+    assert s.short_description == "Cytochrome c, isoform 1; also known as iso-1-cytochrome c; electron carrier of mitochondrial intermembrane space that transfers electrons from ubiquinone-cytochrome c oxidoreductase to cytochrome c oxidase during cellular respiration; CYC1 has a paralog, CYC7, that arose from the whole genome duplication; human homolog CYC1 can complement yeast null mutant; mutations in human CYC1 cause insulin-responsive hyperglycemia"
+    
+   
+    
     
 def test_pickle():
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
