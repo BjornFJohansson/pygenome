@@ -28,7 +28,7 @@ def test_update(requests_mock):
     tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
     shutil.copytree(data_dir, tmp_data_dir)
     
-    # set local data file to be really old....
+    # set local data file to be really old.... Saturday 1st January 2000 12:00:00 AM
     # new files should be downloaded    
     for fn, url in zip(_data_files,_data_urls):
         path = pathlib.Path( os.path.join(data_dir, fn) )
@@ -63,12 +63,15 @@ def test_update(requests_mock):
                           headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
                                    'content-length' : "100"}, 
                           body = flo)
+    updater()
     
     # set local files newer than remote
     # local files should be kept 
     # a critical warning should be written to log
+
     for fn, url in zip(_data_files,_data_urls):
         path = pathlib.Path( os.path.join(data_dir, fn) )
+        
         flo = io.BytesIO(b"some text data that will not be used")
         requests_mock.get(url, 
                           headers={'last-modified'  : 'Sat, 01 Jan 2000 00:00:00 GMT', #978307200

@@ -41,7 +41,7 @@ def updater():
 
         remote_last_mod = parsedate_to_datetime(response.headers.get('last-modified'))
         
-        if   remote_last_mod < local_last_mod:
+        if local_last_mod > remote_last_mod: # local file is newer! Should probably not happen!
             _module_logger.critical("local file %s %s is newer than remote file %s %s", fn, local_last_mod, url, remote_last_mod )
         
         if remote_last_mod > local_last_mod:
