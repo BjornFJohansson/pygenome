@@ -8,6 +8,7 @@ import os
 from pygenome import sg
 from pygenome._pretty import pretty_str
 from pygenome.systematic_name import _systematic_name
+from pygenome.standard_name    import _standard_name
 
 
 from pygenome._data import  _data_files, _data_urls
@@ -70,9 +71,17 @@ def test_pretty():
     pp.text.assert_any_call("abc")
     
 def test_names():
-    x=_systematic_name("TDH3")
+    assert _systematic_name("TDH3") == "YGR192C"
+    assert _systematic_name("YGR192C") == "YGR192C"
     with pytest.raises(KeyError):
-        _systematic_name("NOGENE")
+        assert _systematic_name("YGR192W")
+    with pytest.raises(KeyError):
+        _systematic_name("NOGENE")    
+    assert _standard_name("YGR192C") == "TDH3"
+    assert _standard_name("YGR192W") == None    
+    assert _standard_name("YPR078C") == None
+    with pytest.raises(ValueError):
+        _standard_name("NOGENE")
 
 
 def test_TEF1():

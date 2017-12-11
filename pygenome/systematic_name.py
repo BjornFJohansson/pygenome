@@ -10,6 +10,7 @@ data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevi
 _standard_to_systematic = _pickle.load( open(_os.path.join(data_dir, "standard_to_systematic.pickle"), "rb" ) )
 _feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
 
+
 def _systematic_name(gene):
     
     gene = gene.upper()
