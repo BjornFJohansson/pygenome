@@ -134,13 +134,13 @@ fi
 if [[ $tagged_commit = true ]]
 then
     echo "build conda package and setuptools package(s)"
-    conda install -n root conda-build   
+    conda install -yq conda-build
     conda-build -V
-    conda env create -f conda_envs/condabuild35.yml
-    conda env create -f conda_envs/condabuild36.yml
-    conda env create -f conda_envs/pipbuild35.yml
-    conda env create -f conda_envs/pipbuild36.yml
-    conda create -yq -n twine python=3.5 twine
+    conda create -yq -n condabuild35 python=3.5 anaconda-client          pypandoc pandoc nbval tqdm requests-mock
+    conda create -yq -n condabuild36 python=3.6 anaconda-client          pypandoc pandoc nbval tqdm requests-mock
+    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc            requests-mock
+    conda create -yq -n pipbuild36   python=3.6 anaconda-client          pypandoc pandoc            requests-mock
+    conda create -yq -n twine        python=3.5 twine
     rm -rf dist
     rm -rf build
     rm -rf tests/htmlcov
@@ -197,6 +197,7 @@ then
         appveyor PushArtifact dist/*        
     elif [[ $CI_NAME = codeship ]]  # Linux
     then
+        python setup.py register
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip
@@ -207,7 +208,7 @@ then
         twine upload -r $pypiserver dist/*.zip --skip-existing
     elif [[ $local_computer = true ]]
     then
-        echo "Local linux: python setup.py sdist --formats=zip bdist_wheel"
+        echo "Local linux: python setup.py sdist --formats=gztar,zip bdist_wheel"
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
@@ -225,25 +226,17 @@ then
         echo "CIRCLECI = $CIRCLECI"
         exit 1
     fi
-    if [[ $local_computer = true ]]
-    then
-        source activate root
-        conda remove -n condabuild35 --all -q
-        conda remove -n condabuild36 --all -q
-        conda remove -n pipbuild35   --all -q
-        conda remove -n pipbuild36   --all -q
-        conda remove -n twine        --all -q
-    fi
+    #ls dist
 else
     echo "create test environment for python 3.5"
-    conda env create -f conda_envs/testenv35.yml
+    conda env create -f test_environment35.yml
     source activate testenv35
     which python
     python --version
     python run_test.py
     echo
     echo "create test environment for python 3.6"
-    conda env create -f conda_envs/testenv36.yml
+    conda env create -f test_environment36.yml
     source activate testenv36
     which python
     python --version
