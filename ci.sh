@@ -125,7 +125,8 @@ then
     conda update -yq pip
     conda install conda-verify -yq
     conda install jinja2 -yq
-    conda config --add channels BjornFJohansson
+    conda config --append channels conda-forge 
+    conda config --append channels BjornFJohansson
 else
     echo "Not running on CI server, probably running on local computer"
     local_computer=true
@@ -135,10 +136,10 @@ then
     echo "build conda package and setuptools package(s)"
     conda install -yq conda-build
     conda-build -V
-    conda create -yq -n condabuild35 python=3.5 anaconda-client          pypandoc pandoc nbval tqdm requests_mock
-    conda create -yq -n condabuild36 python=3.6 anaconda-client          pypandoc pandoc nbval tqdm requests_mock
-    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc            requests_mock
-    conda create -yq -n pipbuild36   python=3.6 anaconda-client          pypandoc pandoc            requests_mock
+    conda create -yq -n condabuild35 python=3.5 anaconda-client          pypandoc pandoc nbval tqdm requests-mock
+    conda create -yq -n condabuild36 python=3.6 anaconda-client          pypandoc pandoc nbval tqdm requests-mock
+    conda create -yq -n pipbuild35   python=3.5 anaconda-client urllib3  pypandoc pandoc            requests-mock
+    conda create -yq -n pipbuild36   python=3.6 anaconda-client          pypandoc pandoc            requests-mock
     conda create -yq -n twine        python=3.5 twine
     rm -rf dist
     rm -rf build
@@ -172,8 +173,8 @@ then
         if [[ $condalabel = "main" ]] # bdist_egg, bdist_wheel do not handle alpha versions, so no upload unless final release.
         then
             source activate twine
-            twine upload -r $pypiserver dist/pygenome*.whl --skip-existing
-            twine upload -r $pypiserver dist/pygenome*.egg --skip-existing
+            twine upload -r $pypiserver dist/*.whl --skip-existing
+            twine upload -r $pypiserver dist/*.egg --skip-existing
         else
             echo "pre release, no upload to pypi."
         fi
@@ -188,13 +189,13 @@ then
         if [[ $condalabel = "main" ]] # bdist_wininst does not handle alpha versions, so no upload unless final release.
         then
             source activate twine
-            twine upload -r $pypiserver dist/pygenome*.whl --skip-existing
-            twine upload -r $pypiserver dist/pygenome*.egg --skip-existing
+            twine upload -r $pypiserver dist/*.whl --skip-existing
+            twine upload -r $pypiserver dist/*.egg --skip-existing
         else
             echo "pre release, no upload to pypi."
         fi
         appveyor PushArtifact dist/*        
-    elif [[ $CIRCLECI = true ]]||[[$CI_NAME = codeship]]  # Linux
+    elif [[ $CI_NAME = codeship ]]  # Linux
     then
         python setup.py register
         source activate pipbuild35
@@ -204,11 +205,10 @@ then
         conda upgrade -yq pip
         python setup.py sdist --formats=zip
         source activate twine       
-        twine upload -r $pypiserver dist/pygenome*.zip --skip-existing
-    elif [[ $(uname) = "Linux" ]]
+        twine upload -r $pypiserver dist/*.zip --skip-existing
+    elif [[ $local_computer = true ]]
     then
         echo "Local linux: python setup.py sdist --formats=gztar,zip bdist_wheel"
-        python setup.py register
         source activate pipbuild35
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
@@ -216,8 +216,8 @@ then
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
         source activate twine
-        twine upload -r $pypiserver dist/pygenome*.zip --skip-existing
-        twine upload -r $pypiserver dist/pygenome*.whl --skip-existing
+        twine upload -r $pypiserver dist/*.zip --skip-existing
+        twine upload -r $pypiserver dist/*.whl --skip-existing
     else
         echo "Running on CI server but none of the expected environment variables are set to true"
         echo "CI       = $CI"

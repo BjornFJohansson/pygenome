@@ -219,6 +219,10 @@ def test_kanmx4():
 
     assert text.lower() == str(s.seq).lower()
     
+    
+def test_gfp():
+    assert sg.stdgene["TDH3"].gfp_cassette.seguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
+    
 def test_repr():
     from unittest.mock import MagicMock
     pp = MagicMock()

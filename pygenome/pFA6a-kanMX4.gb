@@ -1,10 +1,9 @@
-plasmid='''
 LOCUS       AJ002680                3941 bp    DNA     linear   SYN 01-SEP-2004
 DEFINITION  Synthetic DNA containing Escherichia coli plasmid pFA6a-kanMX4,
             kanamycin and geneticin (G418) resistance gene, bla gene, multiple
             cloning site, pSP72 derivative.
 ACCESSION   AJ002680
-VERSION     AJ002680.1  GI:2623975
+VERSION     AJ002680.1
 KEYWORDS    .
 SOURCE      synthetic construct
   ORGANISM  synthetic construct
@@ -57,7 +56,8 @@ FEATURES             Location/Qualifiers
                      /citation=[3]
      gene            115..458
                      /gene="TEF"
-     promoter        115..458
+     regulatory      115..458
+                     /regulatory_class="promoter"
                      /gene="TEF"
                      /note="Translation elongation factor 1 alpha"
                      /citation=[2]
@@ -67,29 +67,25 @@ FEATURES             Location/Qualifiers
                      /codon_start=1
                      /transl_table=11
                      /protein_id="CAA05683.1"
-                     /db_xref="GI:2623976"
-                     /db_xref="InterPro:IPR002575"
-                     /db_xref="InterPro:IPR008266"
-                     /db_xref="InterPro:IPR011009"
-                     /db_xref="InterPro:IPR012149"
                      /translation="MGKEKTHVSRPRLNSNMDADLYGYKWARDNVGQSGATIYRLYGK
                      PDAPELFLKHGKGSVANDVTDEMVRLNWLTEFMPLPTIKHFIRTPDDAWLLTTAIPGK
                      TAFQVLEEYPDSGENIVDALAVFLRRLHSIPVCNCPFNSDRVFRLAQAQSRMNNGLVD
                      ASDFDDERNGWPVEQVWKEMHKLLPFSPDSVVTHGDFSLDNLIFDEGKLIGCIDVGRV
                      GIADRYQDLAILWNCLGEFSPSLQKRLFQKYGIDNPDMNKLQFHLMLDEFF"
-     repeat_region   483..1271
-                     /mobile_element="transposon:Tn903"
+     mobile_element  483..1271
+                     /mobile_element_type="transposon:Tn903"
      misc_feature    1272..1276
                      /note="artificial sequence"
      gene            1277..1471
                      /gene="TEF"
-     terminator      1277..1471
+     regulatory      1277..1471
+                     /regulatory_class="terminator"
                      /gene="TEF"
                      /note="translation elongation factor 1 alpha"
                      /citation=[2]
      misc_feature    1502..3941
                      /note="artificial sequence"
-ORIGIN
+ORIGIN      
         1 gaacgcggcc gccagctgaa gcttcgtacg ctgcaggtcg acggatcccc gggttaatta
        61 aggcgcgcca gatctgttta gcttgcctcg tccccgccgg gtcacccggc cagcgacatg
       121 gaggcccaga ataccctcct tgacagtctt gacgtgcgca gctcaggggc atgatgtgac
@@ -157,4 +153,4 @@ ORIGIN
      3841 tgtactgaga gtgcaccata tggacatatt gtcgttagaa cgcggctaca attaatacat
      3901 aaccttatgt atcatacaca tacgatttag gtgacactat a
 //
-'''
+

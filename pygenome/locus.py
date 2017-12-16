@@ -4,7 +4,6 @@
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
 '''
 
-import sys           as _sys
 import random        as _random
 import os            as _os
 import pickle        as _pickle
@@ -17,13 +16,17 @@ from Bio.SeqFeature  import FeatureLocation as _FeatureLocation
 
 from pygenome._pretty import pretty_str as _ps
 
-from pydna.readers import read as _read
+from pydna.readers    import read as _read
 from pydna.dseqrecord import Dseqrecord as _Dseqrecord
 from pydna.amplify    import pcr        as _pcr
 from pydna.assembly   import Assembly   as _Assembly
 
-from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
-_pFA6_kanMX4 = _read(_plasmid) # AJ002680
+from pkg_resources   import resource_filename as _resource_filename
+
+
+
+_pFA6a_kanMX4         = _read( _resource_filename("pygenome", "pFA6a-kanMX4.gb") )
+_pFA6a_GFPS65T_kanMX6 = _read( _resource_filename("pygenome", "pFA6a-GFPS65T-kanMX6.gb") )
 
 from pygenome.systematic_name import _systematic_name
 from pygenome.standard_name   import _standard_name
@@ -318,7 +321,7 @@ class Gene():
         return not self.tandem
 
     @property
-    def deletion_locus(self, upstream=1000, downstream=1000):
+    def deletion_locus(self):
 
         p = _primers[self.sys]
 
@@ -335,14 +338,17 @@ class Gene():
 
         upt.id  = "UPTAG_primer_{}".format(self.sys)
         dnt.id  = "DNTAG_primer_{}".format(self.sys)
+        
+        inner_cassette = _pcr( upt, dnt, _pFA6a_kanMX4)
+        
         ups.id  = "UPstream45_{}".format(self.sys)
         dns.id  = "DNstream45_{}".format(self.sys)
 
-        cas = _pcr( ups, dns, _pcr( upt, dnt, _pFA6_kanMX4))
+        cas = _pcr( ups, dns, inner_cassette)
 
         cas.add_feature(0,len(cas), )
 
-        locus = _Dseqrecord( self.locus(upstream, downstream) )
+        locus = _Dseqrecord( self.locus(upstream=1000, downstream=1000) )
 
         asm = _Assembly( (locus, cas), max_nodes=3 )
 
@@ -354,16 +360,74 @@ class Gene():
 
         kanmx4_gene.name = "{}::KanMX4".format(self.sys.lower())
 
-        kanmx4_gene.id = "{} locus with {} bp up and {} bp downstream DNA".format(kanmx4_gene.name, upstream, downstream)
+        kanmx4_gene.id = "{} locus with {} bp up and {} bp downstream DNA".format(kanmx4_gene.name, 1000, 1000)
 
         #kanmx4_gene.version = "."
 
-        k = _SeqRecord( _Seq( str(kanmx4_gene.seq), kanmx4_gene.seq.alphabet),
-                      id = kanmx4_gene.id,
-                      name = kanmx4_gene.name,
-                      description = kanmx4_gene.description,
-                      dbxrefs = kanmx4_gene.dbxrefs,
-                      features = kanmx4_gene.features,
-                      annotations = kanmx4_gene.annotations)
-
+        k = _SeqRecord(  _Seq( str(kanmx4_gene.seq), kanmx4_gene.seq.alphabet),
+                         id          = kanmx4_gene.id,
+                         name        = kanmx4_gene.name,
+                         description = kanmx4_gene.description,
+                         dbxrefs     = kanmx4_gene.dbxrefs,
+                         features    = kanmx4_gene.features,
+                         annotations = kanmx4_gene.annotations)
+        k.cassette = cas
+        
         return k
+
+    @property
+    def gfp_cassette(self):
+
+        # We used the ‘Promoter’ program (courtesy of Joe DeRisi, publicly available at:
+        # http://derisilab.ucsf. edu) to extract the last 40 nucleotides (excluding the
+        # stop codon) of each ORF, as well as 40 nucleotides of genomic sequence
+        # immediately following the stop codon of each ORF.
+        # 
+        # We added the constant forward sequence from
+        # the ‘Pringle’ oligonucleotide-directed homologous
+        # recombination system (Longtine et al., 1998) to
+        # the last 40 nucleotides of each ORF to create
+        # the F2 oligo sequence, and the reverse complement
+        # of the 40 nucleotides following each ORF
+        # to the constant reverse sequence to create the R1
+        # oligo sequence. 
+        # 
+        # last40wostop - CGGATCCCCGGGTTAATTAA F2
+        # rc of 40 nucleotides following each - GAATTCGAGCTCGTTTAAAC R1
+        # 
+        # 
+        # Longtine, M.S., McKenzie, A., 3rd, Demarini, D.J., Shah, N.G., Wach, A.,
+        # Brachat, A., Philippsen, P., Pringle, J.R., 1998. Additional modules for
+        # versatile and economical PCR-based gene deletion and modification in
+        # Saccharomyces cerevisiae. Yeast 14, 953–961.
+        # 
+        # AJ002682 pFA6a-GFPS65T-kanMX6
+           
+        F2 = "CGGATCCCCGGGTTAATTAA"
+        R1 = "GAATTCGAGCTCGTTTAAAC"
+        
+        forward_tag_primer = self.cds[-43:-3] + F2
+
+        forward_tag_primer.id = "forward_tag_primer"
+
+        reverse_tag_primer = self.terminator[:40].reverse_complement() + R1
+        
+        reverse_tag_primer.id = "reverse_tag_primer"
+ 
+        cassette = _pcr(forward_tag_primer, reverse_tag_primer, _pFA6a_GFPS65T_kanMX6)
+
+        genome_gene_locus = _Dseqrecord( self.locus() )
+
+        asm = _Assembly((genome_gene_locus, cassette, genome_gene_locus))
+
+        candidate = asm.linear_products[1]
+
+        candidate.figure()
+        
+        cassette_in_genome = candidate
+
+        GFP_fp = cassette_in_genome[1000:len(cassette_in_genome)-1000-(len(cassette_in_genome)-1000)%3+1].seq.translate( to_stop=True)
+
+        assert (self.cds[:-3]+_pFA6a_GFPS65T_kanMX6[41:776]).seq.translate(stop_symbol='') == GFP_fp
+        
+        return cassette
