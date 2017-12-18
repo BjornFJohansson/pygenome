@@ -4,7 +4,7 @@ package:
 build:
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
 source:
-  path: .
+  path: ..
 requirements:
     build:
         - python
@@ -28,7 +28,7 @@ test:
     - pygenome
   source_files:
     - tests
-    - pygenome
+    #- pygenome
 about:
   home: https://github.com/BjornFJohansson/pygenome
   summary: An object oritented biopython api for the Saccharomyces cerevisiae genome.

@@ -144,14 +144,14 @@ then
     rm -rf dist
     rm -rf build
     rm -rf tests/htmlcov
-    pth1="$(conda build . --output --py 3.5)"
-    pth2="$(conda build . --output --py 3.6)"
+    pth1="$(conda build ./recipe --output --py 3.5)"
+    pth2="$(conda build ./recipe --output --py 3.6)"
     echo $pth1
     echo $pth2
     source activate condabuild35
-    conda build --python 3.5 .
+    conda build --python 3.5 conda build ./recipe
     source activate condabuild36
-    conda build --python 3.6 .
+    conda build --python 3.6 conda build ./recipe
     if [[ $CI = true ]]||[[ $CI = True ]]
     then
         anaconda -t $TOKEN upload $pth1 --label $condalabel --force
