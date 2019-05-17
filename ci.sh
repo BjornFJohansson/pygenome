@@ -136,9 +136,7 @@ then
     echo "build conda package and setuptools package(s)"
     conda install -n root conda-build   
     conda-build -V
-    conda env create -f conda_envs/condabuild35.yml
     conda env create -f conda_envs/condabuild36.yml
-    conda env create -f conda_envs/pipbuild35.yml
     conda env create -f conda_envs/pipbuild36.yml
     conda create -yq -n twine python=3.5 twine
     rm -rf dist
@@ -148,8 +146,6 @@ then
     pth2="$(conda build ./recipe --output --py 3.6)"
     echo $pth1
     echo $pth2
-    source activate condabuild35
-    conda build --python 3.5 conda build ./recipe
     source activate condabuild36
     conda build --python 3.6 conda build ./recipe
     if [[ $CI = true ]]||[[ $CI = True ]]
@@ -164,9 +160,6 @@ then
     if [[ $TRAVIS = true ]] # MacOSX
     then
         brew update
-        source activate pipbuild35
-        conda upgrade -yq pip
-        python setup.py build bdist_wheel bdist_egg
         source activate pipbuild36
         conda upgrade -yq pip
         python setup.py build bdist_wheel bdist_egg
@@ -180,9 +173,6 @@ then
         fi
     elif [[ $APPVEYOR = true ]]||[[ $APPVEYOR = True ]] # Windows
     then
-        source activate pipbuild35
-        conda upgrade -yq pip
-        python setup.py build bdist_wheel bdist_egg
         source activate pipbuild36
         conda upgrade -yq pip
         python setup.py build bdist_wheel bdist_egg
@@ -197,9 +187,6 @@ then
         appveyor PushArtifact dist/*        
     elif [[ $CI_NAME = codeship ]]  # Linux
     then
-        source activate pipbuild35
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip
         source activate pipbuild36
         conda upgrade -yq pip
         python setup.py sdist --formats=zip
@@ -208,9 +195,6 @@ then
     elif [[ $local_computer = true ]]
     then
         echo "Local linux: python setup.py sdist --formats=zip bdist_wheel"
-        source activate pipbuild35
-        conda upgrade -yq pip
-        python setup.py sdist --formats=zip bdist_wheel
         source activate pipbuild36
         conda upgrade -yq pip
         python setup.py sdist --formats=zip bdist_wheel
@@ -228,20 +212,11 @@ then
     if [[ $local_computer = true ]]
     then
         source activate root
-        conda remove -n condabuild35 --all -q
         conda remove -n condabuild36 --all -q
-        conda remove -n pipbuild35   --all -q
         conda remove -n pipbuild36   --all -q
         conda remove -n twine        --all -q
     fi
 else
-    echo "create test environment for python 3.5"
-    conda env create -f conda_envs/testenv35.yml
-    source activate testenv35
-    which python
-    python --version
-    python run_test.py
-    echo
     echo "create test environment for python 3.6"
     conda env create -f conda_envs/testenv36.yml
     source activate testenv36
@@ -251,7 +226,6 @@ else
     if [[ $local_computer = true ]]
     then
         source activate root
-        conda remove -n testenv35 --all -q
         conda remove -n testenv36 --all -q
     fi
 fi

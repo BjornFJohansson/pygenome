@@ -352,7 +352,7 @@ class Gene():
 
         asm = _Assembly( (locus, cas, locus))
 
-        candidate = asm.linear_products[0]
+        candidate = asm.assemble_linear()[0]
 
         #print candidate.figure()
 
@@ -420,7 +420,7 @@ class Gene():
 
         asm = _Assembly((genome_gene_locus, cassette, genome_gene_locus))
 
-        candidate = asm.linear_products[0]
+        candidate = asm.assemble_linear()[0]
 
         candidate.figure()
         
