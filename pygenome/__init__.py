@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 import os               as _os
 import sys              as _sys
 import subprocess       as _subprocess
@@ -65,7 +64,7 @@ else: # otherwise it is created with default settings
                             'primer_url': "http://www-sequence.stanford.edu/group/yeast_deletion_project/"}
         _parser.write(f)
 
-# pygenome related environmental variables are set from pygenome.ini if they are not set already
+# pygenome related environmental variables are set from pygenome.ini if they are not already set
 _mainsection = _parser["main"]
 _os.environ["pygenome_loglevel"] = _os.getenv("pygenome_loglevel", _mainsection.get("loglevel",str(_logging.WARNING)))
 _os.environ["pygenome_data_dir"] = _os.getenv("pygenome_data_dir", _mainsection.get("data_dir",_appdirs.user_data_dir("pygenome")))
@@ -170,8 +169,6 @@ def get_env():
         if k.startswith("pygenome"):
             _table.add_row([k,v])
     return _pretty_str(_table)
-
-
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 

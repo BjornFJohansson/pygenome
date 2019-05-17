@@ -350,7 +350,7 @@ class Gene():
 
         locus = _Dseqrecord( self.locus(upstream=1000, downstream=1000) )
 
-        asm = _Assembly( (locus, cas), max_nodes=3 )
+        asm = _Assembly( (locus, cas, locus))
 
         candidate = asm.linear_products[0]
 
@@ -420,7 +420,7 @@ class Gene():
 
         asm = _Assembly((genome_gene_locus, cassette, genome_gene_locus))
 
-        candidate = asm.linear_products[1]
+        candidate = asm.linear_products[0]
 
         candidate.figure()
         

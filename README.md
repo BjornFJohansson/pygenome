@@ -56,6 +56,9 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
     mygene.deletion_locus
     Out[12]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='ygr194c::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='ygr194c::KanMX4', description='description?', dbxrefs=[])
 
+
+http://www-sequence.stanford.edu/group/yeast_deletion_project/downloads.html
+
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
 | 2.0.0 | 2017-09-02 | split sg.gene dict into sg.stdgene and sg.sysgene   |
