@@ -15,7 +15,7 @@ def _systematic_name(gene):
     
     gene = gene.upper()
 
-    if _re.match("Y[A-P](R|L)\d{3}(W|C)(-.)*", gene[:7]) and gene in _feature_list:
+    if _re.match(r"Y[A-P](R|L)\d{3}(W|C)(-.)*", gene[:7]) and gene in _feature_list:
         return _ps(gene)
     else:
         try:

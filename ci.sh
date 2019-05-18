@@ -24,6 +24,27 @@ echo "CODESHIP             = $CI_NAME"
 echo "=============================================================="
 echo "Build information:"
 echo "=============================================================="
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if [[ "$com" = "$tag" ]]&&[[ $dirty = $tagname ]]
 then
     echo "Tagged commit      : $tagname"
