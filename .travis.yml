@@ -5,11 +5,12 @@ cache:
  - pip
  - brew
  - conda
-+before_install:
- - rvm get stable  # work around rvm bug on osx
+#+before_install:
+# - rvm get stable  # work around rvm bug on osx
 script:
  - bash ci.sh
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  #- bash <(curl -s https://codecov.io/bash)
+  #- bash <(curl -s https://codecov.io/bash | bash -s -- -c -F aFlag -f path/to/a/report.xml)>
 notifications:
   email: false

@@ -223,6 +223,7 @@ else
     which python
     python --version
     python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
+    codecov
     if [[ $local_computer = true ]]
     then
         source activate root
