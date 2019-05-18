@@ -217,15 +217,15 @@ then
         conda remove -n twine        --all -q
     fi
 else
-    echo "create test environment for python 3.6"
+    echo "create test environment for python 3.7"
     conda env create -f conda_envs/testenv36.yml
-    source activate testenv36
+    source activate python37
     which python
     python --version
     python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
     if [[ $local_computer = true ]]
     then
         source activate root
-        conda remove -n testenv36 --all -q
+        conda remove -n python37 --all -q
     fi
 fi
