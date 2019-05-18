@@ -218,7 +218,7 @@ then
     fi
 else
     echo "create test environment for python 3.7"
-    conda env create -f conda_envs/testenv36.yml
+    conda env create -f python37.yml
     source activate python37
     which python
     python --version
