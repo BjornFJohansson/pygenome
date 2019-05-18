@@ -222,7 +222,7 @@ else
     source activate testenv36
     which python
     python --version
-    python run_test.py
+    python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
     if [[ $local_computer = true ]]
     then
         source activate root
