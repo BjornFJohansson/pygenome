@@ -19,7 +19,6 @@ dependencies:
 - pytest-runner
 - nbval
 - requests-mock
-- pyfiglet
 
 - coverage
 - pytest-cov
