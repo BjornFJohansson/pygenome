@@ -24,4 +24,4 @@ dependencies:
 - pytest-cov
 
 - twine
-- codecov
+#- codecov
