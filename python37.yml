@@ -1,0 +1,28 @@
+name: python37
+channels:
+- BjornFJohansson
+- conda-forge
+dependencies:
+- python=3.7 
+- anaconda-client          
+- pypandoc 
+- pandoc            
+- requests-mock
+- nbval
+- tqdm
+
+- pydna
+- percache
+- setuptools
+
+- pytest
+- pytest-runner
+- nbval
+- requests-mock
+- pyfiglet
+
+- coverage
+- pytest-cov
+
+- twine
+- codecov
