@@ -8,6 +8,6 @@ cache:
 script:
  - bash ci.sh
 after_success:
-  - bash <(curl -s https://codecov.io/bash)>
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email: false
