@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+import sys
 import os
 import shutil
 import logging
@@ -13,20 +16,22 @@ import pytest
 #- python-coveralls
 #- pytest-cov
 
-try:
-    from pyfiglet import Figlet
-except ImportError:
-    class Figlet(object):
-        def __init__(self, *args,**kwargs): pass
-        def renderText(self,text): return text
-     
-f = Figlet(font='slant')
+def run_pytest():
 
-pyversion = platform.python_version()
+    try:
+        from pyfiglet import Figlet
+    except ImportError:
+        class Figlet(object):
+            def __init__(self, *args,**kwargs): pass
+            def renderText(self,text): return text
+         
+    f = Figlet(font='slant')
+    
+    pyversion = platform.python_version()
+    
+    print(f.renderText('python {}'.format(pyversion)))
 
-print(f.renderText('python {}'.format(pyversion)))
-
-def main():
+    args = sys.argv
 
     if os.getenv("CI"):
         ci = os.getenv("TRAVIS") or os.getenv("APPVEYOR")
@@ -76,12 +81,21 @@ def main():
     else:
         del nbval
         print("nbval installed")
-        args.append("--nbval") 
+        args.append("--nbval")
 
-    args = [".", "-v", "-s"] + args
+    args = [ "-v", "-s"] + args  # "."
     cwd = os.getcwd()
-    os.chdir("tests")
-    pytest.cmdline.main(args)
+    my_package_file = os.path.abspath(__file__)
+    my_package_dir = os.path.dirname(my_package_file)
+    os.chdir(my_package_dir)
+    
+    env_name = os.environ["ENV_NAME"]
+    env_no = os.environ["ENV_NUMBER"]
+    pytest_args=(env_name, env_no)
+    
+    
+    
+    pytest.main(args)    # cmdline.
     os.chdir(cwd)
     try:
         shutil.copy(os.path.join("tests","coverage.xml"), "coverage.xml")
@@ -89,8 +103,5 @@ def main():
         pass
     args = ["pygenome", "--doctest-modules", "-v", "-s"]
     print(f.renderText('doctests'))
-    pytest.cmdline.main(args)
+    #pytest.cmdline.main(args)
     print(f.renderText('done!'))
-
-if __name__ == '__main__':
-    main()

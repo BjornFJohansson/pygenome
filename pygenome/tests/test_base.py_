@@ -1,0 +1,18 @@
+import pytest
+from unittest import mock
+from pytest_mock import mocker
+
+from .base import get_foo
+
+@mock.patch('base.foo') 
+def test_get_foo(mock_foo):
+    mock_foo.return_value = 'bar'
+    assert get_foo() == 'bar'
+
+def test_get_foo2(mocker):
+    m = mocker.patch('base.foo', return_value='bar')
+    assert get_foo() == 'bar'
+
+def test_get_foo3():
+    with mock.patch('base.foo', return_value='bar') as mock_foo:
+        assert get_foo() == 'bar'

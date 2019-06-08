@@ -16,6 +16,7 @@ from pygenome.update import updater
 import requests_mock as rm_module
 import shutil, io, pathlib
 
+
 @pytest.fixture
 def requests_mock(request):
     m = rm_module.Mocker()
@@ -26,8 +27,11 @@ def requests_mock(request):
 def test_update(requests_mock):
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
     tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
-    shutil.copytree(data_dir, tmp_data_dir)
-    
+    try:
+        shutil.rmtree(tmp_data_dir)
+    except FileNotFoundError:
+        pass
+    shutil.copytree(data_dir, tmp_data_dir)   
     # set local data file to be really old.... Saturday 1st January 2000 12:00:00 AM
     # new files should be downloaded    
     for fn, url in zip(_data_files,_data_urls):
@@ -80,6 +84,7 @@ def test_update(requests_mock):
     updater()
     shutil.rmtree(data_dir)
     shutil.copytree(tmp_data_dir, data_dir)
+    shutil.rmtree(tmp_data_dir)
 
 def test_pretty():
     from unittest.mock import MagicMock

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)
 [![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)
-[![Codeship Status for BjornFJohansson/pygenome](https://app.codeship.com/projects/f461d290-71e3-0135-828b-52ef08dd0262/status?branch=master)](https://app.codeship.com/projects/243478)
+[![Codeship Status for BjornFJohansson/pygenome](https://app.codeship.com/projects/9ff45010-5b6d-0137-5291-36b827d8f51b/status?branch=master)](https://app.codeship.com/projects/342668)
 [![codecov](https://codecov.io/gh/BjornFJohansson/pygenome/branch/master/graph/badge.svg)](https://codecov.io/gh/BjornFJohansson/pygenome)
 [![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
 [![PyPI version](https://badge.fury.io/py/pygenome.svg)](https://badge.fury.io/py/pygenome)
@@ -56,6 +56,9 @@ Typical usage at the [IPython](http://ipython.org/) command line could look like
     mygene.deletion_locus
     Out[12]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='ygr194c::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='ygr194c::KanMX4', description='description?', dbxrefs=[])
 
+
+http://www-sequence.stanford.edu/group/yeast_deletion_project/downloads.html
+
 | ver   | date       | comment                                             |
 |-------|------------|-----------------------------------------------------|
 | 2.0.0 | 2017-09-02 | split sg.gene dict into sg.stdgene and sg.sysgene   |
@@ -89,7 +92,7 @@ This works on Windows, MacOSX and Linux, and installs all necessary dependencies
 
 ## Requirements
 
-- [Python 3.5 or 3.6](http://www.python.org) (pygenome version 0.9.0 was the last to support Python 2.7.)
+- [Python 3.6 or 3.7](http://www.python.org) (pygenome version 0.9.0 was the last to support Python 2.7.)
 - [pydna](http://pypi.python.org/pypi/pydna)
 - [requests](http://pypi.python.org/pypi/requests)
 - [appdirs](https://pypi.python.org/pypi/appdirs)

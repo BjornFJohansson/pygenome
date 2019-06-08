@@ -7,9 +7,6 @@ condalabel="main"
 
 
 
-
-
-
 echo "=============================================================="
 echo "BASH_VERSION" $BASH_VERSION
 echo $(git --version)
@@ -38,12 +35,6 @@ echo "CI_BRANCH            = $CI_BRANCH"
 echo "=============================================================="
 echo "Build information:"
 echo "=============================================================="
-
-
-
-
-
-
 
 
 
@@ -84,8 +75,6 @@ else
 
 unset VIRTUAL_ENV
 fi
-
-
 
 
 
@@ -154,13 +143,11 @@ fi
 
 
 
-
-
-
-
+ 
 
 
 echo "====================create conda environments================="
+ 
 conda env create -f python36.yml
 conda env create -f python37.yml
 
@@ -171,10 +158,7 @@ conda env create -f python37.yml
 
 
 
-
-
-
-
+ 
 if [[ $tagged_commit = true ]]
 then
     echo "========build conda package and setuptools package(s)========="
@@ -225,13 +209,14 @@ then
         source activate python37
         python setup.py build bdist_wheel 
         twine upload dist/*.whl --skip-existing
+ 
     elif [[ $local_computer = true ]]
     then
         echo "Local linux: python setup.py sdist --formats=zip bdist_wheel"
         source activate python36
         python setup.py build bdist_wheel 
         source activate python37
-        python setup.py build bdist_wheel 
+        python setup.py build bdist_wheel
         twine upload dist/*.whl --skip-existing
     else
         echo "Running on CI server but none of the expected environment variables are set to true"
@@ -244,7 +229,9 @@ then
 else
     echo "====================tests================="
     source activate python36
-    python run_test.py
+    python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
     source activate python37
-    python run_test.py
+    python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
+    #codecov
+    fi
 fi

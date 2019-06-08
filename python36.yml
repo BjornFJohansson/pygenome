@@ -5,18 +5,24 @@ channels:
 - BjornFJohansson
 dependencies:
 - python=3.6
-- pydna
-- percache
+- anaconda-client          
+- pypandoc 
+- pandoc            
+- requests-mock
+- nbval
 - tqdm
 
-- anaconda-client                      
-- requests-mock
+- pydna
+- percache
 - setuptools
 
 - pytest
 - pytest-runner
 - nbval
 - requests-mock
+
 - coverage
 - pytest-cov
 
+- twine
+#- codecov

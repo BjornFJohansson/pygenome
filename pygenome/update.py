@@ -16,8 +16,6 @@ from tqdm import tqdm
 import requests
 import pathlib
 
-from pydna.readers import read as _read
-
 #from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
 #_pFA6_kanMX4 = _read(_plasmid) # AJ002680
 

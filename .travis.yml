@@ -5,11 +5,9 @@ cache:
  - pip
  - brew
  - conda
-+before_install:
- - rvm get stable  # work around rvm bug on osx
 script:
  - bash ci.sh
-#after_success:
-#  - bash <(curl -s https://codecov.io/bash)
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email: false

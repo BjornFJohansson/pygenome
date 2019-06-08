@@ -4,16 +4,11 @@
 include LICENSE.txt
 include README.md
 include MANIFEST.in
+
 include setup.py
 include versioneer.py
-include pygenome/_version.py
-include pygenome/Saccharomyces_cerevisiae.zip
-include pygenome/pFA6a-GFPS65T-kanMX6.gb
-include pygenome/pFA6a-kanMX4.gb
+recursive-include pygenome *
 
-recursive-include tests *
-recursive-include docs *
-recursive-include scripts *
 global-exclude *.pyc
 global-exclude *~
 
