@@ -1,5 +1,0 @@
-def foo():
-    return 'foo'
-
-def get_foo():
-    return foo()

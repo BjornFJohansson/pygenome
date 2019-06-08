@@ -5,6 +5,9 @@ test pygenome
 '''
 import pytest
 import os
+
+import pygenome
+
 from pygenome import sg
 from pygenome._pretty import pretty_str
 from pygenome.systematic_name import _systematic_name
@@ -261,5 +264,3 @@ def test_pickle():
 
     from pygenome._pickle_genes   import _pickle_genes
     _pickle_genes()
-    
-

@@ -17,19 +17,10 @@ import pytest
 #- pytest-cov
 
 def run_pytest():
-
-    try:
-        from pyfiglet import Figlet
-    except ImportError:
-        class Figlet(object):
-            def __init__(self, *args,**kwargs): pass
-            def renderText(self,text): return text
-         
-    f = Figlet(font='slant')
     
     pyversion = platform.python_version()
     
-    print(f.renderText('python {}'.format(pyversion)))
+    print('python {}'.format(pyversion))
 
     args = sys.argv
 
@@ -63,8 +54,11 @@ def run_pytest():
         os.environ["pygenome_log_dir"]     = tempfile.mkdtemp(prefix="pygenome_log_dir_")
         os.environ["pygenome_config_dir"]  = tempfile.mkdtemp(prefix="pygenome_config_dir_")
         os.environ["pygenome_loglevel"]    = str( logging.DEBUG )
+        import pygenome
+        from importlib import reload
+        reload(pygenome)
        
-    print(f.renderText('tests'))
+    print('tests')
     try:
         import pytest_cov
     except ImportError:
@@ -102,6 +96,6 @@ def run_pytest():
     except FileNotFoundError:
         pass
     args = ["pygenome", "--doctest-modules", "-v", "-s"]
-    print(f.renderText('doctests'))
+    print('doctests')
     #pytest.cmdline.main(args)
-    print(f.renderText('done!'))
+    print('done!')
