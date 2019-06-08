@@ -234,4 +234,3 @@ else
     python -m  pytest -vv -s --durations=10 --cov=pygenome --cov-report=html --cov-report=xml
     #codecov
     fi
-fi
