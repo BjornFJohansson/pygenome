@@ -20,7 +20,7 @@ setup(  name='pygenome',
         cmdclass=versioneer.get_cmdclass(),
         author          =__author__,
         author_email    =__email__,
-        packages=['pygenome'],
+        packages=['pygenome', "pygenome.tests"],
         package_data={'pygenome': [ 'Saccharomyces_cerevisiae.zip']},
         url='http://pypi.python.org/pypi/pygenome/',
         license='LICENSE.txt',
@@ -37,4 +37,5 @@ setup(  name='pygenome',
                        'Programming Language :: Python :: 3.6',
                        'Programming Language :: Python :: 3.7',
                        'Topic :: Education',
-                       'Topic :: Scientific/Engineering :: Bio-Informatics',])
+                       'Topic :: Scientific/Engineering :: Bio-Informatics',]
+        )
