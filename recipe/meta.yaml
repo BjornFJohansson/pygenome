@@ -11,12 +11,14 @@ requirements:
         - pydna
         - requests
         - tqdm
+        - prettytable
     run:
         - python
         - pydna
         - appdirs
         - requests
         - tqdm
+        - prettytable
 test:
   requires:
     - python
@@ -24,6 +26,7 @@ test:
     - pydna
     - appdirs
     - requests
+    - prettytable
   imports:
     - pygenome
   source_files:
