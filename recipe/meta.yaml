@@ -30,6 +30,7 @@ test:
     - appdirs
     - requests
     - prettytable
+    - setuptools
   imports:
     - pygenome
 source_files:
