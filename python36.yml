@@ -1,0 +1,22 @@
+name: python36
+channels:
+- default
+- conda-forge
+- BjornFJohansson
+dependencies:
+- python=3.6
+- pydna
+- percache
+- tqdm
+
+- anaconda-client                      
+- requests-mock
+- setuptools
+
+- pytest
+- pytest-runner
+- nbval
+- requests-mock
+- coverage
+- pytest-cov
+

@@ -1,20 +1,22 @@
-name: testenv36
+name: python37
 channels:
-- BjornFJohansson
+- default
 - conda-forge
+- BjornFJohansson
 dependencies:
-- python=3.6
+- python=3.7
 - pydna
 - percache
 - tqdm
+
+- anaconda-client                      
+- requests-mock
 - setuptools
 
 - pytest
 - pytest-runner
 - nbval
 - requests-mock
-- pyfiglet
-
 - coverage
 - pytest-cov
 

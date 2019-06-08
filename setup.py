@@ -10,14 +10,10 @@ for line in open('pygenome/__init__.py'):
 
 from setuptools import setup
     
-try:
-    from pypandoc import convert_file
-except ImportError:
-    print("warning: pypandoc module not found, could not convert Markdown to RST")
-    with open("README.md", encoding="utf-8") as f:
-        long_description = f.read()
-else:
-    long_description = "\n"+convert_file("README.md", 'rst')
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(  name='pygenome',
         version=versioneer.get_version(),
@@ -30,9 +26,7 @@ setup(  name='pygenome',
         license='LICENSE.txt',
         description='''Accessing the Saccharomyces cerevisiae genome from Python''',
         long_description=long_description,
-        #install_requires =[ "pydna",         "appdirs"],
-        #setup_requires =  [ "pytest-runner", "appdirs"],
-        #tests_require  =  [ "pytest",        "appdirs"],
+        install_requires =[ "pydna", "appdirs", "tqdm", "requests"],
         zip_safe = False,
         keywords = "bioinformatics",
         classifiers = ['Development Status :: 4 - Beta',
@@ -40,7 +34,7 @@ setup(  name='pygenome',
                        'Intended Audience :: Education',
                        'Intended Audience :: Science/Research',
                        'License :: OSI Approved :: BSD License',
-                       'Programming Language :: Python :: 3.5',
                        'Programming Language :: Python :: 3.6',
+                       'Programming Language :: Python :: 3.7',
                        'Topic :: Education',
                        'Topic :: Scientific/Engineering :: Bio-Informatics',])
