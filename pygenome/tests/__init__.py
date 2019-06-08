@@ -89,9 +89,9 @@ def run_pytest():
     my_package_dir = os.path.dirname(my_package_file)
     os.chdir(my_package_dir)
     
-    env_name = os.environ["ENV_NAME"]
-    env_no = os.environ["ENV_NUMBER"]
-    pytest_args=(env_name, env_no)
+    #env_name = os.environ["ENV_NAME"]
+    #env_no = os.environ["ENV_NUMBER"]
+    #pytest_args=(env_name, env_no)
     
     
     
