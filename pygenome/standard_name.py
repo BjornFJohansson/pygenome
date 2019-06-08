@@ -15,7 +15,7 @@ def _standard_name(gene):
     
     gene = gene.upper()
 
-    if not _re.match("Y[A-P](R|L)\d{3}(W|C)(-.)*", gene[:7]):
+    if not _re.match(r"Y[A-P](R|L)\d{3}(W|C)(-.)*", gene[:7]):
         raise ValueError("{} is not a systematic gene name.".format(gene))
     else:
         try:
