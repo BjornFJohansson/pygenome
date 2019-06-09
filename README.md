@@ -1,4 +1,4 @@
-# [![icon](SuperYeast.jpg)](http://www.yeastgenome.org/) [pygenome](https://pypi.python.org/pypi/pygenome)
+# ![icon](https://raw.githubusercontent.com/bjornFJohansson/pygenome/master/SuperYeast.jpg) pygenome
 
 [![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)
 [![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)
