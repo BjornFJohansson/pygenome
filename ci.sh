@@ -102,7 +102,7 @@ then
     then
         branch=$APPVEYOR_REPO_BRANCH
         echo "Running on APPVEYOR, use installed Miniconda for Windows"
-        miniconda="source appveyor_source_file.sh"
+        miniconda="source appveyor_source_file.sh&&activate"
     elif [[ $CIRCLECI = true ]]
     then
         branch=$CI_BRANCH
