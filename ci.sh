@@ -42,7 +42,6 @@ echo "=============================================================="
 
 
 
-
 if [[ "$com" = "$tag" ]]&&[[ $dirty = $tagname ]]
 then
     echo "Tagged commit: $tagname"
