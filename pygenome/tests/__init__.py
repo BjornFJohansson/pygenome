@@ -25,8 +25,8 @@ def run_pytest():
     args = sys.argv
 
     if os.getenv("CI"):
-        ci = os.getenv("TRAVIS") or os.getenv("APPVEYOR")
-        print("Tests run on continuous integration server {}".format(ci))
+        ci = os.getenv("TRAVIS") or os.getenv("APPVEYOR") or os.getenv("CI_NAME") or os.getenv("CIRCLECI")
+        print("Tests run on continuous integration server", ci)
         cwd = os.getcwd()
         print("current working directory:", cwd)
         

@@ -20,3 +20,5 @@ dependencies:
 - coverage
 - pytest-cov
 
+- twine
+#- codecov

@@ -7,6 +7,8 @@ import pytest
 import os
 
 import pygenome
+from importlib import reload
+reload(pygenome)
 
 from pygenome import sg
 from pygenome._pretty import pretty_str
