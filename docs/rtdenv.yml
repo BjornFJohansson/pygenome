@@ -5,5 +5,4 @@ channels:
 - BjornFJohansson
 dependencies:
 - python=3.7
-- numpydoc
-- pygenome
+- numpydoc>=0.6.0
