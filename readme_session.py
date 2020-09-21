@@ -12,5 +12,3 @@ mygene.terminator
 mygene.downstream_gene
 mygene.upstream_gene
 mygene.deletion_locus
-
-

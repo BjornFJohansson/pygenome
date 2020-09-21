@@ -1,14 +1,3 @@
 # MANIFEST.in
 # This tells distutils what files to distribute.
-
-include LICENSE.txt
-include README.md
-include MANIFEST.in
-
-include setup.py
-include versioneer.py
-recursive-include pygenome *
-
-global-exclude *.pyc
-global-exclude *~
-
+graft src

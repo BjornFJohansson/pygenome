@@ -1,8 +1,5 @@
-# ![icon](https://raw.githubusercontent.com/bjornFJohansson/pygenome/master/SuperYeast.jpg) pygenome
+# ![icon](https://raw.githubusercontent.com/bjornFJohansson/pygenome/master/docs/SuperYeast.jpg) pygenome
 
-[![Build Status](https://travis-ci.org/BjornFJohansson/pygenome.svg?branch=master)](https://travis-ci.org/BjornFJohansson/pygenome)
-[![Build status2](https://ci.appveyor.com/api/projects/status/aplxufiixw124dvr?svg=true)](https://ci.appveyor.com/project/BjornFJohansson/pygenome)
-[![Codeship Status for BjornFJohansson/pygenome](https://app.codeship.com/projects/9ff45010-5b6d-0137-5291-36b827d8f51b/status?branch=master)](https://app.codeship.com/projects/342668)
 [![codecov](https://codecov.io/gh/BjornFJohansson/pygenome/branch/master/graph/badge.svg)](https://codecov.io/gh/BjornFJohansson/pygenome)
 [![Documentation Status](https://readthedocs.org/projects/pygenome/badge/?version=latest)](http://pygenome.readthedocs.io/en/latest/?badge=latest)
 [![PyPI version](https://badge.fury.io/py/pygenome.svg)](https://badge.fury.io/py/pygenome)
@@ -22,39 +19,133 @@ sequences are returned as Biopython
 
 Typical usage at the [IPython](http://ipython.org/) command line could look like this:
 
-    from pygenome import sg
+```python
+from pygenome import sg
+```
 
-    mygene = sg.stdgene["XKS1"]
 
-    mygene
-    Out[3]: Gene XKS1/YGR194C
+```python
+mygene = sg.stdgene["XKS1"]
+```
 
-    mygene.short_description
-    Out[4]: Xylulokinase; converts D-xylulose and ATP to xylulose 5-phosphate and ADP; rate limiting step in fermentation of xylulose; required for xylose fermentation by recombinant S. cerevisiae strains
 
-    sg.sysgene["YGR194C"]
-    Out[5]: Gene XKS1/YGR194C
+```python
+mygene
+```
 
-    mygene.cds
-    Out[6]: SeqRecord(seq=Seq('ATGTTGTGTTCAGTAATTCAGAGACAGACAAGAGAGGTTTCCAACACAATGTCT...TAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(887876..886072)', dbxrefs=[])
 
-    mygene.locus()
-    Out[7]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(888876..885072)', dbxrefs=[])
 
-    mygene.promoter
-    Out[8]: SeqRecord(seq=Seq('ATGATGATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATA...TTA', IUPACAmbiguousDNA()), id='YGR195W_YGR194C', name='.', description='BK006941.2 REGION: complement(887876..888881)', dbxrefs=[])
 
-    mygene.terminator
-    Out[9]: SeqRecord(seq=Seq('AATATGTTTGAATAATTTATCATGCCCTGACAAGTACACACAAACACAGACACA...AAA', IUPACAmbiguousDNA()), id='YGR194C_YGR195W', name='.', description='Intergenic sequence between upstream gene YGR194C and downstream gene Gene PDX1/YGR193C', dbxrefs=[])
+<a href='http://www.yeastgenome.org/locus/YGR194C' target='_blank'>Gene XKS1/YGR194C</a>
 
-    mygene.downstream_gene
-    Out[10]: Gene PDX1/YGR193C
 
-    mygene.upstream_gene
-    Out[11]: Gene SKI6/YGR195W
 
-    mygene.deletion_locus
-    Out[12]: SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA', IUPACAmbiguousDNA()), id='ygr194c::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='ygr194c::KanMX4', description='description?', dbxrefs=[])
+
+```python
+mygene.short_description
+```
+
+
+
+
+    Xylulokinase; converts D-xylulose and ATP to xylulose 5-phosphate and ADP; rate limiting step in fermentation of xylulose; required for xylose fermentation by recombinant S. cerevisiae strains
+
+
+
+
+```python
+sg.sysgene["YGR194C"]
+```
+
+
+
+
+<a href='http://www.yeastgenome.org/locus/YGR194C' target='_blank'>Gene XKS1/YGR194C</a>
+
+
+
+
+```python
+mygene.cds
+```
+
+
+
+
+    SeqRecord(seq=Seq('ATGTTGTGTTCAGTAATTCAGAGACAGACAAGAGAGGTTTCCAACACAATGTCT...TAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(887876..886072)', dbxrefs=[])
+
+
+
+
+```python
+mygene.locus()
+```
+
+
+
+
+    SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(888876..885072)', dbxrefs=[])
+
+
+
+
+```python
+mygene.promoter
+```
+
+
+
+
+    SeqRecord(seq=Seq('ATGATGATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATA...TTA'), id='YGR195W_YGR194C', name='.', description='BK006941.2 REGION: complement(887876..888881)', dbxrefs=[])
+
+
+
+
+```python
+mygene.terminator
+```
+
+
+
+
+    SeqRecord(seq=Seq('AATATGTTTGAATAATTTATCATGCCCTGACAAGTACACACAAACACAGACACA...AAA'), id='YGR194C_YGR195W', name='.', description='Intergenic sequence between upstream gene YGR194C and downstream gene Gene PDX1/YGR193C', dbxrefs=[])
+
+
+
+
+```python
+mygene.downstream_gene
+```
+
+
+
+
+<a href='http://www.yeastgenome.org/locus/YGR193C' target='_blank'>Gene PDX1/YGR193C</a>
+
+
+
+
+```python
+mygene.upstream_gene
+```
+
+
+
+
+<a href='http://www.yeastgenome.org/locus/YGR195W' target='_blank'>Gene SKI6/YGR195W</a>
+
+
+
+
+```python
+mygene.deletion_locus
+```
+
+
+
+
+    SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA'), id='ygr194c::KanMX4 locus with 1000 bp up and 1000 bp downstream DNA', name='ygr194c::KanMX4', description='description', dbxrefs=[])
+
 
 
 http://www-sequence.stanford.edu/group/yeast_deletion_project/downloads.html
@@ -72,12 +163,12 @@ http://www-sequence.stanford.edu/group/yeast_deletion_project/downloads.html
 
 ## Installation using conda on Anaconda
 
-The absolutely best way of installing and using pygenome is to use the 
+The absolutely best way of installing and using pygenome is to use the
 free [Anaconda](https://store.continuum.io/cshop/anaconda) or [Miniconda](http://conda.pydata.org/miniconda.html) python distributions.
 
-Anaconda is a large download (about 400 Mb) while Miniconda is about 40-50 Mb. 
+Anaconda is a large download (about 400 Mb) while Miniconda is about 40-50 Mb.
 
-Once Anaconda (or Miniconda) is installed, the conda package manager can be used to install pygenome 
+Once Anaconda (or Miniconda) is installed, the conda package manager can be used to install pygenome
 from the [BjornFJohansson](https://anaconda.org/bjornfjohansson) package channel.
 
 The first step is to add the channel by typing the command below followed by return:

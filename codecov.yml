@@ -5,7 +5,7 @@ codecov:
 
 ignore:
   - "pygenome/__init__.py"  # ignore folders and all its contents
-  - "pygenome/_version.py"
+
   #- "test_*.rb"       # wildcards accepted
   #- "**/*.py"         # glob accepted
   #- "[a-z]+/test_.*"  # regexp accepted

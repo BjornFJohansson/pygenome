@@ -1,22 +1,23 @@
 package:
     name: pygenome
     version: {{ environ.get('GIT_DESCRIBE_TAG', 'default') }}
-source:
-     path: .
+
 build:
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
   include_recipe: False
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
+source:
+  git_url: .
+
 requirements:
     build:
-        - python
-        - pydna
-        - requests
-        - tqdm
-        - prettytable
+        - python {{ python }}
+        - setuptools
+        - setuptools_scm
+        - pytest-runner
     run:
-        - python
+        - python {{ python }}
         - pydna
         - appdirs
         - requests
@@ -24,18 +25,14 @@ requirements:
         - prettytable
 test:
   requires:
-    - python
     - pytest
-    - pydna
-    - appdirs
-    - requests
-    - prettytable
-    - setuptools
+    - pytest-doctestplus
     - requests-mock
   imports:
     - pygenome
 source_files:
-    - ../pygenome
+    - tests
+    - src/pygenome
 about:
   home: https://github.com/BjornFJohansson/pygenome
   summary: An object oritented biopython api for the Saccharomyces cerevisiae genome.
