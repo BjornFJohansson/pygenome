@@ -1,5 +1,5 @@
 src/pygenome/_version.py*
-
+pygenome/_version.py*
 
 .pytest_cache
 
