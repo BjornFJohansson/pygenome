@@ -23,8 +23,16 @@ Paralog
 GDH1 1
 '''
 
+import platform as _platform
+
+if _platform.python_version().startswith("3.8"):
+    import pickle        as _pickle
+else:
+    import pickle5       as _pickle
+
+
 import os            as _os
-import pickle        as _pickle
+
 import csv           as _csv
 import collections   as _collections
 
@@ -67,7 +75,7 @@ def pickle_primers():
             v = _primertuple(*[x.strip() for x in line_])
             _primers[v.ORF_name] = v
     _pickle.dump( _primers, open(_os.path.join(data_dir,"primers.pickle"), "wb" ), -1 )
-    
+
 _not_done_tuple=_collections.namedtuple("_not_done_tuple", "ORF_name Gene_name SGD_class")
 
 def pickle_orfs_not_deleted():
@@ -83,5 +91,5 @@ def pickle_orfs_not_deleted():
         for line_ in rd:
             v = _not_done_tuple(*[x.strip() for x in line_])
             _not_done[v.ORF_name] = v
-            
+
     _pickle.dump( _not_done, open(_os.path.join(data_dir,"not_done.pickle"), "wb" ), -1 )

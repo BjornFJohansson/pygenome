@@ -23,6 +23,7 @@ requirements:
         - requests
         - tqdm
         - prettytable
+        - pickle5       # [py36,py38]
 test:
   requires:
     - pytest
