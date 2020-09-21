@@ -1,7 +1,3 @@
 # MANIFEST.in
 # This tells distutils what files to distribute.
-
 graft src
-
-include src/pygenome/pFA6a-kanMX4.gb
-include src/pygenome/pFA6a-GFPS65T-kanMX6.gb
