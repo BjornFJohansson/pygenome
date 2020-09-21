@@ -4,9 +4,15 @@
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
 '''
 
+import platform as _platform
+
+if _platform.python_version().startswith("3.8"):
+    import pickle        as _pickle
+else:
+    import pickle5       as _pickle
+
 import random        as _random
 import os            as _os
-import pickle        as _pickle
 
 from Bio             import SeqIO           as _SeqIO
 from Bio.Seq         import Seq             as _Seq
