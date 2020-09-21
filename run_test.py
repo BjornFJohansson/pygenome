@@ -76,69 +76,6 @@ def main():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    asciitext("tests python {}".format(platform.python_version()))
-
-    installed = {pkg.key for pkg in pkg_resources.working_set}
-
-    if "coveralls" in installed:
-        print("coveralls-python is installed.")
-        args = [
-            "--cov=pydna",
-            "--cov-report=html",
-            "--cov-report=xml",
-            "--import-mode=importlib",
-        ]
-    else:
-        print("coveralls-python NOT installed! (pip install coveralls)")
-        args = []
-
-    if "nbval" in installed:
-        print("nbval is installed.")
-        args.append("--nbval")
-        args.append("--current-env")
-    else:
-        print("nbval NOT installed! (pip install nbval)")
-
-
-    mainargs = ["tests", "--capture=no", "--durations=10"] + args
-    # cwd = os.getcwd()
-    # os.chdir("tests")
-    result_suite = pytest.cmdline.main(mainargs)
-    # os.chdir(cwd)
-
-    from pydna import __file__ as pydnainit
-
-    doctestdir = str(pathlib.Path(pydnainit).parent)
-
-    asciitext("doctests python {}".format(platform.python_version()))
-    doctestargs = [
-        doctestdir,
-        "--doctest-modules",
-        "--capture=no",
-        "--import-mode=importlib",
-    ]
-    result_doctest = pytest.cmdline.main(doctestargs)
-
-    asciitext("done!")
-
-    return result_doctest and result_suite
-
-
 if __name__ == "__main__":
     result = main()
     sys.exit(result)

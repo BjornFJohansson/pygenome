@@ -125,7 +125,7 @@ class Gene():
         --------
         >>> from pygenome import sg
         >>> sg.stdgene["TDH3"].cds
-        SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA', IUPACAmbiguousDNA()), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(883811..882811)', dbxrefs=[])
+        SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(883811..882811)', dbxrefs=[])
         >>> len(sg.stdgene["TDH3"].cds)
         999
         '''
@@ -206,7 +206,7 @@ class Gene():
         --------
         >>> from pygenome import sg
         >>> sg.stdgene["TDH3"].promoter
-        SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA', IUPACAmbiguousDNA()), id='YGR193C_YGR192C', name='.', description='BK006941.2 REGION: complement(883811..884508)', dbxrefs=[])
+        SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA'), id='YGR193C_YGR192C', name='.', description='BK006941.2 REGION: complement(883811..884508)', dbxrefs=[])
         >>> str(sg.stdgene["TDH3"].promoter) == str(sg.sysgene["YGR192C"].promoter)
         True
         >>>
@@ -255,7 +255,7 @@ class Gene():
         --------
         >>> from pygenome import sg
         >>> sg.stdgene["TDH3"].terminator
-        SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT', IUPACAmbiguousDNA()), id='YGR192C_YGR193C', name='.', description='Intergenic sequence between upstream gene YGR192C and downstream gene Gene HIP1/YGR191W', dbxrefs=[])
+        SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT'), id='YGR192C_YGR193C', name='.', description='Intergenic sequence between upstream gene YGR192C and downstream gene Gene HIP1/YGR191W', dbxrefs=[])
         >>> len(sg.stdgene["TDH3"].terminator)
         580
         >>> sg.stdgene["TDH3"].upstream_gene
