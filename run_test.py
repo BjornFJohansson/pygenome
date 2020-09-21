@@ -73,9 +73,6 @@ def main():
     return result_doctest and result_suite
 
 
-
-
-
 if __name__ == "__main__":
     result = main()
     sys.exit(result)
