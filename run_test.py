@@ -53,7 +53,7 @@ def main():
 
     mainargs = ["tests", "--capture=no", "--durations=10"] + args
 
-    result_suite = pytest.main(mainargs)
+    result_suite = pytest.cmdline.main(mainargs)
 
 
     from pygenome import __file__ as pygenomeinit
@@ -66,7 +66,7 @@ def main():
     "--capture=no",
     "--import-mode=importlib",]
 
-    result_doctest = pytest.main(doctestargs)
+    result_doctest = pytest.cmdline.main(doctestargs)
 
     asciitext("done!")
 
