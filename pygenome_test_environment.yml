@@ -19,8 +19,6 @@ dependencies:
 - pytest-mock
 - pytest-runner
 - pytest-doctestplus
-- coverage
-- coveralls
 - nbval
 
 - setuptools
