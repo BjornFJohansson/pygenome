@@ -1,24 +1,10 @@
 codecov:
-  branch: master
-  notify:
-    require_ci_to_pass: yes
-
-ignore:
-  - "pygenome/__init__.py"  # ignore folders and all its contents
-
-  #- "test_*.rb"       # wildcards accepted
-  #- "**/*.py"         # glob accepted
-  #- "[a-z]+/test_.*"  # regexp accepted
+  require_ci_to_pass: yes
 
 coverage:
   precision: 2
   round: down
   range: "70...100"
-
-  status:
-    project: yes
-    patch: yes
-    changes: no
 
 parsers:
   gcov:
@@ -29,6 +15,6 @@ parsers:
       macro: no
 
 comment:
-  layout: "reach, diff, flags, files, footer"
+  layout: "reach,diff,flags,tree"
   behavior: default
   require_changes: no
