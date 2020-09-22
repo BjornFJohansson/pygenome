@@ -51,17 +51,31 @@ def main():
     else:
         print("nbval NOT installed! (pip install nbval)")
 
-    mainargs = [
-                 "--capture=no",
-                 "--durations=10",
-                 "--doctest-modules",
-                 "-v"]
+    mainargs = [ "tests/",
+                "--capture=no",
+                "--durations=10",
+                "-v"] + args
 
-    result_suite = pytest.cmdline.main(mainargs + args)
+    result_suite = pytest.cmdline.main(mainargs)
+
+
+    from pygenome import __file__ as pygenomeinit
+    doctestdir = str(pathlib.Path(pygenomeinit).parent)
+    asciitext("doctests py {}".format(platform.python_version()))
+
+    doctestargs = [
+    doctestdir,
+    "--doctest-modules",
+    "--capture=no",
+    "--import-mode=importlib",
+    "--capture=no",
+    "-v"]
+
+    result_doctest = pytest.cmdline.main(doctestargs)
 
     asciitext("done!")
 
-    return result_suite
+    return result_doctest and result_suite
 
 
 if __name__ == "__main__":
