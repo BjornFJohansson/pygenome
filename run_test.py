@@ -51,7 +51,10 @@ def main():
     else:
         print("nbval NOT installed! (pip install nbval)")
 
-    mainargs = [ "tests", "--capture=no", "--durations=10"] + args
+    mainargs = [ "tests",
+                "--capture=no",
+                "--durations=10",
+                "-v"] + args
 
     result_suite = pytest.cmdline.main(mainargs)
 
@@ -64,7 +67,9 @@ def main():
     doctestdir,
     "--doctest-modules",
     "--capture=no",
-    "--import-mode=importlib",]
+    "--import-mode=importlib",
+    "--capture=no",
+    "-v"]
 
     result_doctest = pytest.cmdline.main(doctestargs)
 
