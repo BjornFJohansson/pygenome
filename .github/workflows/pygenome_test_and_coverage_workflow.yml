@@ -1,0 +1,63 @@
+name: Tests & Coverage
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '*.*'
+jobs:
+  build:
+    name: Test (${{ matrix.python-version }}, ${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ 'macos-latest', 'windows-latest' ]
+        python-version: ["3.8", "3.7", "3.6"]
+        include:
+        - os: ubuntu-latest
+          python-version: 3.8
+          codecov: true
+        - os: ubuntu-latest
+          python-version: 3.7
+        - os: ubuntu-latest
+          python-version: 3.6
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.2
+
+      - name: Cache conda
+        uses: actions/cache@v2.1.1
+        with:
+          path: ~/conda_pkgs_dir
+          key: conda-${{ matrix.os }}-python-${{ matrix.python-version }}-${{ hashFiles('environment-ci.yml') }}
+
+      - name: Setup Miniconda
+        uses: goanpeca/setup-miniconda@v1.7.0
+        with:
+          auto-update-conda: true
+          auto-activate-base: false
+          add-pip-as-python-dependency: true
+          activate-environment: pygenome_test_environment
+          python-version: ${{ matrix.python-version }}
+          channels: conda-forge, defaults
+          environment-file: environment.yml
+          use-only-tar-bz2: true
+
+      - name: Install from source
+        shell: bash -l {0}
+        run: pip install .
+
+      - name: python run_test.py
+        shell: bash -l {0}
+        run: python run_test.py
+
+      - name: Upload coverage to Codecov
+        if: (matrix.codecov)
+        uses: codecov/codecov-action@v1.0.13
+        with:
+          file: ./coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          env_vars: OS,PYTHON
+          name: codecov-umbrella
+          fail_ci_if_error: true
