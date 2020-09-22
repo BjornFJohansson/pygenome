@@ -4,6 +4,7 @@ channels:
 - defaults
 - BjornFJohansson
 dependencies:
+- python
 - pickle5 # [py<38]
 - appdirs
 - biopython
