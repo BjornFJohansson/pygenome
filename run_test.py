@@ -32,8 +32,8 @@ def main():
 
     installed = {pkg.key for pkg in pkg_resources.working_set}
 
-    if "coveralls" in installed:
-        print("coveralls-python is installed.")
+    if "pytest-cov" in installed:
+        print(""pytest-cov" is installed.")
         args = [
             "--cov=pygenome",
             "--cov-report=html",
@@ -41,7 +41,7 @@ def main():
             "--import-mode=importlib",
         ]
     else:
-        print("coveralls-python NOT installed! (pip install coveralls)")
+        print("pytest-cov NOT installed! (pip install pytest-cov)")
         args = []
 
     if "nbval" in installed:
