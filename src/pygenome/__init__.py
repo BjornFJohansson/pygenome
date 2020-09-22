@@ -174,6 +174,9 @@ def get_env():
             _table.add_row([k,v])
     return _pretty_str(_table)
 
+
+
+
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
 try:
