@@ -16,7 +16,9 @@ def main():
 
     print("\n\ntests py {}\n\n".format(platform.python_version()))
 
-    args = ["--cov=pygenome",
+    args = ["tests",
+            "src",
+            "--cov=pygenome",
             "--cov-report=html",
             "--cov-report=xml",
             "--import-mode=importlib",
