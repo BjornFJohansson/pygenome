@@ -27,4 +27,3 @@ dependencies:
 - requests-mock
 
 - pyfiglet
-- twine
