@@ -33,7 +33,7 @@ def main():
     installed = {pkg.key for pkg in pkg_resources.working_set}
 
     if "pytest-cov" in installed:
-        print(""pytest-cov" is installed.")
+        print("pytest-cov is installed.")
         args = [
             "--cov=pygenome",
             "--cov-report=html",
