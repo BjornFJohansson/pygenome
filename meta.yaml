@@ -29,6 +29,8 @@ test:
     - pytest
     - pytest-doctestplus
     - requests-mock
+    - pytest-cov
+    - nbval
   imports:
     - pygenome
   source_files:

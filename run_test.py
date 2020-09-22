@@ -6,20 +6,6 @@ import logging
 import tempfile
 import platform
 import pytest
-import pathlib
-import pkg_resources
-
-
-try:
-    from pyfiglet import Figlet
-except ImportError:
-    asciitext = print
-else:
-
-    def asciitext(*args, **kwargs):
-        f = Figlet(font="doom")
-        print(f.renderText(" ".join(args)), **kwargs)
-
 
 def main():
 
@@ -28,38 +14,22 @@ def main():
     os.environ["pygenome_config_dir"]  = tempfile.mkdtemp(prefix="pygenome_config_dir_")
     os.environ["pygenome_loglevel"]    = str( logging.DEBUG )
 
-    asciitext("tests py {}".format(platform.python_version()))
+    print("\n\ntests py {}\n\n".format(platform.python_version()))
 
-    installed = {pkg.key for pkg in pkg_resources.working_set}
-
-    if "pytest-cov" in installed:
-        print("pytest-cov is installed.")
-        args = [
-            "--cov=pygenome",
+    args = ["--cov=pygenome",
             "--cov-report=html",
             "--cov-report=xml",
             "--import-mode=importlib",
-        ]
-    else:
-        print("pytest-cov NOT installed! (pip install pytest-cov)")
-        args = []
+            "--nbval",
+            "--current-env",
+            "--capture=no",
+            "--durations=10",
+            "--doctest-modules",
+            "-v"]
 
-    if "nbval" in installed:
-        print("nbval is installed.")
-        args.append("--nbval")
-        args.append("--current-env")
-    else:
-        print("nbval NOT installed! (pip install nbval)")
+    result_suite = pytest.cmdline.main(args)
 
-    mainargs = [
-                 "--capture=no",
-                 "--durations=10",
-                 "--doctest-modules",
-                 "-v"]
-
-    result_suite = pytest.cmdline.main(mainargs + args)
-
-    asciitext("done!")
+    print("\n\ndone!")
 
     return result_suite
 
