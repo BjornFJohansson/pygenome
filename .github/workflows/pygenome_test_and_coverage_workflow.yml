@@ -10,7 +10,7 @@ jobs:
     name: Test (${{ matrix.python-version }}, ${{ matrix.os }})
     strategy:
       matrix:
-        os: [ ]
+        os: [ "ubuntu-latest" ]
         python-version: ["3.8" ]
         include:
         - os: ubuntu-latest
