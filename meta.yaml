@@ -31,7 +31,7 @@ test:
     - requests-mock
   imports:
     - pygenome
-source_files:
+  source_files:
     - tests
     - src/pygenome
 about:
