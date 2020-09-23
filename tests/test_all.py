@@ -4,23 +4,7 @@
 test pygenome
 '''
 import pytest
-import os
-
-import pygenome
-from importlib import reload
-reload(pygenome)
-
-from pygenome import sg
-from pygenome._pretty import pretty_str
-from pygenome.systematic_name import _systematic_name
-from pygenome.standard_name    import _standard_name
-
-
-from pygenome._data import  _data_files, _data_urls
-from pygenome.update import updater
 import requests_mock as rm_module
-import shutil, io, pathlib
-
 
 @pytest.fixture
 def requests_mock(request):
@@ -30,6 +14,9 @@ def requests_mock(request):
     return m
 
 def test_update(requests_mock):
+    import shutil, io, pathlib, os
+    from pygenome.update import updater
+    from pygenome._data import  _data_files, _data_urls
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
     tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
     try:
@@ -92,6 +79,7 @@ def test_update(requests_mock):
     shutil.rmtree(tmp_data_dir)
 
 def test_pretty():
+    from pygenome._pretty import pretty_str
     from unittest.mock import MagicMock
     pp = MagicMock()
     x=pretty_str("abc")
@@ -99,6 +87,8 @@ def test_pretty():
     pp.text.assert_any_call("abc")
 
 def test_names():
+    from pygenome.standard_name    import _standard_name
+    from pygenome.systematic_name import _systematic_name
     assert _systematic_name("TDH3") == "YGR192C"
     assert _systematic_name("YGR192C") == "YGR192C"
     with pytest.raises(KeyError):
@@ -113,6 +103,7 @@ def test_names():
 
 
 def test_TEF1():
+    from pygenome import sg
     tp = 'ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATATTACATATAATACATATCACATAGGAAGCAACAGGCGCGTTGGACTTTTAATTTTCGAGGACCGCGAATCCTTACATCACACCCAATCCCCCACAAGTGATCCCCCACACACCATAGCTTCAAAATGTTTCTACTCCTTTTTTACTCTTCCAGATTTTCTCGGACTCCGCGCATCGCCGTACCACTTCAAAACACCCAAGCACAGCATACTAAATTTCCCCTCTTTCTTCCTCTAGGGTGTCGTTAATTACCCGTACTAAAGGTTTGGAAAAGAAAAAAGAGACCGCCTCGTTTCTTTTTCTTCGTCGAAAAAGGCAATAAAAATTTTTATCACGTTTCTTTTTCTTGAAAATTTTTTTTTTTGATTTTTTTCTCTTTCGATGACCTCCCATTGATATTTAAGTTAATAAACGGTCTTCAATTTCTCAAGTTTCAGTTTCATTTTTCTTGTTCTATTACAACTTTTTTTACTTCTTGCTCATTAGAAAGAAAGCATAGCAATCTAATCTAAGTTTTAATTACAAA'
     s1 = sg.sysgene["YPR079W"].terminator
     s2 = sg.stdgene["TEF1"].promoter
@@ -120,6 +111,7 @@ def test_TEF1():
     assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
 
 def test_TPI1():
+    from pygenome import sg
     tp = 'TGTTTAAAGATTACGGATATTTAACTTACTTAGAATAATGCCATTTTTTTGAGTTATAATAATCCTACGTTAGTGTGAGCGGGATTTAAACTGTGAGGACCTTAATACATTCAGACACTTCTGCGGTATCACCCTACTTATTCCCTTCGAGATTATATCTAGGAACCCATCAGGTTGGTGGAAGATTACCCGTTCTAAGACTTTTCAGCTTCCTCTATTGATGTTACACCTGGACACCCCTTTTCTGGCATCCAGTTTTTAATCTTCAGTGGCATGTGAGATTCTCCGAAATTAATTAAAGCAATCACACAATTCTCTCGGATACCACCTCGGTTGAAACTGACAGGTGGTTTGTTACGCATGCTAATGCAAAGGAGCCTATATACCTTTGGCTCGGCTGCTGTAACAGGGAATATAAAGGGCAGCATAATTTAGGAGTTTAGTGAACTTGCAACATTTACTATTTTCCCTTCTTACGTAAATATTTTTCTTTTTAATTCTAAATCAATCTTTTTCAATTTTTTGTTTGTATTCTTTTCTTGCTTAAATCTATAACTACAAAAAACACATACATAAACTAAAA'
     s1 = sg.sysgene["YDR051C"].terminator
     s2 = sg.stdgene["TPI1"].promoter
@@ -127,12 +119,15 @@ def test_TPI1():
     assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
 
 def test_TEF1_genbank_accession():
+    from pygenome import sg
     assert sg.stdgene["TEF1"].promoter.description == 'BK006949.2 REGION: 700015..700593'
 
 def test_TPI1_genbank_accession():
+    from pygenome import sg
     assert sg.stdgene["TPI1"].promoter.description == 'BK006938.2 REGION: complement(556473..557055)'
 
 def test_fun26():
+    from pygenome import sg
     assert len(sg.stdgene["FUN26"].locus()) == 3554
     assert len(sg.stdgene["FUN26"].cds)   == 1554
     assert sg.stdgene["FUN26"].sys == 'YAL022C'
@@ -148,24 +143,29 @@ def test_fun26():
 
 
 def test_promoter_promoter():
+    from pygenome import sg
     assert str(sg.stdgene["DEP1"].promoter.seq) == str(sg.stdgene["SYN8"].promoter.seq.reverse_complement())
     assert str(sg.stdgene["SPO7"].promoter.seq) == str(sg.stdgene["MDM10"].promoter.seq.reverse_complement())
 
 def test_terminator_terminator():
+    from pygenome import sg
     assert str(sg.stdgene["FUN14"].terminator.seq) == str(sg.stdgene["ERP2"].terminator.seq.reverse_complement())
 
 def test_promoter_terminator():
+    from pygenome import sg
     assert str(sg.stdgene["CYS3"].promoter.seq) == str(sg.stdgene["DEP1"].terminator.seq)
 
 def test_terminator_promoter():
+    from pygenome import sg
     assert str(sg.stdgene["CCR4"].promoter.seq) == str(sg.stdgene["ATS1"].terminator.seq)
 
 def test_tandem_bidirectional():
+    from pygenome import sg
     assert sg.stdgene["TPI1"].tandem == (not sg.stdgene["TPI1"].bidirectional)
     assert sg.stdgene["GAL1"].tandem == (not sg.stdgene["GAL1"].bidirectional)
 
 def test_misc():
-
+    from pygenome import sg
     assert str(sg.stdgene["CLN3"].promoter.seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
     assert str(sg.stdgene["CLN3"].terminator.seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
 
@@ -190,7 +190,7 @@ def test_misc():
 
 
 def test_kanmx4():
-
+    from pygenome import sg
     s = sg.stdgene["CYC1"].deletion_locus
 
 
@@ -231,10 +231,12 @@ def test_kanmx4():
 
 
 def test_gfp():
+    from pygenome import sg
     assert sg.stdgene["TDH3"].gfp_cassette.seguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
 
 def test_repr():
     from unittest.mock import MagicMock
+    from pygenome import sg
     pp = MagicMock()
     s = sg.stdgene["CYC1"]
     s._repr_pretty_(pp, None)
@@ -251,6 +253,7 @@ def test_repr():
 
 
 def test_pickle():
+    import os
     data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
     import pathlib
     pathlib.Path(data_dir).joinpath("systematic_to_description.pickle").unlink()

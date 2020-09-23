@@ -51,7 +51,7 @@ def main():
     else:
         print("nbval NOT installed! (pip install nbval)")
 
-    mainargs = [ "tests/",
+    mainargs = [ "tests",
                 "--capture=no",
                 "--durations=10",
                 "-v"] + args
