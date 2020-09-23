@@ -30,6 +30,7 @@ test:
     - pytest-doctestplus
     - requests-mock
     - pytest-cov
+    - coverage
     - nbval
   imports:
     - pygenome
