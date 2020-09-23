@@ -5,6 +5,7 @@ channels:
 - BjornFJohansson
 dependencies:
 - python
+- pydna
 - pickle5 # [py<38]
 - appdirs
 - biopython
@@ -23,23 +24,5 @@ dependencies:
 - pytest-doctestplus
 - nbval
 - coverage
-
 - setuptools
 - requests-mock
-
-- pyfiglet
-
-
-- ipython
-- jupyter
-- numpy
-- scipy
-- matplotlib
-- mpldatacursor
-- pint
-
-- pytest
-- pytest-cov
-- pytest-mock
-- pytest-runner
-- pytest-doctestplus
