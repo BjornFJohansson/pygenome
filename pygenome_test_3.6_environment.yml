@@ -10,6 +10,7 @@ dependencies:
 - biopython
 - prettytable
 - tqdm
+- pickle5
 
 - requests
 - requests-mock
