@@ -40,13 +40,17 @@ jobs:
           add-pip-as-python-dependency: true
           activate-environment: pygenome_test_environment
           python-version: ${{ matrix.python-version }}
-          channels: conda-forge, defaults
           environment-file: pygenome_test_environment.yml
           use-only-tar-bz2: true
 
       - name: Install from source
         shell: bash -l {0}
         run: pip install .
+
+      - name: pickle5
+        if: (matrix.python-version!=3.8)
+        shell: bash -l {0}
+        run: conda install pickle5
 
       - name: python run_test.py
         shell: bash -l {0}

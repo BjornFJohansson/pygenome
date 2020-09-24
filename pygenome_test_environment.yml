@@ -6,10 +6,10 @@ channels:
 dependencies:
 - python
 - pydna
-- pickle5 # [py<38]
 - appdirs
 - biopython
 - prettytable
+- tqdm
 
 - requests
 - requests-mock
