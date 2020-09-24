@@ -47,11 +47,6 @@ jobs:
         shell: bash -l {0}
         run: pip install .
 
-      - name: pickle5
-        if: (${{ matrix.python-version }}!="3.8")
-        shell: bash -l {0}
-        run: conda install pickle5
-
       - name: python run_test.py
         shell: bash -l {0}
         run: python run_test.py
