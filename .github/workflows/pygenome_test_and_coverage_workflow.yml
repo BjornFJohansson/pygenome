@@ -45,7 +45,7 @@ jobs:
 
       - name: Install from source
         shell: bash -l {0}
-        run: pip install .
+        run: pip install --editable . --no-deps
 
       - name: python run_test.py
         shell: bash -l {0}
