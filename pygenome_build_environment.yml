@@ -11,7 +11,6 @@ dependencies:
 - pydna
 
 - setuptools
-- twine
 - pip
 - anaconda-client
 - conda-build
