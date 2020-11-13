@@ -4,15 +4,11 @@
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
 '''
 
-import platform as _platform
-
-if _platform.python_version().startswith("3.8"):
-    import pickle        as _pickle
-else:
-    import pickle5       as _pickle
-
+import sys as _sys
+from warnings import warn
 import random        as _random
 import os            as _os
+import collections   as  _collections
 
 from Bio             import SeqIO           as _SeqIO
 from Bio.Seq         import Seq             as _Seq
@@ -26,25 +22,29 @@ from pydna.readers    import read as _read
 from pydna.dseqrecord import Dseqrecord as _Dseqrecord
 from pydna.amplify    import pcr        as _pcr
 from pydna.assembly   import Assembly   as _Assembly
+from pydna.primer     import Primer as _Primer
 
 from pkg_resources   import resource_filename as _resource_filename
-
-
 
 _pFA6a_kanMX4         = _read( _resource_filename("pygenome", "pFA6a-kanMX4.gb") )
 _pFA6a_GFPS65T_kanMX6 = _read( _resource_filename("pygenome", "pFA6a-GFPS65T-kanMX6.gb") )
 
 from pygenome.systematic_name import _systematic_name
 from pygenome.standard_name   import _standard_name
-from  pygenome._data     import _data_files
+from pygenome._data     import _data_files
 from pygenome.intergenic     import  intergenic_sequence
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
-_feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
-_primers = _pickle.load( open(_os.path.join(data_dir, "primers.pickle"), "rb" ) )
-_descriptions = _pickle.load( open(_os.path.join(data_dir, "systematic_to_description.pickle"), "rb" ) )
+if _sys.version_info >= (3,8):
+    import pickle  as _pickle
+else:
+    import pickle5 as _pickle
 
+_feature_list = _pickle.load( open(_os.path.join(data_dir, "feature_list.pickle"), "rb" ) )
+_not_deleted =_pickle.load(open(_os.path.join(data_dir, "not_done.pickle"), "rb" ))
+_descriptions = _pickle.load( open(_os.path.join(data_dir, "systematic_to_description.pickle"), "rb" ) )
+_primers = _pickle.load( open(_os.path.join(data_dir, "primers.pickle"), "rb" ) )
 
 class Gene():
 
@@ -95,6 +95,7 @@ class Gene():
                                    })
 
         start, stop = feature.location.start, feature.location.end
+        #lcs = feature.extract(_krom)
 
         if self.sys[6]=="W":
             lcs = _krom[start-upstream:stop+downstream]
@@ -107,12 +108,14 @@ class Gene():
 
         lcs.id = _krom.id
 
+        #lcs.annotations
+
         lcs.pydna_code = _ps( "from pydna.genbank import Genbank\n"
                               "gb = Genbank('my@email.com')\n"
                               "seq = gb.nucleotide('{}')".format(lcs.description))
-        return lcs
+        return _Dseqrecord.from_SeqRecord(lcs,linear=True)
 
-    @property
+
     def orf(self):
         '''Returns the open reading frame associated with a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
@@ -129,7 +132,7 @@ class Gene():
 
         Examples
         --------
-        >>> from pygenome import sg
+        >>> from pygenome import saccharomyces_cerevisiae as sg
         >>> sg.stdgene["TDH3"].cds
         SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(883811..882811)', dbxrefs=[])
         >>> len(sg.stdgene["TDH3"].cds)
@@ -138,16 +141,16 @@ class Gene():
 
         return self.locus(upstream=0, downstream=0)
 
-    @property
+
     def cds(self):
         '''
 
         '''
-        ft = [f for f in self.orf.features if f.type=="CDS"]
+        ft = [f for f in self.orf().features if f.type=="CDS"]
         ft = ft.pop()
-        return ft.extract(self.orf)
+        return ft.extract(self.orf())
 
-    @property
+
     def upstream_gene(self):
         '''Returns the coding sequence (cds) assciated with the gene upstream
         of gene. This is defined as the gene on the chromosome located
@@ -163,7 +166,7 @@ class Gene():
             sn = _feature_list[_feature_list.index(self.sys)+1]
         return Gene(sn)
 
-    @property
+
     def downstream_gene(self):
         '''Returns the coding sequence (cds) assciated with the gene downstream
         of gene. This is defined as the gene on the chromosome located
@@ -179,11 +182,11 @@ class Gene():
             sn = _feature_list[_feature_list.index(self.sys)+1]
         return Gene(sn)
 
-    @property
+
     def short_description(self):
         return _descriptions[self.sys]
 
-    @property
+
     def promoter(self):
         '''Returns the sequence of the promoter assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
@@ -210,7 +213,7 @@ class Gene():
 
         Examples
         --------
-        >>> from pygenome import sg
+        >>> from pygenome import saccharomyces_cerevisiae as sg
         >>> sg.stdgene["TDH3"].promoter
         SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA'), id='YGR193C_YGR192C', name='.', description='BK006941.2 REGION: complement(883811..884508)', dbxrefs=[])
         >>> str(sg.stdgene["TDH3"].promoter) == str(sg.sysgene["YGR192C"].promoter)
@@ -218,14 +221,14 @@ class Gene():
         >>>
         '''
 
-        pr = intergenic_sequence(self.upstream_gene.sys, self.sys)
-        pr.id = self.upstream_gene.sys+"_"+self.sys
+        pr = intergenic_sequence(self.upstream_gene().sys, self.sys)
+        pr.id = self.upstream_gene().sys+"_"+self.sys
         pr.name = "."
         #pr.description = "Intergenic sequence between upstream gene {} and downstream gene {}".format(self.upstream_gene().sys, self.sys)
         pr.features.append(_SeqFeature(_FeatureLocation(0, len(pr)),
                                       type = "promoter",
                                       strand = 1,
-                                      qualifiers = {"note"              : "tp {} {}".format(self.upstream_gene.sys, self.sys),
+                                      qualifiers = {"note"              : "tp {} {}".format(self.upstream_gene().sys, self.sys),
                                                     "ApEinfo_fwdcolor": "#b1e6cc",
                                                     "ApEinfo_revcolor": "#b1e681",
                                                     }))
@@ -233,7 +236,7 @@ class Gene():
 
 
 
-    @property
+
     def terminator(self):
         '''Returns the sequence of the terminator assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
@@ -259,20 +262,20 @@ class Gene():
 
         Examples
         --------
-        >>> from pygenome import sg
-        >>> sg.stdgene["TDH3"].terminator
+        >>> from pygenome import saccharomyces_cerevisiae as sg
+        >>> sg.stdgene["TDH3"].terminator()
         SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT'), id='YGR192C_YGR193C', name='.', description='Intergenic sequence between upstream gene YGR192C and downstream gene Gene HIP1/YGR191W', dbxrefs=[])
-        >>> len(sg.stdgene["TDH3"].terminator)
+        >>> len(sg.stdgene["TDH3"].terminator())
         580
         >>> sg.stdgene["TDH3"].upstream_gene
         Gene PDX1/YGR193C
-        >>> str(sg.stdgene["PDX1"].terminator.seq) == str(sg.stdgene["TDH3"].promoter.seq)
+        >>> str(sg.stdgene["PDX1"].terminator().seq) == str(sg.stdgene["TDH3"].promoter().seq)
         True
         '''
 
 
-        tm = intergenic_sequence( self.sys, self.downstream_gene.sys )
-        tm.id = self.sys + "_" + self.upstream_gene.sys
+        tm = intergenic_sequence( self.sys, self.downstream_gene().sys )
+        tm.id = self.sys + "_" + self.upstream_gene().sys
         tm.name = "."
         tm.description = "Intergenic sequence between upstream gene {} and downstream gene {}".format( self.sys, self.downstream_gene)
         tm.features.append(_SeqFeature(_FeatureLocation(0, len(tm)),
@@ -285,7 +288,7 @@ class Gene():
 
         return tm
 
-    @property
+
     def tandem(self):
         '''Returns True if a gene is expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
@@ -309,10 +312,10 @@ class Gene():
             Boolean; True or False
 
         '''
-        return self.sys[6] == self.upstream_gene.sys[6]
+        return self.sys[6] == self.upstream_gene().sys[6]
 
 
-    @property
+
     def bidirectional(self):
         '''Returns True if a gene is NOT expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
@@ -338,64 +341,95 @@ class Gene():
         out : bool
             Boolean; True or False
         '''
-        return not self.tandem
+        return not self.tandem()
 
-    @property
+    def deletion_cassettes(self):
+
+        if _not_deleted[self.sys]:
+            warn("Deletion not done for this gene.")
+
+        cassettes = []
+
+        for p in _primers[self.sys]:
+
+            upt = _Primer(p.UPTAG_primer_sequence)
+            dnt = _Primer(p.DNTAG_primer_sequence)
+            ups = _Primer(p.UPstream45_primer_sequence)
+            dns = _Primer(p.DNstream45_primer_sequence)
+
+
+            upt.id  = "UPTAG_primer_{}".format(self.sys)
+            dnt.id  = "DNTAG_primer_{}".format(self.sys)
+
+            ups.id  = "UPstream45_{}".format(self.sys)
+            dns.id  = "DNstream45_{}".format(self.sys)
+
+            if p.UPTAG_primer_sequence and p.DNTAG_primer_sequence:
+                try:
+                    inner_cassette = _pcr( upt, dnt, _pFA6a_kanMX4)
+                except ValueError:
+                    warn("PCR error in first cassette")
+                    inner_cassette = None
+                try:
+                    outer_cassette = _pcr( ups, dns, inner_cassette)
+                except ValueError:
+                    warn("PCR error in second cassette")
+                    outer_cassette = None
+            else:
+                try:
+                    inner_cassette = _pcr( upt, dns, _pFA6a_kanMX4)
+                except ValueError:
+                    warn("PCR error in first cassette")
+                    inner_cassette = None
+                try:
+                    outer_cassette = _pcr( ups, dns, inner_cassette)
+                except ValueError:
+                    warn("PCR error in second cassette")
+                    outer_cassette = None
+
+            if outer_cassette:
+                outer_cassette.add_feature(0,len(outer_cassette), )
+
+            cas = _collections.namedtuple('Cassette', ['outer_cassette',
+                                                      'inner_cassette',
+                                                      'UPTAG',
+                                                      'DNTAG',
+                                                      'UPstream45',
+                                                      'DNstream45'])
+            cassettes. append(cas(outer_cassette, inner_cassette, upt, dnt, ups, dns))
+
+        return cassettes
+
+
     def deletion_locus(self):
 
-        p = _primers[self.sys]
+        outer_cassettes = [x.outer_cassette for x in self.deletion_cassettes() if x.outer_cassette]
 
-        if not p: # pragma: no cover
-            return "No deletion primers available!"
+        loci = []
 
-        upt = _SeqRecord( _Seq( p.UPTAG_primer_sequence ))
-        dnt = _SeqRecord( _Seq( p.DNTAG_primer_sequence ))
-        ups = _SeqRecord( _Seq( p.UPstream45_primer_sequence ))
-        dns = _SeqRecord( _Seq( p.DNstream45_primer_sequence ))
+        for cas in outer_cassettes:
 
-        if "" in [str(x.seq).strip() for x in [upt,dnt,ups,dns]]: # pragma: no cover
-            return "One deletion primer missing!"
+            locus = self.locus(upstream=1000, downstream=1000)
 
-        upt.id  = "UPTAG_primer_{}".format(self.sys)
-        dnt.id  = "DNTAG_primer_{}".format(self.sys)
+            asm = _Assembly( (locus, cas, locus))
 
-        inner_cassette = _pcr( upt, dnt, _pFA6a_kanMX4)
+            candidates = asm.assemble_linear()
 
-        ups.id  = "UPstream45_{}".format(self.sys)
-        dns.id  = "DNstream45_{}".format(self.sys)
+            if candidates:
+                kanmx4_gene = candidates[0]
 
-        cas = _pcr( ups, dns, inner_cassette)
+                kanmx4_gene.name = "{}::KanMX4".format(self.sys.lower())
 
-        cas.add_feature(0,len(cas), )
+                kanmx4_gene.id = "{} locus with {} bp up and {} bp downstream DNA".format(kanmx4_gene.name, 1000, 1000)
+            else:
+                kanmx4_gene = None
+                warn("No integration of cassette.")
 
-        locus = _Dseqrecord( self.locus(upstream=1000, downstream=1000) )
+            loci.append(kanmx4_gene)
 
-        asm = _Assembly( (locus, cas, locus))
+        return loci
 
-        candidate = asm.assemble_linear()[0]
 
-        #print candidate.figure()
-
-        kanmx4_gene = candidate
-
-        kanmx4_gene.name = "{}::KanMX4".format(self.sys.lower())
-
-        kanmx4_gene.id = "{} locus with {} bp up and {} bp downstream DNA".format(kanmx4_gene.name, 1000, 1000)
-
-        #kanmx4_gene.version = "."
-
-        k = _SeqRecord(  _Seq( str(kanmx4_gene.seq)),
-                         id          = kanmx4_gene.id,
-                         name        = kanmx4_gene.name,
-                         description = kanmx4_gene.description,
-                         dbxrefs     = kanmx4_gene.dbxrefs,
-                         features    = kanmx4_gene.features,
-                         annotations = kanmx4_gene.annotations)
-        k.cassette = cas
-
-        return k
-
-    @property
     def gfp_cassette(self):
 
         # We used the ‘Promoter’ program (courtesy of Joe DeRisi, publicly available at:
@@ -426,11 +460,11 @@ class Gene():
         F2 = "CGGATCCCCGGGTTAATTAA"
         R1 = "GAATTCGAGCTCGTTTAAAC"
 
-        forward_tag_primer = self.cds[-43:-3] + F2
+        forward_tag_primer = self.cds()[-43:-3] + F2
 
         forward_tag_primer.id = "forward_tag_primer"
 
-        reverse_tag_primer = self.terminator[:40].reverse_complement() + R1
+        reverse_tag_primer = self.terminator()[:40].reverse_complement() + R1
 
         reverse_tag_primer.id = "reverse_tag_primer"
 
@@ -448,6 +482,6 @@ class Gene():
 
         GFP_fp = cassette_in_genome[1000:len(cassette_in_genome)-1000-(len(cassette_in_genome)-1000)%3+1].seq.translate( to_stop=True)
 
-        assert (self.cds[:-3]+_pFA6a_GFPS65T_kanMX6[41:776]).seq.translate(stop_symbol='') == GFP_fp
+        assert (self.cds()[:-3]+_pFA6a_GFPS65T_kanMX6[41:776]).seq.translate(stop_symbol='') == GFP_fp
 
         return cassette

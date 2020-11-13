@@ -6,12 +6,14 @@ test pygenome
 import pytest
 import requests_mock as rm_module
 
+
 @pytest.fixture
 def requests_mock(request):
     m = rm_module.Mocker()
     m.start()
     request.addfinalizer(m.stop)
     return m
+
 
 def test_update(requests_mock):
     import shutil, io, pathlib, os
@@ -78,6 +80,7 @@ def test_update(requests_mock):
     shutil.copytree(tmp_data_dir, data_dir)
     shutil.rmtree(tmp_data_dir)
 
+
 def test_pretty():
     from pygenome._pretty import pretty_str
     from unittest.mock import MagicMock
@@ -85,6 +88,7 @@ def test_pretty():
     x=pretty_str("abc")
     x._repr_pretty_(pp, None)
     pp.text.assert_any_call("abc")
+
 
 def test_names():
     from pygenome.standard_name    import _standard_name
@@ -103,82 +107,91 @@ def test_names():
 
 
 def test_TEF1():
-    from pygenome import sg
+    from pygenome import saccharomyces_cerevisiae as sg
     tp = 'ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATATTACATATAATACATATCACATAGGAAGCAACAGGCGCGTTGGACTTTTAATTTTCGAGGACCGCGAATCCTTACATCACACCCAATCCCCCACAAGTGATCCCCCACACACCATAGCTTCAAAATGTTTCTACTCCTTTTTTACTCTTCCAGATTTTCTCGGACTCCGCGCATCGCCGTACCACTTCAAAACACCCAAGCACAGCATACTAAATTTCCCCTCTTTCTTCCTCTAGGGTGTCGTTAATTACCCGTACTAAAGGTTTGGAAAAGAAAAAAGAGACCGCCTCGTTTCTTTTTCTTCGTCGAAAAAGGCAATAAAAATTTTTATCACGTTTCTTTTTCTTGAAAATTTTTTTTTTTGATTTTTTTCTCTTTCGATGACCTCCCATTGATATTTAAGTTAATAAACGGTCTTCAATTTCTCAAGTTTCAGTTTCATTTTTCTTGTTCTATTACAACTTTTTTTACTTCTTGCTCATTAGAAAGAAAGCATAGCAATCTAATCTAAGTTTTAATTACAAA'
-    s1 = sg.sysgene["YPR079W"].terminator
-    s2 = sg.stdgene["TEF1"].promoter
-    s3 = sg.sysgene["YPR080W"].promoter
+    s1 = sg.sysgene["YPR079W"].terminator()
+    s2 = sg.stdgene["TEF1"].promoter()
+    s3 = sg.sysgene["YPR080W"].promoter()
     assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
+
 
 def test_TPI1():
-    from pygenome import sg
+    from pygenome import saccharomyces_cerevisiae as sg
     tp = 'TGTTTAAAGATTACGGATATTTAACTTACTTAGAATAATGCCATTTTTTTGAGTTATAATAATCCTACGTTAGTGTGAGCGGGATTTAAACTGTGAGGACCTTAATACATTCAGACACTTCTGCGGTATCACCCTACTTATTCCCTTCGAGATTATATCTAGGAACCCATCAGGTTGGTGGAAGATTACCCGTTCTAAGACTTTTCAGCTTCCTCTATTGATGTTACACCTGGACACCCCTTTTCTGGCATCCAGTTTTTAATCTTCAGTGGCATGTGAGATTCTCCGAAATTAATTAAAGCAATCACACAATTCTCTCGGATACCACCTCGGTTGAAACTGACAGGTGGTTTGTTACGCATGCTAATGCAAAGGAGCCTATATACCTTTGGCTCGGCTGCTGTAACAGGGAATATAAAGGGCAGCATAATTTAGGAGTTTAGTGAACTTGCAACATTTACTATTTTCCCTTCTTACGTAAATATTTTTCTTTTTAATTCTAAATCAATCTTTTTCAATTTTTTGTTTGTATTCTTTTCTTGCTTAAATCTATAACTACAAAAAACACATACATAAACTAAAA'
-    s1 = sg.sysgene["YDR051C"].terminator
-    s2 = sg.stdgene["TPI1"].promoter
-    s3 = sg.sysgene["YDR050C"].promoter
+    s1 = sg.sysgene["YDR051C"].terminator()
+    s2 = sg.stdgene["TPI1"].promoter()
+    s3 = sg.sysgene["YDR050C"].promoter()
     assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
 
+
 def test_TEF1_genbank_accession():
-    from pygenome import sg
-    assert sg.stdgene["TEF1"].promoter.description == 'BK006949.2 REGION: 700015..700593'
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert sg.stdgene["TEF1"].promoter().description == 'BK006949.2 REGION: 700015..700593'
+
 
 def test_TPI1_genbank_accession():
-    from pygenome import sg
-    assert sg.stdgene["TPI1"].promoter.description == 'BK006938.2 REGION: complement(556473..557055)'
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert sg.stdgene["TPI1"].promoter().description == 'BK006938.2 REGION: complement(556473..557055)'
+
 
 def test_fun26():
-    from pygenome import sg
+    from pygenome import saccharomyces_cerevisiae as sg
     assert len(sg.stdgene["FUN26"].locus()) == 3554
-    assert len(sg.stdgene["FUN26"].cds)   == 1554
+    assert len(sg.stdgene["FUN26"].cds())   == 1554
     assert sg.stdgene["FUN26"].sys == 'YAL022C'
-    assert sg.stdgene["FUN26"].upstream_gene.sys == 'YAL021C'
-    assert sg.stdgene["FUN26"].upstream_gene.sys == 'YAL021C'
-    assert sg.stdgene["FUN26"].downstream_gene.sys == 'YAL023C'
+    assert sg.stdgene["FUN26"].upstream_gene().sys == 'YAL021C'
+    assert sg.stdgene["FUN26"].upstream_gene().sys == 'YAL021C'
+    assert sg.stdgene["FUN26"].downstream_gene().sys == 'YAL023C'
 
-    assert str(  sg.stdgene["FUN26"].promoter.seq)   in str(sg.stdgene["FUN26"].locus().seq)
-    assert str(  sg.stdgene["FUN26"].terminator.seq) in str(sg.stdgene["FUN26"].locus().seq)
-    assert str(  sg.stdgene["PMT2"].promoter.seq)    in str(sg.stdgene["PMT2"].locus().seq)
-    assert str(  sg.stdgene["LTE1"].terminator.seq)  in str(sg.stdgene["LTE1"].locus().seq)
+    assert str(  sg.stdgene["FUN26"].promoter().seq)   in str(sg.stdgene["FUN26"].locus().seq)
+    assert str(  sg.stdgene["FUN26"].terminator().seq) in str(sg.stdgene["FUN26"].locus().seq)
+    assert str(  sg.stdgene["PMT2"].promoter().seq)    in str(sg.stdgene["PMT2"].locus().seq)
+    assert str(  sg.stdgene["LTE1"].terminator().seq)  in str(sg.stdgene["LTE1"].locus().seq)
 
 
 
 def test_promoter_promoter():
-    from pygenome import sg
-    assert str(sg.stdgene["DEP1"].promoter.seq) == str(sg.stdgene["SYN8"].promoter.seq.reverse_complement())
-    assert str(sg.stdgene["SPO7"].promoter.seq) == str(sg.stdgene["MDM10"].promoter.seq.reverse_complement())
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert str(sg.stdgene["DEP1"].promoter().seq) == str(sg.stdgene["SYN8"].promoter().seq.reverse_complement())
+    assert str(sg.stdgene["SPO7"].promoter().seq) == str(sg.stdgene["MDM10"].promoter().seq.reverse_complement())
+
 
 def test_terminator_terminator():
-    from pygenome import sg
-    assert str(sg.stdgene["FUN14"].terminator.seq) == str(sg.stdgene["ERP2"].terminator.seq.reverse_complement())
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert str(sg.stdgene["FUN14"].terminator().seq) == str(sg.stdgene["ERP2"].terminator().seq.reverse_complement())
+
 
 def test_promoter_terminator():
-    from pygenome import sg
-    assert str(sg.stdgene["CYS3"].promoter.seq) == str(sg.stdgene["DEP1"].terminator.seq)
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert str(sg.stdgene["CYS3"].promoter().seq) == str(sg.stdgene["DEP1"].terminator().seq)
+
 
 def test_terminator_promoter():
-    from pygenome import sg
-    assert str(sg.stdgene["CCR4"].promoter.seq) == str(sg.stdgene["ATS1"].terminator.seq)
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert str(sg.stdgene["CCR4"].promoter().seq) == str(sg.stdgene["ATS1"].terminator().seq)
+
 
 def test_tandem_bidirectional():
-    from pygenome import sg
-    assert sg.stdgene["TPI1"].tandem == (not sg.stdgene["TPI1"].bidirectional)
-    assert sg.stdgene["GAL1"].tandem == (not sg.stdgene["GAL1"].bidirectional)
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert sg.stdgene["TPI1"].tandem() == (not sg.stdgene["TPI1"].bidirectional())
+    assert sg.stdgene["GAL1"].tandem() == (not sg.stdgene["GAL1"].bidirectional())
+
 
 def test_misc():
-    from pygenome import sg
-    assert str(sg.stdgene["CLN3"].promoter.seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
-    assert str(sg.stdgene["CLN3"].terminator.seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert str(sg.stdgene["CLN3"].promoter().seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
+    assert str(sg.stdgene["CLN3"].terminator().seq) in str(sg.stdgene["CLN3"].locus(2000, 2000).seq)
 
-    assert str(sg.stdgene["CYC3"].terminator.seq) in str(sg.stdgene["CYC3"].locus(2000, 2000).seq)
+    assert str(sg.stdgene["CYC3"].terminator().seq) in str(sg.stdgene["CYC3"].locus(2000, 2000).seq)
 
-    assert str(sg.stdgene["CYC3"].promoter.seq)    in str(sg.stdgene["CYC3"].locus(2500,2500).seq)
-    assert str(sg.stdgene["CYC3"].terminator.seq)  == str(sg.stdgene["CLN3"].promoter.seq)
-    assert str(sg.stdgene["JEN1"].promoter.seq)    == str(sg.stdgene["SRY1"].promoter.seq.reverse_complement())
-    assert str(sg.stdgene["OSM1"].promoter.seq)    == str(sg.stdgene["ISY1"].terminator.seq)
-    assert str(sg.stdgene["CYC1"].terminator.seq)  in str(sg.stdgene["CYC1"].locus().seq)
-    assert str(sg.stdgene["UTR1"].terminator.seq)  in str(sg.stdgene["UTR1"].locus().seq)
-    assert str(sg.stdgene["CDC24"].promoter.seq)   in str(sg.stdgene["CDC24"].locus().seq)
-    assert str(sg.stdgene["CDC24"].terminator.seq) in str(sg.stdgene["CDC24"].locus().seq)
+    assert str(sg.stdgene["CYC3"].promoter().seq)    in str(sg.stdgene["CYC3"].locus(2500,2500).seq)
+    assert str(sg.stdgene["CYC3"].terminator().seq)  == str(sg.stdgene["CLN3"].promoter().seq)
+    assert str(sg.stdgene["JEN1"].promoter().seq)    == str(sg.stdgene["SRY1"].promoter().seq.reverse_complement())
+    assert str(sg.stdgene["OSM1"].promoter().seq)    == str(sg.stdgene["ISY1"].terminator().seq)
+    assert str(sg.stdgene["CYC1"].terminator().seq)  in str(sg.stdgene["CYC1"].locus().seq)
+    assert str(sg.stdgene["UTR1"].terminator().seq)  in str(sg.stdgene["UTR1"].locus().seq)
+    assert str(sg.stdgene["CDC24"].promoter().seq)   in str(sg.stdgene["CDC24"].locus().seq)
+    assert str(sg.stdgene["CDC24"].terminator().seq) in str(sg.stdgene["CDC24"].locus().seq)
 
     from pygenome.intergenic import intergenic_sequence
     intseq = intergenic_sequence("YAL021C","YAL023C")
@@ -190,8 +203,8 @@ def test_misc():
 
 
 def test_kanmx4():
-    from pygenome import sg
-    s = sg.stdgene["CYC1"].deletion_locus
+    from pygenome import saccharomyces_cerevisiae as sg
+    s = sg.stdgene["CYC1"].deletion_locus()[0]
 
 
 
@@ -231,23 +244,20 @@ def test_kanmx4():
 
 
 def test_gfp():
-    from pygenome import sg
-    assert sg.stdgene["TDH3"].gfp_cassette.seguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
+    from pygenome import saccharomyces_cerevisiae as sg
+    assert sg.stdgene["TDH3"].gfp_cassette().seguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
 
 def test_repr():
     from unittest.mock import MagicMock
-    from pygenome import sg
+    from pygenome import saccharomyces_cerevisiae as sg
     pp = MagicMock()
     s = sg.stdgene["CYC1"]
     s._repr_pretty_(pp, None)
     pp.text.assert_any_call("Gene {}/{}".format(s.std, s.sys))
 
-
-
-
     assert s._repr_html_() == "<a href='http://www.yeastgenome.org/locus/YJR048W' target='_blank'>Gene CYC1/YJR048W</a>"
     assert len(s) == 330
-    assert s.short_description == "Cytochrome c, isoform 1; also known as iso-1-cytochrome c; electron carrier of mitochondrial intermembrane space that transfers electrons from ubiquinone-cytochrome c oxidoreductase to cytochrome c oxidase during cellular respiration; CYC1 has a paralog, CYC7, that arose from the whole genome duplication; human homolog CYC1 can complement yeast null mutant; mutations in human CYC1 cause insulin-responsive hyperglycemia"
+    assert s.short_description() == "Cytochrome c, isoform 1; also known as iso-1-cytochrome c; electron carrier of mitochondrial intermembrane space that transfers electrons from ubiquinone-cytochrome c oxidoreductase to cytochrome c oxidase during cellular respiration; CYC1 has a paralog, CYC7, that arose from the whole genome duplication; human homolog CYC1 can complement yeast null mutant; mutations in human CYC1 cause insulin-responsive hyperglycemia"
 
 
 

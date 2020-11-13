@@ -3,6 +3,7 @@
 
 import os            as _os
 import itertools     as _itertools
+from pydna.dseqrecord import Dseqrecord as _Dseqrecord
 
 from Bio             import SeqIO as _SeqIO
 
@@ -10,7 +11,7 @@ from pygenome._pretty import pretty_str as _ps
 
 from pygenome.systematic_name import _systematic_name
 
-from  pygenome._data import _data_files
+from pygenome._data import _data_files
 
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
@@ -50,7 +51,7 @@ def intergenic_sequence(upgene, dngene):
     >>>
 
     '''
-        
+
     upgene = _systematic_name(upgene)
     dngene = _systematic_name(dngene)
 
@@ -69,11 +70,13 @@ def intergenic_sequence(upgene, dngene):
     length,a,b = min([ (abs(a-b), a, b) for a, b in _itertools.product((startup,stopup),(startdn,stopdn))])
 
     if a<b:
-        igs = _krom[a:b]
+        igs = _Dseqrecord.from_SeqRecord(_krom[a:b],linear=True)
         igs.description = "{} REGION: {}..{}".format(_krom.id, a+1,b)
     else:
-        igs = _krom[b:a].reverse_complement()
+        igs = _Dseqrecord.from_SeqRecord(_krom[b:a].reverse_complement(),linear=True)
         igs.description = "{} REGION: complement({}..{})".format(_krom.id, b+1,a)
+
+    print()
 
     igs.name = _krom.name
 

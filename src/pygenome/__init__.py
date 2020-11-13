@@ -16,12 +16,14 @@ from pkg_resources      import resource_filename as _resource_filename
 
 from pygenome import _version
 
+
+
 '''
 # pygenome
 
 The pygenome package.
 
-:copyright: Copyright 2013 - 2017 by Björn Johansson. All rights reserved.
+:copyright: Copyright 2013 - 2020 by Björn Johansson. All rights reserved.
 :license:   This code is part of the pygenome, distribution and governed by its
             license.  Please see the LICENSE.txt file that should have been included
             as part of this package.
@@ -163,6 +165,7 @@ def delete_data_folder():
     import shutil as _shutil
     _shutil.rmtree(_os.environ["pygenome_data_dir"])
 
+
 def get_env():
     _table = _prettytable.PrettyTable(["Variable", "Value"])
     _table.set_style(_prettytable.DEFAULT)
@@ -175,9 +178,8 @@ def get_env():
     return _pretty_str(_table)
 
 
-
-
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
+
 
 try:
     _os.makedirs( data_dir )
