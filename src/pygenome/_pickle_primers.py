@@ -33,7 +33,8 @@ if _sys.version_info >= (3,8):
 else:
     import pickle5 as _pickle
 
-data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
+data_dir = _os.path.join( _os.getenv("pygenome_data_dir"),
+                         "Saccharomyces_cerevisiae")
 
 from  pygenome._data import _data_files
 
@@ -63,8 +64,13 @@ _primertuple = _collections.namedtuple( "_primertuple",
                                            UPTAG_sequence_20mer
                                            DNTAG_sequence_20mer''')
 
+_not_done_tuple=_collections.namedtuple("_not_done_tuple",
+                                        "ORF_name Gene_name SGD_class")
+
 def pickle_primers():
-    _fn = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae",_data_files[16])
+    _fn = _os.path.join(_os.getenv("pygenome_data_dir"),
+                        "Saccharomyces_cerevisiae",
+                        _data_files[16])
     _primers = _collections.defaultdict(list)
     with open(_fn, 'rt') as csvfile:
         rd = _csv.reader(csvfile, delimiter='\t')
@@ -73,10 +79,9 @@ def pickle_primers():
         results = []
         for line_ in rd:
             v = _primertuple(*[x.strip() for x in line_])
-            primers[v.ORF_name].append(v)
+            _primers[v.ORF_name].append(v)
     _pickle.dump( _primers, open(_os.path.join(data_dir,"primers.pickle"), "wb" ), -1 )
 
-_not_done_tuple=_collections.namedtuple("_not_done_tuple", "ORF_name Gene_name SGD_class")
 
 def pickle_orfs_not_deleted():
     _fn = _fn = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae",_data_files[17])

@@ -133,9 +133,9 @@ class Gene():
         Examples
         --------
         >>> from pygenome import saccharomyces_cerevisiae as sg
-        >>> sg.stdgene["TDH3"].cds
-        SeqRecord(seq=Seq('ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(883811..882811)', dbxrefs=[])
-        >>> len(sg.stdgene["TDH3"].cds)
+        >>> sg.stdgenes["TDH3"].cds()
+        Dseqrecord(-999)
+        >>> len(sg.stdgenes["TDH3"].cds())
         999
         '''
 
@@ -214,9 +214,9 @@ class Gene():
         Examples
         --------
         >>> from pygenome import saccharomyces_cerevisiae as sg
-        >>> sg.stdgene["TDH3"].promoter
-        SeqRecord(seq=Seq('ATAAAAAACACGCTTTTTCAGTTCGAGTTTATCATTATCAATACTGCCATTTCA...AAA'), id='YGR193C_YGR192C', name='.', description='BK006941.2 REGION: complement(883811..884508)', dbxrefs=[])
-        >>> str(sg.stdgene["TDH3"].promoter) == str(sg.sysgene["YGR192C"].promoter)
+        >>> sg.stdgenes["TDH3"].promoter()
+        Dseqrecord(-698)
+        >>> str(sg.stdgenes["TDH3"].promoter) == str(sg.sysgenes["YGR192C"].promoter)
         True
         >>>
         '''
@@ -263,13 +263,13 @@ class Gene():
         Examples
         --------
         >>> from pygenome import saccharomyces_cerevisiae as sg
-        >>> sg.stdgene["TDH3"].terminator()
-        SeqRecord(seq=Seq('GTGAATTTACTTTAAATCTTGCATTTAAATAAATTTTCTTTTTATAGCTTTATG...CCT'), id='YGR192C_YGR193C', name='.', description='Intergenic sequence between upstream gene YGR192C and downstream gene Gene HIP1/YGR191W', dbxrefs=[])
-        >>> len(sg.stdgene["TDH3"].terminator())
+        >>> sg.stdgenes["TDH3"].terminator()
+        Dseqrecord(-580)
+        >>> len(sg.stdgenes["TDH3"].terminator())
         580
-        >>> sg.stdgene["TDH3"].upstream_gene
+        >>> sg.stdgenes["TDH3"].upstream_gene()
         Gene PDX1/YGR193C
-        >>> str(sg.stdgene["PDX1"].terminator().seq) == str(sg.stdgene["TDH3"].promoter().seq)
+        >>> str(sg.stdgenes["PDX1"].terminator().seq) == str(sg.stdgenes["TDH3"].promoter().seq)
         True
         '''
 
@@ -401,7 +401,7 @@ class Gene():
         return cassettes
 
 
-    def deletion_locus(self):
+    def deletion_loci(self):
 
         outer_cassettes = [x.outer_cassette for x in self.deletion_cassettes() if x.outer_cassette]
 

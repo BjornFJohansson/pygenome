@@ -211,15 +211,15 @@ if _missing_files:
     zf.close()
 
 if not _os.path.exists(_os.path.join(data_dir, "primers.pickle")):
-    _sys.stdout.write("pickle primers.")
+    print("pickle primers start.")
     from pygenome._pickle_primers import pickle_primers
     pickle_primers()
-    _sys.stdout.write("pickle primers done.")
+    print("pickle primers done.")
 if not _os.path.exists(_os.path.join(data_dir, "not_done.pickle")):
-    _sys.stdout.write("pickle primers.")
+    print("pickle primers.")
     from pygenome._pickle_primers import pickle_orfs_not_deleted
     pickle_orfs_not_deleted()
-    _sys.stdout.write("pickle primers done.")
+    print("pickle primers done.")
 
 _do_pickle_lists = False
 
@@ -237,12 +237,12 @@ if not _os.path.exists(_os.path.join(data_dir, "systematic_to_description.pickle
 
 
 if _do_pickle_lists:
-    _sys.stdout.write("pickle lists.\n")
+    print("pickle lists start.")
     from pygenome._pickle_lists import _pickle_lists
     _pickle_lists()
-    _sys.stdout.write("pickle lists done.\n")
+    print("pickle lists done.")
 if not _os.path.exists(_os.path.join(data_dir,"stdgene.pickle")) or not _os.path.exists(_os.path.join(data_dir,"sysgene.pickle")):
-    _sys.stdout.write("pickle locus list.\n")
+    print("pickle locus list start.")
     from pygenome._pickle_genes import _pickle_genes
     _pickle_genes()
-    _sys.stdout.write("pickle locus list done.\n")
+    print("pickle locus list done.")

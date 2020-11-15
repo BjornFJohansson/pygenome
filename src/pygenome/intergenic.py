@@ -36,12 +36,12 @@ def intergenic_sequence(upgene, dngene):
 
     Examples
     --------
-    >>> from pygenome import sg
-    >>> sg.stdgene["TDH3"]
+    >>> from pygenome import saccharomyces_cerevisiae as sg
+    >>> sg.stdgenes["TDH3"]
     Gene TDH3/YGR192C
-    >>> sg.stdgene["TDH3"].upstream_gene
+    >>> sg.stdgenes["TDH3"].upstream_gene()
     Gene PDX1/YGR193C
-    >>> sg.sysgene["YGR193C"].upstream_gene
+    >>> sg.sysgenes["YGR193C"].upstream_gene()
     Gene XKS1/YGR194C
     >>> from pygenome.intergenic import intergenic_sequence
     >>> len(intergenic_sequence("YGR192C", "YGR193C"))
@@ -75,8 +75,6 @@ def intergenic_sequence(upgene, dngene):
     else:
         igs = _Dseqrecord.from_SeqRecord(_krom[b:a].reverse_complement(),linear=True)
         igs.description = "{} REGION: complement({}..{})".format(_krom.id, b+1,a)
-
-    print()
 
     igs.name = _krom.name
 
