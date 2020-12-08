@@ -98,22 +98,22 @@ class Gene():
         #lcs = feature.extract(_krom)
 
         if self.sys[6]=="W":
-            lcs = _krom[start-upstream:stop+downstream]
+            lcs = _Dseqrecord.from_SeqRecord(_krom[start-upstream:stop+downstream],linear=True)
             lcs.description = "{} REGION: {}..{}".format(_krom.name,start-upstream+1, stop+downstream)
         else:
-            lcs = _krom[start-upstream:stop+downstream].reverse_complement()
+            lcs = _Dseqrecord.from_SeqRecord(_krom[start-upstream:stop+downstream].reverse_complement(),linear=True)
             lcs.description = "{} REGION: complement({}..{})".format(_krom.name, stop+downstream+1, start-upstream)
 
         lcs.name = _krom.name
 
         lcs.id = _krom.id
 
-        #lcs.annotations
-
         lcs.pydna_code = _ps( "from pydna.genbank import Genbank\n"
                               "gb = Genbank('my@email.com')\n"
                               "seq = gb.nucleotide('{}')".format(lcs.description))
-        return _Dseqrecord.from_SeqRecord(lcs,linear=True)
+
+
+        return lcs
 
 
     def orf(self):

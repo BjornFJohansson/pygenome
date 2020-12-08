@@ -3,6 +3,7 @@ pygenome/_version.py*
 
 .pytest_cache
 
+*.ipynb_checkpoints
 
 # Backup files
 *~
