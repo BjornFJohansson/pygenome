@@ -30,7 +30,7 @@ def _pickle_genes():
     for _f in _feature_list:
         sysgene[_f] = Gene(_f)
 
-    print("Pickle standard gene names.")
+    #print("Pickle standard gene names.")
     for _f,_g in list(_standard_to_systematic.items()):
         stdgene[_f] = Gene(_g)
 

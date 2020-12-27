@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import time             as _time
 import os               as _os
 import sys              as _sys
 import subprocess       as _subprocess
@@ -11,11 +12,13 @@ import configparser     as _configparser
 import prettytable      as _prettytable
 import shutil           as _shutil
 import zipfile          as _zipfile
+import urllib           as _urllib
 from pygenome._pretty   import pretty_str  as _pretty_str
 from pkg_resources      import resource_filename as _resource_filename
 
-from pygenome import _version
+from  pygenome._data import _data_urls
 
+from pygenome import _version
 
 
 '''
@@ -42,7 +45,7 @@ __status__       = "Development" # "Production" #"Prototype"
 
 __version__ = _version.version
 del _version
-_sys.modules.pop("pygenome._version", None)
+#_sys.modules.pop("pygenome._version", None)
 
 # create config directory
 _os.environ["pygenome_config_dir"] = _os.getenv("pygenome_config_dir", _appdirs.user_config_dir("pygenome"))
@@ -187,8 +190,7 @@ except OSError:
     if not _os.path.isdir( data_dir ):
        raise
 
-from  pygenome._data import _data_urls
-import urllib as _urllib
+
 
 _missing_files=[]
 
@@ -198,8 +200,6 @@ for _url in _data_urls:
         _logger.warning("file %s missing", _file_)
         _missing_files.append(_file_)
 
-import time as _time
-import os as _os
 
 if _missing_files:
     _shutil.copy( _resource_filename("pygenome", "Saccharomyces_cerevisiae.zip"), data_dir )
@@ -211,15 +211,15 @@ if _missing_files:
     zf.close()
 
 if not _os.path.exists(_os.path.join(data_dir, "primers.pickle")):
-    print("pickle primers start.")
+    #print("pickle primers start.")
     from pygenome._pickle_primers import pickle_primers
     pickle_primers()
-    print("pickle primers done.")
+    #print("pickle primers done.")
 if not _os.path.exists(_os.path.join(data_dir, "not_done.pickle")):
-    print("pickle primers.")
+    #print("pickle primers.")
     from pygenome._pickle_primers import pickle_orfs_not_deleted
     pickle_orfs_not_deleted()
-    print("pickle primers done.")
+    #print("pickle primers done.")
 
 _do_pickle_lists = False
 
@@ -237,12 +237,12 @@ if not _os.path.exists(_os.path.join(data_dir, "systematic_to_description.pickle
 
 
 if _do_pickle_lists:
-    print("pickle lists start.")
+    #print("pickle lists start.")
     from pygenome._pickle_lists import _pickle_lists
     _pickle_lists()
-    print("pickle lists done.")
+    #print("pickle lists done.")
 if not _os.path.exists(_os.path.join(data_dir,"stdgene.pickle")) or not _os.path.exists(_os.path.join(data_dir,"sysgene.pickle")):
-    print("pickle locus list start.")
+    #print("pickle locus list start.")
     from pygenome._pickle_genes import _pickle_genes
     _pickle_genes()
-    print("pickle locus list done.")
+    #print("pickle locus list done.")
