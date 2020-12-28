@@ -4,12 +4,11 @@
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
 '''
 
-import platform as _platform
-
-if _platform.python_version().startswith("3.8"):
-    import pickle        as _pickle
+import sys as _sys
+if _sys.version_info >= (3,8):
+    import pickle  as _pickle
 else:
-    import pickle5       as _pickle
+    import pickle5 as _pickle
 
 import os                               as _os
 from Bio             import SeqIO       as _SeqIO
