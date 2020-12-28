@@ -16,6 +16,10 @@ from tqdm import tqdm
 import requests
 import pathlib
 
+import logging as _logging
+
+_module_logger = _logging.getLogger("pygenome." + __name__)
+
 #from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
 #_pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
@@ -24,7 +28,7 @@ from  pygenome._data import _data_urls, _data_files
 data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
 
 def updater():
-    print("checking online for updated data files.")
+    _logger.info("checking online for updated data files.")
 
     for url,fn in zip( _data_urls, _data_files):
 
@@ -43,7 +47,7 @@ def updater():
             _module_logger.critical("local file %s %s is newer than remote file %s %s", fn, local_last_mod, url, remote_last_mod )
 
         if remote_last_mod > local_last_mod:
-            print("{} is available in a newer version --downloading".format(fn))
+            _logger.info("{} is available in a newer version --downloading".format(fn))
 
             remote_last_mod_time_stamp = _calendar.timegm(remote_last_mod.timetuple())
 
@@ -55,9 +59,9 @@ def updater():
 
             _os.utime(str(path), times=(remote_last_mod_time_stamp,)*2)
 
-            print("{} successfully downloaded".format(fn))
+            _logger.info("{} successfully downloaded".format(fn))
         else:
-            print("{} is the newest version ({})".format(fn, local_last_mod.isoformat()))
+            _logger.info("{} is the newest version ({})".format(fn, local_last_mod.isoformat()))
 
 if __name__=="__main__": # pragma: no cover
     updater()

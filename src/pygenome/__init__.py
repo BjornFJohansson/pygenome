@@ -13,9 +13,11 @@ import prettytable      as _prettytable
 import shutil           as _shutil
 import zipfile          as _zipfile
 import urllib           as _urllib
+import logging          as _logging
 from pygenome._pretty   import pretty_str  as _pretty_str
 from pkg_resources      import resource_filename as _resource_filename
 from pygenome import _version
+
 
 
 '''
@@ -208,15 +210,15 @@ if _missing_files:
     zf.close()
 
 if not _os.path.exists(_os.path.join(data_dir, "primers.pickle")):
-    #print("pickle primers start.")
+    _logger.info("pickle primers start.")
     from pygenome._pickle_primers import pickle_primers
     pickle_primers()
-    #print("pickle primers done.")
+    _logger.info("pickle primers done.")
 if not _os.path.exists(_os.path.join(data_dir, "not_done.pickle")):
-    #print("pickle primers.")
+    _logger.info("pickle primers.")
     from pygenome._pickle_primers import pickle_orfs_not_deleted
     pickle_orfs_not_deleted()
-    #print("pickle primers done.")
+    _logger.info("pickle primers done.")
 
 _do_pickle_lists = False
 
@@ -232,14 +234,13 @@ if not _os.path.exists(_os.path.join(data_dir, "systematic_to_description.pickle
     _do_pickle_lists = True
 
 
-
 if _do_pickle_lists:
-    #print("pickle lists start.")
+    _logger.info("pickle lists start.")
     from pygenome._pickle_lists import _pickle_lists
     _pickle_lists()
-    #print("pickle lists done.")
+    _logger.info("pickle lists done.")
 if not _os.path.exists(_os.path.join(data_dir,"stdgene.pickle")) or not _os.path.exists(_os.path.join(data_dir,"sysgene.pickle")):
-    #print("pickle locus list start.")
+    _logger.info("pickle locus list start.")
     from pygenome._pickle_genes import _pickle_genes
     _pickle_genes()
-    #print("pickle locus list done.")
+    _logger.info("pickle locus list done.")
