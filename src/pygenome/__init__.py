@@ -15,9 +15,6 @@ import zipfile          as _zipfile
 import urllib           as _urllib
 from pygenome._pretty   import pretty_str  as _pretty_str
 from pkg_resources      import resource_filename as _resource_filename
-
-from  pygenome._data import _data_urls
-
 from pygenome import _version
 
 
@@ -190,7 +187,7 @@ except OSError:
     if not _os.path.isdir( data_dir ):
        raise
 
-
+from  pygenome._data import _data_urls
 
 _missing_files=[]
 
