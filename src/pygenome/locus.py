@@ -102,7 +102,7 @@ class Gene():
             lcs.description = "{} REGION: {}..{}".format(_krom.name,start-upstream+1, stop+downstream)
         else:
             lcs = _Dseqrecord.from_SeqRecord(_krom[start-upstream:stop+downstream].reverse_complement(),linear=True)
-            lcs.description = "{} REGION: complement({}..{})".format(_krom.name, stop+downstream+1, start-upstream)
+            lcs.description = "{} REGION: complement({}..{})".format(_krom.name, stop+downstream-1, start-upstream+1)
 
         lcs.name = _krom.name
 
@@ -228,9 +228,9 @@ class Gene():
         pr.features.append(_SeqFeature(_FeatureLocation(0, len(pr)),
                                       type = "promoter",
                                       strand = 1,
-                                      qualifiers = {"note"              : "tp {} {}".format(self.upstream_gene().sys, self.sys),
-                                                    "ApEinfo_fwdcolor": "#b1e6cc",
-                                                    "ApEinfo_revcolor": "#b1e681",
+                                      qualifiers = {"note"              : ["tp {} {}".format(self.upstream_gene().sys, self.sys),],
+                                                    "ApEinfo_fwdcolor": ["#b1e6cc",],
+                                                    "ApEinfo_revcolor": ["#b1e681",],
                                                     }))
         return pr
 
@@ -281,9 +281,9 @@ class Gene():
         tm.features.append(_SeqFeature(_FeatureLocation(0, len(tm)),
                                       type = "terminator",
                                       strand = 1,
-                                      qualifiers = {"note"              : "tp {} {}".format( self.sys, self.downstream_gene ),
-                                                    "ApEinfo_fwdcolor": "#b1e6cc",
-                                                    "ApEinfo_revcolor": "#b1e681",
+                                      qualifiers = {"note"              : ["tp {} {}".format( self.sys, self.downstream_gene ),],
+                                                    "ApEinfo_fwdcolor": ["#b1e6cc",],
+                                                    "ApEinfo_revcolor": ["#b1e681",],
                                                     }))
 
         return tm
