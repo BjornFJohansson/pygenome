@@ -41,7 +41,7 @@ jobs:
           add-pip-as-python-dependency: true
           activate-environment: pygenome_test_environment
           python-version: ${{ matrix.python-version }}
-          environment-file: pygenome_test_${{ matrix.python-version }}_environment.yml
+          environment-file: pygenome_test_environment.yml
           use-only-tar-bz2: true
 
       - name: List environment

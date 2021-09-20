@@ -38,7 +38,7 @@ def main():
 
     result_suite = pytest.cmdline.main(args)
 
-    return result_suite
+    return int(result_suite)
 
 
 if __name__ == "__main__":
