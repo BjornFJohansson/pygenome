@@ -1,0 +1,29 @@
+name: pygenome_test_environment
+channels:
+- conda-forge
+- defaults
+- BjornFJohansson
+dependencies:
+- python
+- pydna
+- appdirs
+- biopython
+- prettytable
+- tqdm
+
+
+- requests
+- requests-mock
+
+- ipython
+- jupyter
+
+- pytest
+- pytest-cov
+- pytest-mock
+- pytest-runner
+- pytest-doctestplus
+- nbval
+- coverage
+- setuptools
+- requests-mock
