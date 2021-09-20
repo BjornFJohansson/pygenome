@@ -19,13 +19,14 @@ sequences are returned as Biopython
 
 Typical usage at the [IPython](http://ipython.org/) command line could look like this:
 
+
 ```python
-from pygenome import sg
+from pygenome import saccharomyces_cerevisiae as sg
 ```
 
 
 ```python
-mygene = sg.stdgene["XKS1"]
+mygene = sg.stdgenes["XKS1"]
 ```
 
 
@@ -42,7 +43,7 @@ mygene
 
 
 ```python
-mygene.short_description
+mygene.short_description()
 ```
 
 
@@ -54,7 +55,7 @@ mygene.short_description
 
 
 ```python
-sg.sysgene["YGR194C"]
+sg.sysgenes["YGR194C"]
 ```
 
 
@@ -66,13 +67,13 @@ sg.sysgene["YGR194C"]
 
 
 ```python
-mygene.cds
+mygene.cds()
 ```
 
 
 
 
-    SeqRecord(seq=Seq('ATGTTGTGTTCAGTAATTCAGAGACAGACAAGAGAGGTTTCCAACACAATGTCT...TAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(887876..886072)', dbxrefs=[])
+    Dseqrecord(-1803)
 
 
 
@@ -84,37 +85,37 @@ mygene.locus()
 
 
 
-    SeqRecord(seq=Seq('ATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATATGTTAA...GAA'), id='BK006941.2', name='BK006941', description='BK006941 REGION: complement(888876..885072)', dbxrefs=[])
+    Dseqrecord(-3803)
 
 
 
 
 ```python
-mygene.promoter
+mygene.promoter()
 ```
 
 
 
 
-    SeqRecord(seq=Seq('ATGATGATCCTGCTGTAGTTATGGCACTAAAGTTTTTTTGTAAATCTTTTTATA...TTA'), id='YGR195W_YGR194C', name='.', description='BK006941.2 REGION: complement(887876..888881)', dbxrefs=[])
+    Dseqrecord(-1006)
 
 
 
 
 ```python
-mygene.terminator
+mygene.terminator()
 ```
 
 
 
 
-    SeqRecord(seq=Seq('AATATGTTTGAATAATTTATCATGCCCTGACAAGTACACACAAACACAGACACA...AAA'), id='YGR194C_YGR195W', name='.', description='Intergenic sequence between upstream gene YGR194C and downstream gene Gene PDX1/YGR193C', dbxrefs=[])
+    Dseqrecord(-331)
 
 
 
 
 ```python
-mygene.downstream_gene
+mygene.downstream_gene()
 ```
 
 
@@ -126,7 +127,7 @@ mygene.downstream_gene
 
 
 ```python
-mygene.upstream_gene
+mygene.upstream_gene()
 ```
 
 
@@ -138,8 +139,28 @@ mygene.upstream_gene
 
 
 ```python
-mygene.deletion_locus
+mygene.deletion_cassettes()
 ```
+
+
+
+
+    [Cassette(outer_cassette=Amplicon(1671), inner_cassette=Amplicon(1617), UPTAG=UPTAG_primer_YGR194C 74-mer:5'-GAGATTAGTACTTTA..GAC-3', DNTAG=DNTAG_primer_YGR194C 74-mer:5'-TTATTCAAACATATT..TCG-3', UPstream45=UPstream45_YGR194C 45-mer:5'-CCCTCTCGAGAAAAA..ATG-3', DNstream45=DNstream45_YGR194C 45-mer:5'-TGTGTGTACTTGTCA..TTA-3')]
+
+
+
+
+```python
+mygene.deletion_loci()
+```
+
+
+
+
+    [Contig(-3587)]
+
+
+
 
 
 

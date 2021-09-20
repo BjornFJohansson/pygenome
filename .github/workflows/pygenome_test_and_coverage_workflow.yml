@@ -19,7 +19,6 @@ jobs:
           codecov: true
         - os: ubuntu-latest
           python-version: 3.8
-          codecov: true
         - os: ubuntu-latest
           python-version: 3.7
 
@@ -44,6 +43,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
           environment-file: pygenome_test_${{ matrix.python-version }}_environment.yml
           use-only-tar-bz2: true
+
+      - name: List environment
+        shell: bash -l {0}
+        run: conda list
 
       - name: Install from source
         shell: bash -l {0}
