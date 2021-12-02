@@ -192,22 +192,17 @@ Anaconda is a large download (about 400 Mb) while Miniconda is about 40-50 Mb.
 Once Anaconda (or Miniconda) is installed, the conda package manager can be used to install pygenome
 from the [BjornFJohansson](https://anaconda.org/bjornfjohansson) package channel.
 
-The first step is to add the channel by typing the command below followed by return:
-
-    conda config --append channels BjornFJohansson
-
 Then pygenome can be installed by typing the command below followed by return:
 
-    conda install pygenome
+    conda install -c bjornfjohansson pygenome
 
-This works on Windows, MacOSX and Linux, and installs all necessary dependencies automatically.
+This works on Windows, MacOSX and Linux, and installs all necessary 
+dependencies automatically.
 
 ## Requirements
 
-- [Python 3.7 - 3.9](http://www.python.org) (pygenome version 0.9.0 was the last to support Python 2.7.)
+- [Python 3.7 - 3.9](http://www.python.org)
 - [pydna](http://pypi.python.org/pypi/pydna)
-- [requests](http://pypi.python.org/pypi/requests)
-- [appdirs](https://pypi.python.org/pypi/appdirs)
 
 ## Install with pip
 

@@ -1,0 +1,85 @@
+S. cerevisiae strain CEN.PK2-1Ca genome sequence.
+
+11/19/2015
+
+This directory contains 4 files describing the genome of S. cerevisiae strain 
+CEN.PK2-1Ca, a derivative of CEN.PK, which is a commonly-used laboratory strain 
+(Accession: JRIV00000000; ATCC Number: MYA-1108). 
+
+genome fasta file: CEN.PK2-1Ca_SGD_2015_JRIV01000000.fsa
+nucleic acid coding sequence file: CEN.PK2-1Ca_JRIV01000000_SGD_cds.fsa
+protein sequence file: CEN.PK2-1Ca_JRIV01000000_SGD_pep.fsa
+GFF file: CEN.PK2-1Ca_JRIV01000000_SGD.gff
+
+FASTA headers in each of the files include the following pieces of information:
+
+genome fasta file: 
+ GenBank GI number
+ GenBank accession.version
+ species name
+ strain name
+ scaffold number
+ contig length
+
+nucleic acid coding sequence file: 
+ ORF name_strain name
+ gene name
+ feature type
+ feature classification (Verified, Uncharacterized, or Dubious)
+ feature description
+
+protein sequence file: 
+ ORF name_strain name
+ gene name
+ feature type
+ feature classification (Verified, Uncharacterized, or Dubious)
+ feature description
+
+Feature definitions (for coding sequences and features in the gff file) were
+initially assigned via the AGAPE pipeline, which generated homology-based annotation 
+using LASTZ and AUGUSTUS vs. the R64-1 S288C reference sequence in conjuction with 
+ab initio annotation using MAKER and BLASTX validation. The genomes were further
+curated manually by SGD biocurators.
+
+Assembly statistics
+================================
+Fold coverage:          89
+Number of scaffolds:    189
+Assembly size:          11651483
+Longest scaffold:       334215
+Scaffold N50:           115163
+Number of ORFs:         5364
+
+Reference for this S. cerevisiae CEN.PK2-1Ca genome sequence, assembly and annotation:
+
+Song G., et al., 2015. AGAPE (Automated Genome Analysis PipelinE) for Pan-Genome 
+Analysis of Saccharomyces cerevisiae.  PLoS ONE, 10(3):e0120671.
+PMID: 25781462
+
+For more information about CEN.PK:
+
+van Dijken JP, et al. 2000. An interlaboratory comparison of physiological and 
+genetic properties of four Saccharomyces cerevisiae strains. 
+Enzyme Microb Technol 26(9-10):706-714
+PMID: 10862876
+
+
+For more information about CEN.PK and other yeast strains:
+
+Engel SR, Cherry JM. 2013. The new modern era of yeast genomics: community 
+sequencing and the resulting annotation of multiple Saccharomyces cerevisiae 
+strains at the Saccharomyces Genome Database.
+Database (Oxford). 2013 Mar 13;2013:bat012. doi: 10.1093/database/bat012.
+PMID: 23487186
+
+For more information about the S288C Reference Genome:
+
+Engel SR, Dietrich FS, Fisk DG, Binkley G, Balakrishnan R, Costanzo MC, Dwight 
+SS, Hitz BC, Karra K, Nash RS, Weng S, Wong ED, Lloyd P, Skrzypek MS, Miyasato 
+SR, Simison M, Cherry JM. 2014. The reference genome sequence of Saccharomyces 
+cerevisiae: then and now. 
+G3 (Bethesda). 2014 Mar 20;4(3):389-98. doi: 10.1534/g3.113.008995.
+PMID: 24374639
+
+To download the S288C Reference Genome sequence and annotation: 
+http://www.yeastgenome.org/download-data/sequence

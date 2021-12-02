@@ -1,0 +1,3431 @@
+>Feature tpg|BK006937.2|
+1098	1	telomere
+			note	TEL03L; Telomeric region on the left arm of Chromosome III; composed of an X element core sequence, X element combinatorial repeats, and a terminal stretch of telomeric repeats
+			db_xref	SGD:S000028871
+989	1068	rep_origin
+			note	ARS300; Autonomously Replicating Sequence
+			db_xref	SGD:S000028476
+1179	1429	LTR
+			note	Ty5 LTR
+			db_xref	SGD:S000006828
+1179	4322	mobile_element
+			mobile_element_type	retrotransposon:YCLWTy5-1
+			note	YCLWTy5-1; Ty5 element, LTR retrotransposon of the Copia (Pseudoviridae) group; this is the only near-full length Ty5 retrotransposon in S288C and it is non-functional
+			db_xref	SGD:S000006831
+2126	2566	gene
+			locus_tag	YCL075W
+			pseudo
+			note	Pseudogene: encodes fragment of Ty Pol protein
+			db_xref	SGD:S000000580
+2126	2566	mRNA
+			locus_tag	YCL075W
+2824	3750	gene
+			locus_tag	YCL074W
+			pseudo
+			note	Pseudogene: encodes fragment of Ty Pol protein
+			db_xref	SGD:S000000579
+2824	3750	mRNA
+			locus_tag	YCL074W
+4073	4322	LTR
+			note	Ty5 LTR
+			db_xref	SGD:S000006829
+8326	6479	gene
+			gene	GEX1
+			locus_tag	YCL073C
+8326	6479	CDS
+			product	glutathione exchanger
+			protein_id	DAA07418.1
+			note	Proton:glutathione antiporter; localized to the vacuolar and plasma membranes; imports glutathione from the vacuole and exports it through the plasma membrane; has a role in resistance to oxidative stress and modulation of the PKA pathway; GEX1 has a paralog, GEX2, that arose from a segmental duplication
+			experiment	EXISTENCE:direct assay:GO:0005774 vacuolar membrane [PMID:21490148]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:21490148]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0015299 solute:proton antiporter activity [PMID:21490148]
+			experiment	EXISTENCE:mutant phenotype:GO:0034775 glutathione transmembrane transport [PMID:21490148]
+			db_xref	SGD:S000000575
+8326	6479	mRNA
+			gene	GEX1
+			locus_tag	YCL073C
+			product	glutathione exchanger
+9706	11082	gene
+			gene	VBA3
+			locus_tag	YCL069W
+9706	11082	CDS
+			product	basic amino acid transporter
+			protein_id	DAA07419.1
+			note	Permease of basic amino acids in the vacuolar membrane; VBA3 has a paralog, VBA5, that arose from a segmental duplication
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:15572352]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0015174 basic amino acid transmembrane transporter activity [PMID:15572352]
+			experiment	EXISTENCE:direct assay:GO:0055085 transmembrane transport [PMID:15572352]
+			experiment	EXISTENCE:mutant phenotype:GO:0015174 basic amino acid transmembrane transporter activity [PMID:15572352]
+			experiment	EXISTENCE:mutant phenotype:GO:0015802 basic amino acid transport [PMID:15572352]
+			experiment	EXISTENCE:mutant phenotype:GO:0055085 transmembrane transport [PMID:15572352]
+			db_xref	SGD:S000000574
+9706	11082	mRNA
+			gene	VBA3
+			locus_tag	YCL069W
+			product	basic amino acid transporter
+11146	11401	rep_origin
+			note	ARS301; Inactive replication origin linked to the silent mating type locus HML; functions as a transcriptional silencer
+			db_xref	SGD:S000028477
+11146	14849	misc_feature
+			note	HML; Mating type cassette - left; unexpressed complete copy of the mating-type genes, silenced by the Sir2 histone deacetylase and its associated SIR1, SIR3 and SIR4 proteins; mating-type switching involves replacement of the Ya or Yalpha sequences present at the MAT locus with either the a or alpha genes located at one of the HM loci in a process stimulated by the HO endonuclease; sequence replacement occurs by gene conversion, leaving the donor unaltered
+			db_xref	SGD:S000029214
+12285	11503	gene
+			locus_tag	YCL068C
+12285	11503	CDS
+			product	hypothetical protein
+			protein_id	DAA07420.1
+			note	hypothetical protein
+			db_xref	SGD:S000000573
+12285	11503	mRNA
+			locus_tag	YCL068C
+			product	hypothetical protein
+13018	12386	gene
+			gene	HMLALPHA2
+			gene_syn	ALPHA2
+			locus_tag	YCL067C
+13018	12386	CDS
+			product	homeodomain mating type protein alpha2
+			protein_id	DAA07421.1
+			note	Silenced copy of ALPHA2 at HML; homeobox-domain protein that associates with Mcm1p in haploid cells to repress a-specific gene expression and interacts with a1p in diploid cells to repress haploid-specific gene expression
+			db_xref	SGD:S000000572
+13018	12386	mRNA
+			gene	HMLALPHA2
+			gene_syn	ALPHA2
+			locus_tag	YCL067C
+			product	homeodomain mating type protein alpha2
+13282	13809	gene
+			gene	HMLALPHA1
+			gene_syn	ALPHA1
+			locus_tag	YCL066W
+13282	13809	CDS
+			product	transcriptional co-activator mating type protein alpha
+			protein_id	DAA07519.1
+			note	Silenced copy of ALPHA1 at HML; ALPHA1 encodes a transcriptional coactivator involved in the regulation of mating-type alpha-specific gene expression
+			db_xref	SGD:S000000571
+13282	13809	mRNA
+			gene	HMLALPHA1
+			gene_syn	ALPHA1
+			locus_tag	YCL066W
+			product	transcriptional co-activator mating type protein alpha
+14575	14849	rep_origin
+			note	ARS302; Inactive replication origin linked to the silent mating type locus HML; functions as a transcriptional silencer
+			db_xref	SGD:S000028478
+14871	15213	rep_origin
+			note	ARS303; Autonomously Replicating Sequence on Chromosome III; inactive as replication origin at native locus near HML
+			db_xref	SGD:S000028479
+15214	16274	rep_origin
+			note	ARS320; Autonomously Replicating Sequence on Chromosome III; inactive as replication origin at native locus near HML
+			db_xref	SGD:S000028480
+16880	15798	gene
+			gene	CHA1
+			locus_tag	YCL064C
+16880	15798	CDS
+			product	L-serine/L-threonine ammonia-lyase CHA1
+			EC_number	4.3.1.17
+			EC_number	4.3.1.19
+			protein_id	DAA07423.1
+			note	Catabolic L-serine (L-threonine) deaminase; catalyzes the degradation of both L-serine and L-threonine; required to use serine or threonine as the sole nitrogen source, transcriptionally induced by serine and threonine
+			experiment	EXISTENCE:direct assay:GO:0003941 L-serine ammonia-lyase activity [PMID:7042346]
+			experiment	EXISTENCE:direct assay:GO:0004794 L-threonine ammonia-lyase activity [PMID:7042346]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14562095|PMID:16823961]
+			experiment	EXISTENCE:direct assay:GO:0042645 mitochondrial nucleoid [PMID:15692048]
+			experiment	EXISTENCE:genetic interaction:GO:0006565 L-serine catabolic process [PMID:7042346]
+			experiment	EXISTENCE:genetic interaction:GO:0006567 threonine catabolic process [PMID:7042346]
+			db_xref	SGD:S000000569
+16880	15798	mRNA
+			gene	CHA1
+			locus_tag	YCL064C
+			product	L-serine/L-threonine ammonia-lyase CHA1
+17290	18561	gene
+			gene	VAC17
+			gene_syn	YCL062W
+			locus_tag	YCL063W
+17290	18561	CDS
+			product	Vac17p
+			protein_id	DAA07424.1
+			note	Phosphoprotein involved in vacuole inheritance; degraded in late M phase of the cell cycle; acts as a vacuole-specific receptor for myosin Myo2p; involved in regulation of asymmetric inheritance of aggregated/misfolded proteins and age reset
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:12594460]
+			experiment	EXISTENCE:genetic interaction:GO:0000011 vacuole inheritance [PMID:12594460]
+			experiment	EXISTENCE:mutant phenotype:GO:0000011 vacuole inheritance [PMID:12594460]
+			experiment	EXISTENCE:physical interaction:GO:0000011 vacuole inheritance [PMID:12594460]
+			experiment	EXISTENCE:physical interaction:GO:0043495 protein-membrane adaptor activity [PMID:12642614]
+			experiment	EXISTENCE:physical interaction:GO:0071563 Myo2p-Vac17p-Vac8p transport complex [PMID:12594460]
+			db_xref	SGD:S000000568
+17290	18561	mRNA
+			gene	VAC17
+			gene_syn	YCL062W
+			locus_tag	YCL063W
+			product	Vac17p
+22106	18816	gene
+			gene	MRC1
+			gene_syn	YCL060C
+			locus_tag	YCL061C
+22106	18816	CDS
+			product	chromatin-modulating protein MRC1
+			protein_id	DAA07425.1
+			note	S-phase checkpoint protein required for DNA replication; couples DNA helicase and polymerase; stabilizes Pol2p at stalled replication forks during stress, where it forms a pausing complex with Tof1p and is phosphorylated by Mec1p; defines a novel S-phase checkpoint with Hog1p that coordinates DNA replication and transcription upon osmostress; protects uncapped telomeres; Dia2p-dependent degradation mediates checkpoint recovery; exposure to ethanol affects localization; mammalian claspin homolog
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0031298 replication fork protection complex [PMID:16531994]
+			experiment	EXISTENCE:direct assay:GO:0034399 nuclear periphery [PMID:25817432]
+			experiment	EXISTENCE:direct assay:GO:0043596 nuclear replication fork [PMID:16103218]
+			experiment	EXISTENCE:genetic interaction:GO:0006281 DNA repair [PMID:16219777]
+			experiment	EXISTENCE:genetic interaction:GO:0007064 mitotic sister chromatid cohesion [PMID:17483413]
+			experiment	EXISTENCE:genetic interaction:GO:0048478 replication fork protection [PMID:18851837]
+			experiment	EXISTENCE:mutant phenotype:GO:0000076 DNA replication checkpoint signaling [PMID:11331602|PMID:11715016|PMID:12944972]
+			experiment	EXISTENCE:mutant phenotype:GO:0000723 telomere maintenance [PMID:17323081]
+			experiment	EXISTENCE:mutant phenotype:GO:0006260 DNA replication [PMID:16137625]
+			experiment	EXISTENCE:mutant phenotype:GO:0006281 DNA repair [PMID:16219777]
+			experiment	EXISTENCE:mutant phenotype:GO:0006348 chromatin silencing at telomere [PMID:11331602]
+			experiment	EXISTENCE:mutant phenotype:GO:0007064 mitotic sister chromatid cohesion [PMID:17483413]
+			experiment	EXISTENCE:mutant phenotype:GO:0030466 silent mating-type cassette heterochromatin assembly [PMID:11331602]
+			experiment	EXISTENCE:mutant phenotype:GO:0031573 mitotic intra-S DNA damage checkpoint signaling [PMID:11715016]
+			experiment	EXISTENCE:mutant phenotype:GO:0033262 regulation of nuclear cell cycle DNA replication [PMID:23178807]
+			experiment	EXISTENCE:mutant phenotype:GO:0043570 maintenance of DNA repeat elements [PMID:18321795]
+			experiment	EXISTENCE:mutant phenotype:GO:0048478 replication fork protection [PMID:18632578]
+			experiment	EXISTENCE:physical interaction:GO:0048478 replication fork protection [PMID:18851837]
+			db_xref	SGD:S000000566
+22106	18816	mRNA
+			gene	MRC1
+			gene_syn	YCL060C
+			locus_tag	YCL061C
+			product	chromatin-modulating protein MRC1
+23379	22429	gene
+			gene	KRR1
+			locus_tag	YCL059C
+23379	22429	CDS
+			product	ribosome biosynthesis protein KRR1
+			protein_id	DAA07426.1
+			note	Nucleolar protein required for rRNA synthesis and ribosomal assembly; required for the synthesis of 18S rRNA and for the assembly of 40S ribosomal subunit; essential gene
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:11027267|PMID:12150911]
+			experiment	EXISTENCE:direct assay:GO:0030686 90S preribosome [PMID:12150911]
+			experiment	EXISTENCE:direct assay:GO:0030688 preribosome, small subunit precursor [PMID:15167894]
+			experiment	EXISTENCE:direct assay:GO:0032040 small-subunit processome [PMID:15590835]
+			experiment	EXISTENCE:mutant phenotype:GO:0000447 endonucleolytic cleavage in ITS1 to separate SSU-rRNA from 5.8S rRNA and LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:11027267]
+			experiment	EXISTENCE:mutant phenotype:GO:0006364 rRNA processing [PMID:11996121]
+			experiment	EXISTENCE:mutant phenotype:GO:0042274 ribosomal small subunit biogenesis [PMID:12150911]
+			db_xref	SGD:S000000564
+23379	22429	mRNA
+			gene	KRR1
+			locus_tag	YCL059C
+			product	ribosome biosynthesis protein KRR1
+23981	23523	gene
+			gene	FYV5
+			gene_syn	MDF1
+			locus_tag	YCL058C
+23981	23523	CDS
+			product	Fyv5p
+			protein_id	DAA33856.1
+			note	De novo-originated gene from non-coding sequence; protein can suppress mating and promote vegetative growth; shortens lag phase by physically interacting with Snf1p; binds with Matalpha2p to promoters of haploid-specific genes; functions in mating and fermentation, mediates crosstalk between reproduction and vegetative growth; required for survival upon exposure to K1 killer toxin; involved in ion homeostasis
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0000122 negative regulation of transcription by RNA polymerase II [PMID:26649943]
+			experiment	EXISTENCE:mutant phenotype:GO:0000750 pheromone-dependent signal transduction involved in conjugation with cellular fusion [PMID:20195295]
+			experiment	EXISTENCE:mutant phenotype:GO:0006873 cellular ion homeostasis [PMID:10234789]
+			db_xref	SGD:S000000563
+23981	23523	mRNA
+			gene	FYV5
+			gene_syn	MDF1
+			locus_tag	YCL058C
+			product	Fyv5p
+23584	23925	gene
+			gene	ADF1
+			locus_tag	YCL058W-A
+23584	23925	CDS
+			product	Adf1p
+			protein_id	DAA07427.1
+			note	Transcriptional repressor encoded by the FYV5 antisense strand; negatively regulates transcription of FYV5 by binding to the promoter on the sense strand
+			experiment	EXISTENCE:direct assay:GO:0000977 RNA polymerase II transcription regulatory region sequence-specific DNA binding [PMID:20195295]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:20195295]
+			experiment	EXISTENCE:mutant phenotype:GO:0000122 negative regulation of transcription by RNA polymerase II [PMID:20195295]
+			experiment	EXISTENCE:mutant phenotype:GO:0000750 pheromone-dependent signal transduction involved in conjugation with cellular fusion [PMID:20195295]
+			db_xref	SGD:S000028518
+23584	23925	mRNA
+			gene	ADF1
+			locus_tag	YCL058W-A
+			product	Adf1p
+24325	24032	gene
+			gene	MIC10
+			gene_syn	MCS10
+			gene_syn	MIO10
+			gene_syn	MOS1
+			locus_tag	YCL057C-A
+24325	24032	CDS
+			product	Mic10p
+			protein_id	DAA07428.1
+			note	Conserved component of the MICOS complex; MICOS (formerly MINOS or MitOS) is a mitochondrial inner membrane complex that extends into the intermembrane space and has a role in the maintenance of crista junctions, inner membrane architecture, and formation of contact sites to the outer membrane; forms a subcomplex with Mic12p and Mic27p whose assembly and stability requires cardiolipin; homo-oligomers cause membrane bending; ortholog of human MINOS1
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0044284 mitochondrial crista junction [PMID:22009199]
+			experiment	EXISTENCE:direct assay:GO:0061024 membrane organization [PMID:25955211]
+			experiment	EXISTENCE:direct assay:GO:0061617 MICOS complex [PMID:21944719|PMID:21987634|PMID:22009199]
+			experiment	EXISTENCE:mutant phenotype:GO:0042407 cristae formation [PMID:21944719|PMID:21987634|PMID:22009199]
+			db_xref	SGD:S000007547
+24325	24032	mRNA
+			gene	MIC10
+			gene_syn	MCS10
+			gene_syn	MIO10
+			gene_syn	MOS1
+			locus_tag	YCL057C-A
+			product	Mic10p
+24768	26906	gene
+			gene	PRD1
+			locus_tag	YCL057W
+24768	26906	CDS
+			product	metalloendopeptidase
+			EC_number	3.4.24.37
+			protein_id	DAA07429.1
+			note	Zinc metalloendopeptidase; found in the cytoplasm and intermembrane space of mitochondria; with Cym1p, involved in degradation of mitochondrial proteins and of presequence peptides cleaved from imported proteins; protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:8218194]
+			experiment	EXISTENCE:direct assay:GO:0004222 metalloendopeptidase activity [PMID:8218194|PMID:8307027]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:8307027|PMID:14562095|PMID:24390141]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005758 mitochondrial intermembrane space [PMID:8307027]
+			experiment	EXISTENCE:direct assay:GO:0005794 Golgi apparatus [PMID:8218194]
+			experiment	EXISTENCE:direct assay:GO:0006508 proteolysis [PMID:8307027]
+			experiment	EXISTENCE:mutant phenotype:GO:0004222 metalloendopeptidase activity [PMID:8307027]
+			experiment	EXISTENCE:mutant phenotype:GO:0006508 proteolysis [PMID:8307027]
+			db_xref	SGD:S000000562
+24768	26906	mRNA
+			gene	PRD1
+			locus_tag	YCL057W
+			product	metalloendopeptidase
+27359	26925	gene
+			gene	PEX34
+			locus_tag	YCL056C
+27359	26925	CDS
+			product	Pex34p
+			protein_id	DAA07430.1
+			note	Protein that regulates peroxisome populations; peroxisomal integral membrane protein; interacts with Pex11p, Pex25p, and Pex27p to control both constitutive peroxisome division and peroxisome morphology and abundance during peroxisome proliferation
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005779 integral component of peroxisomal membrane [PMID:21441307]
+			experiment	EXISTENCE:genetic interaction:GO:0007031 peroxisome organization [PMID:21441307]
+			experiment	EXISTENCE:mutant phenotype:GO:0007031 peroxisome organization [PMID:21441307]
+			db_xref	SGD:S000000561
+27359	26925	mRNA
+			gene	PEX34
+			locus_tag	YCL056C
+			product	Pex34p
+27929	28936	gene
+			gene	KAR4
+			locus_tag	YCL055W
+27929	28936	CDS
+			product	Kar4p
+			protein_id	DAA07431.1
+			note	Transcription factor required for response to pheromones; also required during meiosis; exists in two forms, a slower-migrating form more abundant during vegetative growth and a faster-migrating form induced by pheromone; null mutant exhibits abnormal lipid metabolic phenotype
+			experiment	EXISTENCE:direct assay:GO:0003700 DNA-binding transcription factor activity [PMID:17101777]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0007329 positive regulation of transcription from RNA polymerase II promoter by pheromones [PMID:17101777]
+			experiment	EXISTENCE:genetic interaction:GO:0003700 DNA-binding transcription factor activity [PMID:17101777]
+			experiment	EXISTENCE:genetic interaction:GO:0007329 positive regulation of transcription from RNA polymerase II promoter by pheromones [PMID:17101777]
+			experiment	EXISTENCE:mutant phenotype:GO:0000742 karyogamy involved in conjugation with cellular fusion [PMID:8754797]
+			experiment	EXISTENCE:mutant phenotype:GO:0003700 DNA-binding transcription factor activity [PMID:17101777]
+			experiment	EXISTENCE:mutant phenotype:GO:0007329 positive regulation of transcription from RNA polymerase II promoter by pheromones [PMID:17101777]
+			experiment	EXISTENCE:mutant phenotype:GO:0051321 meiotic cell cycle [PMID:8754797]
+			db_xref	SGD:S000000560
+27929	28936	mRNA
+			gene	KAR4
+			locus_tag	YCL055W
+			product	Kar4p
+29108	29809	regulatory
+			regulatory_class	other
+			note	RE (recombination enhancer); Orientation-independent, cis-acting region that controls mating-type dependent recombination along entire left arm of ChrIII
+			db_xref	SGD:S000303804
+30200	30657	rep_origin
+			note	ARS304; Autonomously Replicating Sequence on Chromosome III
+			db_xref	SGD:S000028481
+30910	30996	gene
+			gene	RDT1
+			locus_tag	YCL054W-A
+30910	30996	CDS
+			product	Rdt1p
+			protein_id	DAA64696.1
+			note	Short open reading frame, shows evidence of translation; may be new protein-coding gene that originated de novo from noncoding sequence; same allele found in at least 33 other S. cerevisiae strains; at least 3 strains have a second allele with three nucleotide substitutions leading to two amino acid differences
+			db_xref	SGD:S000178054
+30910	30996	mRNA
+			gene	RDT1
+			locus_tag	YCL054W-A
+			product	Rdt1p
+31449	33974	gene
+			gene	SPB1
+			locus_tag	YCL054W
+31449	33974	CDS
+			product	27S pre-rRNA (guanosine2922-2'-O)-methyltransferase
+			EC_number	2.1.1.167
+			protein_id	DAA07432.1
+			note	AdoMet-dependent methyltransferase; involved in rRNA processing and 60S ribosomal subunit maturation; methylates G2922 in the tRNA docking site of the large subunit rRNA and in the absence of snR52, U2921; suppressor of PAB1 mutants
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:10556316]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:10556316|PMID:10648622]
+			experiment	EXISTENCE:direct assay:GO:0030687 preribosome, large subunit precursor [PMID:11583614]
+			experiment	EXISTENCE:direct assay:GO:0031167 rRNA methylation [PMID:15546625]
+			experiment	EXISTENCE:genetic interaction:GO:0008650 rRNA (uridine-2'-O-)-methyltransferase activity [PMID:14636587]
+			experiment	EXISTENCE:genetic interaction:GO:0031167 rRNA methylation [PMID:14636587|PMID:15546625]
+			experiment	EXISTENCE:mutant phenotype:GO:0000463 maturation of LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:10556316|PMID:10648622]
+			experiment	EXISTENCE:mutant phenotype:GO:0000466 maturation of 5.8S rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:10556316|PMID:10648622]
+			experiment	EXISTENCE:mutant phenotype:GO:0016435 rRNA (guanine) methyltransferase activity [PMID:15546625]
+			experiment	EXISTENCE:mutant phenotype:GO:0031167 rRNA methylation [PMID:15546625]
+			db_xref	SGD:S000000559
+31449	33974	mRNA
+			gene	SPB1
+			locus_tag	YCL054W
+			product	27S pre-rRNA (guanosine2922-2'-O)-methyltransferase
+35393	34143	gene
+			gene	PBN1
+			locus_tag	YCL052C
+35393	34143	CDS
+			product	Pbn1p
+			protein_id	DAA07433.1
+			note	Component of glycosylphosphatidylinositol-mannosyltransferase I; essential component; required for the autocatalytic post-translational processing of the protease B precursor Prb1p; localizes to ER in lumenal orientation; homolog of mammalian PIG-X
+			experiment	EXISTENCE:direct assay:GO:0000030 mannosyltransferase activity [PMID:15635094]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:9649520|PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0006506 GPI anchor biosynthetic process [PMID:15635094]
+			experiment	EXISTENCE:mutant phenotype:GO:0016485 protein processing [PMID:9649520]
+			experiment	EXISTENCE:mutant phenotype:GO:0030433 ubiquitin-dependent ERAD pathway [PMID:16418276]
+			experiment	EXISTENCE:physical interaction:GO:1990529 glycosylphosphatidylinositol-mannosyltransferase I complex [PMID:15635094]
+			db_xref	SGD:S000000557
+35393	34143	mRNA
+			gene	PBN1
+			locus_tag	YCL052C
+			product	Pbn1p
+35865	37616	gene
+			gene	LRE1
+			locus_tag	YCL051W
+35865	37616	CDS
+			product	Lre1p
+			protein_id	DAA07434.1
+			note	Protein involved in control of cell wall structure and stress response; direct inhibitor of the nuclear Dbf2 related (NDR) kinase Cbk1p-Mob2p; overproduction confers resistance to cell-wall degrading enzymes; exhibits genetic interactions with genes involved in the cell wall integrity pathway; LRE1 has a paralog, HLR1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004860 protein kinase inhibitor activity [PMID:23954433]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:23954433]
+			experiment	EXISTENCE:direct assay:GO:0006469 negative regulation of protein kinase activity [PMID:23954433]
+			experiment	EXISTENCE:genetic interaction:GO:0031505 fungal-type cell wall organization [PMID:11532139]
+			experiment	EXISTENCE:mutant phenotype:GO:0031505 fungal-type cell wall organization [PMID:9090049]
+			db_xref	SGD:S000000556
+35865	37616	mRNA
+			gene	LRE1
+			locus_tag	YCL051W
+			product	Lre1p
+38801	37836	gene
+			gene	APA1
+			gene_syn	DTP1
+			locus_tag	YCL050C
+38801	37836	CDS
+			product	bifunctional AP-4-A phosphorylase/ADP sulfurylase
+			EC_number	2.7.7.5
+			EC_number	2.7.7.53
+			protein_id	DAA07435.1
+			note	AP4A phosphorylase; bifunctional diadenosine 5',5'''-P1,P4-tetraphosphate phosphorylase and ADP sulfurylase involved in catabolism of bis(5'-nucleosidyl) tetraphosphates; catalyzes phosphorolysis of dinucleoside oligophosphates, cleaving substrates' alpha/beta-anhydride bond and introducing Pi into the beta-position of the corresponding NDP formed; protein abundance increases under DNA replication stress; APA1 has a paralog, APA2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004780 sulfate adenylyltransferase (ADP) activity [PMID:2556364]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0008796 bis(5'-nucleosyl)-tetraphosphatase activity [PMID:2174863|PMID:2556364]
+			experiment	EXISTENCE:direct assay:GO:0009164 nucleoside catabolic process [PMID:2174863]
+			experiment	EXISTENCE:direct assay:GO:0009165 nucleotide biosynthetic process [PMID:2172926]
+			experiment	EXISTENCE:genetic interaction:GO:0008796 bis(5'-nucleosyl)-tetraphosphatase activity [PMID:2174863]
+			experiment	EXISTENCE:genetic interaction:GO:0009164 nucleoside catabolic process [PMID:2174863]
+			experiment	EXISTENCE:mutant phenotype:GO:0004780 sulfate adenylyltransferase (ADP) activity [PMID:2556364]
+			experiment	EXISTENCE:mutant phenotype:GO:0008796 bis(5'-nucleosyl)-tetraphosphatase activity [PMID:2174863|PMID:2556364]
+			experiment	EXISTENCE:mutant phenotype:GO:0009164 nucleoside catabolic process [PMID:2174863]
+			db_xref	SGD:S000000555
+38801	37836	mRNA
+			gene	APA1
+			gene_syn	DTP1
+			locus_tag	YCL050C
+			product	bifunctional AP-4-A phosphorylase/ADP sulfurylase
+39508	39595	rep_origin
+			note	ARS305; Efficient early-firing replication origin on Chromosome III
+			db_xref	SGD:S000028482
+40724	39786	gene
+			locus_tag	YCL049C
+40724	39786	CDS
+			product	hypothetical protein
+			protein_id	DAA07436.1
+			note	hypothetical protein; localizes to membrane fraction; YCL049C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0016020 membrane [PMID:11935221]
+			db_xref	SGD:S000000554
+40724	39786	mRNA
+			locus_tag	YCL049C
+			product	hypothetical protein
+41488	41727	gene
+			locus_tag	YCL048W-A
+41488	41727	CDS
+			product	hypothetical protein
+			protein_id	DAA07437.1
+			note	hypothetical protein; SWAT-GFP and mCherry fusion proteins localize to the cell periphery and vacuole; YCL048W-A has a paralog, YDR524C-B, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			db_xref	SGD:S000087203
+41488	41727	mRNA
+			locus_tag	YCL048W-A
+			product	hypothetical protein
+42165	43556	gene
+			gene	SPS22
+			locus_tag	YCL048W
+42165	43556	CDS
+			product	Sps22p
+			protein_id	DAA07438.1
+			note	hypothetical protein; SPS22 has a paralog, SPS2, that arose from the whole genome duplication; redundant with Sps2p for the organization of the beta-glucan layer of the spore wall
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0030476 ascospore wall assembly [PMID:15590821]
+			db_xref	SGD:S000000553
+42165	43556	mRNA
+			gene	SPS22
+			locus_tag	YCL048W
+			product	Sps22p
+44437	43661	gene
+			gene	POF1
+			locus_tag	YCL047C
+44437	43661	CDS
+			product	nicotinamide-nucleotide adenylyltransferase
+			EC_number	2.7.7.1
+			protein_id	DAA07439.1
+			note	Nicotinamide mononucleotide-specific adenylyltransferase (NMNAT); catalyzes the conversion of nicotinamide mononucleotide (NMN) to nicotinamide adenine dinucleotide (NAD+); role in the nicotinamide riboside (NR) salvage pathway of NAD+ biosynthesis; involved in NR and NAD+ homeostasis; ATPase involved in protein quality control and filamentation pathways; interacts physically with Kss1p and suppresses the filamentation defect of a kss1 deletion
+			experiment	EXISTENCE:direct assay:GO:0000309 nicotinamide-nucleotide adenylyltransferase activity [PMID:24759102]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:24759102]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:24759102]
+			experiment	EXISTENCE:direct assay:GO:0016887 ATPase [PMID:22204397]
+			experiment	EXISTENCE:genetic interaction:GO:0000309 nicotinamide-nucleotide adenylyltransferase activity [PMID:24759102]
+			experiment	EXISTENCE:genetic interaction:GO:0001403 invasive growth in response to glucose limitation [PMID:21460040]
+			experiment	EXISTENCE:genetic interaction:GO:0007124 pseudohyphal growth [PMID:21460040]
+			experiment	EXISTENCE:genetic interaction:GO:0034356 NAD biosynthesis via nicotinamide riboside salvage pathway [PMID:24759102]
+			experiment	EXISTENCE:mutant phenotype:GO:0030433 ubiquitin-dependent ERAD pathway [PMID:22204397]
+			experiment	EXISTENCE:physical interaction:GO:0030433 ubiquitin-dependent ERAD pathway [PMID:22204397]
+			db_xref	SGD:S000000552
+44437	43661	mRNA
+			gene	POF1
+			locus_tag	YCL047C
+			product	nicotinamide-nucleotide adenylyltransferase
+46905	44623	gene
+			gene	EMC1
+			locus_tag	YCL045C
+46905	44623	CDS
+			product	Emc1p
+			protein_id	DAA07440.1
+			note	Member of conserved endoplasmic reticulum membrane complex; involved in efficient folding of proteins in the ER; null mutant displays induction of the unfolded protein response; interacts with Gal80p; homologous to worm H17B01.4/EMC-1, fly CG2943, and human KIAA0090
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:14562095|PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0072546 EMC complex [PMID:19325107]
+			experiment	EXISTENCE:genetic interaction:GO:0034975 protein folding in endoplasmic reticulum [PMID:19325107]
+			db_xref	SGD:S000000550
+46905	44623	mRNA
+			gene	EMC1
+			locus_tag	YCL045C
+			product	Emc1p
+48364	47111	gene
+			gene	MGR1
+			locus_tag	YCL044C
+48364	47111	CDS
+			product	Mgr1p
+			protein_id	DAA07441.1
+			note	Subunit of the mitochondrial (mt) i-AAA protease supercomplex; i-AAA degrades misfolded mitochondrial proteins; forms a subcomplex with Mgr3p that binds to substrates to facilitate proteolysis; required for growth of cells lacking mtDNA
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14562095|PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0031942 i-AAA complex [PMID:16267274|PMID:18843051]
+			experiment	EXISTENCE:direct assay:GO:0051787 misfolded protein binding [PMID:18843051]
+			experiment	EXISTENCE:mutant phenotype:GO:0006515 protein quality control for misfolded or incompletely synthesized proteins [PMID:18843051]
+			db_xref	SGD:S000000549
+48364	47111	mRNA
+			gene	MGR1
+			locus_tag	YCL044C
+			product	Mgr1p
+50221	48653	gene
+			gene	PDI1
+			gene_syn	MFP1
+			gene_syn	TRG1
+			locus_tag	YCL043C
+50221	48653	CDS
+			product	protein disulfide isomerase PDI1
+			EC_number	5.3.4.1
+			protein_id	DAA07442.1
+			note	Protein disulfide isomerase; multifunctional oxidoreductase of the ER lumen, essential for disulfide bond formation in secretory and cell-surface proteins, processing of non-native disulfide bonds; Ero1p activator; complexes with exomannosidase, Mnl1p to facilitate the recognition of misfolded glycoproteins and the trimming of glycan Man8GlcNAc2 to Man7GlcNAc2 on substrates, thereby accelerating ERAD; PDI1 has a paralog, EUG1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0003756 protein disulfide isomerase activity [PMID:16002399|PMID:16413482]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005788 endoplasmic reticulum lumen [PMID:1761554]
+			experiment	EXISTENCE:direct assay:GO:0015035 protein-disulfide reductase activity [PMID:16002399]
+			experiment	EXISTENCE:direct assay:GO:0036508 protein alpha-1,2-demannosylation [PMID:21700223]
+			experiment	EXISTENCE:direct assay:GO:0051082 unfolded protein binding [PMID:16002399]
+			experiment	EXISTENCE:direct assay:GO:1904382 mannose trimming involved in glycoprotein ERAD pathway [PMID:21700223|PMID:27053108]
+			experiment	EXISTENCE:genetic interaction:GO:1904382 mannose trimming involved in glycoprotein ERAD pathway [PMID:21700223]
+			experiment	EXISTENCE:mutant phenotype:GO:0003756 protein disulfide isomerase activity [PMID:11157982]
+			experiment	EXISTENCE:mutant phenotype:GO:0006457 protein folding [PMID:11157982]
+			experiment	EXISTENCE:mutant phenotype:GO:1904382 mannose trimming involved in glycoprotein ERAD pathway [PMID:21700223]
+			experiment	EXISTENCE:physical interaction:GO:0005515 protein binding [PMID:16002399]
+			db_xref	SGD:S000000548
+50221	48653	mRNA
+			gene	PDI1
+			gene_syn	MFP1
+			gene_syn	TRG1
+			locus_tag	YCL043C
+			product	protein disulfide isomerase PDI1
+50584	50943	gene
+			locus_tag	YCL042W
+50584	50943	CDS
+			product	hypothetical protein
+			protein_id	DAA07443.1
+			note	hypothetical protein; epitope-tagged protein localizes to the cytoplasm
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:11914276]
+			db_xref	SGD:S000000547
+50584	50943	mRNA
+			locus_tag	YCL042W
+			product	hypothetical protein
+50838	52340	gene
+			gene	GLK1
+			gene_syn	HOR3
+			locus_tag	YCL040W
+50838	52340	CDS
+			product	glucokinase
+			EC_number	2.7.1.2
+			protein_id	DAA07444.1
+			note	Glucokinase; catalyzes the phosphorylation of glucose at C6 in the first irreversible step of glucose metabolism; one of three glucose phosphorylating enzymes; expression regulated by non-fermentable carbon sources; GLK1 has a paralog, EMI2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004340 glucokinase activity [PMID:8501032]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:16622836]
+			experiment	EXISTENCE:direct assay:GO:0006013 mannose metabolic process [PMID:237183]
+			experiment	EXISTENCE:direct assay:GO:0006096 glycolytic process [PMID:8501032]
+			experiment	EXISTENCE:genetic interaction:GO:0046323 glucose import [PMID:6300872]
+			experiment	EXISTENCE:mutant phenotype:GO:0004340 glucokinase activity [PMID:6341351]
+			experiment	EXISTENCE:mutant phenotype:GO:0006006 glucose metabolic process [PMID:6300872]
+			db_xref	SGD:S000000545
+50838	52340	mRNA
+			gene	GLK1
+			gene_syn	HOR3
+			locus_tag	YCL040W
+			product	glucokinase
+52645	54882	gene
+			gene	GID7
+			gene_syn	MOH2
+			locus_tag	YCL039W
+52645	54882	CDS
+			product	glucose-induced degradation complex subunit GID7
+			protein_id	DAA07445.1
+			note	Subunit of GID Complex that binds directly to central component Vid30p; GID complex is involved in proteasome-dependent catabolite inactivation of fructose-1,6-bisphosphatase; Gid7p contains six WD40 repeats; computational analysis suggests that Gid7p and Moh1p have similar functions
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0034657 GID complex [PMID:18508925]
+			experiment	EXISTENCE:mutant phenotype:GO:0043161 proteasome-mediated ubiquitin-dependent protein catabolic process [PMID:12686616]
+			experiment	EXISTENCE:mutant phenotype:GO:0045721 negative regulation of gluconeogenesis [PMID:12686616]
+			db_xref	SGD:S000000544
+52645	54882	mRNA
+			gene	GID7
+			gene_syn	MOH2
+			locus_tag	YCL039W
+			product	glucose-induced degradation complex subunit GID7
+56527	54941	gene
+			gene	ATG22
+			gene_syn	AUT4
+			locus_tag	YCL038C
+56527	54941	CDS
+			product	Atg22p
+			protein_id	DAA07446.1
+			note	Vacuolar integral membrane protein required for efflux of amino acids; required for efflux of amino acids during autophagic body breakdown in the vacuole; null mutation causes a gradual loss of viability during starvation
+			experiment	EXISTENCE:direct assay:GO:0071627 integral component of fungal-type vacuolar membrane [PMID:17021250]
+			experiment	EXISTENCE:mutant phenotype:GO:0032974 amino acid transmembrane export from vacuole [PMID:17021250]
+			db_xref	SGD:S000000543
+56527	54941	mRNA
+			gene	ATG22
+			gene_syn	AUT4
+			locus_tag	YCL038C
+			product	Atg22p
+58678	57374	gene
+			gene	SRO9
+			locus_tag	YCL037C
+58678	57374	CDS
+			product	Sro9p
+			protein_id	DAA07447.1
+			note	Cytoplasmic RNA-binding protein; shuttles between nucleus and cytoplasm and is exported from the nucleus in an mRNA export-dependent manner; associates with translating ribosomes; involved in heme regulation of Hap1p as a component of the HMC complex, also involved in the organization of actin filaments; contains a La motif; SRO9 has a paralog, SLF1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0003723 RNA binding [PMID:10564276]
+			experiment	EXISTENCE:direct assay:GO:0003729 mRNA binding [PMID:23222640]
+			experiment	EXISTENCE:direct assay:GO:0005844 polysome [PMID:10564276]
+			experiment	EXISTENCE:direct assay:GO:0010494 cytoplasmic stress granule [PMID:23222640|PMID:26777405]
+			experiment	EXISTENCE:mutant phenotype:GO:0006417 regulation of translation [PMID:10564276]
+			db_xref	SGD:S000000542
+58678	57374	mRNA
+			gene	SRO9
+			locus_tag	YCL037C
+			product	Sro9p
+59026	60726	gene
+			gene	GFD2
+			gene_syn	YCD6
+			locus_tag	YCL036W
+59026	60726	CDS
+			product	Gfd2p
+			protein_id	DAA07448.1
+			note	hypothetical protein; identified as a high-copy suppressor of a dbp5 mutation; GFD2 has a paralog, YDR514C, that arose from the whole genome duplication
+			db_xref	SGD:S000000541
+59026	60726	mRNA
+			gene	GFD2
+			gene_syn	YCD6
+			locus_tag	YCL036W
+			product	Gfd2p
+61173	60841	gene
+			gene	GRX1
+			locus_tag	YCL035C
+61173	60841	CDS
+			product	dithiol glutaredoxin GRX1
+			EC_number	1.11.1.9
+			EC_number	2.5.1.18
+			protein_id	DAA07449.1
+			note	Glutathione-dependent disulfide oxidoreductase; hydroperoxide and superoxide-radical responsive, heat-stable, with active site cysteine pair; protects cells from oxidative damage; GRX1 has a paralog, GRX2, that arose from the whole genome duplication; protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0004364 glutathione transferase activity [PMID:12684511]
+			experiment	EXISTENCE:direct assay:GO:0004602 glutathione peroxidase activity [PMID:11875065|PMID:12684511|PMID:18992757]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:11914276|PMID:14562095]
+			experiment	EXISTENCE:genetic interaction:GO:0010731 protein glutathionylation [PMID:20074363]
+			experiment	EXISTENCE:mutant phenotype:GO:0034599 cellular response to oxidative stress [PMID:9571241]
+			db_xref	SGD:S000000540
+61173	60841	mRNA
+			gene	GRX1
+			locus_tag	YCL035C
+			product	dithiol glutaredoxin GRX1
+61658	62722	gene
+			gene	LSB5
+			locus_tag	YCL034W
+61658	62722	CDS
+			product	Lsb5p
+			protein_id	DAA07450.1
+			note	Protein involved in membrane-trafficking events at plasma membrane; interacts with actin regulators Sla1p and Las17p, ubiquitin, Arf3p to couple actin dynamics to membrane trafficking processes; similar structure to GGA family of proteins with N-terminal VHS domain and GAT domain; binds Las17p, which is homolog of human Wiskott-Aldrich Syndrome protein involved in actin patch assembly, actin polymerization; may mediate disassembly of Pan1 complex from endocytic coat
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:18298676]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005938 cell cortex [PMID:12388763|PMID:15651983|PMID:18298676]
+			experiment	EXISTENCE:direct assay:GO:0030479 actin cortical patch [PMID:15651983]
+			experiment	EXISTENCE:genetic interaction:GO:0006897 endocytosis [PMID:12388763]
+			experiment	EXISTENCE:genetic interaction:GO:0030036 actin cytoskeleton organization [PMID:12388763]
+			experiment	EXISTENCE:genetic interaction:GO:0051666 actin cortical patch localization [PMID:12388763]
+			experiment	EXISTENCE:physical interaction:GO:0007015 actin filament organization [PMID:10512884]
+			db_xref	SGD:S000000539
+61658	62722	mRNA
+			gene	LSB5
+			locus_tag	YCL034W
+			product	Lsb5p
+63282	62776	gene
+			gene	MXR2
+			locus_tag	YCL033C
+63282	62776	CDS
+			product	peptide-methionine (R)-S-oxide reductase
+			EC_number	1.8.4.12
+			protein_id	DAA07451.1
+			note	Methionine-R-sulfoxide reductase; involved in the response to oxidative stress; protects iron-sulfur clusters from oxidative inactivation along with MXR1; involved in the regulation of lifespan
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:20799725]
+			experiment	EXISTENCE:direct assay:GO:0033743 peptide-methionine (R)-S-oxide reductase activity [PMID:15141092]
+			experiment	EXISTENCE:genetic interaction:GO:0034599 cellular response to oxidative stress [PMID:11929995]
+			experiment	EXISTENCE:mutant phenotype:GO:0033743 peptide-methionine (R)-S-oxide reductase activity [PMID:15141092]
+			experiment	EXISTENCE:mutant phenotype:GO:0034599 cellular response to oxidative stress [PMID:11929995]
+			db_xref	SGD:S000000538
+63282	62776	mRNA
+			gene	MXR2
+			locus_tag	YCL033C
+			product	peptide-methionine (R)-S-oxide reductase
+63441	64481	gene
+			gene	STE50
+			locus_tag	YCL032W
+63441	64481	CDS
+			product	Ste50p
+			protein_id	DAA07452.1
+			note	Adaptor protein for various signaling pathways; involved in mating response, invasive/filamentous growth, osmotolerance; acts as an adaptor that links G protein-associated Cdc42p-Ste20p complex to the effector Ste11p to modulate signal transduction
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:9742096]
+			experiment	EXISTENCE:direct assay:GO:0019887 protein kinase regulator activity [PMID:10397774]
+			experiment	EXISTENCE:direct assay:GO:0032093 SAM domain binding [PMID:16337230]
+			experiment	EXISTENCE:genetic interaction:GO:0000161 osmosensory signaling MAPK cascade [PMID:9742096]
+			experiment	EXISTENCE:mutant phenotype:GO:0000750 pheromone-dependent signal transduction involved in conjugation with cellular fusion [PMID:8793874]
+			experiment	EXISTENCE:mutant phenotype:GO:0001402 signal transduction involved in filamentous growth [PMID:9738877]
+			experiment	EXISTENCE:mutant phenotype:GO:0007232 osmosensory signaling pathway via Sho1 osmosensor [PMID:11370856]
+			experiment	EXISTENCE:physical interaction:GO:0000161 osmosensory signaling MAPK cascade [PMID:9742096]
+			db_xref	SGD:S000000537
+63441	64481	mRNA
+			gene	STE50
+			locus_tag	YCL032W
+			product	Ste50p
+65568	64675	gene
+			gene	RRP7
+			locus_tag	YCL031C
+65568	64675	CDS
+			product	Rrp7p
+			protein_id	DAA07453.1
+			note	Essential protein involved in rRNA processing and ribosome biogenesis; forms a complex with Utp22p; protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0019843 rRNA binding [PMID:24130456]
+			experiment	EXISTENCE:direct assay:GO:0032545 CURI complex [PMID:17452446]
+			experiment	EXISTENCE:direct assay:GO:0034456 UTP-C complex [PMID:17515605]
+			experiment	EXISTENCE:genetic interaction:GO:0000028 ribosomal small subunit assembly [PMID:9271380]
+			experiment	EXISTENCE:genetic interaction:GO:0006364 rRNA processing [PMID:9271380]
+			experiment	EXISTENCE:mutant phenotype:GO:0000028 ribosomal small subunit assembly [PMID:9271380]
+			experiment	EXISTENCE:mutant phenotype:GO:0006364 rRNA processing [PMID:9271380]
+			db_xref	SGD:S000000536
+65568	64675	mRNA
+			gene	RRP7
+			locus_tag	YCL031C
+			product	Rrp7p
+68333	65934	gene
+			gene	HIS4
+			locus_tag	YCL030C
+68333	65934	CDS
+			product	trifunctional histidinol dehydrogenase/phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP diphosphatase
+			EC_number	1.1.1.23
+			EC_number	3.5.4.19
+			EC_number	3.6.1.31
+			protein_id	DAA07454.1
+			note	Multifunctional enzyme containing phosphoribosyl-ATP pyrophosphatase; phosphoribosyl-AMP cyclohydrolase, and histidinol dehydrogenase activities; catalyzes the second, third, ninth and tenth steps in histidine biosynthesis
+			experiment	EXISTENCE:direct assay:GO:0004399 histidinol dehydrogenase activity [PMID:379004]
+			experiment	EXISTENCE:direct assay:GO:0004635 phosphoribosyl-AMP cyclohydrolase activity [PMID:379004]
+			experiment	EXISTENCE:direct assay:GO:0004636 phosphoribosyl-ATP diphosphatase activity [PMID:379004]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:mutant phenotype:GO:0000105 histidine biosynthetic process [PMID:14190241|PMID:5919326]
+			experiment	EXISTENCE:mutant phenotype:GO:0004399 histidinol dehydrogenase activity [PMID:5919326]
+			experiment	EXISTENCE:mutant phenotype:GO:0004635 phosphoribosyl-AMP cyclohydrolase activity [PMID:5919326]
+			experiment	EXISTENCE:mutant phenotype:GO:0004636 phosphoribosyl-ATP diphosphatase activity [PMID:5919326]
+			db_xref	SGD:S000000535
+68333	65934	mRNA
+			gene	HIS4
+			locus_tag	YCL030C
+			product	trifunctional histidinol dehydrogenase/phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP diphosphatase
+69921	68599	gene
+			gene	BIK1
+			gene_syn	ARM5
+			gene_syn	PAC14
+			locus_tag	YCL029C
+69921	68599	CDS
+			product	Bik1p
+			protein_id	DAA07455.1
+			note	Microtubule-associated protein; component of the interface between microtubules and kinetochore, involved in sister chromatid separation; essential in polyploid cells but not in haploid or diploid cells; promotes plus-end directed movement of Dyn1p; ortholog of mammalian CLIP-170
+			experiment	EXISTENCE:direct assay:GO:0000776 kinetochore [PMID:11756471|PMID:11511347]
+			experiment	EXISTENCE:direct assay:GO:0005816 spindle pole body [PMID:2277073]
+			experiment	EXISTENCE:direct assay:GO:0005819 spindle [PMID:2277073]
+			experiment	EXISTENCE:direct assay:GO:0005876 spindle microtubule [PMID:11511347]
+			experiment	EXISTENCE:direct assay:GO:0005938 cell cortex [PMID:11511347]
+			experiment	EXISTENCE:direct assay:GO:0008017 microtubule binding [PMID:9398684]
+			experiment	EXISTENCE:direct assay:GO:0031115 negative regulation of microtubule polymerization [PMID:20392838]
+			experiment	EXISTENCE:direct assay:GO:0035371 microtubule plus-end [PMID:20392838]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:16380440]
+			experiment	EXISTENCE:genetic interaction:GO:0000022 mitotic spindle elongation [PMID:7559759]
+			experiment	EXISTENCE:genetic interaction:GO:0030543 2-micrometer plasmid partitioning [PMID:28004422]
+			experiment	EXISTENCE:mutant phenotype:GO:0000742 karyogamy involved in conjugation with cellular fusion [PMID:2277073]
+			experiment	EXISTENCE:mutant phenotype:GO:0000743 nuclear migration involved in conjugation with cellular fusion [PMID:16380440]
+			experiment	EXISTENCE:mutant phenotype:GO:0030543 2-micrometer plasmid partitioning [PMID:28004422]
+			db_xref	SGD:S000000534
+69921	68599	mRNA
+			gene	BIK1
+			gene_syn	ARM5
+			gene_syn	PAC14
+			locus_tag	YCL029C
+			product	Bik1p
+70150	71367	gene
+			gene	RNQ1
+			locus_tag	YCL028W
+70150	71367	CDS
+			product	prion domain-containing protein RNQ1
+			protein_id	DAA07456.1
+			note	[PIN(+)] prion; an infectious protein conformation that is generally an ordered protein aggregate
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:11511345]
+			db_xref	SGD:S000000533
+70150	71367	mRNA
+			gene	RNQ1
+			locus_tag	YCL028W
+			product	prion domain-containing protein RNQ1
+71803	73341	gene
+			gene	FUS1
+			locus_tag	YCL027W
+71803	73341	CDS
+			product	Fus1p
+			protein_id	DAA07457.1
+			note	Membrane protein localized to the shmoo tip; required for cell fusion; expression regulated by mating pheromone; proposed to coordinate signaling, fusion, and polarization events required for fusion; potential Cdc28p substrate
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005887 integral component of plasma membrane [PMID:2690078]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:12374868|PMID:3302672|PMID:19053807]
+			experiment	EXISTENCE:genetic interaction:GO:0000755 cytogamy [PMID:3302672]
+			experiment	EXISTENCE:mutant phenotype:GO:0000755 cytogamy [PMID:3302672|PMID:3313002]
+			experiment	EXISTENCE:mutant phenotype:GO:0031385 regulation of termination of mating projection growth [PMID:14734532]
+			experiment	EXISTENCE:mutant phenotype:GO:0032065 maintenance of protein location in cell cortex [PMID:18474625]
+			db_xref	SGD:S000000532
+71803	73341	mRNA
+			gene	FUS1
+			locus_tag	YCL027W
+			product	Fus1p
+73986	73405	gene
+			gene	HBN1
+			gene_syn	YCL027C-A
+			locus_tag	YCL026C-B
+73986	73405	CDS
+			product	putative nitroreductase
+			protein_id	DAA07458.1
+			note	hypothetical protein; similar to bacterial nitroreductases; green fluorescent protein (GFP)-fusion protein localizes to the cytoplasm and nucleus; protein becomes insoluble upon intracellular iron depletion; protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			db_xref	SGD:S000007548
+73986	73405	mRNA
+			gene	HBN1
+			gene_syn	YCL027C-A
+			locus_tag	YCL026C-B
+			product	putative nitroreductase
+74458	74677	rep_origin
+			note	ARS306; Early-firing autonomously replicating sequence on Chromosome III
+			db_xref	SGD:S000028483
+75285	74704	gene
+			gene	FRM2
+			gene_syn	YCLX08C
+			locus_tag	YCL026C-A
+75285	74704	CDS
+			product	type II nitroreductase
+			protein_id	DAA07459.1
+			note	Type II nitroreductase, using NADH as reductant; mutants are defective in fatty acid mediated repression of genes involved in fatty acid biosynthesis indicative of a role in lipid signaling; involved in the oxidative stress response; transcription induction by cadmium and selenite indicates a possible role in the metal stress response; expression induced in cells treated with the mycotoxin patulin
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0016657 oxidoreductase activity, acting on NAD(P)H, nitrogenous group as acceptor [PMID:22687599]
+			experiment	EXISTENCE:genetic interaction:GO:0034599 cellular response to oxidative stress [PMID:19904831]
+			experiment	EXISTENCE:mutant phenotype:GO:0034599 cellular response to oxidative stress [PMID:19904831]
+			experiment	EXISTENCE:mutant phenotype:GO:0045922 negative regulation of fatty acid metabolic process [PMID:8701605]
+			db_xref	SGD:S000000589
+75285	74704	mRNA
+			gene	FRM2
+			gene_syn	YCLX08C
+			locus_tag	YCL026C-A
+			product	type II nitroreductase
+77919	76018	gene
+			gene	AGP1
+			gene_syn	YCC5
+			gene_syn	WAP1
+			locus_tag	YCL025C
+77919	76018	CDS
+			product	amino acid transporter AGP1
+			protein_id	DAA07460.1
+			note	Broad-specificity, low-affinity amino acid permease; minor serine permease with major contributions from paralog Gnp1p; involved in uptake of asparagine, glutamine, and other amino acids; expression induced by amino acids and regulated by SPS plasma membrane amino acid sensor system (Ssy1p-Ptr3p-Ssy5p)
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:27226538]
+			experiment	EXISTENCE:direct assay:GO:0006865 amino acid transport [PMID:10654085]
+			experiment	EXISTENCE:direct assay:GO:0015171 amino acid transmembrane transporter activity [PMID:10654085]
+			experiment	EXISTENCE:direct assay:GO:0055085 transmembrane transport [PMID:10654085]
+			experiment	EXISTENCE:genetic interaction:GO:0015193 L-proline transmembrane transporter activity [PMID:14968425]
+			experiment	EXISTENCE:genetic interaction:GO:0098718 serine import across plasma membrane [PMID:32845888]
+			experiment	EXISTENCE:mutant phenotype:GO:0098718 serine import across plasma membrane [PMID:32845888]
+			db_xref	SGD:S000000530
+77919	76018	mRNA
+			gene	AGP1
+			gene_syn	YCC5
+			gene_syn	WAP1
+			locus_tag	YCL025C
+			product	amino acid transporter AGP1
+79162	82275	gene
+			gene	KCC4
+			locus_tag	YCL024W
+79162	82275	CDS
+			product	serine/threonine protein kinase
+			EC_number	2.7.11.1
+			protein_id	DAA07461.1
+			note	Protein kinase of the bud neck involved in the septin checkpoint; associates with septin proteins, negatively regulates Swe1p by phosphorylation, shows structural homology to bud neck kinases Gin4p and Hsl1p; KCC4 has a paralog, GIN4, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0000131 incipient cellular bud site [PMID:15901837]
+			experiment	EXISTENCE:direct assay:GO:0004672 protein kinase activity [PMID:16319894]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:15282802|PMID:9925642]
+			experiment	EXISTENCE:direct assay:GO:0005940 septin ring [PMID:15901837]
+			experiment	EXISTENCE:direct assay:GO:0006468 protein phosphorylation [PMID:16319894]
+			experiment	EXISTENCE:direct assay:GO:0032174 cellular bud neck septin collar [PMID:15901837]
+			experiment	EXISTENCE:mutant phenotype:GO:0000921 septin ring assembly [PMID:9925642]
+			experiment	EXISTENCE:mutant phenotype:GO:0007117 budding cell bud growth [PMID:9925642]
+			experiment	EXISTENCE:mutant phenotype:GO:0044879 mitotic morphogenesis checkpoint signaling [PMID:9925642]
+			db_xref	SGD:S000000529
+79162	82275	mRNA
+			gene	KCC4
+			locus_tag	YCL024W
+			product	serine/threonine protein kinase
+82533	82462	gene
+			locus_tag	YNCC0001C
+82533	82462	tRNA
+			product	tRNA-Glu
+			note	Glutamine tRNA (tRNA-Glu), predicted by tRNAscan-SE analysis; thiolation of uridine at wobble position (34) requires Ncs6p
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006549
+82700	83036	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000126593
+83194	83055	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006822
+83620	83997	gene
+			locus_tag	YCL021W-A
+83620	83997	CDS
+			product	hypothetical protein
+			protein_id	DAA07462.1
+			note	hypothetical protein; SWAT-GFP and mCherry fusion proteins localize to the vacuole
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			db_xref	SGD:S000007549
+83620	83997	mRNA
+			locus_tag	YCL021W-A
+			product	hypothetical protein
+84069	84294	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006823
+84295	84626	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006825
+84630	84718	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006824
+84811	85142	LTR
+			note	Ty2 LTR
+			db_xref	SGD:S000006826
+84811	90769	mobile_element
+			mobile_element_type	retrotransposon:YCLWTy2-1
+			note	YCLWTy2-1; Ty2 element, LTR retrotransposon of the Copia (Pseudoviridae) group; contains co-transcribed genes TYA Gag and TYB Pol, encoding proteins involved in structure and function of virus-like particles, flanked by two direct repeats
+			db_xref	SGD:S000006830
+85102	86418	gene
+			locus_tag	YCL020W
+85102	86418	CDS
+			product	gag protein
+			protein_id	DAA07464.1
+			note	Retrotransposon TYA Gag gene co-transcribed with TYB Pol; translated as TYA or TYA-TYB polyprotein; Gag is a nucleocapsid protein that is the structural constituent of virus-like particles (VLPs); similar to retroviral Gag
+			db_xref	SGD:S000000525
+85102	86418	mRNA
+			locus_tag	YCL020W
+			product	gag protein
+85102	90415	gene
+			locus_tag	YCL019W
+85102	86391	CDS
+86393	90415
+			exception	ribosomal slippage
+			product	gag-pol fusion protein
+			EC_number	2.7.7.7
+			EC_number	2.7.7.49
+			EC_number	3.1.26.4
+			protein_id	DAA07463.1
+			note	Retrotransposon TYA Gag and TYB Pol genes; transcribed/translated as one unit; polyprotein is processed to make a nucleocapsid-like protein (Gag), reverse transcriptase (RT), protease (PR), and integrase (IN); similar to retroviral genes
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:9448009]
+			db_xref	SGD:S000000524
+85102	90415	mRNA
+			locus_tag	YCL019W
+			product	gag-pol fusion protein
+90438	90769	LTR
+			note	Ty2 LTR
+			db_xref	SGD:S000006827
+90859	90972	gene
+			gene	SUP53
+			locus_tag	YNCC0002W
+90859	90896	tRNA
+90929	90972
+			product	tRNA-Leu
+			note	Leucine tRNA (tRNA-Leu), predicted by tRNAscan-SE analysis; can mutate to suppress amber nonsense mutations
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006637
+91324	92418	gene
+			gene	LEU2
+			locus_tag	YCL018W
+91324	92418	CDS
+			product	3-isopropylmalate dehydrogenase
+			EC_number	1.1.1.85
+			protein_id	DAA07465.1
+			note	Beta-isopropylmalate dehydrogenase (IMDH); catalyzes the third step in the leucine biosynthesis pathway; can additionally catalyze the conversion of beta-ethylmalate into alpha-ketovalerate
+			experiment	EXISTENCE:direct assay:GO:0003862 3-isopropylmalate dehydrogenase activity [PMID:3071718]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:4355481]
+			experiment	EXISTENCE:mutant phenotype:GO:0003862 3-isopropylmalate dehydrogenase activity [PMID:6297759]
+			experiment	EXISTENCE:mutant phenotype:GO:0006097 glyoxylate cycle [PMID:23642236]
+			experiment	EXISTENCE:mutant phenotype:GO:0009098 leucine biosynthetic process [PMID:6297759]
+			db_xref	SGD:S000000523
+91324	92418	mRNA
+			gene	LEU2
+			locus_tag	YCL018W
+			product	3-isopropylmalate dehydrogenase
+94270	92777	gene
+			gene	NFS1
+			gene_syn	SPL1
+			locus_tag	YCL017C
+94270	92777	CDS
+			product	cysteine desulfurase
+			EC_number	2.8.1.7
+			protein_id	DAA07466.1
+			note	Cysteine desulfurase; involved in iron-sulfur cluster (Fe/S) biogenesis and in thio-modification of mitochondrial and cytoplasmic tRNAs; essential protein located predominantly in mitochondria
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:19720832]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:10406803|PMID:19720832|PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0016226 iron-sulfur cluster assembly [PMID:15220327]
+			experiment	EXISTENCE:direct assay:GO:0031071 cysteine desulfurase activity [PMID:12065597|PMID:15220327]
+			experiment	EXISTENCE:mutant phenotype:GO:0002098 tRNA wobble uridine modification [PMID:18755837]
+			experiment	EXISTENCE:mutant phenotype:GO:0005634 nucleus [PMID:11110795]
+			experiment	EXISTENCE:mutant phenotype:GO:0006879 cellular iron ion homeostasis [PMID:10551871]
+			experiment	EXISTENCE:mutant phenotype:GO:0016226 iron-sulfur cluster assembly [PMID:12970193]
+			experiment	EXISTENCE:mutant phenotype:GO:0034227 tRNA thio-modification [PMID:14722066|PMID:15220327]
+			experiment	EXISTENCE:mutant phenotype:GO:0070903 mitochondrial tRNA thio-modification [PMID:14722066]
+			experiment	EXISTENCE:physical interaction:GO:1990221 L-cysteine desulfurase complex [PMID:24045011]
+			db_xref	SGD:S000000522
+94270	92777	mRNA
+			gene	NFS1
+			gene_syn	SPL1
+			locus_tag	YCL017C
+			product	cysteine desulfurase
+95763	94621	gene
+			gene	DCC1
+			locus_tag	YCL016C
+95763	94621	CDS
+			product	Dcc1p
+			protein_id	DAA07467.1
+			note	Subunit of a complex with Ctf8p and Ctf18p; shares some components with Replication Factor C; required for sister chromatid cohesion and telomere length maintenance
+			experiment	EXISTENCE:genetic interaction:GO:0007064 mitotic sister chromatid cohesion [PMID:17483413]
+			experiment	EXISTENCE:mutant phenotype:GO:0007064 mitotic sister chromatid cohesion [PMID:11389843]
+			experiment	EXISTENCE:mutant phenotype:GO:0034398 telomere tethering at nuclear periphery [PMID:16525505]
+			experiment	EXISTENCE:mutant phenotype:GO:0035753 maintenance of DNA trinucleotide repeats [PMID:21347277]
+			experiment	EXISTENCE:physical interaction:GO:0031390 Ctf18 RFC-like complex [PMID:11389843]
+			db_xref	SGD:S000000521
+95763	94621	mRNA
+			gene	DCC1
+			locus_tag	YCL016C
+			product	Dcc1p
+96281	101191	gene
+			gene	BUD3
+			gene_syn	YCL012W
+			locus_tag	YCL014W
+96281	101191	CDS
+			product	Bud3p
+			protein_id	DAA07468.1
+			note	Guanine nucleotide exchange factor (GEF) for Cdc42p; activates Cdc42p in early G1, accounting for the first stage of biphasic activation, with Cdc24p accounting for the second stage in late G1; involved in the Cdc42p-mediated assembly of the axial landmark that dictates the site for the next round of budding, resulting in the axial budding pattern observed in haploids; localizes with septins to the bud neck contractile ring in mitosis
+			experiment	EXISTENCE:direct assay:GO:0000142 cellular bud neck contractile ring [PMID:7730410]
+			experiment	EXISTENCE:direct assay:GO:0005085 guanyl-nucleotide exchange factor activity [PMID:25002677]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:12972503]
+			experiment	EXISTENCE:direct assay:GO:0043547 positive regulation of GTPase activity [PMID:25002677]
+			experiment	EXISTENCE:genetic interaction:GO:0043547 positive regulation of GTPase activity [PMID:25002677]
+			experiment	EXISTENCE:mutant phenotype:GO:0000755 cytogamy [PMID:9744878]
+			experiment	EXISTENCE:mutant phenotype:GO:0005085 guanyl-nucleotide exchange factor activity [PMID:25002677]
+			experiment	EXISTENCE:mutant phenotype:GO:0007120 axial cellular bud site selection [PMID:2065354]
+			db_xref	SGD:S000000520
+96281	101191	mRNA
+			gene	BUD3
+			gene_syn	YCL012W
+			locus_tag	YCL014W
+			product	Bud3p
+101788	101317	gene
+			gene_syn	YCL011C-A
+			locus_tag	YCL012C
+101788	101701	CDS
+101633	101317
+			product	hypothetical protein
+			protein_id	DAA07469.1
+			note	hypothetical protein; SWAT-GFP and mCherry fusion proteins localize to the endoplasmic reticulum and vacuole respectively; orthologs are present in S. bayanus, S. paradoxus and Ashbya gossypii; YCL012C is not an essential gene
+			db_xref	SGD:S000029705
+101788	101701	mRNA
+101633	101317
+			gene_syn	YCL011C-A
+			locus_tag	YCL012C
+			product	hypothetical protein
+103358	102075	gene
+			gene	GBP2
+			gene_syn	RLF6
+			locus_tag	YCL011C
+103358	102075	CDS
+			product	single-stranded telomeric DNA-binding/mRNA-binding protein
+			protein_id	DAA07470.1
+			note	Poly(A+) RNA-binding protein; key surveillance factor for the selective export of spliced mRNAs from the nucleus to the cytoplasm; preference for intron-containing genes; similar to Npl3p; also binds single-stranded telomeric repeat sequence in vitro; relocalizes to the cytosol in response to hypoxia; GBP2 has a paralog, HRB1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0000723 telomere maintenance [PMID:12519786]
+			experiment	EXISTENCE:direct assay:GO:0003682 chromatin binding [PMID:14769921]
+			experiment	EXISTENCE:direct assay:GO:0003729 mRNA binding [PMID:12634846|PMID:23222640|PMID:14769921]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:12634846|PMID:22932476|PMID:26359986]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:22932476]
+			experiment	EXISTENCE:direct assay:GO:0010494 cytoplasmic stress granule [PMID:18981231|PMID:26777405]
+			experiment	EXISTENCE:direct assay:GO:0043047 single-stranded telomeric DNA binding [PMID:7777547|PMID:7800479]
+			experiment	EXISTENCE:genetic interaction:GO:0000723 telomere maintenance [PMID:12519786]
+			experiment	EXISTENCE:mutant phenotype:GO:0000723 telomere maintenance [PMID:12519786]
+			experiment	EXISTENCE:mutant phenotype:GO:0016973 poly(A)+ mRNA export from nucleus [PMID:12634846]
+			experiment	EXISTENCE:mutant phenotype:GO:0043047 single-stranded telomeric DNA binding [PMID:7777547]
+			experiment	EXISTENCE:mutant phenotype:GO:0071028 nuclear mRNA surveillance [PMID:24452287]
+			db_xref	SGD:S000000517
+103358	102075	mRNA
+			gene	GBP2
+			gene_syn	RLF6
+			locus_tag	YCL011C
+			product	single-stranded telomeric DNA-binding/mRNA-binding protein
+104350	103571	gene
+			gene	SGF29
+			locus_tag	YCL010C
+104350	103571	CDS
+			product	Sgf29p
+			protein_id	DAA07471.1
+			note	Component of the HAT/Core module of the SAGA, SLIK, and ADA complexes; HAT/Core module also contains Gcn5p, Ngg1p, and Ada2p; binds methylated histone H3K4; involved in transcriptional regulation through SAGA and TBP recruitment to target promoters and H3 acetylation
+			experiment	EXISTENCE:direct assay:GO:0000124 SAGA complex [PMID:12052880]
+			experiment	EXISTENCE:direct assay:GO:0035064 methylated histone binding [PMID:21685874]
+			experiment	EXISTENCE:mutant phenotype:GO:0005671 Ada2/Gcn5/Ada3 transcription activator complex [PMID:21734642]
+			experiment	EXISTENCE:mutant phenotype:GO:0034613 cellular protein localization [PMID:22224423]
+			experiment	EXISTENCE:mutant phenotype:GO:0043970 histone H3-K9 acetylation [PMID:21685874]
+			experiment	EXISTENCE:mutant phenotype:GO:0043971 histone H3-K18 acetylation [PMID:21685874]
+			experiment	EXISTENCE:mutant phenotype:GO:0044154 histone H3-K14 acetylation [PMID:21685874]
+			experiment	EXISTENCE:mutant phenotype:GO:0045944 positive regulation of transcription by RNA polymerase II [PMID:21685874]
+			experiment	EXISTENCE:mutant phenotype:GO:0070868 heterochromatin organization involved in chromatin silencing [PMID:24307402]
+			experiment	EXISTENCE:mutant phenotype:GO:0072742 SAGA complex localization to transcription regulatory region [PMID:21685874]
+			experiment	EXISTENCE:physical interaction:GO:0005671 Ada2/Gcn5/Ada3 transcription activator complex [PMID:21734642]
+			db_xref	SGD:S000000516
+104350	103571	mRNA
+			gene	SGF29
+			locus_tag	YCL010C
+			product	Sgf29p
+105548	104619	gene
+			gene	ILV6
+			locus_tag	YCL009C
+105548	104619	CDS
+			product	acetolactate synthase regulatory subunit
+			protein_id	DAA07472.1
+			note	Regulatory subunit of acetolactate synthase; acetolactate synthase catalyzes the first step of branched-chain amino acid biosynthesis; enhances activity of the Ilv2p catalytic subunit, localizes to mitochondria
+			experiment	EXISTENCE:direct assay:GO:0003984 acetolactate synthase activity [PMID:16390333|PMID:8972574]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005948 acetolactate synthase complex [PMID:10213630]
+			experiment	EXISTENCE:direct assay:GO:0009082 branched-chain amino acid biosynthetic process [PMID:8972574]
+			experiment	EXISTENCE:direct assay:GO:0030234 enzyme regulator activity [PMID:8972574]
+			experiment	EXISTENCE:direct assay:GO:0042645 mitochondrial nucleoid [PMID:15692048]
+			experiment	EXISTENCE:mutant phenotype:GO:0003984 acetolactate synthase activity [PMID:16390333]
+			db_xref	SGD:S000000515
+105548	104619	mRNA
+			gene	ILV6
+			locus_tag	YCL009C
+			product	acetolactate synthase regulatory subunit
+106853	105696	gene
+			gene	STP22
+			gene_syn	AGS1
+			gene_syn	VPL15
+			gene_syn	VPS23
+			locus_tag	YCL008C
+106853	105696	CDS
+			product	ubiquitin-binding ESCRT-I subunit protein STP22
+			protein_id	DAA07473.1
+			note	Component of the ESCRT-I complex; ESCRT-I is involved in ubiquitin-dependent sorting of proteins into the endosome; prevents polyubiquitination of the arrestin-related protein Rim8p, thereby directing its monoubiquitination by Rsp5p; homologous to the mouse and human Tsg101 tumor susceptibility gene; mutants exhibit a Class E Vps phenotype;
+			experiment	EXISTENCE:curator inference:GO:0043162 ubiquitin-dependent protein catabolic process via the multivesicular body sorting pathway [PMID:15086794]
+			experiment	EXISTENCE:direct assay:GO:0000813 ESCRT I complex [PMID:15044434]
+			experiment	EXISTENCE:direct assay:GO:0005768 endosome [PMID:11511343]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0009898 cytoplasmic side of plasma membrane [PMID:20028738]
+			experiment	EXISTENCE:direct assay:GO:0043130 ubiquitin binding [PMID:19380877]
+			experiment	EXISTENCE:direct assay:GO:0061709 reticulophagy [PMID:31802527]
+			experiment	EXISTENCE:mutant phenotype:GO:0006612 protein targeting to membrane [PMID:11511343]
+			experiment	EXISTENCE:mutant phenotype:GO:0006623 protein targeting to vacuole [PMID:11511343]
+			experiment	EXISTENCE:mutant phenotype:GO:0045324 late endosome to vacuole transport [PMID:17145965]
+			experiment	EXISTENCE:mutant phenotype:GO:1902915 negative regulation of protein polyubiquitination [PMID:23645667]
+			experiment	EXISTENCE:mutant phenotype:GO:1904669 ATP export [PMID:26585826]
+			experiment	EXISTENCE:physical interaction:GO:0000813 ESCRT I complex [PMID:16615894]
+			db_xref	SGD:S000000514
+106853	105696	mRNA
+			gene	STP22
+			gene_syn	AGS1
+			gene_syn	VPL15
+			gene_syn	VPS23
+			locus_tag	YCL008C
+			product	ubiquitin-binding ESCRT-I subunit protein STP22
+107023	107417	gene
+			gene	VMA9
+			gene_syn	CWH36
+			gene_syn	LDB10
+			locus_tag	YCL005W-A
+107023	107033	CDS
+107111	107191
+107288	107417
+			product	H(+)-transporting V0 sector ATPase subunit e
+			protein_id	DAA07474.1
+			note	Vacuolar H+ ATPase subunit e of the V-ATPase V0 subcomplex; essential for vacuolar acidification; interacts with the V-ATPase assembly factor Vma21p in the ER; involved in V0 biogenesis
+			experiment	EXISTENCE:mutant phenotype:GO:0000032 cell wall mannoprotein biosynthetic process [PMID:14734024]
+			experiment	EXISTENCE:mutant phenotype:GO:0000220 vacuolar proton-transporting V-type ATPase, V0 domain [PMID:14970230]
+			experiment	EXISTENCE:mutant phenotype:GO:0000329 fungal-type vacuole membrane [PMID:14970230]
+			experiment	EXISTENCE:mutant phenotype:GO:0007035 vacuolar acidification [PMID:14970230]
+			experiment	EXISTENCE:mutant phenotype:GO:0034622 cellular protein-containing complex assembly [PMID:16569636]
+			experiment	EXISTENCE:mutant phenotype:GO:0042625 ATPase-coupled ion transmembrane transporter activity [PMID:14970230]
+			experiment	EXISTENCE:mutant phenotype:GO:0055085 transmembrane transport [PMID:14970230]
+			experiment	EXISTENCE:physical interaction:GO:0034622 cellular protein-containing complex assembly [PMID:16569636]
+			db_xref	SGD:S000028508
+107023	107033	mRNA
+107111	107191
+107288	107417
+			gene	VMA9
+			gene_syn	CWH36
+			gene_syn	LDB10
+			locus_tag	YCL005W-A
+			product	H(+)-transporting V0 sector ATPase subunit e
+107712	107504	gene
+			gene	SNR43
+			locus_tag	YNCC0003C
+107712	107504	ncRNA
+			ncRNA_class	snoRNA
+			product	SNR43
+			note	H/ACA box small nucleolar RNA (snoRNA); guides pseudouridylation of large subunit (LSU) rRNA at position U966 and of 5.8S rRNA at position 73
+			experiment	EXISTENCE:curator inference:GO:0005730 nucleolus [PMID:15923376]
+			experiment	EXISTENCE:mutant phenotype:GO:0030559 rRNA pseudouridylation guide activity [PMID:15923376|PMID:18332121]
+			experiment	EXISTENCE:mutant phenotype:GO:0031118 rRNA pseudouridine synthesis [PMID:15923376|PMID:18332121]
+			experiment	EXISTENCE:physical interaction:GO:0031429 box H/ACA snoRNP complex [PMID:15923376]
+			db_xref	SGD:S000006503
+108021	108791	gene
+			gene	LDB16
+			locus_tag	YCL005W
+108021	108791	CDS
+			product	Ldb16p
+			protein_id	DAA07475.1
+			note	Protein involved in lipid droplet (LD) assembly; forms a complex with Sei1p at ER-LD contact sites, stabilizing contact sites; ensures that LDs bud from the ER towards the cytosolic side of the membrane; null mutants have decreased net negative cell surface charge and localized accumulation of phosphatidic acid (PA) marker proteins; GFP-fusion protein expression is induced in response to MMS; null mutant can be complemented by the human seipin, BSCL2
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961]
+			experiment	EXISTENCE:direct assay:GO:0005811 lipid droplet [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0030176 integral component of endoplasmic reticulum membrane [PMID:24434579]
+			experiment	EXISTENCE:mutant phenotype:GO:0034389 lipid droplet organization [PMID:26572621]
+			experiment	EXISTENCE:mutant phenotype:GO:0090155 negative regulation of sphingolipid biosynthetic process [PMID:31594806]
+			db_xref	SGD:S000000511
+108021	108791	mRNA
+			gene	LDB16
+			locus_tag	YCL005W
+			product	Ldb16p
+108727	109060	rep_origin
+			note	ARS307; Autonomously Replicating Sequence on Chromosome III
+			db_xref	SGD:S000028484
+109105	110670	gene
+			gene	PGS1
+			gene_syn	PEL1
+			gene_syn	YCL003W
+			locus_tag	YCL004W
+109105	110670	CDS
+			product	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
+			EC_number	2.7.8.5
+			protein_id	DAA07476.1
+			note	Phosphatidylglycerolphosphate synthase; catalyzes the synthesis of phosphatidylglycerolphosphate from CDP-diacylglycerol and sn-glycerol 3-phosphate in the first committed and rate-limiting step of cardiolipin biosynthesis
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:9799363]
+			experiment	EXISTENCE:mutant phenotype:GO:0008444 CDP-diacylglycerol-glycerol-3-phosphate 3-phosphatidyltransferase activity [PMID:9545322]
+			experiment	EXISTENCE:mutant phenotype:GO:0032049 cardiolipin biosynthetic process [PMID:9545322]
+			db_xref	SGD:S000000510
+109105	110670	mRNA
+			gene	PGS1
+			gene_syn	PEL1
+			gene_syn	YCL003W
+			locus_tag	YCL004W
+			product	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
+111675	110808	gene
+			locus_tag	YCL002C
+111675	111634	CDS
+111557	110808
+			product	hypothetical protein
+			protein_id	DAA07477.2
+			note	hypothetical protein; YCL002C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			db_xref	SGD:S000000508
+111675	111634	mRNA
+111557	110808
+			locus_tag	YCL002C
+			product	hypothetical protein
+111916	112482	gene
+			gene	RER1
+			locus_tag	YCL001W
+111916	112482	CDS
+			product	protein retrieval receptor
+			protein_id	DAA07478.1
+			note	Protein involved in retention of membrane proteins; including Sec12p, in the ER; localized to Golgi; functions as a retrieval receptor in returning membrane proteins to the ER
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:22761830]
+			experiment	EXISTENCE:direct assay:GO:0006890 retrograde vesicle-mediated transport, Golgi to endoplasmic reticulum [PMID:11238450]
+			experiment	EXISTENCE:direct assay:GO:0030134 COPII-coated ER to Golgi transport vesicle [PMID:11157978]
+			experiment	EXISTENCE:direct assay:GO:0030137 COPI-coated vesicle [PMID:11238450]
+			experiment	EXISTENCE:mutant phenotype:GO:0006621 protein retention in ER lumen [PMID:8707815]
+			experiment	EXISTENCE:mutant phenotype:GO:0006890 retrograde vesicle-mediated transport, Golgi to endoplasmic reticulum [PMID:11238450]
+			experiment	EXISTENCE:mutant phenotype:GO:0030137 COPI-coated vesicle [PMID:11238450]
+			db_xref	SGD:S000000507
+111916	112482	mRNA
+			gene	RER1
+			locus_tag	YCL001W
+			product	protein retrieval receptor
+113080	113541	gene
+			locus_tag	YCL001W-A
+113080	113541	CDS
+			product	hypothetical protein
+			protein_id	DAA07479.1
+			note	hypothetical protein; YCL001W-A gene has similarity to DOM34 and is present in a region duplicated between chromosomes XIV and III
+			db_xref	SGD:S000007221
+113080	113541	mRNA
+			locus_tag	YCL001W-A
+			product	hypothetical protein
+113770	114024	gene
+			locus_tag	YCL001W-B
+113770	114024	CDS
+			product	hypothetical protein
+			protein_id	DAA07480.1
+			note	hypothetical protein; present in a region duplicated between chromosomes XIV and III; YCL001W-B has a paralog, DOM34, that arose from the whole genome duplication
+			db_xref	SGD:S000007596
+113770	114024	mRNA
+			locus_tag	YCL001W-B
+			product	hypothetical protein
+114321	114939	rep_origin
+			note	ARS308; Autonomously Replicating Sequence on Chromosome III
+			db_xref	SGD:S000028485
+114385	114501	centromere
+			note	CEN3; Chromosome III centromere
+			db_xref	SGD:S000006465
+114385	114394	centromere
+			note	CEN3_CDEI of CEN3
+114395	114476	centromere
+			note	CEN3_CDEII of CEN3
+114477	114501	centromere
+			note	CEN3_CDEIII of CEN3
+115685	115999	gene
+			locus_tag	YCR001W
+115685	115999	CDS
+			product	hypothetical protein
+			protein_id	DAA80268.1
+			note	hypothetical protein; conserved among S. cerevisiae strains; YCR001W is not an essential gene
+			db_xref	SGD:S000000594
+115685	115999	mRNA
+			locus_tag	YCR001W
+			product	hypothetical protein
+118348	117380	gene
+			gene	CDC10
+			locus_tag	YCR002C
+118348	117380	CDS
+			product	septin CDC10
+			protein_id	DAA07481.1
+			note	Component of the septin ring, required for cytokinesis; septins are GTP-binding proteins that assemble into rod-like hetero-oligomers that can associate to form filaments; septin rings at the mother-bud neck act as scaffolds for recruiting cell division factors and as barriers to prevent diffusion of specific proteins between mother and daughter cells; N-terminus interacts with phosphatidylinositol-4,5-bisphosphate; protein abundance increases under DNA damage stress
+			experiment	EXISTENCE:curator inference:GO:0030011 maintenance of cell polarity [PMID:10882120]
+			experiment	EXISTENCE:direct assay:GO:0000144 cellular bud neck septin ring [PMID:9884239|PMID:31990274]
+			experiment	EXISTENCE:direct assay:GO:0001400 mating projection base [PMID:18552279]
+			experiment	EXISTENCE:direct assay:GO:0003924 GTPase activity [PMID:14993234]
+			experiment	EXISTENCE:direct assay:GO:0005200 structural constituent of cytoskeleton [PMID:18550837|PMID:22144691|PMID:29321251]
+			experiment	EXISTENCE:direct assay:GO:0005545 1-phosphatidylinositol binding [PMID:12665577]
+			experiment	EXISTENCE:direct assay:GO:0005628 prospore membrane [PMID:18826657|PMID:24390141]
+			experiment	EXISTENCE:direct assay:GO:0005876 spindle microtubule [PMID:18826657]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0010314 phosphatidylinositol-5-phosphate binding [PMID:12665577]
+			experiment	EXISTENCE:direct assay:GO:0031105 septin complex [PMID:18550837]
+			experiment	EXISTENCE:direct assay:GO:0032160 septin filament array [PMID:15282341]
+			experiment	EXISTENCE:direct assay:GO:0042764 ascospore-type prospore [PMID:18701287]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:19053807]
+			experiment	EXISTENCE:direct assay:GO:0043934 sporulation [PMID:18701287]
+			experiment	EXISTENCE:direct assay:GO:0060090 molecular adaptor activity [PMID:15901837]
+			experiment	EXISTENCE:direct assay:GO:0070273 phosphatidylinositol-4-phosphate binding [PMID:12665577]
+			experiment	EXISTENCE:direct assay:GO:0072687 meiotic spindle [PMID:18826657]
+			experiment	EXISTENCE:mutant phenotype:GO:0000281 mitotic cytokinesis [PMID:4950437]
+			experiment	EXISTENCE:mutant phenotype:GO:0000921 septin ring assembly [PMID:14993234]
+			experiment	EXISTENCE:mutant phenotype:GO:0010458 exit from mitosis [PMID:12699621]
+			experiment	EXISTENCE:physical interaction:GO:0031105 septin complex [PMID:9813094]
+			db_xref	SGD:S000000595
+118348	117380	mRNA
+			gene	CDC10
+			locus_tag	YCR002C
+			product	septin CDC10
+118620	119171	gene
+			gene	MRPL32
+			gene_syn	bL32m
+			locus_tag	YCR003W
+118620	119171	CDS
+			product	mitochondrial 54S ribosomal protein YmL32
+			protein_id	DAA07482.1
+			note	Mitochondrial ribosomal protein of the large subunit; protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:curator inference:GO:0032543 mitochondrial translation [PMID:2060626]
+			experiment	EXISTENCE:direct assay:GO:0003735 structural constituent of ribosome [PMID:2060626]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005762 mitochondrial large ribosomal subunit [PMID:2060626]
+			db_xref	SGD:S000000596
+118620	119171	mRNA
+			gene	MRPL32
+			gene_syn	bL32m
+			locus_tag	YCR003W
+			product	mitochondrial 54S ribosomal protein YmL32
+120318	119575	gene
+			gene	YCP4
+			locus_tag	YCR004C
+120318	119575	CDS
+			product	flavodoxin-like fold family protein
+			protein_id	DAA07483.1
+			note	hypothetical protein; has sequence and structural similarity to flavodoxins; predicted to be palmitoylated; the authentic, non-tagged protein is detected in highly purified mitochondria in high-throughput studies
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:21442317|PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:16622836]
+			experiment	EXISTENCE:direct assay:GO:0045121 membrane raft [PMID:19064668]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			db_xref	SGD:S000000597
+120318	119575	mRNA
+			gene	YCP4
+			locus_tag	YCR004C
+			product	flavodoxin-like fold family protein
+122328	120946	gene
+			gene	CIT2
+			locus_tag	YCR005C
+122328	120946	CDS
+			product	citrate (Si)-synthase CIT2
+			EC_number	2.3.3.16
+			protein_id	DAA07484.1
+			note	Citrate synthase, peroxisomal isozyme involved in glyoxylate cycle; catalyzes condensation of acetyl coenzyme A and oxaloacetate to form citrate; expression is controlled by Rtg1p and Rtg2p transcription factors; SCF-Ucc1 regulates level of Cit2p to maintain citrate homeostasis; oxaloacetate-dependent positive feedback loop inhibits Cit2p ubiquitination; CIT2 has a paralog, CIT1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004108 citrate (Si)-synthase activity [PMID:2181273]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:25982115]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961]
+			experiment	EXISTENCE:direct assay:GO:0005777 peroxisome [PMID:16877773|PMID:25982115]
+			experiment	EXISTENCE:genetic interaction:GO:0004108 citrate (Si)-synthase activity [PMID:2181273]
+			experiment	EXISTENCE:genetic interaction:GO:0006101 citrate metabolic process [PMID:12913175]
+			db_xref	SGD:S000000598
+122328	120946	mRNA
+			gene	CIT2
+			locus_tag	YCR005C
+			product	citrate (Si)-synthase CIT2
+123003	122530	gene
+			locus_tag	YCR006C
+123003	122530	CDS
+			product	hypothetical protein
+			protein_id	DAA80269.1
+			note	hypothetical protein; conserved among S. cerevisiae strains; YCR006C is not an essential gene
+			db_xref	SGD:S000000599
+123003	122530	mRNA
+			locus_tag	YCR006C
+			product	hypothetical protein
+123648	123577	gene
+			gene	SUF2
+			locus_tag	YNCC0004C
+123648	123577	tRNA
+			product	tRNA-Pro
+			note	Proline tRNA (tRNA-Pro), predicted by tRNAscan-SE analysis; can mutate to suppress +1 frameshift mutations in proline codons
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006678
+124465	124134	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006832
+126730	126011	gene
+			locus_tag	YCR007C
+126730	126011	CDS
+			product	DUP240 family protein
+			protein_id	DAA07485.1
+			note	Putative integral membrane protein; member of DUP240 gene family; SWAT-GFP and mCherry fusion proteins localize to the cell periphery and vacuole; YCR007C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			db_xref	SGD:S000000600
+126730	126011	mRNA
+			locus_tag	YCR007C
+			product	DUP240 family protein
+127716	127789	gene
+			locus_tag	YNCC0005W
+127716	127789	tRNA
+			product	tRNA-Asn
+			note	Asparagine tRNA (tRNA-Asn), predicted by tRNAscan-SE analysis
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006668
+128470	130281	gene
+			gene	SAT4
+			gene_syn	HAL4
+			locus_tag	YCR008W
+128470	130281	CDS
+			product	serine/threonine protein kinase SAT4
+			EC_number	2.7.11.1
+			protein_id	DAA07486.1
+			note	Ser/Thr protein kinase involved in salt tolerance, nutrient response; functions in regulation of Trk1p-Trk2p potassium transporter; overexpression affects the Fe-S and lipoamide containing proteins in the mitochondrion; required for lipoylation of Lat1p, Kgd2p and Gcv3p; partially redundant with Hal5p; has similarity to Npr1p; localizes to the cytoplasm and mitochondrion
+			experiment	EXISTENCE:direct assay:GO:0004672 protein kinase activity [PMID:16319894]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:25117470]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:25117470]
+			experiment	EXISTENCE:direct assay:GO:0006468 protein phosphorylation [PMID:16319894]
+			experiment	EXISTENCE:genetic interaction:GO:0000082 G1/S transition of mitotic cell cycle [PMID:12518319]
+			experiment	EXISTENCE:genetic interaction:GO:0034613 cellular protein localization [PMID:21237705]
+			experiment	EXISTENCE:mutant phenotype:GO:0006470 protein dephosphorylation [PMID:21237705]
+			experiment	EXISTENCE:mutant phenotype:GO:0009249 protein lipoylation [PMID:25117470]
+			experiment	EXISTENCE:mutant phenotype:GO:0009594 detection of nutrient [PMID:32191698]
+			experiment	EXISTENCE:mutant phenotype:GO:0030003 cellular cation homeostasis [PMID:10207057]
+			experiment	EXISTENCE:mutant phenotype:GO:0045807 positive regulation of endocytosis [PMID:32191698]
+			experiment	EXISTENCE:mutant phenotype:GO:1903329 regulation of iron-sulfur cluster assembly [PMID:25117470]
+			db_xref	SGD:S000000601
+128470	130281	mRNA
+			gene	SAT4
+			gene_syn	HAL4
+			locus_tag	YCR008W
+			product	serine/threonine protein kinase SAT4
+131542	130745	gene
+			gene	RVS161
+			gene_syn	END6
+			gene_syn	FUS7
+			gene_syn	SPE161
+			locus_tag	YCR009C
+131542	130745	CDS
+			product	amphiphysin-like protein RVS161
+			protein_id	DAA07487.1
+			note	Amphiphysin-like lipid raft protein; N-BAR domain protein that interacts with Rvs167p and regulates polarization of the actin cytoskeleton, endocytosis, cell polarity, cell fusion and viability following starvation or osmotic stress
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005937 mating projection [PMID:9566960]
+			experiment	EXISTENCE:direct assay:GO:0008289 lipid binding [PMID:20610658|PMID:27093085]
+			experiment	EXISTENCE:direct assay:GO:0030479 actin cortical patch [PMID:16239147]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:19053807]
+			experiment	EXISTENCE:direct assay:GO:0045121 membrane raft [PMID:12477802]
+			experiment	EXISTENCE:direct assay:GO:0060988 lipid tube assembly [PMID:20610658]
+			experiment	EXISTENCE:direct assay:GO:0097320 plasma membrane tubulation [PMID:27093085]
+			experiment	EXISTENCE:mutant phenotype:GO:0000747 conjugation with cellular fusion [PMID:11096097]
+			experiment	EXISTENCE:mutant phenotype:GO:0006897 endocytosis [PMID:8590801]
+			experiment	EXISTENCE:mutant phenotype:GO:0006970 response to osmotic stress [PMID:1776363]
+			experiment	EXISTENCE:mutant phenotype:GO:0030036 actin cytoskeleton organization [PMID:7891662]
+			experiment	EXISTENCE:mutant phenotype:GO:0031532 actin cytoskeleton reorganization [PMID:7891662]
+			experiment	EXISTENCE:mutant phenotype:GO:0042594 response to starvation [PMID:1776363]
+			experiment	EXISTENCE:mutant phenotype:GO:0051666 actin cortical patch localization [PMID:8590801]
+			experiment	EXISTENCE:physical interaction:GO:0008092 cytoskeletal protein binding [PMID:10388809]
+			experiment	EXISTENCE:physical interaction:GO:1990528 Rvs161p-Rvs167p complex [PMID:20610658]
+			db_xref	SGD:S000000602
+131542	130745	mRNA
+			gene	RVS161
+			gene_syn	END6
+			gene_syn	FUS7
+			gene_syn	SPE161
+			locus_tag	YCR009C
+			product	amphiphysin-like protein RVS161
+132043	132120	rep_origin
+			note	ARS309; Autonomously Replicating Sequence on Chromosome III
+			db_xref	SGD:S000028486
+133124	132273	gene
+			gene	ADY2
+			gene_syn	ATO1
+			locus_tag	YCR010C
+133124	132273	CDS
+			product	Ady2p
+			protein_id	DAA07488.1
+			note	Acetate transporter required for normal sporulation; phosphorylated in mitochondria; ADY2 has a paralog, ATO2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:17395151|PMID:16622836]
+			experiment	EXISTENCE:mutant phenotype:GO:0006846 acetate transport [PMID:14968426]
+			experiment	EXISTENCE:mutant phenotype:GO:0008519 ammonium transmembrane transporter activity [PMID:12429834]
+			experiment	EXISTENCE:mutant phenotype:GO:0015123 acetate transmembrane transporter activity [PMID:14968426]
+			experiment	EXISTENCE:mutant phenotype:GO:0015696 ammonium transport [PMID:12429834]
+			experiment	EXISTENCE:mutant phenotype:GO:0019740 nitrogen utilization [PMID:12429834]
+			experiment	EXISTENCE:mutant phenotype:GO:0055085 transmembrane transport [PMID:14968426]
+			db_xref	SGD:S000000603
+133124	132273	mRNA
+			gene	ADY2
+			gene_syn	ATO1
+			locus_tag	YCR010C
+			product	Ady2p
+136873	133724	gene
+			gene	ADP1
+			locus_tag	YCR011C
+136873	133724	CDS
+			product	putative ATP-dependent permease ADP1
+			protein_id	DAA07489.1
+			note	Putative ATP-dependent permease of the ABC transporter family
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:19001347]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:11914276]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:11914276]
+			db_xref	SGD:S000000604
+136873	133724	mRNA
+			gene	ADP1
+			locus_tag	YCR011C
+			product	putative ATP-dependent permease ADP1
+137746	138996	gene
+			gene	PGK1
+			locus_tag	YCR012W
+137746	138996	CDS
+			product	phosphoglycerate kinase
+			EC_number	2.7.2.3
+			protein_id	DAA07490.1
+			note	3-phosphoglycerate kinase; catalyzes transfer of high-energy phosphoryl groups from the acyl phosphate of 1,3-bisphosphoglycerate to ADP to produce ATP; key enzyme in glycolysis and gluconeogenesis
+			experiment	EXISTENCE:direct assay:GO:0004618 phosphoglycerate kinase activity [PMID:6254992]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:27385335|PMID:11914276]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16962558|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:16622836]
+			experiment	EXISTENCE:mutant phenotype:GO:0006094 gluconeogenesis [PMID:400791]
+			experiment	EXISTENCE:mutant phenotype:GO:0006096 glycolytic process [PMID:400791]
+			db_xref	SGD:S000000605
+137746	138996	mRNA
+			gene	PGK1
+			locus_tag	YCR012W
+			product	phosphoglycerate kinase
+140933	139185	gene
+			gene	POL4
+			locus_tag	YCR014C
+140933	139185	CDS
+			product	DNA-directed DNA polymerase IV
+			EC_number	2.7.7.7
+			protein_id	DAA07491.1
+			note	DNA polymerase IV; undergoes pair-wise interactions with Dnl4p-Lif1p and Rad27p to mediate repair of DNA double-strand breaks by non-homologous end joining (NHEJ); homologous to mammalian DNA polymerase beta
+			experiment	EXISTENCE:curator inference:GO:0005634 nucleus [PMID:8265341]
+			experiment	EXISTENCE:direct assay:GO:0003887 DNA-directed DNA polymerase activity [PMID:8265341]
+			experiment	EXISTENCE:direct assay:GO:0006302 double-strand break repair [PMID:12235149]
+			experiment	EXISTENCE:direct assay:GO:0006303 double-strand break repair via nonhomologous end joining [PMID:10438542|PMID:15342630]
+			experiment	EXISTENCE:mutant phenotype:GO:0006303 double-strand break repair via nonhomologous end joining [PMID:10438542]
+			db_xref	SGD:S000000607
+140933	139185	mRNA
+			gene	POL4
+			locus_tag	YCR014C
+			product	DNA-directed DNA polymerase IV
+142170	141217	gene
+			gene	CTO1
+			locus_tag	YCR015C
+142170	141217	CDS
+			product	Cto1p
+			protein_id	DAA07492.1
+			note	Protein required for cold tolerance; involved in phosphate uptake; YCR015C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0042131 thiamine phosphate phosphatase activity [PMID:26071590]
+			experiment	EXISTENCE:mutant phenotype:GO:0006817 phosphate ion transport [PMID:25725023]
+			db_xref	SGD:S000000608
+142170	141217	mRNA
+			gene	CTO1
+			locus_tag	YCR015C
+			product	Cto1p
+142546	142364	gene
+			gene	SNR33
+			locus_tag	YNCC0006C
+142546	142364	ncRNA
+			ncRNA_class	snoRNA
+			product	SNR33
+			note	H/ACA box small nucleolar RNA (snoRNA); guides pseudouridylation of large subunit (LSU) rRNA at position U1042
+			experiment	EXISTENCE:curator inference:GO:0005730 nucleolus [PMID:9160748]
+			experiment	EXISTENCE:mutant phenotype:GO:0030559 rRNA pseudouridylation guide activity [PMID:9160748]
+			experiment	EXISTENCE:mutant phenotype:GO:0031118 rRNA pseudouridine synthesis [PMID:9160748]
+			experiment	EXISTENCE:physical interaction:GO:0031429 box H/ACA snoRNP complex [PMID:15923376|PMID:9472021]
+			db_xref	SGD:S000007298
+142771	142701	gene
+			gene	SUF16
+			locus_tag	YNCC0007C
+142771	142701	tRNA
+			product	tRNA-Gly
+			note	Glycine tRNA (tRNA-Gly), predicted by tRNAscan-SE analysis;can mutate to suppress +1 frameshift mutations in glycine codons
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			experiment	EXISTENCE:direct assay:GO:0030371 translation repressor activity [PMID:27609601]
+			experiment	EXISTENCE:direct assay:GO:0043022 ribosome binding [PMID:27609601]
+			experiment	EXISTENCE:direct assay:GO:0043555 regulation of translation in response to stress [PMID:27609601]
+			db_xref	SGD:S000006575
+143080	142758	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006833
+143634	144506	gene
+			locus_tag	YCR016W
+143634	144506	CDS
+			product	hypothetical protein
+			protein_id	DAA07493.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the nucleolus and nucleus; predicted to be involved in ribosome biogenesis
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:14562095]
+			db_xref	SGD:S000000609
+143634	144506	mRNA
+			locus_tag	YCR016W
+			product	hypothetical protein
+147634	144773	gene
+			gene	CWH43
+			locus_tag	YCR017C
+147634	144773	CDS
+			product	Cwh43p
+			protein_id	DAA07494.1
+			note	GPI lipid remodelase; responsible for introducing ceramides into GPI anchors having a C26:0 fatty acid in sn-2 of the glycerol moiety; can also use lyso-GPI protein anchors and various base resistant lipids as substrates; contains 14-16 transmembrane segments and several putative glycosylation and phosphorylation sites; null mutation is synthetically lethal with pkc1 deletion
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005887 integral component of plasma membrane [PMID:11427965]
+			experiment	EXISTENCE:direct assay:GO:0005934 cellular bud tip [PMID:11427965]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:11427965]
+			experiment	EXISTENCE:mutant phenotype:GO:0006505 GPI anchor metabolic process [PMID:27462707]
+			experiment	EXISTENCE:mutant phenotype:GO:0006506 GPI anchor biosynthetic process [PMID:17714445|PMID:17761529]
+			experiment	EXISTENCE:mutant phenotype:GO:0031505 fungal-type cell wall organization [PMID:11427965]
+			db_xref	SGD:S000000610
+147634	144773	mRNA
+			gene	CWH43
+			locus_tag	YCR017C
+			product	Cwh43p
+148903	148238	gene
+			gene	SRD1
+			locus_tag	YCR018C
+148903	148238	CDS
+			product	Srd1p
+			protein_id	DAA07495.1
+			note	Protein involved in the processing of pre-rRNA to mature rRNA; contains a C2/C2 zinc finger motif; srd1 mutation suppresses defects caused by the rrp1-1 mutation
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:genetic interaction:GO:0006364 rRNA processing [PMID:2179050]
+			db_xref	SGD:S000000611
+148903	148238	mRNA
+			gene	SRD1
+			locus_tag	YCR018C
+			product	Srd1p
+149482	149809	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006835
+149920	149991	gene
+			locus_tag	YNCC0008W
+149920	149991	tRNA
+			product	tRNA-Met
+			note	Methionine tRNA (tRNA-Met), predicted by tRNAscan-SE analysis
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006413 translational initiation [PMID:9023104]
+			experiment	EXISTENCE:direct assay:GO:0016282 eukaryotic 43S preinitiation complex [PMID:12008673]
+			experiment	EXISTENCE:direct assay:GO:0033290 eukaryotic 48S preinitiation complex [PMID:17242201]
+			experiment	EXISTENCE:direct assay:GO:0071074 eukaryotic initiation factor eIF2 binding [PMID:14698289]
+			db_xref	SGD:S000006658
+150220	150551	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006836
+151055	150695	LTR
+			note	Ty4 LTR
+			db_xref	SGD:S000007429
+151356	151284	gene
+			locus_tag	YNCC0009C
+151356	151284	tRNA
+			product	tRNA-Lys
+			note	Lysine tRNA (tRNA-Lys), predicted by tRNAscan-SE analysis; a small portion is imported into mitochondria via interaction with mt lysyl-tRNA synthetase Msk1p and is necessary to decode AAG codons at high temperature, when base modification of mt-encoded tRNA-Lys is reduced
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:8915539]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:8915539]
+			experiment	EXISTENCE:mutant phenotype:GO:0030533 triplet codon-amino acid adaptor activity [PMID:17560369]
+			experiment	EXISTENCE:mutant phenotype:GO:0032543 mitochondrial translation [PMID:17560369]
+			db_xref	SGD:S000006615
+151521	151851	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006837
+152837	153928	gene
+			gene	MAK32
+			locus_tag	YCR019W
+152837	153928	CDS
+			product	Mak32p
+			protein_id	DAA07496.1
+			note	Protein necessary for stability of L-A dsRNA-containing particles
+			db_xref	SGD:S000000612
+152837	153928	mRNA
+			gene	MAK32
+			locus_tag	YCR019W
+			product	Mak32p
+154659	154012	gene
+			gene	PET18
+			gene_syn	HIT2
+			locus_tag	YCR020C
+154659	154012	CDS
+			product	Pet18p
+			protein_id	DAA07497.1
+			note	hypothetical protein; has weak similarity to proteins involved in thiamin metabolism; expression is induced in the absence of thiamin
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:16850348]
+			experiment	EXISTENCE:expression pattern:GO:0006772 thiamine metabolic process [PMID:10383756]
+			db_xref	SGD:S000000613
+154659	154012	mRNA
+			gene	PET18
+			gene_syn	HIT2
+			locus_tag	YCR020C
+			product	Pet18p
+155096	154830	gene
+			gene	MAK31
+			gene_syn	LSM9
+			gene_syn	SMX1
+			gene_syn	NAA38
+			locus_tag	YCR020C-A
+155096	154830	CDS
+			product	Mak31p
+			protein_id	DAA07498.1
+			note	Non-catalytic subunit of N-terminal acetyltransferase of the NatC type; required for replication of dsRNA virus; member of the Sm protein family
+			experiment	EXISTENCE:direct assay:GO:0031417 NatC complex [PMID:10504710]
+			experiment	EXISTENCE:mutant phenotype:GO:0004596 peptide alpha-N-acetyltransferase activity [PMID:11274203]
+			experiment	EXISTENCE:mutant phenotype:GO:0006474 N-terminal protein amino acid acetylation [PMID:11274203]
+			db_xref	SGD:S000000614
+155096	154830	mRNA
+			gene	MAK31
+			gene_syn	LSM9
+			gene_syn	SMX1
+			gene_syn	NAA38
+			locus_tag	YCR020C-A
+			product	Mak31p
+155320	155556	gene
+			gene	HTL1
+			locus_tag	YCR020W-B
+155320	155556	CDS
+			product	Htl1p
+			protein_id	DAA07499.1
+			note	Component of the RSC chromatin remodeling complex; RSC functions in transcriptional regulation and elongation, chromosome stability, and establishing sister chromatid cohesion; involved in telomere maintenance
+			experiment	EXISTENCE:curator inference:GO:0003682 chromatin binding [PMID:12417720]
+			experiment	EXISTENCE:curator inference:GO:0006338 chromatin remodeling [PMID:12417720]
+			experiment	EXISTENCE:direct assay:GO:0006337 nucleosome disassembly [PMID:16492771]
+			experiment	EXISTENCE:direct assay:GO:0006368 transcription elongation from RNA polymerase II promoter [PMID:17081996]
+			experiment	EXISTENCE:direct assay:GO:0016586 RSC-type complex [PMID:12417720]
+			db_xref	SGD:S000006439
+155320	155556	mRNA
+			gene	HTL1
+			locus_tag	YCR020W-B
+			product	Htl1p
+157107	156109	gene
+			gene	HSP30
+			gene_syn	YRO1
+			locus_tag	YCR021C
+157107	156109	CDS
+			product	Hsp30p
+			protein_id	DAA07500.1
+			note	Negative regulator of the H(+)-ATPase Pma1p; stress-responsive protein; hydrophobic plasma membrane localized; induced by heat shock, ethanol treatment, weak organic acid, glucose limitation, and entry into stationary phase
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:1535043|PMID:16622836]
+			experiment	EXISTENCE:expression pattern:GO:0006974 cellular response to DNA damage stimulus [PMID:10206703]
+			experiment	EXISTENCE:expression pattern:GO:0034605 cellular response to heat [PMID:10206703]
+			experiment	EXISTENCE:expression pattern:GO:0070301 cellular response to hydrogen peroxide [PMID:10206703]
+			experiment	EXISTENCE:expression pattern:GO:0071361 cellular response to ethanol [PMID:10206703]
+			experiment	EXISTENCE:expression pattern:GO:0071470 cellular response to osmotic stress [PMID:10206703]
+			experiment	EXISTENCE:mutant phenotype:GO:0032780 negative regulation of ATPase activity [PMID:9250391]
+			db_xref	SGD:S000000615
+157107	156109	mRNA
+			gene	HSP30
+			gene_syn	YRO1
+			locus_tag	YCR021C
+			product	Hsp30p
+157765	157421	gene
+			locus_tag	YCR022C
+157765	157421	CDS
+			product	hypothetical protein
+			protein_id	DAA80270.1
+			note	hypothetical protein; conserved among S. cerevisiae strains; YCR022C is not an essential gene
+			db_xref	SGD:S000000616
+157765	157421	mRNA
+			locus_tag	YCR022C
+			product	hypothetical protein
+160373	158538	gene
+			locus_tag	YCR023C
+160373	158538	CDS
+			product	hypothetical protein
+			protein_id	DAA07501.1
+			note	Vacuolar membrane hypothetical protein; member of the multidrug resistance family; YCR023C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:12562762]
+			db_xref	SGD:S000000617
+160373	158538	mRNA
+			locus_tag	YCR023C
+			product	hypothetical protein
+162222	160744	gene
+			gene	SLM5
+			locus_tag	YCR024C
+162222	160744	CDS
+			product	asparagine--tRNA ligase SLM5
+			EC_number	6.1.1.22
+			protein_id	DAA07502.1
+			note	Mitochondrial asparaginyl-tRNA synthetase
+			experiment	EXISTENCE:direct assay:GO:0004816 asparagine-tRNA ligase activity [PMID:9030748]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0006421 asparaginyl-tRNA aminoacylation [PMID:9030748]
+			experiment	EXISTENCE:mutant phenotype:GO:0005739 mitochondrion [PMID:9030748]
+			experiment	EXISTENCE:mutant phenotype:GO:0070145 mitochondrial asparaginyl-tRNA aminoacylation [PMID:9030748]
+			db_xref	SGD:S000000618
+162222	160744	mRNA
+			gene	SLM5
+			locus_tag	YCR024C
+			product	asparagine--tRNA ligase SLM5
+162865	162599	gene
+			locus_tag	YCR024C-B
+162865	162599	CDS
+			product	hypothetical protein
+			protein_id	DAA07503.1
+			note	hypothetical protein; identified by expression profiling and mass spectrometry
+			db_xref	SGD:S000028818
+162865	162599	mRNA
+			locus_tag	YCR024C-B
+			product	hypothetical protein
+163067	162945	gene
+			gene	PMP1
+			locus_tag	YCR024C-A
+163067	162945	CDS
+			product	proteolipid ATPase
+			protein_id	DAA07504.1
+			note	Regulatory subunit for the plasma membrane H(+)-ATPase Pma1p; small single-membrane span proteolipid; forms unique helix and positively charged cytoplasmic domain that is able to specifically segregate phosphatidylserines; PMP1 has a paralog, PMP2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:1532582]
+			experiment	EXISTENCE:direct assay:GO:0016020 membrane [PMID:1532582]
+			experiment	EXISTENCE:genetic interaction:GO:0030234 enzyme regulator activity [PMID:8063750]
+			experiment	EXISTENCE:genetic interaction:GO:0032781 positive regulation of ATPase activity [PMID:8063750]
+			db_xref	SGD:S000000619
+163067	162945	mRNA
+			gene	PMP1
+			locus_tag	YCR024C-A
+			product	proteolipid ATPase
+163856	163446	gene
+			locus_tag	YCR025C
+163856	163446	CDS
+			product	hypothetical protein
+			protein_id	DAA80271.1
+			note	hypothetical protein; conserved across S. cerevisiae strains; YCR025C is not an essential gene
+			db_xref	SGD:S000000620
+163856	163446	mRNA
+			locus_tag	YCR025C
+			product	hypothetical protein
+166339	164111	gene
+			gene	NPP1
+			locus_tag	YCR026C
+166339	164111	CDS
+			product	nucleotide diphosphatase/phosphodiesterase NPP1
+			EC_number	3.1.4.1
+			EC_number	3.6.1.9
+			protein_id	DAA07505.1
+			note	Nucleotide pyrophosphatase/phosphodiesterase; mediates extracellular nucleotide phosphate hydrolysis along with Npp2p and Pho5p; activity and expression enhanced during conditions of phosphate starvation; involved in spore wall assembly; NPP1 has a paralog, NPP2, that arose from the whole genome duplication, and an npp1 npp2 double mutant exhibits reduced dityrosine fluorescence relative to the single mutants
+			experiment	EXISTENCE:direct assay:GO:0047429 nucleoside-triphosphate diphosphatase activity [PMID:16278456]
+			experiment	EXISTENCE:genetic interaction:GO:0017111 nucleoside-triphosphatase activity [PMID:16278456]
+			experiment	EXISTENCE:genetic interaction:GO:0047429 nucleoside-triphosphate diphosphatase activity [PMID:16278456]
+			experiment	EXISTENCE:mutant phenotype:GO:0009141 nucleoside triphosphate metabolic process [PMID:16278456]
+			experiment	EXISTENCE:mutant phenotype:GO:0016036 cellular response to phosphate starvation [PMID:16278456]
+			experiment	EXISTENCE:mutant phenotype:GO:0017111 nucleoside-triphosphatase activity [PMID:16278456]
+			experiment	EXISTENCE:mutant phenotype:GO:0047429 nucleoside-triphosphate diphosphatase activity [PMID:16278456]
+			db_xref	SGD:S000000621
+166339	164111	mRNA
+			gene	NPP1
+			locus_tag	YCR026C
+			product	nucleotide diphosphatase/phosphodiesterase NPP1
+166503	167348	rep_origin
+			note	ARS310; Compound autonomously replicating sequence on Chromosome III
+			db_xref	SGD:S000028487
+167999	167370	gene
+			gene	RHB1
+			gene_syn	RSG1
+			locus_tag	YCR027C
+167999	167370	CDS
+			product	putative GTPase RHB1
+			protein_id	DAA07506.1
+			note	Putative Rheb-related GTPase; involved in regulating canavanine resistance and arginine uptake; member of the Ras superfamily of G-proteins
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0019897 extrinsic component of plasma membrane [PMID:10753927]
+			experiment	EXISTENCE:genetic interaction:GO:0015809 arginine transport [PMID:10753927]
+			experiment	EXISTENCE:mutant phenotype:GO:0015809 arginine transport [PMID:10753927]
+			experiment	EXISTENCE:mutant phenotype:GO:0015819 lysine transport [PMID:10753927]
+			experiment	EXISTENCE:mutant phenotype:GO:0042147 retrograde transport, endosome to Golgi [PMID:17101785]
+			db_xref	SGD:S000000622
+167999	167370	mRNA
+			gene	RHB1
+			gene_syn	RSG1
+			locus_tag	YCR027C
+			product	putative GTPase RHB1
+168372	168301	gene
+			locus_tag	YNCC0010C
+168372	168301	tRNA
+			product	tRNA-Gln
+			note	Glutamine tRNA (tRNA-Gln), predicted by tRNAscan-SE analysis; thiolation of uridine at wobble position (34) requires Ncs6p
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:15706032]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:15706032]
+			db_xref	SGD:S000006692
+169573	169888	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006838
+172424	170886	gene
+			gene	FEN2
+			locus_tag	YCR028C
+172424	170886	CDS
+			product	Fen2p
+			protein_id	DAA07507.1
+			note	Plasma membrane H+-pantothenate symporter; confers sensitivity to the antifungal agent fenpropimorph; relocalizes from vacuole to cytoplasm upon DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:22842922]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0005886 plasma membrane [PMID:10373490]
+			experiment	EXISTENCE:mutant phenotype:GO:0006897 endocytosis [PMID:15020461]
+			experiment	EXISTENCE:mutant phenotype:GO:0015233 pantothenate transmembrane transporter activity [PMID:10373490]
+			experiment	EXISTENCE:mutant phenotype:GO:0015887 pantothenate transmembrane transport [PMID:10373490]
+			db_xref	SGD:S000000623
+172424	170886	mRNA
+			gene	FEN2
+			locus_tag	YCR028C
+			product	Fen2p
+173440	172950	gene
+			gene	RIM1
+			locus_tag	YCR028C-A
+173440	173199	CDS
+173115	172950
+			product	Rim1p
+			protein_id	DAA07508.1
+			note	ssDNA-binding protein essential for mitochondrial genome maintenance; involved in mitochondrial DNA replication; stimulates utilization by Mip1p DNA polymerase of RNA primers synthesized by Rpo41p
+			experiment	EXISTENCE:direct assay:GO:0003697 single-stranded DNA binding [PMID:1324172]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:1324172|PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0042645 mitochondrial nucleoid [PMID:10869431]
+			experiment	EXISTENCE:direct assay:GO:0090297 positive regulation of mitochondrial DNA replication [PMID:26184436]
+			experiment	EXISTENCE:mutant phenotype:GO:0000002 mitochondrial genome maintenance [PMID:1324172]
+			db_xref	SGD:S000007222
+173440	173199	mRNA
+173115	172950
+			gene	RIM1
+			locus_tag	YCR028C-A
+			product	Rim1p
+176438	173826	gene
+			gene	SYP1
+			gene_syn	YCR029C-A
+			locus_tag	YCR030C
+176438	173826	CDS
+			product	Syp1p
+			protein_id	DAA07509.1
+			note	Negative regulator of WASP-Arp23 complex; involved in endocytic site formation; directly inhibits Las17p stimulation of Arp23 complex-mediated actin assembly in vitro; may regulate assembly and disassembly of the septin ring; colocalizes and interacts with septin subunits; potential role in actin cytoskeletal organization
+			experiment	EXISTENCE:direct assay:GO:0000144 cellular bud neck septin ring [PMID:26179915]
+			experiment	EXISTENCE:direct assay:GO:0001400 mating projection base [PMID:11014808]
+			experiment	EXISTENCE:direct assay:GO:0004857 enzyme inhibitor activity [PMID:19962315]
+			experiment	EXISTENCE:direct assay:GO:0005628 prospore membrane [PMID:24390141]
+			experiment	EXISTENCE:direct assay:GO:0005934 cellular bud tip [PMID:11014808]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:11014808]
+			experiment	EXISTENCE:direct assay:GO:0043086 negative regulation of catalytic activity [PMID:19962315]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:19053807]
+			experiment	EXISTENCE:direct assay:GO:0061645 endocytic patch [PMID:19962315]
+			experiment	EXISTENCE:genetic interaction:GO:0032185 septin cytoskeleton organization [PMID:18791237]
+			experiment	EXISTENCE:mutant phenotype:GO:0000147 actin cortical patch assembly [PMID:19776351]
+			experiment	EXISTENCE:mutant phenotype:GO:0032185 septin cytoskeleton organization [PMID:18791237]
+			experiment	EXISTENCE:physical interaction:GO:0032185 septin cytoskeleton organization [PMID:18791237]
+			db_xref	SGD:S000000626
+176438	173826	mRNA
+			gene	SYP1
+			gene_syn	YCR029C-A
+			locus_tag	YCR030C
+			product	Syp1p
+177183	177282	gene
+			gene	SNR65
+			locus_tag	YNCC0011W
+177183	177282	ncRNA
+			ncRNA_class	snoRNA
+			product	SNR65
+			note	C/D box small nucleolar RNA (snoRNA); guides 2'-O-methylation of large subunit (LSU) rRNA at position U2347
+			experiment	EXISTENCE:curator inference:GO:0005730 nucleolus [PMID:10024243]
+			experiment	EXISTENCE:curator inference:GO:0031428 box C/D RNP complex [PMID:10024243]
+			experiment	EXISTENCE:mutant phenotype:GO:0030562 rRNA 2'-O-ribose methylation guide activity [PMID:10024243]
+			experiment	EXISTENCE:mutant phenotype:GO:0031167 rRNA methylation [PMID:10024243]
+			db_xref	SGD:S000006456
+178220	177500	gene
+			gene	RPS14A
+			gene_syn	CRY1
+			gene_syn	RPL59
+			locus_tag	YCR031C
+178220	178214	CDS
+177906	177500
+			product	ribosomal 40S subunit protein S14A
+			protein_id	DAA07510.1
+			note	Protein component of the small (40S) ribosomal subunit; required for ribosome assembly and 20S pre-rRNA processing; mutations confer cryptopleurine resistance; homologous to mammalian ribosomal protein S14 and bacterial S11; RPS14A has a paralog, RPS14B, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0003729 mRNA binding [PMID:9858605]
+			experiment	EXISTENCE:direct assay:GO:0030686 90S preribosome [PMID:12150911]
+			experiment	EXISTENCE:direct assay:GO:0032040 small-subunit processome [PMID:15590835]
+			experiment	EXISTENCE:genetic interaction:GO:0000462 maturation of SSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:16246728]
+			experiment	EXISTENCE:mutant phenotype:GO:0000028 ribosomal small subunit assembly [PMID:2277060|PMID:8293976]
+			experiment	EXISTENCE:mutant phenotype:GO:0000462 maturation of SSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:15125836]
+			db_xref	SGD:S000000627
+178220	178214	mRNA
+177906	177500
+			gene	RPS14A
+			gene_syn	CRY1
+			gene_syn	RPL59
+			locus_tag	YCR031C
+			product	ribosomal 40S subunit protein S14A
+178798	178610	gene
+			gene	SNR189
+			locus_tag	YNCC0012C
+178798	178610	ncRNA
+			ncRNA_class	snoRNA
+			product	SNR189
+			note	H/ACA box small nucleolar RNA (snoRNA); guides pseudouridylation of large subunit (LSU) rRNA at position U2735 and small subunit (SSU) rRNA at position U466
+			experiment	EXISTENCE:curator inference:GO:0005730 nucleolus [PMID:15923376]
+			experiment	EXISTENCE:mutant phenotype:GO:0000454 snoRNA guided rRNA pseudouridine synthesis [PMID:15306656|PMID:15923376]
+			experiment	EXISTENCE:mutant phenotype:GO:0030559 rRNA pseudouridylation guide activity [PMID:15306656|PMID:15923376]
+			experiment	EXISTENCE:physical interaction:GO:0031429 box H/ACA snoRNP complex [PMID:15923376]
+			db_xref	SGD:S000007314
+179520	186023	gene
+			gene	BPH1
+			locus_tag	YCR032W
+179520	186023	CDS
+			product	Bph1p
+			protein_id	DAA07511.1
+			note	Protein homologous to Chediak-Higashi syndrome and Beige proteins; both of which are implicated in disease syndromes in human and mouse, respectively, due to defective lysosomal trafficking; mutant phenotype and genetic interactions suggest a role in protein sorting
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14576278|PMID:16823961]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:15296494]
+			experiment	EXISTENCE:direct assay:GO:0019898 extrinsic component of membrane [PMID:15296494]
+			experiment	EXISTENCE:mutant phenotype:GO:0006886 intracellular protein transport [PMID:15296494]
+			experiment	EXISTENCE:mutant phenotype:GO:0009268 response to pH [PMID:9509574]
+			experiment	EXISTENCE:mutant phenotype:GO:0031505 fungal-type cell wall organization [PMID:15296494]
+			db_xref	SGD:S000000628
+179520	186023	mRNA
+			gene	BPH1
+			locus_tag	YCR032W
+			product	Bph1p
+186489	190169	gene
+			gene	SNT1
+			locus_tag	YCR033W
+186489	190169	CDS
+			product	Snt1p
+			protein_id	DAA07512.1
+			note	Set3C histone deacetylase scaffold; can act as prion [ESI+] (Expressed Subtelomeric Information) that drives emergence and transgenerational inheritance of activated chromatin state; prion conformer is triggered by transient Snt1p phosphorylation upon cell cycle arrest; [ESI+] reshapes the activity Set3C, recruiting RNAPII, interfering with Rap1p binding to activate genes in otherwise repressed subtelomeric domains; relocalizes to cytosol in response to hypoxia
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:22932476]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:22932476]
+			experiment	EXISTENCE:direct assay:GO:0016575 histone deacetylation [PMID:11711434]
+			experiment	EXISTENCE:direct assay:GO:0034967 Set3 complex [PMID:11711434]
+			experiment	EXISTENCE:direct assay:GO:0070210 Rpd3L-Expanded complex [PMID:19040720]
+			experiment	EXISTENCE:mutant phenotype:GO:0006355 regulation of transcription, DNA-templated [PMID:19379692]
+			experiment	EXISTENCE:mutant phenotype:GO:0032874 positive regulation of stress-activated MAPK cascade [PMID:18487345]
+			db_xref	SGD:S000000629
+186489	190169	mRNA
+			gene	SNT1
+			locus_tag	YCR033W
+			product	Snt1p
+190592	191635	gene
+			gene	ELO2
+			gene_syn	GNS1
+			gene_syn	VBM2
+			gene_syn	FEN1
+			locus_tag	YCR034W
+190592	191635	CDS
+			product	fatty acid elongase ELO2
+			EC_number	2.3.1.199
+			protein_id	DAA07513.1
+			note	Fatty acid elongase, involved in sphingolipid biosynthesis; acts on fatty acids of up to 24 carbons in length; mutations have regulatory effects on 1,3-beta-glucan synthase, vacuolar ATPase, and the secretory pathway; ELO2 has a paralog, ELO1, that arose from the whole genome duplication; lethality of the elo2 elo3 double null mutation is functionally complemented by human ELOVL1 and weakly complemented by human ELOVL3 or ELOV7
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:12087109]
+			experiment	EXISTENCE:genetic interaction:GO:0032511 late endosome to vacuole transport via multivesicular body sorting pathway [PMID:23325927]
+			experiment	EXISTENCE:mutant phenotype:GO:0009922 fatty acid elongase activity [PMID:12684876]
+			experiment	EXISTENCE:mutant phenotype:GO:0016192 vesicle-mediated transport [PMID:9832547]
+			experiment	EXISTENCE:mutant phenotype:GO:0030148 sphingolipid biosynthetic process [PMID:9211877]
+			experiment	EXISTENCE:mutant phenotype:GO:0030497 fatty acid elongation [PMID:9211877]
+			experiment	EXISTENCE:mutant phenotype:GO:0042761 very long-chain fatty acid biosynthetic process [PMID:23325927]
+			db_xref	SGD:S000000630
+190592	191635	mRNA
+			gene	ELO2
+			gene_syn	GNS1
+			gene_syn	VBM2
+			gene_syn	FEN1
+			locus_tag	YCR034W
+			product	fatty acid elongase ELO2
+193018	191834	gene
+			gene	RRP43
+			locus_tag	YCR035C
+193018	191834	CDS
+			product	exosome non-catalytic core subunit RRP43
+			protein_id	DAA07514.1
+			note	Exosome non-catalytic core component; involved in 3'-5' RNA processing and degradation in both the nucleus and the cytoplasm; has similarity to E. coli RNase PH and to human hRrp43p (OIP2, EXOSC8); protein abundance increases in response to DNA replication stress
+			experiment	EXISTENCE:curator inference:GO:0043628 ncRNA 3'-end processing [PMID:10465791]
+			experiment	EXISTENCE:curator inference:GO:0070478 nuclear-transcribed mRNA catabolic process, 3'-5' exonucleolytic nonsense-mediated decay [PMID:10465791]
+			experiment	EXISTENCE:curator inference:GO:0070481 nuclear-transcribed mRNA catabolic process, non-stop decay [PMID:10465791]
+			experiment	EXISTENCE:curator inference:GO:0070651 nonfunctional rRNA decay [PMID:10465791]
+			experiment	EXISTENCE:curator inference:GO:0071051 polyadenylation-dependent snoRNA 3'-end processing [PMID:10465791]
+			experiment	EXISTENCE:direct assay:GO:0000176 nuclear exosome (RNase complex) [PMID:10465791|PMID:19046973]
+			experiment	EXISTENCE:direct assay:GO:0000177 cytoplasmic exosome (RNase complex) [PMID:10465791|PMID:19046973]
+			experiment	EXISTENCE:direct assay:GO:0005654 nucleoplasm [PMID:9891085]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:9891085]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:9891085]
+			experiment	EXISTENCE:direct assay:GO:0071038 nuclear polyadenylation-dependent tRNA catabolic process [PMID:15828860|PMID:17643380]
+			experiment	EXISTENCE:mutant phenotype:GO:0000467 exonucleolytic trimming to generate mature 3'-end of 5.8S rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:10508172|PMID:12364597|PMID:9390555]
+			experiment	EXISTENCE:mutant phenotype:GO:0006397 mRNA processing [PMID:27385342]
+			experiment	EXISTENCE:mutant phenotype:GO:0034427 nuclear-transcribed mRNA catabolic process, exonucleolytic, 3'-5' [PMID:12364597]
+			experiment	EXISTENCE:mutant phenotype:GO:0071035 nuclear polyadenylation-dependent rRNA catabolic process [PMID:18940861]
+			experiment	EXISTENCE:mutant phenotype:GO:0071042 nuclear polyadenylation-dependent mRNA catabolic process [PMID:19369424]
+			db_xref	SGD:S000000631
+193018	191834	mRNA
+			gene	RRP43
+			locus_tag	YCR035C
+			product	exosome non-catalytic core subunit RRP43
+193297	194298	gene
+			gene	RBK1
+			locus_tag	YCR036W
+193297	194298	CDS
+			product	putative ribokinase
+			EC_number	2.7.1.15
+			protein_id	DAA07515.1
+			note	Ribokinase, phosphorylates ribose to ribose-5-phosphate; required for recycling ribose during nucleotide metabolism
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			db_xref	SGD:S000000632
+193297	194298	mRNA
+			gene	RBK1
+			locus_tag	YCR036W
+			product	putative ribokinase
+194308	194367	rep_origin
+			note	ARS313; Autonomously Replicating Sequence on Chromosome III
+			db_xref	SGD:S000028488
+197185	194414	gene
+			gene	PHO87
+			locus_tag	YCR037C
+197185	194414	CDS
+			product	SPX domain-containing inorganic phosphate transporter
+			protein_id	DAA07516.1
+			note	Low-affinity inorganic phosphate (Pi) transporter; acts upstream of Pho81p in regulation of the PHO pathway; expression is independent of Pi concentration and Pho4p activity; contains 12 membrane-spanning segments; PHO87 has a paralog, PHO90, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:21143198]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			experiment	EXISTENCE:genetic interaction:GO:0005315 inorganic phosphate transmembrane transporter activity [PMID:11779791]
+			experiment	EXISTENCE:genetic interaction:GO:0006817 phosphate ion transport [PMID:11779791]
+			experiment	EXISTENCE:genetic interaction:GO:2000185 regulation of phosphate transmembrane transport [PMID:12821119]
+			experiment	EXISTENCE:mutant phenotype:GO:0006797 polyphosphate metabolic process [PMID:17804816]
+			experiment	EXISTENCE:mutant phenotype:GO:0097080 plasma membrane selenite transport [PMID:20688911]
+			db_xref	SGD:S000000633
+197185	194414	mRNA
+			gene	PHO87
+			locus_tag	YCR037C
+			product	SPX domain-containing inorganic phosphate transporter
+197460	197598	rep_origin
+			note	ARS314; Autonomously Replicating Sequence on Chromosome III; active in <10% of cell cycles
+			db_xref	SGD:S000028489
+199549	197621	gene
+			gene	BUD5
+			locus_tag	YCR038C
+199549	197621	CDS
+			product	Ras family guanine nucleotide exchange factor BUD5
+			protein_id	DAA07517.1
+			note	GTP/GDP exchange factor for Rsr1p (Bud1p); required for both axial and bipolar budding patterns; mutants exhibit random budding in all cell types
+			experiment	EXISTENCE:direct assay:GO:0000131 incipient cellular bud site [PMID:11313501]
+			experiment	EXISTENCE:direct assay:GO:0005935 cellular bud neck [PMID:11313501]
+			experiment	EXISTENCE:genetic interaction:GO:0005085 guanyl-nucleotide exchange factor activity [PMID:11589573|PMID:8234337]
+			experiment	EXISTENCE:mutant phenotype:GO:0007120 axial cellular bud site selection [PMID:1905981]
+			experiment	EXISTENCE:mutant phenotype:GO:0007121 bipolar cellular bud site selection [PMID:1905981]
+			db_xref	SGD:S000000634
+199549	197621	mRNA
+			gene	BUD5
+			locus_tag	YCR038C
+			product	Ras family guanine nucleotide exchange factor BUD5
+198671	201177	misc_feature
+			note	MATALPHA; Mating type locus; note that the systematic sequence in SGD contains MATalpha sequences
+			db_xref	SGD:S000029699
+200178	199546	gene
+			gene	MATALPHA2
+			gene_syn	ALPHA2
+			locus_tag	YCR039C
+200178	199546	CDS
+			product	homeodomain mating type protein alpha2
+			protein_id	DAA07518.1
+			note	Homeobox-domain protein; with Mcm1p, represses a-specific genes in haploids; acts with A1p to repress transcription of haploid-specific genes in diploids; one of two genes encoded by the MATalpha mating type cassette
+			experiment	EXISTENCE:direct assay:GO:0001198 negative regulation of mating-type specific transcription from RNA polymerase II promoter [PMID:3893743]
+			experiment	EXISTENCE:direct assay:GO:0001227 DNA-binding transcription repressor activity, RNA polymerase II-specific [PMID:15598821]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:1976249]
+			experiment	EXISTENCE:direct assay:GO:0008301 DNA binding, bending [PMID:7569974|PMID:7739902]
+			experiment	EXISTENCE:direct assay:GO:0043565 sequence-specific DNA binding [PMID:3893743]
+			db_xref	SGD:S000000635
+200178	199546	mRNA
+			gene	MATALPHA2
+			gene_syn	ALPHA2
+			locus_tag	YCR039C
+			product	homeodomain mating type protein alpha2
+200442	200969	gene
+			gene	MATALPHA1
+			gene_syn	ALPHA1
+			locus_tag	YCR040W
+200442	200969	CDS
+			product	transcriptional co-activator mating type protein alpha
+			protein_id	DAA07422.1
+			note	Transcriptional co-activator that regulates mating-type-specific genes; targets the transcription factor Mcm1p to the promoters of alpha-specific genes; one of two genes encoded by the MATalpha mating type cassette
+			experiment	EXISTENCE:curator inference:GO:0005634 nucleus [PMID:6337727]
+			experiment	EXISTENCE:direct assay:GO:0008301 DNA binding, bending [PMID:15118075]
+			experiment	EXISTENCE:mutant phenotype:GO:0003713 transcription coactivator activity [PMID:6337727]
+			experiment	EXISTENCE:mutant phenotype:GO:0006357 regulation of transcription by RNA polymerase II [PMID:6337727]
+			experiment	EXISTENCE:mutant phenotype:GO:0007532 regulation of mating-type specific transcription, DNA-templated [PMID:6337727]
+			db_xref	SGD:S000000636
+200442	200969	mRNA
+			gene	MATALPHA1
+			gene_syn	ALPHA1
+			locus_tag	YCR040W
+			product	transcriptional co-activator mating type protein alpha
+200911	201243	gene
+			locus_tag	YCR041W
+200911	201243	CDS
+			product	hypothetical protein
+			protein_id	DAA64811.1
+			note	hypothetical protein; overexpression suppresses the high-frequency loss of mini-chromosomes, probably by increasing the rate of proper chromosome segregation; translated gene product of YCR041W, but not its transcript, is responsible for suppression; suppression ability of YCR041W is completely dependent on silencing protein Sir4p
+			db_xref	SGD:S000000637
+200911	201243	mRNA
+			locus_tag	YCR041W
+			product	hypothetical protein
+205397	201174	gene
+			gene	TAF2
+			gene_syn	TSM1
+			gene_syn	TAF150
+			locus_tag	YCR042C
+205397	201174	CDS
+			product	Taf2p
+			protein_id	DAA07520.1
+			note	TFIID subunit (150 kDa); involved in RNA polymerase II transcription initiation
+			experiment	EXISTENCE:curator inference:GO:0016251 RNA polymerase II general transcription initiation factor activity [PMID:15448131]
+			experiment	EXISTENCE:curator inference:GO:0051123 RNA polymerase II preinitiation complex assembly [PMID:10788514]
+			experiment	EXISTENCE:direct assay:GO:0003682 chromatin binding [PMID:10818000|PMID:12600943]
+			experiment	EXISTENCE:direct assay:GO:0005669 transcription factor TFIID complex [PMID:10788514|PMID:15448131]
+			experiment	EXISTENCE:direct assay:GO:0006366 transcription by RNA polymerase II [PMID:12138208|PMID:15448131]
+			db_xref	SGD:S000000638
+205397	201174	mRNA
+			gene	TAF2
+			gene_syn	TSM1
+			gene_syn	TAF150
+			locus_tag	YCR042C
+			product	Taf2p
+206644	206261	gene
+			locus_tag	YCR043C
+206644	206261	CDS
+			product	hypothetical protein
+			protein_id	DAA07521.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the Golgi apparatus; YCR043C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0005794 Golgi apparatus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:19053807]
+			db_xref	SGD:S000000639
+206644	206261	mRNA
+			locus_tag	YCR043C
+			product	hypothetical protein
+207950	206877	gene
+			gene	PER1
+			gene_syn	COS16
+			locus_tag	YCR044C
+207950	206877	CDS
+			product	Per1p
+			protein_id	DAA07522.1
+			note	Protein of the endoplasmic reticulum; required for GPI-phospholipase A2 activity that remodels the GPI anchor as a prerequisite for association of GPI-anchored proteins with lipid rafts; functionally complemented by human ortholog PERLD1
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:9560393]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:17021251]
+			experiment	EXISTENCE:mutant phenotype:GO:0006506 GPI anchor biosynthetic process [PMID:17021251]
+			experiment	EXISTENCE:mutant phenotype:GO:0030026 cellular manganese ion homeostasis [PMID:9560393]
+			db_xref	SGD:S000000640
+207950	206877	mRNA
+			gene	PER1
+			gene_syn	COS16
+			locus_tag	YCR044C
+			product	Per1p
+209610	208135	gene
+			gene	RRT12
+			gene_syn	OSW3
+			locus_tag	YCR045C
+209610	208135	CDS
+			product	Rrt12p
+			protein_id	DAA07523.1
+			note	Probable subtilisin-family protease; role in formation of the dityrosine layer of spore walls; localizes to the spore wall and also the nuclear envelope and ER region in mature spores
+			experiment	EXISTENCE:direct assay:GO:0005619 ascospore wall [PMID:19779569]
+			experiment	EXISTENCE:direct assay:GO:0005635 nuclear envelope [PMID:19779569]
+			experiment	EXISTENCE:mutant phenotype:GO:0030476 ascospore wall assembly [PMID:19779569]
+			db_xref	SGD:S000000641
+209610	208135	mRNA
+			gene	RRT12
+			gene_syn	OSW3
+			locus_tag	YCR045C
+			product	Rrt12p
+210423	209914	gene
+			gene	IMG1
+			gene_syn	bL19m
+			locus_tag	YCR046C
+210423	209914	CDS
+			product	mitochondrial 54S ribosomal protein IMG1
+			protein_id	DAA07524.1
+			note	Mitochondrial ribosomal protein of the large subunit; required for respiration and for maintenance of the mitochondrial genome
+			experiment	EXISTENCE:curator inference:GO:0032543 mitochondrial translation [PMID:12392552]
+			experiment	EXISTENCE:direct assay:GO:0003735 structural constituent of ribosome [PMID:12392552]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005762 mitochondrial large ribosomal subunit [PMID:12392552]
+			db_xref	SGD:S000000642
+210423	209914	mRNA
+			gene	IMG1
+			gene_syn	bL19m
+			locus_tag	YCR046C
+			product	mitochondrial 54S ribosomal protein IMG1
+211545	210718	gene
+			gene	BUD23
+			locus_tag	YCR047C
+211545	210718	CDS
+			product	18S rRNA (guanine1575-N7)-methyltransferase
+			EC_number	2.1.1.309
+			protein_id	DAA07525.1
+			note	Methyltransferase that methylates residue G1575 of 18S rRNA; required for rRNA processing and nuclear export of 40S ribosomal subunits independently of methylation activity; functions with DEAH-box RNA helicase Ecm16p; diploid mutant displays random budding pattern; functional homolog of human WBSCR22
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:18332120]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:mutant phenotype:GO:0000056 ribosomal small subunit export from nucleus [PMID:18332120]
+			experiment	EXISTENCE:mutant phenotype:GO:0000447 endonucleolytic cleavage in ITS1 to separate SSU-rRNA from 5.8S rRNA and LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:18332120]
+			experiment	EXISTENCE:mutant phenotype:GO:0016435 rRNA (guanine) methyltransferase activity [PMID:18332120]
+			experiment	EXISTENCE:mutant phenotype:GO:0070476 rRNA (guanine-N7)-methylation [PMID:18332120]
+			db_xref	SGD:S000000643
+211545	210718	mRNA
+			gene	BUD23
+			locus_tag	YCR047C
+			product	18S rRNA (guanine1575-N7)-methyltransferase
+211929	213761	gene
+			gene	ARE1
+			gene_syn	SAT2
+			locus_tag	YCR048W
+211929	213761	CDS
+			product	sterol acyltransferase
+			protein_id	DAA07526.1
+			note	Acyl-CoA:sterol acyltransferase; endoplasmic reticulum enzyme that contributes the major sterol esterification activity in the absence of oxygen; ARE1 has a paralog, ARE2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:10672016|PMID:26928762]
+			experiment	EXISTENCE:genetic interaction:GO:0034737 ergosterol O-acyltransferase activity [PMID:10672016]
+			experiment	EXISTENCE:genetic interaction:GO:0034738 lanosterol O-acyltransferase activity [PMID:10672016]
+			experiment	EXISTENCE:mutant phenotype:GO:0016125 sterol metabolic process [PMID:10672016]
+			experiment	EXISTENCE:mutant phenotype:GO:0034738 lanosterol O-acyltransferase activity [PMID:10672016]
+			db_xref	SGD:S000000644
+211929	213761	mRNA
+			gene	ARE1
+			gene_syn	SAT2
+			locus_tag	YCR048W
+			product	sterol acyltransferase
+213772	213464	gene
+			locus_tag	YCR050C
+213772	213464	CDS
+			product	hypothetical protein
+			protein_id	DAA07527.1
+			note	Non-essential hypothetical protein; deletion mutant is synthetically sick or lethal with alpha-synuclein
+			db_xref	SGD:S000000646
+213772	213464	mRNA
+			locus_tag	YCR050C
+			product	hypothetical protein
+214071	214739	gene
+			locus_tag	YCR051W
+214071	214739	CDS
+			product	hypothetical protein
+			protein_id	DAA07528.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the cytoplasm and nucleus; contains ankyrin (Ank) repeats; YCR051W is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			db_xref	SGD:S000000647
+214071	214739	mRNA
+			locus_tag	YCR051W
+			product	hypothetical protein
+214994	216445	gene
+			gene	RSC6
+			locus_tag	YCR052W
+214994	216445	CDS
+			product	Rsc6p
+			protein_id	DAA07529.1
+			note	Component of the RSC chromatin remodeling complex; essential for mitotic growth; RSC6 has a paralog, SNF12, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0006337 nucleosome disassembly [PMID:16492771]
+			experiment	EXISTENCE:direct assay:GO:0016584 nucleosome positioning [PMID:21343911]
+			experiment	EXISTENCE:direct assay:GO:0016586 RSC-type complex [PMID:10619019|PMID:12183366]
+			experiment	EXISTENCE:direct assay:GO:0032968 positive regulation of transcription elongation from RNA polymerase II promoter [PMID:17081996]
+			db_xref	SGD:S000000648
+214994	216445	mRNA
+			gene	RSC6
+			locus_tag	YCR052W
+			product	Rsc6p
+216697	218241	gene
+			gene	THR4
+			locus_tag	YCR053W
+216697	218241	CDS
+			product	threonine synthase THR4
+			EC_number	4.2.3.1
+			protein_id	DAA07530.1
+			note	Threonine synthase; conserved protein that catalyzes formation of threonine from O-phosphohomoserine; expression is regulated by the GCN4-mediated general amino acid control pathway
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095|PMID:24390141]
+			experiment	EXISTENCE:mutant phenotype:GO:0004795 threonine synthase activity [PMID:8082795]
+			experiment	EXISTENCE:mutant phenotype:GO:0009088 threonine biosynthetic process [PMID:8082795]
+			db_xref	SGD:S000000649
+216697	218241	mRNA
+			gene	THR4
+			locus_tag	YCR053W
+			product	threonine synthase THR4
+220067	218376	gene
+			gene	CTR86
+			locus_tag	YCR054C
+220067	218376	CDS
+			product	Ctr86p
+			protein_id	DAA07531.1
+			note	Essential hypothetical protein; with orthologs in Ashbya gossypii and Candida albicans; similar to human ATXN10, mutations in which cause spinocerebellar ataxia type 10; codon usage corresponds to that observed for yeast genes expressed at low levels; relative distribution to the nucleus increases upon DNA replication stress
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:22842922]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095|PMID:22842922]
+			db_xref	SGD:S000000650
+220067	218376	mRNA
+			gene	CTR86
+			locus_tag	YCR054C
+			product	Ctr86p
+223228	220457	gene
+			gene	PWP2
+			gene_syn	UTP1
+			gene_syn	YCR055C
+			gene_syn	YCR058C
+			locus_tag	YCR057C
+223228	220457	CDS
+			product	snoRNA-binding rRNA-processing protein PWP2
+			protein_id	DAA07532.1
+			note	Conserved 90S pre-ribosomal component; essential for proper endonucleolytic cleavage of the 35 S rRNA precursor at A0, A1, and A2 sites; contains eight WD-repeats; PWP2 deletion leads to defects in cell cycle and bud morphogenesis
+			experiment	EXISTENCE:direct assay:GO:0003729 mRNA binding [PMID:23222640]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:12068309|PMID:12150911]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:8804409]
+			experiment	EXISTENCE:direct assay:GO:0030686 90S preribosome [PMID:15231838|PMID:12150911]
+			experiment	EXISTENCE:direct assay:GO:0032040 small-subunit processome [PMID:12068309]
+			experiment	EXISTENCE:direct assay:GO:0034388 Pwp2p-containing subcomplex of 90S preribosome [PMID:15231838|PMID:17515605]
+			experiment	EXISTENCE:mutant phenotype:GO:0000447 endonucleolytic cleavage in ITS1 to separate SSU-rRNA from 5.8S rRNA and LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:15231838|PMID:15489292|PMID:15590835]
+			experiment	EXISTENCE:mutant phenotype:GO:0000462 maturation of SSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:12068309]
+			experiment	EXISTENCE:mutant phenotype:GO:0000472 endonucleolytic cleavage to generate mature 5'-end of SSU-rRNA from (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:15231838|PMID:15489292|PMID:15590835]
+			experiment	EXISTENCE:mutant phenotype:GO:0000480 endonucleolytic cleavage in 5'-ETS of tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA) [PMID:15231838|PMID:15489292|PMID:15590835]
+			experiment	EXISTENCE:mutant phenotype:GO:0000920 septum digestion after cytokinesis [PMID:8804409]
+			experiment	EXISTENCE:mutant phenotype:GO:0030010 establishment of cell polarity [PMID:8804409]
+			db_xref	SGD:S000000653
+223228	220457	mRNA
+			gene	PWP2
+			gene_syn	UTP1
+			gene_syn	YCR055C
+			gene_syn	YCR058C
+			locus_tag	YCR057C
+			product	snoRNA-binding rRNA-processing protein PWP2
+224230	223454	gene
+			gene	YIH1
+			locus_tag	YCR059C
+224230	223454	CDS
+			product	Yih1p
+			protein_id	DAA07533.1
+			note	Negative regulator of eIF2 kinase Gcn2p; competes with Gcn2p for binding to Gcn1p; may contribute to regulation of translation in response to starvation via regulation of Gcn2p; binds to monomeric actin and to ribosomes and polyribosomes; ortholog of mammalian IMPACT
+			experiment	EXISTENCE:direct assay:GO:0003785 actin monomer binding [PMID:15126500]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0043022 ribosome binding [PMID:22404850]
+			experiment	EXISTENCE:direct assay:GO:1905538 polysome binding [PMID:22404850]
+			experiment	EXISTENCE:mutant phenotype:GO:0001933 negative regulation of protein phosphorylation [PMID:15126500]
+			experiment	EXISTENCE:mutant phenotype:GO:0004860 protein kinase inhibitor activity [PMID:15126500]
+			db_xref	SGD:S000000655
+224230	223454	mRNA
+			gene	YIH1
+			locus_tag	YCR059C
+			product	Yih1p
+224399	224734	gene
+			gene	TAH1
+			locus_tag	YCR060W
+224399	224734	CDS
+			product	Tah1p
+			protein_id	DAA07534.1
+			note	Component of conserved R2TP complex (Rvb1-Rvb2-Tah1-Pih1); R2TP complex interacts with Hsp90 (Hsp82p and Hsc82p) to mediate assembly of large protein complexes such as box C/D snoRNPs and RNA polymerase II; contains a single TPR domain with at least two TPR motifs; plays a role in determining prion variants
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0051087 chaperone binding [PMID:18412542]
+			experiment	EXISTENCE:direct assay:GO:0097255 R2TP complex [PMID:15766533]
+			experiment	EXISTENCE:genetic interaction:GO:0006457 protein folding [PMID:15766533]
+			experiment	EXISTENCE:mutant phenotype:GO:0000492 box C/D snoRNP assembly [PMID:18268103]
+			experiment	EXISTENCE:mutant phenotype:GO:0006457 protein folding [PMID:15766533]
+			experiment	EXISTENCE:mutant phenotype:GO:0051087 chaperone binding [PMID:15766533]
+			experiment	EXISTENCE:physical interaction:GO:0006457 protein folding [PMID:15766533]
+			experiment	EXISTENCE:physical interaction:GO:0051087 chaperone binding [PMID:15766533]
+			experiment	EXISTENCE:physical interaction:GO:0097255 R2TP complex [PMID:18268103]
+			db_xref	SGD:S000000656
+224399	224734	mRNA
+			gene	TAH1
+			locus_tag	YCR060W
+			product	Tah1p
+224816	225061	rep_origin
+			note	ARS315; Highly-active autonomously replicating sequence; initiates replication in ~90% of cell cycles
+			db_xref	SGD:S000028490
+225563	227458	gene
+			gene	TVS1
+			gene_syn	YCR062W
+			locus_tag	YCR061W
+225563	227458	CDS
+			product	Tvs1p
+			protein_id	DAA07535.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the cytoplasm in a punctate pattern; non-essential gene; upregulated by and required for tolerance to 4-Methylcyclohexane methanol; induced by treatment with 8-methoxypsoralen and UVA irradiation; contains 10-11 predicted transmembrane domains 
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:mutant phenotype:GO:0008361 regulation of cell size [PMID:12089449]
+			db_xref	SGD:S000000657
+225563	227458	mRNA
+			gene	TVS1
+			gene_syn	YCR062W
+			locus_tag	YCR061W
+			product	Tvs1p
+227942	228042	gene
+			gene	SUP61
+			locus_tag	YNCC0013W
+227942	227978	tRNA
+227998	228042
+			product	tRNA-Ser
+			note	Serine tRNA (tRNA-Ser), predicted by tRNAscan-SE analysis; i6A37 modification is catalyzed by Mod5p; can mutate to suppress amber or ochre nonsense mutations; suppressor mutant alleles are recessive lethal and can only be maintained when an additional wild-type copy of the gene is present, because SUP61 encodes the only tRNA species that can decode UCG codons
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006730
+228318	228791	gene
+			gene	BUD31
+			gene_syn	CWC14
+			locus_tag	YCR063W
+228318	228791	CDS
+			product	U2 snRNP complex subunit BUD31
+			protein_id	DAA07536.1
+			note	Component of the SF3b subcomplex of the U2 snRNP; increases efficiency of first and second step pre-mRNA splicing; diploid mutants display a random budding pattern instead of the wild-type bipolar pattern; facilitates passage through G1/S Start, but is not required for G2/M transition or exit from mitosis
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005686 U2 snRNP [PMID:16314500]
+			experiment	EXISTENCE:mutant phenotype:GO:0000282 cellular bud site selection [PMID:11452010]
+			experiment	EXISTENCE:physical interaction:GO:0000398 mRNA splicing, via spliceosome [PMID:16314500|PMID:15303280]
+			db_xref	SGD:S000000659
+228318	228791	mRNA
+			gene	BUD31
+			gene_syn	CWC14
+			locus_tag	YCR063W
+			product	U2 snRNP complex subunit BUD31
+229310	231004	gene
+			gene	HCM1
+			locus_tag	YCR065W
+229310	231004	CDS
+			product	Hcm1p
+			protein_id	DAA07537.1
+			note	Forkhead transcription factor; drives S-phase activation of genes involved in chromosome segregation, spindle dynamics, budding; also activates genes involved in respiration, use of alternative energy sources, NAD synthesis, oxidative stress resistance; regulated by cell wall integrity checkpoint; key factor in early adaptation to nutrient deficiency and diauxic shift; suppressor of calmodulin mutants with specific SPB assembly defects; ortholog of C. elegans lifespan regulator PHA-4
+			experiment	EXISTENCE:direct assay:GO:0000785 chromatin [PMID:12464632]
+			experiment	EXISTENCE:direct assay:GO:0003700 DNA-binding transcription factor activity [PMID:16912276]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:19159085|PMID:20847055]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:20847055]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:33339134]
+			experiment	EXISTENCE:direct assay:GO:0043565 sequence-specific DNA binding [PMID:19111667]
+			experiment	EXISTENCE:direct assay:GO:0045944 positive regulation of transcription by RNA polymerase II [PMID:8441413]
+			experiment	EXISTENCE:genetic interaction:GO:0051300 spindle pole body organization [PMID:9920414]
+			experiment	EXISTENCE:mutant phenotype:GO:0003700 DNA-binding transcription factor activity [PMID:16912276]
+			experiment	EXISTENCE:mutant phenotype:GO:0007005 mitochondrion organization [PMID:20847055]
+			experiment	EXISTENCE:mutant phenotype:GO:0034246 mitochondrial transcription factor activity [PMID:33339134]
+			experiment	EXISTENCE:mutant phenotype:GO:0034599 cellular response to oxidative stress [PMID:20847055]
+			experiment	EXISTENCE:mutant phenotype:GO:1903108 regulation of mitochondrial transcription [PMID:33339134]
+			db_xref	SGD:S000000661
+229310	231004	mRNA
+			gene	HCM1
+			locus_tag	YCR065W
+			product	Hcm1p
+231500	232963	gene
+			gene	RAD18
+			locus_tag	YCR066W
+231500	232963	CDS
+			product	E3 ubiquitin-protein ligase RAD18
+			EC_number	2.3.2.27
+			protein_id	DAA07538.1
+			note	E3 ubiquitin ligase; forms heterodimer with Rad6p to monoubiquitinate PCNA-K164; heterodimer binds single-stranded DNA and has single-stranded DNA dependent ATPase activity; required for postreplication repair; SUMO-targeted ubiquitin ligase (STUbl) that contains a SUMO-interacting motif (SIM) which stimulates its ubiquitin ligase activity towards the sumoylated form of PCNA
+			experiment	EXISTENCE:direct assay:GO:0000785 chromatin [PMID:10880451]
+			experiment	EXISTENCE:direct assay:GO:0003697 single-stranded DNA binding [PMID:7926769|PMID:9287349]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:10880451]
+			experiment	EXISTENCE:direct assay:GO:0017116 single-stranded DNA helicase activity [PMID:9287349]
+			experiment	EXISTENCE:direct assay:GO:0097505 Rad6-Rad18 complex [PMID:9287349]
+			experiment	EXISTENCE:genetic interaction:GO:0042275 error-free postreplication DNA repair [PMID:10924462|PMID:9576943]
+			experiment	EXISTENCE:genetic interaction:GO:0042276 error-prone translesion synthesis [PMID:11973297|PMID:15687278]
+			experiment	EXISTENCE:genetic interaction:GO:0070987 error-free translesion synthesis [PMID:9409821]
+			experiment	EXISTENCE:mutant phenotype:GO:0006513 protein monoubiquitination [PMID:12226657]
+			db_xref	SGD:S000000662
+231500	232963	mRNA
+			gene	RAD18
+			locus_tag	YCR066W
+			product	E3 ubiquitin-protein ligase RAD18
+236322	233125	gene
+			gene	SED4
+			locus_tag	YCR067C
+236322	233125	CDS
+			product	GTPase-activating protein SED4
+			protein_id	DAA07539.1
+			note	Integral ER membrane protein that stimulates Sar1p GTPase activity; involved in COPII vesicle budding through disassociation of coat proteins from membranes onto liposomes; binds Sec16p; SED4 has a paralog, SEC12, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0003400 regulation of COPII vesicle coating [PMID:21291503]
+			experiment	EXISTENCE:direct assay:GO:0005096 GTPase activator activity [PMID:21291503]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:24390141]
+			experiment	EXISTENCE:direct assay:GO:0030176 integral component of endoplasmic reticulum membrane [PMID:7593162]
+			experiment	EXISTENCE:direct assay:GO:0043547 positive regulation of GTPase activity [PMID:21291503]
+			experiment	EXISTENCE:physical interaction:GO:0043547 positive regulation of GTPase activity [PMID:21291503]
+			db_xref	SGD:S000000663
+236322	233125	mRNA
+			gene	SED4
+			locus_tag	YCR067C
+			product	GTPase-activating protein SED4
+237214	238776	gene
+			gene	ATG15
+			gene_syn	CVT17
+			gene_syn	AUT5
+			locus_tag	YCR068W
+237214	238776	CDS
+			product	triglyceride lipase ATG15
+			EC_number	3.1.1.3
+			protein_id	DAA07540.1
+			note	Phospholipase; preferentially hydrolyses phosphatidylserine, with minor activity against cardiolipin and phosphatidylethanolamine; required for lysis of autophagic and CVT bodies; targeted to intravacuolar vesicles during autophagy via the multivesicular body (MVB) pathway; required for the maintenance of lipid droplet quantity after the diauxic shift; regulates lipolysis; expression regulated by Yap1p during autophagy
+			experiment	EXISTENCE:direct assay:GO:0004620 phospholipase activity [PMID:27543826]
+			experiment	EXISTENCE:direct assay:GO:0005775 vacuolar lumen [PMID:11566994]
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0006624 vacuolar protein processing [PMID:11085977]
+			experiment	EXISTENCE:direct assay:GO:0006660 phosphatidylserine catabolic process [PMID:27543826]
+			experiment	EXISTENCE:direct assay:GO:0006914 autophagy [PMID:11085977|PMID:11566994]
+			experiment	EXISTENCE:direct assay:GO:0016021 integral component of membrane [PMID:11085977]
+			experiment	EXISTENCE:direct assay:GO:0030397 membrane disassembly [PMID:11085977]
+			experiment	EXISTENCE:mutant phenotype:GO:0000425 pexophagy [PMID:31332264]
+			experiment	EXISTENCE:mutant phenotype:GO:0004620 phospholipase activity [PMID:27543826]
+			experiment	EXISTENCE:mutant phenotype:GO:0006624 vacuolar protein processing [PMID:11085977]
+			experiment	EXISTENCE:mutant phenotype:GO:0006660 phosphatidylserine catabolic process [PMID:27543826]
+			experiment	EXISTENCE:mutant phenotype:GO:0006914 autophagy [PMID:11085977|PMID:11566994]
+			experiment	EXISTENCE:mutant phenotype:GO:0030397 membrane disassembly [PMID:11085977]
+			experiment	EXISTENCE:mutant phenotype:GO:0034496 multivesicular body membrane disassembly [PMID:12499386]
+			experiment	EXISTENCE:mutant phenotype:GO:0034727 piecemeal microautophagy of the nucleus [PMID:18701704]
+			experiment	EXISTENCE:mutant phenotype:GO:0046461 neutral lipid catabolic process [PMID:26061644]
+			db_xref	SGD:S000000664
+237214	238776	mRNA
+			gene	ATG15
+			gene_syn	CVT17
+			gene_syn	AUT5
+			locus_tag	YCR068W
+			product	triglyceride lipase ATG15
+239055	240011	gene
+			gene	CPR4
+			gene_syn	CYP4
+			gene_syn	SCC3
+			gene_syn	YCR070W
+			locus_tag	YCR069W
+239055	240011	CDS
+			product	peptidylprolyl isomerase family protein CPR4
+			EC_number	5.2.1.8
+			protein_id	DAA07541.1
+			note	Peptidyl-prolyl cis-trans isomerase (cyclophilin); catalyzes the cis-trans isomerization of peptide bonds N-terminal to proline residues; has a potential role in the secretory pathway; CPR4 has a paralog, CPR8, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			db_xref	SGD:S000000665
+239055	240011	mRNA
+			gene	CPR4
+			gene_syn	CYP4
+			gene_syn	SCC3
+			gene_syn	YCR070W
+			locus_tag	YCR069W
+			product	peptidylprolyl isomerase family protein CPR4
+240543	240103	gene
+			gene	IMG2
+			gene_syn	mL49
+			locus_tag	YCR071C
+240543	240103	CDS
+			product	mitochondrial 54S ribosomal protein IMG2
+			protein_id	DAA07542.1
+			note	Mitochondrial ribosomal protein of the large subunit; conserved in metazoa, with similarity to human mitochondrial ribosomal protein MRPL49
+			experiment	EXISTENCE:curator inference:GO:0032543 mitochondrial translation [PMID:12392552]
+			experiment	EXISTENCE:direct assay:GO:0003735 structural constituent of ribosome [PMID:12392552]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005762 mitochondrial large ribosomal subunit [PMID:12392552]
+			db_xref	SGD:S000000667
+240543	240103	mRNA
+			gene	IMG2
+			gene_syn	mL49
+			locus_tag	YCR071C
+			product	mitochondrial 54S ribosomal protein IMG2
+242352	240805	gene
+			gene	RSA4
+			locus_tag	YCR072C
+242352	240805	CDS
+			product	Rsa4p
+			protein_id	DAA07543.1
+			note	Ribosomal large subunit (60S) assembly factor; association of the N-terminal ubiquitin-like (UBL) domain of this preribosomal factor with the MIDAS domain in the Rea1p tail, promoted by the GTPase Nog2p, is required for the ATP-dependent dissociation of preribosomal factors including the Rix1p subcomplex, Rea1p, Nog2p and Rsa1p itself prior to nuclear export of pre-60S particles; contains WD-repeats and a UBL domain; localizes to the nucleolus 
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:16221974]
+			experiment	EXISTENCE:mutant phenotype:GO:0000027 ribosomal large subunit assembly [PMID:16221974]
+			experiment	EXISTENCE:mutant phenotype:GO:0110136 protein-RNA complex remodeling [PMID:19737519]
+			db_xref	SGD:S000000668
+242352	240805	mRNA
+			gene	RSA4
+			locus_tag	YCR072C
+			product	Rsa4p
+246583	242588	gene
+			gene	SSK22
+			locus_tag	YCR073C
+246583	242588	CDS
+			product	mitogen-activated protein kinase kinase kinase SSK22
+			EC_number	2.7.11.1
+			protein_id	DAA07544.1
+			note	MAP kinase kinase kinase of HOG1 mitogen-activated signaling pathway; functionally redundant with Ssk2p; interacts with and is activated by Ssk1p; phosphorylates Pbs2p; SSK22 has a paralog, SSK2, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004672 protein kinase activity [PMID:16319894]
+			experiment	EXISTENCE:direct assay:GO:0006468 protein phosphorylation [PMID:16319894]
+			experiment	EXISTENCE:genetic interaction:GO:0000161 osmosensory signaling MAPK cascade [PMID:7624781|PMID:9742096]
+			experiment	EXISTENCE:mutant phenotype:GO:0000161 osmosensory signaling MAPK cascade [PMID:7624781]
+			db_xref	SGD:S000000669
+246583	242588	mRNA
+			gene	SSK22
+			locus_tag	YCR073C
+			product	mitogen-activated protein kinase kinase kinase SSK22
+246963	247910	gene
+			gene	SOL2
+			gene_syn	YCRX13W
+			locus_tag	YCR073W-A
+246963	247910	CDS
+			product	Sol2p
+			protein_id	DAA07545.1
+			note	Protein with a possible role in tRNA export; shows similarity to 6-phosphogluconolactonase non-catalytic domains but does not exhibit this enzymatic activity; homologous to Sol3p and Sol4p; SOL2 has a paralog, SOL1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005829 cytosol [PMID:15454531]
+			experiment	EXISTENCE:mutant phenotype:GO:0006409 tRNA export from nucleus [PMID:15454531]
+			db_xref	SGD:S000000718
+246963	247910	mRNA
+			gene	SOL2
+			gene_syn	YCRX13W
+			locus_tag	YCR073W-A
+			product	Sol2p
+248815	248033	gene
+			gene	ERS1
+			locus_tag	YCR075C
+248815	248033	CDS
+			product	cystinosin-like protein ERS1
+			protein_id	DAA07546.1
+			note	Protein involved in cystine transport; localizes to the vacuole, plasma membrane and endosome; similarity to human cystinosin, a H(+)-driven transporter involved in L-cystine export from lysosomes and implicated in the disease cystinosis; contains seven transmembrane domains; mutation is functionally complemented by human CTNS
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:15885099|PMID:27142334]
+			experiment	EXISTENCE:direct assay:GO:0005768 endosome [PMID:15885099]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:27142334]
+			experiment	EXISTENCE:direct assay:GO:0015811 L-cystine transport [PMID:27142334]
+			experiment	EXISTENCE:genetic interaction:GO:0015184 L-cystine transmembrane transporter activity [PMID:15885099]
+			experiment	EXISTENCE:genetic interaction:GO:0015811 L-cystine transport [PMID:15885099]
+			db_xref	SGD:S000000671
+248815	248033	mRNA
+			gene	ERS1
+			locus_tag	YCR075C
+			product	cystinosin-like protein ERS1
+248975	249202	gene
+			gene	EGO2
+			locus_tag	YCR075W-A
+248975	249202	CDS
+			product	Ego2p
+			protein_id	DAA07547.1
+			note	Subunit of the EGO/GSE complex; the vacuolar/endosomal membrane associated EGO/GSE complex regulates exit from rapamycin-induced growth arrest, stimulating microautophagy and sorting of Gap1p from the endosome to the plasma membrane; identified by homology to Ashbya gossypii; EGO2 has a paralog, EGO4, that arose from the whole genome duplication 
+			experiment	EXISTENCE:direct assay:GO:0000329 fungal-type vacuole membrane [PMID:26206314]
+			experiment	EXISTENCE:mutant phenotype:GO:0038202 TORC1 signaling [PMID:26206314]
+			experiment	EXISTENCE:mutant phenotype:GO:0072665 protein localization to vacuole [PMID:26206314]
+			experiment	EXISTENCE:physical interaction:GO:0071986 Ragulator complex [PMID:26206314]
+			db_xref	SGD:S000028519
+248975	249202	mRNA
+			gene	EGO2
+			locus_tag	YCR075W-A
+			product	Ego2p
+250045	249293	gene
+			gene	FUB1
+			locus_tag	YCR076C
+250045	249293	CDS
+			product	Fub1p
+			protein_id	DAA07548.1
+			note	Proteasome-binding protein; interacts physically with multiple subunits of the 20S proteasome and genetically with genes encoding 20S core particle and 19S regulatory particle subunits; exhibits boundary activity which blocks the propagation of heterochromatic silencing; contains a PI31 proteasome regulator domain and sequence similarity with human PSMF1, a proteasome inhibitor; not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0070628 proteasome binding [PMID:22362029]
+			db_xref	SGD:S000000672
+250045	249293	mRNA
+			gene	FUB1
+			locus_tag	YCR076C
+			product	Fub1p
+252628	250238	gene
+			gene	PAT1
+			gene_syn	MRT1
+			locus_tag	YCR077C
+252628	250238	CDS
+			product	Pat1p
+			protein_id	DAA07549.2
+			note	Deadenylation-dependent mRNA-decapping factor; also required for faithful chromosome transmission, maintenance of rDNA locus stability, and protection of mRNA 3'-UTRs from trimming; associated with topoisomerase II; binds to mRNAs under glucose starvation, most often in the 3' UTR; functionally linked to Pab1p; forms cytoplasmic foci upon DNA replication stress; phosphorylation by PKA inhibits P body foci formation
+			experiment	EXISTENCE:direct assay:GO:0000776 kinetochore [PMID:23893485]
+			experiment	EXISTENCE:direct assay:GO:0000932 P-body [PMID:12730603]
+			experiment	EXISTENCE:direct assay:GO:0003682 chromatin binding [PMID:23706738]
+			experiment	EXISTENCE:direct assay:GO:0003723 RNA binding [PMID:25035297]
+			experiment	EXISTENCE:direct assay:GO:0003729 mRNA binding [PMID:23222640]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:23706738]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:23706738|PMID:22842922]
+			experiment	EXISTENCE:direct assay:GO:0010494 cytoplasmic stress granule [PMID:23222640]
+			experiment	EXISTENCE:direct assay:GO:0022627 cytosolic small ribosomal subunit [PMID:10779343]
+			experiment	EXISTENCE:direct assay:GO:0045947 negative regulation of translational initiation [PMID:20832728]
+			experiment	EXISTENCE:direct assay:GO:1990726 Lsm1-7-Pat1 complex [PMID:24139796]
+			experiment	EXISTENCE:genetic interaction:GO:0033962 P-body assembly [PMID:18981231]
+			experiment	EXISTENCE:mutant phenotype:GO:0000290 deadenylation-dependent decapping of nuclear-transcribed mRNA [PMID:10913177]
+			experiment	EXISTENCE:mutant phenotype:GO:0000932 P-body [PMID:12730603]
+			experiment	EXISTENCE:mutant phenotype:GO:0001731 formation of translation preinitiation complex [PMID:20832728]
+			experiment	EXISTENCE:mutant phenotype:GO:0006446 regulation of translational initiation [PMID:10779343]
+			experiment	EXISTENCE:mutant phenotype:GO:0033962 P-body assembly [PMID:18981231]
+			experiment	EXISTENCE:mutant phenotype:GO:0045947 negative regulation of translational initiation [PMID:20832728]
+			experiment	EXISTENCE:physical interaction:GO:0000290 deadenylation-dependent decapping of nuclear-transcribed mRNA [PMID:10913177]
+			experiment	EXISTENCE:physical interaction:GO:0005515 protein binding [PMID:26952104]
+			db_xref	SGD:S000000673
+252628	250238	mRNA
+			gene	PAT1
+			gene_syn	MRT1
+			locus_tag	YCR077C
+			product	Pat1p
+252845	254173	gene
+			gene	PTC6
+			gene_syn	AUP1
+			gene_syn	PPP2
+			locus_tag	YCR079W
+252845	254173	CDS
+			product	type 2C protein phosphatase PTC6
+			EC_number	3.1.3.16
+			EC_number	3.1.3.43
+			protein_id	DAA07550.1
+			note	Mitochondrial type 2C protein phosphatase (PP2C); has similarity to mammalian PP1Ks; involved in mitophagy; null mutant is sensitive to rapamycin and has decreased phosphorylation of the Pda1 subunit of pyruvate dehydrogenase
+			experiment	EXISTENCE:direct assay:GO:0004722 protein serine/threonine phosphatase activity [PMID:17002782]
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:14562095|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0005758 mitochondrial intermembrane space [PMID:17166847]
+			experiment	EXISTENCE:direct assay:GO:0005759 mitochondrial matrix [PMID:18180296]
+			experiment	EXISTENCE:genetic interaction:GO:0016236 macroautophagy [PMID:17166847]
+			experiment	EXISTENCE:mutant phenotype:GO:0000422 autophagy of mitochondrion [PMID:17166847]
+			experiment	EXISTENCE:mutant phenotype:GO:0004741 [pyruvate dehydrogenase (lipoamide)] phosphatase activity [PMID:18180296]
+			experiment	EXISTENCE:mutant phenotype:GO:0006470 protein dephosphorylation [PMID:19840933]
+			experiment	EXISTENCE:mutant phenotype:GO:0070262 peptidyl-serine dephosphorylation [PMID:18180296]
+			experiment	EXISTENCE:mutant phenotype:GO:1901524 regulation of mitophagy [PMID:31548421]
+			experiment	EXISTENCE:mutant phenotype:GO:1904184 positive regulation of pyruvate dehydrogenase activity [PMID:18180296]
+			db_xref	SGD:S000002133
+252845	254173	mRNA
+			gene	PTC6
+			gene_syn	AUP1
+			gene_syn	PPP2
+			locus_tag	YCR079W
+			product	type 2C protein phosphatase PTC6
+254371	258654	gene
+			gene	SRB8
+			gene_syn	GIG1
+			gene_syn	NUT6
+			gene_syn	SSN5
+			gene_syn	MED12
+			gene_syn	YCR080W
+			locus_tag	YCR081W
+254371	258654	CDS
+			product	Srb8p
+			protein_id	DAA07551.1
+			note	Subunit of the RNA polymerase II mediator complex; associates with core polymerase subunits to form the RNA polymerase II holoenzyme; essential for transcriptional regulation; involved in glucose repression
+			experiment	EXISTENCE:direct assay:GO:0003713 transcription coactivator activity [PMID:20505076]
+			experiment	EXISTENCE:direct assay:GO:0016592 mediator complex [PMID:11383511|PMID:12200444]
+			experiment	EXISTENCE:mutant phenotype:GO:0000122 negative regulation of transcription by RNA polymerase II [PMID:16109375]
+			experiment	EXISTENCE:mutant phenotype:GO:0000411 positive regulation of transcription by galactose [PMID:15601835]
+			experiment	EXISTENCE:mutant phenotype:GO:0003713 transcription coactivator activity [PMID:20505076]
+			experiment	EXISTENCE:mutant phenotype:GO:0045944 positive regulation of transcription by RNA polymerase II [PMID:15601835]
+			db_xref	SGD:S000000677
+254371	258654	mRNA
+			gene	SRB8
+			gene_syn	GIG1
+			gene_syn	NUT6
+			gene_syn	SSN5
+			gene_syn	MED12
+			gene_syn	YCR080W
+			locus_tag	YCR081W
+			product	Srb8p
+258883	259269	gene
+			gene	AHC2
+			locus_tag	YCR082W
+258883	259269	CDS
+			product	Ahc2p
+			protein_id	DAA07552.1
+			note	Component of the ADA histone acetyltransferase complex; Ahc2p and Ahc1p are unique to the ADA complex and not shared with the related SAGA and SLIK complexes; may tether Ahc1p to the complex
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:mutant phenotype:GO:0005671 Ada2/Gcn5/Ada3 transcription activator complex [PMID:21734642]
+			experiment	EXISTENCE:physical interaction:GO:0005671 Ada2/Gcn5/Ada3 transcription activator complex [PMID:21734642]
+			experiment	EXISTENCE:physical interaction:GO:0016573 histone acetylation [PMID:21734642]
+			db_xref	SGD:S000000678
+258883	259269	mRNA
+			gene	AHC2
+			locus_tag	YCR082W
+			product	Ahc2p
+259578	259961	gene
+			gene	TRX3
+			locus_tag	YCR083W
+259578	259961	CDS
+			product	Trx3p
+			protein_id	DAA07553.1
+			note	Mitochondrial thioredoxin; highly conserved oxidoreductase required to maintain the redox homeostasis of the cell, forms the mitochondrial thioredoxin system with Trr2p, redox state is maintained by both Trr2p and Glr1p
+			experiment	EXISTENCE:direct assay:GO:0005739 mitochondrion [PMID:10037727|PMID:14576278|PMID:16823961|PMID:24769239]
+			experiment	EXISTENCE:direct assay:GO:0015036 disulfide oxidoreductase activity [PMID:10037727]
+			experiment	EXISTENCE:mutant phenotype:GO:0034599 cellular response to oxidative stress [PMID:10037727]
+			db_xref	SGD:S000000679
+259578	259961	mRNA
+			gene	TRX3
+			locus_tag	YCR083W
+			product	Trx3p
+262452	260311	gene
+			gene	TUP1
+			gene_syn	AAR1
+			gene_syn	AER2
+			gene_syn	AMM1
+			gene_syn	CRT4
+			gene_syn	CYC9
+			gene_syn	FLK1
+			gene_syn	ROX4
+			gene_syn	SFL2
+			gene_syn	UMR7
+			locus_tag	YCR084C
+262452	260311	CDS
+			product	chromatin-silencing transcriptional regulator TUP1
+			protein_id	DAA07554.1
+			note	General repressor of transcription, forms complex with Cyc8p; involved in the establishment of repressive chromatin structure through interactions with histones H3 and H4 and stabilization of nucleosomes over promoters; appears to enhance expression of some genes
+			experiment	EXISTENCE:direct assay:GO:0003714 transcription corepressor activity [PMID:9741624]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:1739976]
+			experiment	EXISTENCE:direct assay:GO:0016584 nucleosome positioning [PMID:15116071]
+			experiment	EXISTENCE:direct assay:GO:0036033 mediator complex binding [PMID:11226276]
+			experiment	EXISTENCE:direct assay:GO:0042393 histone binding [PMID:8675011]
+			experiment	EXISTENCE:direct assay:GO:0042826 histone deacetylase binding [PMID:14525981]
+			experiment	EXISTENCE:direct assay:GO:0080025 phosphatidylinositol-3,5-bisphosphate binding [PMID:21536737]
+			experiment	EXISTENCE:direct assay:GO:1900192 positive regulation of single-species biofilm formation [PMID:32054862]
+			experiment	EXISTENCE:mutant phenotype:GO:0000122 negative regulation of transcription by RNA polymerase II [PMID:18708352|PMID:1900249|PMID:9858577|PMID:9560430]
+			experiment	EXISTENCE:mutant phenotype:GO:0000433 carbon catabolite repression of transcription from RNA polymerase II promoter by glucose [PMID:9461460]
+			experiment	EXISTENCE:mutant phenotype:GO:0001198 negative regulation of mating-type specific transcription from RNA polymerase II promoter [PMID:1312982]
+			experiment	EXISTENCE:mutant phenotype:GO:0003714 transcription corepressor activity [PMID:9741624]
+			experiment	EXISTENCE:mutant phenotype:GO:0006357 regulation of transcription by RNA polymerase II [PMID:9280286]
+			experiment	EXISTENCE:mutant phenotype:GO:0043486 histone exchange [PMID:17387147]
+			experiment	EXISTENCE:mutant phenotype:GO:0045944 positive regulation of transcription by RNA polymerase II [PMID:26546823]
+			experiment	EXISTENCE:mutant phenotype:GO:0060256 regulation of flocculation [PMID:31441971]
+			experiment	EXISTENCE:mutant phenotype:GO:2000217 regulation of invasive growth in response to glucose limitation [PMID:18202364]
+			experiment	EXISTENCE:mutant phenotype:GO:2001020 regulation of response to DNA damage stimulus [PMID:9741624]
+			experiment	EXISTENCE:physical interaction:GO:0017053 transcription repressor complex [PMID:9111019]
+			experiment	EXISTENCE:physical interaction:GO:0036033 mediator complex binding [PMID:11226276]
+			experiment	EXISTENCE:physical interaction:GO:0042826 histone deacetylase binding [PMID:14525981]
+			db_xref	SGD:S000000680
+262452	260311	mRNA
+			gene	TUP1
+			gene_syn	AAR1
+			gene_syn	AER2
+			gene_syn	AMM1
+			gene_syn	CRT4
+			gene_syn	CYC9
+			gene_syn	FLK1
+			gene_syn	ROX4
+			gene_syn	SFL2
+			gene_syn	UMR7
+			locus_tag	YCR084C
+			product	chromatin-silencing transcriptional regulator TUP1
+262916	263269	gene
+			locus_tag	YCR085W
+262916	263269	CDS
+			product	hypothetical protein
+			protein_id	DAA80272.1
+			note	hypothetical protein; conserved among S. cerevisiae strains; YCR085W is not an essential gene
+			db_xref	SGD:S000000681
+262916	263269	mRNA
+			locus_tag	YCR085W
+			product	hypothetical protein
+263392	263964	gene
+			gene	CSM1
+			locus_tag	YCR086W
+263392	263964	CDS
+			product	Csm1p
+			protein_id	DAA07555.1
+			note	Nucleolar protein that mediates homolog segregation during meiosis I; forms a complex with Lrs4p and then Mam1p at kinetochores; required for condensin recruitment to the replication fork barrier site and rDNA repeat segregation
+			experiment	EXISTENCE:direct assay:GO:0005635 nuclear envelope [PMID:11489916]
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:12689592]
+			experiment	EXISTENCE:direct assay:GO:0033551 monopolin complex [PMID:12689592]
+			experiment	EXISTENCE:genetic interaction:GO:0051455 monopolar spindle attachment to meiosis I kinetochore [PMID:12689592]
+			experiment	EXISTENCE:mutant phenotype:GO:0034503 protein localization to nucleolar rDNA repeats [PMID:19362534]
+			experiment	EXISTENCE:mutant phenotype:GO:0045132 meiotic chromosome segregation [PMID:11470404]
+			experiment	EXISTENCE:mutant phenotype:GO:0045143 homologous chromosome segregation [PMID:12689592]
+			experiment	EXISTENCE:mutant phenotype:GO:0070550 rDNA condensation [PMID:18923139]
+			experiment	EXISTENCE:physical interaction:GO:0045143 homologous chromosome segregation [PMID:12689592]
+			db_xref	SGD:S000000682
+263392	263964	mRNA
+			gene	CSM1
+			locus_tag	YCR086W
+			product	Csm1p
+264467	264006	gene
+			locus_tag	YCR087C-A
+264467	264006	CDS
+			product	hypothetical protein
+			protein_id	DAA07556.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the nucleolus; YCR087C-A is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0005730 nucleolus [PMID:14562095]
+			db_xref	SGD:S000007223
+264467	264006	mRNA
+			locus_tag	YCR087C-A
+			product	hypothetical protein
+265068	266846	gene
+			gene	ABP1
+			locus_tag	YCR088W
+265068	266846	CDS
+			product	Abp1p
+			protein_id	DAA07557.1
+			note	Actin-binding protein of the cortical actin cytoskeleton; important for activation of actin nucleation mediated by the Arp2/Arp3 complex; inhibits actin filament elongation at the barbed-end; phosphorylation within its proline-rich region, mediated by Cdc28p and Pho85p, protects Abp1p from PEST sequence-mediated proteolysis; mammalian homolog of HIP-55 (hematopoietic progenitor kinase 1 [HPK1]-interacting protein of 55 kDa)
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:11914276]
+			experiment	EXISTENCE:direct assay:GO:0005938 cell cortex [PMID:11950888]
+			experiment	EXISTENCE:direct assay:GO:0030479 actin cortical patch [PMID:3060468|PMID:8163554|PMID:16824951]
+			experiment	EXISTENCE:direct assay:GO:0043332 mating projection tip [PMID:19053807]
+			experiment	EXISTENCE:direct assay:GO:0051015 actin filament binding [PMID:3060468]
+			experiment	EXISTENCE:direct assay:GO:2000601 positive regulation of Arp2/3 complex-mediated actin nucleation [PMID:16824951]
+			experiment	EXISTENCE:mutant phenotype:GO:0000147 actin cortical patch assembly [PMID:18177206]
+			experiment	EXISTENCE:mutant phenotype:GO:0044379 protein localization to actin cortical patch [PMID:10087264|PMID:11668184|PMID:15798181]
+			experiment	EXISTENCE:mutant phenotype:GO:0051016 barbed-end actin filament capping [PMID:23333351]
+			db_xref	SGD:S000000684
+265068	266846	mRNA
+			gene	ABP1
+			locus_tag	YCR088W
+			product	Abp1p
+267434	272263	gene
+			gene	FIG2
+			locus_tag	YCR089W
+267434	272263	CDS
+			product	Fig2p
+			protein_id	DAA07558.1
+			note	Cell wall adhesin, expressed specifically during mating; may be involved in maintenance of cell wall integrity during mating; FIG2 has a paralog, AGA1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005937 mating projection [PMID:11027318]
+			experiment	EXISTENCE:direct assay:GO:0009277 fungal-type cell wall [PMID:9456310]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			experiment	EXISTENCE:mutant phenotype:GO:0000753 cell morphogenesis involved in conjugation with cellular fusion [PMID:9456310]
+			experiment	EXISTENCE:mutant phenotype:GO:0000755 cytogamy [PMID:9456310]
+			experiment	EXISTENCE:mutant phenotype:GO:0001403 invasive growth in response to glucose limitation [PMID:11027318]
+			experiment	EXISTENCE:mutant phenotype:GO:0044182 filamentous growth of a population of unicellular organisms [PMID:11027318]
+			db_xref	SGD:S000000685
+267434	272263	mRNA
+			gene	FIG2
+			locus_tag	YCR089W
+			product	Fig2p
+272863	272315	gene
+			locus_tag	YCR090C
+272863	272315	CDS
+			product	hypothetical protein
+			protein_id	DAA07559.1
+			note	hypothetical protein; green fluorescent protein (GFP)-fusion protein localizes to the cytoplasm and nucleus; YCR090C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			db_xref	SGD:S000000686
+272863	272315	mRNA
+			locus_tag	YCR090C
+			product	hypothetical protein
+272852	273095	rep_origin
+			note	ARS316; Inefficient autonomously replicating sequence; active in ~25% of cell cycles
+			db_xref	SGD:S000028491
+274404	276566	gene
+			gene	KIN82
+			gene_syn	FPK2
+			locus_tag	YCR091W
+274404	276566	CDS
+			product	putative serine/threonine protein kinase KIN82
+			EC_number	2.7.11.1
+			protein_id	DAA07560.2
+			note	Putative serine/threonine protein kinase; implicated in the regulation of phospholipid asymmetry through the activation of phospholipid translocases (flippases); involved in the phosphorylation of upstream inhibitory kinase Ypk1p along with Fpk1p; has a redundant role in the cellular response to mating pheromone; KIN82 has a paralog, FPK1, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0004672 protein kinase activity [PMID:16319894]
+			experiment	EXISTENCE:direct assay:GO:0006468 protein phosphorylation [PMID:16319894]
+			experiment	EXISTENCE:genetic interaction:GO:0000749 response to pheromone triggering conjugation with cellular fusion [PMID:25378585]
+			experiment	EXISTENCE:genetic interaction:GO:0006468 protein phosphorylation [PMID:19966303]
+			experiment	EXISTENCE:genetic interaction:GO:0045332 phospholipid translocation [PMID:18199685]
+			experiment	EXISTENCE:mutant phenotype:GO:0000749 response to pheromone triggering conjugation with cellular fusion [PMID:11337509]
+			db_xref	SGD:S000000687
+274404	276566	mRNA
+			gene	KIN82
+			gene_syn	FPK2
+			locus_tag	YCR091W
+			product	putative serine/threonine protein kinase KIN82
+279820	276764	gene
+			gene	MSH3
+			locus_tag	YCR092C
+279820	276764	CDS
+			product	mismatch repair protein MSH3
+			protein_id	DAA07561.1
+			note	Mismatch repair protein; forms dimers with Msh2p that mediate repair of insertion or deletion mutations and removal of nonhomologous DNA ends, contains a PCNA (Pol30p) binding motif required for genome stability
+			experiment	EXISTENCE:direct assay:GO:0000403 Y-form DNA binding [PMID:16781730]
+			experiment	EXISTENCE:direct assay:GO:0000404 heteroduplex DNA loop binding [PMID:16781730]
+			experiment	EXISTENCE:direct assay:GO:0000406 double-strand/single-strand DNA junction binding [PMID:16781730]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			experiment	EXISTENCE:direct assay:GO:0030983 mismatched DNA binding [PMID:17636021]
+			experiment	EXISTENCE:direct assay:GO:0032135 DNA insertion or deletion binding [PMID:8805366]
+			experiment	EXISTENCE:genetic interaction:GO:0000735 removal of nonhomologous ends [PMID:9256462]
+			experiment	EXISTENCE:mutant phenotype:GO:0000710 meiotic mismatch repair [PMID:16702432]
+			experiment	EXISTENCE:mutant phenotype:GO:0000735 removal of nonhomologous ends [PMID:9256462]
+			experiment	EXISTENCE:mutant phenotype:GO:0006298 mismatch repair [PMID:8510668|PMID:9520271]
+			experiment	EXISTENCE:mutant phenotype:GO:0006310 DNA recombination [PMID:15920474]
+			experiment	EXISTENCE:mutant phenotype:GO:0006312 mitotic recombination [PMID:8849883]
+			experiment	EXISTENCE:mutant phenotype:GO:0043111 replication fork arrest [PMID:27045900]
+			experiment	EXISTENCE:physical interaction:GO:0032302 MutSbeta complex [PMID:8805366]
+			db_xref	SGD:S000000688
+279820	276764	mRNA
+			gene	MSH3
+			locus_tag	YCR092C
+			product	mismatch repair protein MSH3
+280117	286443	gene
+			gene	CDC39
+			gene_syn	NOT1
+			gene_syn	ROS1
+			gene_syn	SMD6
+			locus_tag	YCR093W
+280117	286443	CDS
+			product	CCR4-NOT core subunit CDC39
+			protein_id	DAA07562.1
+			note	Subunit of the CCR4-NOT1 core complex; this complex has multiple roles in the regulation of mRNA levels including regulation of transcription and destabilization of mRNA by deadenylation; basal transcription factor that increases initiation and elongation; activates the ATPase activity of Dhh1p, resulting in processing body disassembly
+			experiment	EXISTENCE:direct assay:GO:0000288 nuclear-transcribed mRNA catabolic process, deadenylation-dependent decay [PMID:11889048]
+			experiment	EXISTENCE:direct assay:GO:0000289 nuclear-transcribed mRNA poly(A) tail shortening [PMID:11889048]
+			experiment	EXISTENCE:direct assay:GO:0001671 ATPase activator activity [PMID:27692063]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:7926748]
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:11889048]
+			experiment	EXISTENCE:direct assay:GO:0010607 negative regulation of cytoplasmic mRNA processing body assembly [PMID:27692063]
+			experiment	EXISTENCE:direct assay:GO:0032968 positive regulation of transcription elongation from RNA polymerase II promoter [PMID:21406554]
+			experiment	EXISTENCE:genetic interaction:GO:0006368 transcription elongation from RNA polymerase II promoter [PMID:11404327]
+			experiment	EXISTENCE:mutant phenotype:GO:0000288 nuclear-transcribed mRNA catabolic process, deadenylation-dependent decay [PMID:11889048]
+			experiment	EXISTENCE:mutant phenotype:GO:0000749 response to pheromone triggering conjugation with cellular fusion [PMID:2099190]
+			experiment	EXISTENCE:mutant phenotype:GO:0006368 transcription elongation from RNA polymerase II promoter [PMID:11404327]
+			experiment	EXISTENCE:mutant phenotype:GO:0007124 pseudohyphal growth [PMID:9055077]
+			experiment	EXISTENCE:mutant phenotype:GO:0010607 negative regulation of cytoplasmic mRNA processing body assembly [PMID:27692063]
+			experiment	EXISTENCE:mutant phenotype:GO:0051726 regulation of cell cycle [PMID:2680756]
+			experiment	EXISTENCE:physical interaction:GO:0006357 regulation of transcription by RNA polymerase II [PMID:10490603]
+			experiment	EXISTENCE:physical interaction:GO:0030015 CCR4-NOT core complex [PMID:10490603]
+			db_xref	SGD:S000000689
+280117	286443	mRNA
+			gene	CDC39
+			gene_syn	NOT1
+			gene_syn	ROS1
+			gene_syn	SMD6
+			locus_tag	YCR093W
+			product	CCR4-NOT core subunit CDC39
+286762	287937	gene
+			gene	CDC50
+			locus_tag	YCR094W
+286762	287937	CDS
+			product	aminophospholipid translocase regulatory protein CDC50
+			protein_id	DAA07563.1
+			note	Endosomal protein that interacts with phospholipid flippase Drs2p; interaction with Cdc50p is essential for Drs2p catalytic activity; mutations affect cell polarity and polarized growth; similar to Lem3p; CDC50 has a paralog, YNR048W, that arose from the whole genome duplication
+			experiment	EXISTENCE:direct assay:GO:0005783 endoplasmic reticulum [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0005802 trans-Golgi network [PMID:15090616]
+			experiment	EXISTENCE:direct assay:GO:0031902 late endosome membrane [PMID:12589066]
+			experiment	EXISTENCE:genetic interaction:GO:0006897 endocytosis [PMID:16195350]
+			experiment	EXISTENCE:genetic interaction:GO:0015247 aminophospholipid flippase activity [PMID:15090616]
+			experiment	EXISTENCE:genetic interaction:GO:0045332 phospholipid translocation [PMID:15090616]
+			experiment	EXISTENCE:genetic interaction:GO:0051666 actin cortical patch localization [PMID:16195350]
+			experiment	EXISTENCE:mutant phenotype:GO:0006886 intracellular protein transport [PMID:16956384]
+			experiment	EXISTENCE:mutant phenotype:GO:0042147 retrograde transport, endosome to Golgi [PMID:28057802]
+			experiment	EXISTENCE:physical interaction:GO:1990530 Cdc50p-Drs2p complex [PMID:15090616]
+			db_xref	SGD:S000000690
+286762	287937	mRNA
+			gene	CDC50
+			locus_tag	YCR094W
+			product	aminophospholipid translocase regulatory protein CDC50
+289258	288170	gene
+			gene	OCA4
+			locus_tag	YCR095C
+289258	288170	CDS
+			product	Oca4p
+			protein_id	DAA07564.1
+			note	Cytoplasmic protein required for replication of Brome mosaic virus; S. cerevisiae is a model system for studying replication of positive-strand RNA viruses in their natural hosts
+			experiment	EXISTENCE:direct assay:GO:0005737 cytoplasm [PMID:14562095]
+			db_xref	SGD:S000000691
+289258	288170	mRNA
+			gene	OCA4
+			locus_tag	YCR095C
+			product	Oca4p
+289639	289797	gene
+			locus_tag	YCR095W-A
+289639	289797	CDS
+			product	hypothetical protein
+			protein_id	DAA07565.1
+			note	hypothetical protein
+			db_xref	SGD:S000029724
+289639	289797	mRNA
+			locus_tag	YCR095W-A
+			product	hypothetical protein
+291373	291712	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006839
+291922	292167	LTR
+			note	Ty5 LTR
+			db_xref	SGD:S000006841
+292388	295034	misc_feature
+			note	HMR; Mating-type cassette - right; unexpressed complete copy of the mating-type genes, silenced by the Sir2 histone deacetylase and its associated SIR1, SIR3 and SIR4 proteins; mating-type switching involves replacement of the Ya or Yalpha sequences present at the MAT locus with either the a or alpha genes located at one of the HM loci in a process stimulated by the HO endonuclease; sequence replacement occurs by gene conversion, leaving the donor unaltered
+			db_xref	SGD:S000029655
+292638	292694	rep_origin
+			note	ARS317; ARS that fires extremely inefficiently and late during S phase; fires late and inefficiently compared to other origins in the genome; active in only a small fraction of cell cycles
+			db_xref	SGD:S000028492
+293538	293179	gene
+			gene	HMRA2
+			gene_syn	A2
+			locus_tag	YCR096C
+293538	293179	CDS
+			product	homeodomain mating type protein a2
+			protein_id	DAA07566.1
+			note	Silenced copy of a2 at HMR; similarity to Alpha2p; required along with a1p for inhibiting expression of the HO endonuclease in a/alpha HO/HO diploid cells with an active mating-type interconversion system
+			db_xref	SGD:S000000692
+293538	293179	mRNA
+			gene	HMRA2
+			gene_syn	A2
+			locus_tag	YCR096C
+			product	homeodomain mating type protein a2
+293835	294321	gene
+			gene	HMRA1
+			gene_syn	YCR097WB
+			locus_tag	YCR097W
+293835	293939	CDS
+293994	294239
+294292	294321
+			product	Hmra1p
+			protein_id	DAA07567.1
+			note	Silenced copy of a1 at HMR; homeobox corepressor that interacts with Alpha2p to repress haploid-specific gene transcription in diploid cells
+			experiment	EXISTENCE:direct assay:GO:0003714 transcription corepressor activity [PMID:1977088]
+			experiment	EXISTENCE:direct assay:GO:0005634 nucleus [PMID:8411150]
+			experiment	EXISTENCE:direct assay:GO:0007532 regulation of mating-type specific transcription, DNA-templated [PMID:1977088]
+			db_xref	SGD:S000000694
+293835	293939	mRNA
+293994	294239
+294292	294321
+			gene	HMRA1
+			gene_syn	YCR097WB
+			locus_tag	YCR097W
+			product	Hmra1p
+294820	294901	rep_origin
+			note	ARS318; ARS that becomes active if the nearby ARS317/HMR-E silencer is deleted; active in only a small fraction of cell cycles
+			db_xref	SGD:S000028493
+295003	295330	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006840
+295484	295556	gene
+			locus_tag	YNCC0014W
+295484	295556	tRNA
+			product	tRNA-Thr
+			note	Threonine tRNA (tRNA-Thr), predicted by tRNAscan-SE analysis
+			experiment	EXISTENCE:curator inference:GO:0005829 cytosol [PMID:9023104]
+			experiment	EXISTENCE:curator inference:GO:0006414 translational elongation [PMID:9023104]
+			db_xref	SGD:S000006738
+296190	295958	LTR
+			note	Ty1 LTR
+			db_xref	SGD:S000006834
+298605	297049	gene
+			gene	GIT1
+			locus_tag	YCR098C
+298605	297049	CDS
+			product	Git1p
+			protein_id	DAA07568.1
+			note	Plasma membrane permease; mediates uptake of glycerophosphoinositol and glycerophosphocholine as sources of the nutrients inositol and phosphate; expression and transport rate are regulated by phosphate and inositol availability
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0001406 glycerophosphodiester transmembrane transporter activity [PMID:16924500]
+			experiment	EXISTENCE:direct assay:GO:0001407 glycerophosphodiester transmembrane transport [PMID:16924500]
+			experiment	EXISTENCE:direct assay:GO:0005886 plasma membrane [PMID:16924500]
+			experiment	EXISTENCE:direct assay:GO:0071944 cell periphery [PMID:26928762]
+			experiment	EXISTENCE:genetic interaction:GO:0015169 glycerol-3-phosphate transmembrane transporter activity [PMID:20133652]
+			experiment	EXISTENCE:genetic interaction:GO:0015794 glycerol-3-phosphate transmembrane transport [PMID:20133652]
+			experiment	EXISTENCE:mutant phenotype:GO:0001406 glycerophosphodiester transmembrane transporter activity [PMID:9691030]
+			experiment	EXISTENCE:mutant phenotype:GO:0001407 glycerophosphodiester transmembrane transport [PMID:9691030]
+			experiment	EXISTENCE:mutant phenotype:GO:0005886 plasma membrane [PMID:9691030]
+			experiment	EXISTENCE:mutant phenotype:GO:0015169 glycerol-3-phosphate transmembrane transporter activity [PMID:20133652]
+			experiment	EXISTENCE:mutant phenotype:GO:0015794 glycerol-3-phosphate transmembrane transport [PMID:20133652]
+			experiment	EXISTENCE:mutant phenotype:GO:0055085 transmembrane transport [PMID:9691030]
+			db_xref	SGD:S000000695
+298605	297049	mRNA
+			gene	GIT1
+			locus_tag	YCR098C
+			product	Git1p
+301299	300832	gene
+			locus_tag	YCR099C
+301299	300832	CDS
+			product	hypothetical protein
+			protein_id	DAA07569.1
+			note	hypothetical protein
+			db_xref	SGD:S000000696
+301299	300832	mRNA
+			locus_tag	YCR099C
+			product	hypothetical protein
+302221	301271	gene
+			gene	EMA35
+			locus_tag	YCR100C
+302221	301271	CDS
+			product	Ema35p
+			protein_id	DAA07570.1
+			note	Protein involved in protein sorting; involved in targeting mitochondrial membrane proteins to mitochondrial translocation system; mutation causes respiration defects
+			db_xref	SGD:S000000697
+302221	301271	mRNA
+			gene	EMA35
+			locus_tag	YCR100C
+			product	Ema35p
+303030	302482	gene
+			locus_tag	YCR101C
+303030	302482	CDS
+			product	hypothetical protein
+			protein_id	DAA07571.1
+			note	hypothetical protein; localizes to the membrane fraction; YCR101C is not an essential gene
+			experiment	EXISTENCE:direct assay:GO:0000324 fungal-type vacuole [PMID:26928762]
+			experiment	EXISTENCE:direct assay:GO:0016020 membrane [PMID:11935221]
+			db_xref	SGD:S000000698
+303030	302482	mRNA
+			locus_tag	YCR101C
+			product	hypothetical protein
+305467	304361	gene
+			locus_tag	YCR102C
+305467	304361	CDS
+			product	hypothetical protein
+			protein_id	DAA07572.1
+			note	Putative quinone oxidoreductase; overexpression improves ethanol production and acid stress resistance; involved in copper metabolism; similar to Cochliobolus carbonum toxD gene
+			experiment	EXISTENCE:direct assay:GO:0071468 cellular response to acidic pH [PMID:31374572]
+			experiment	EXISTENCE:mutant phenotype:GO:0046688 response to copper ion [PMID:15886332]
+			db_xref	SGD:S000000699
+305467	304361	mRNA
+			locus_tag	YCR102C
+			product	hypothetical protein
+307801	308175	gene
+			gene	PAU3
+			locus_tag	YCR104W
+307801	308175	CDS
+			product	seripauperin PAU3
+			protein_id	DAA07573.1
+			note	Member of the seripauperin multigene family; encoded mainly in subtelomeric region; active during alcoholic fermentation; regulated by anaerobiosis; negatively regulated by oxygen; repressed by heme 
+			db_xref	SGD:S000000701
+307801	308175	mRNA
+			gene	PAU3
+			locus_tag	YCR104W
+			product	seripauperin PAU3
+309070	310155	gene
+			gene	ADH7
+			gene_syn	ADHVII
+			locus_tag	YCR105W
+309070	310155	CDS
+			product	NADP-dependent alcohol dehydrogenase
+			EC_number	1.1.1.2
+			protein_id	DAA07574.1
+			note	NADPH-dependent medium chain alcohol dehydrogenase; has broad substrate specificity; member of the cinnamyl family of alcohol dehydrogenases; may be involved in fusel alcohol synthesis or in aldehyde tolerance
+			experiment	EXISTENCE:direct assay:GO:0006066 alcohol metabolic process [PMID:12423374]
+			experiment	EXISTENCE:direct assay:GO:0008106 alcohol dehydrogenase (NADP+) activity [PMID:12423374]
+			db_xref	SGD:S000000702
+309070	310155	mRNA
+			gene	ADH7
+			gene_syn	ADHVII
+			locus_tag	YCR105W
+			product	NADP-dependent alcohol dehydrogenase
+310958	313456	gene
+			gene	RDS1
+			locus_tag	YCR106W
+310958	313456	CDS
+			product	Rds1p
+			protein_id	DAA07575.1
+			note	Putative zinc cluster transcription factor; involved in conferring resistance to cycloheximide
+			experiment	EXISTENCE:direct assay:GO:0043565 sequence-specific DNA binding [PMID:19111667]
+			experiment	EXISTENCE:mutant phenotype:GO:0009410 response to xenobiotic stimulus [PMID:11943786]
+			db_xref	SGD:S000000703
+310958	313456	mRNA
+			gene	RDS1
+			locus_tag	YCR106W
+			product	Rds1p
+313890	314981	gene
+			gene	AAD3
+			locus_tag	YCR107W
+313890	314981	CDS
+			product	putative aryl-alcohol dehydrogenase
+			protein_id	DAA07576.1
+			note	Putative aryl-alcohol dehydrogenase; similar to P. chrysosporium aryl-alcohol dehydrogenase; mutational analysis has not yet revealed a physiological role; AAD3 has a paralog, AAD15, that arose from a segmental duplication; members of the AAD gene family comprise three pairs (AAD3 + AAD15, AAD6/AAD16 + AAD4, AAD10 + AAD14) whose two genes are more related to one another than to other members of the family
+			db_xref	SGD:S000000704
+313890	314981	mRNA
+			gene	AAD3
+			locus_tag	YCR107W
+			product	putative aryl-alcohol dehydrogenase
+315783	316620	telomere
+			note	TEL03R; Telomeric region on the right arm of Chromosome III; composed of an X element core sequence, X element combinatorial repeats, and a short terminal stretch of telomeric repeats
+			db_xref	SGD:S000028944
+315807	315879	rep_origin
+			note	ARS319; Highly-active subtelomeric autonomously replicating sequence; initiates replication in ~90% of cell cycles
+			db_xref	SGD:S000028494
+316188	315997	gene
+			locus_tag	YCR108C
+316188	315997	CDS
+			product	hypothetical protein
+			protein_id	DAA07577.1
+			note	hypothetical protein; identified by fungal homology and RT-PCR
+			db_xref	SGD:S000028536
+316188	315997	mRNA
+			locus_tag	YCR108C
+			product	hypothetical protein

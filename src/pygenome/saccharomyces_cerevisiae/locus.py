@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''This module provides access to the Saccharomyces cerevisiae genome from Python.
+"""This module provides access to the Saccharomyces cerevisiae genome from Python.
    Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
-'''
+"""
 
 import sys as _sys
 from warnings import warn
@@ -59,7 +59,7 @@ class Gene():
         return "Gene {}/{}".format(self.std, self.sys)
 
     def _repr_pretty_(self, p, cycle):
-        '''returns a short string representation of the object'''
+        """returns a short string representation of the object"""
         p.text("Gene {}/{}".format(self.std, self.sys))
 
     def _repr_html_(self):
@@ -117,7 +117,7 @@ class Gene():
 
 
     def orf(self):
-        '''Returns the open reading frame associated with a standard name
+        """Returns the open reading frame associated with a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
 
         Returns
@@ -137,28 +137,28 @@ class Gene():
         Dseqrecord(-999)
         >>> len(sg.stdgenes["TDH3"].cds())
         999
-        '''
+        """
 
         return self.locus(upstream=0, downstream=0)
 
 
     def cds(self):
-        '''
+        """
 
-        '''
+        """
         ft = [f for f in self.orf().features if f.type=="CDS"]
         ft = ft.pop()
         return ft.extract(self.orf())
 
 
     def upstream_gene(self):
-        '''Returns the coding sequence (cds) assciated with the gene upstream
+        """Returns the coding sequence (cds) assciated with the gene upstream
         of gene. This is defined as the gene on the chromosome located
         5' of the transcription start point of gene.
         The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
 
-        '''
+        """
 
         if self.sys[6]=="W":
             sn = _feature_list[_feature_list.index(self.sys)-1]
@@ -168,13 +168,13 @@ class Gene():
 
 
     def downstream_gene(self):
-        '''Returns the coding sequence (cds) assciated with the gene downstream
+        """Returns the coding sequence (cds) assciated with the gene downstream
         of gene. This is defined as the gene on the chromosome located
         3' of the transcription stop point of gene.
         The gene can be given as a standard name
         (eg. CYC1) or a systematic name (eg. YJR048W).
 
-        '''
+        """
 
         if self.sys[6]=="C":
             sn = _feature_list[_feature_list.index(self.sys)-1]
@@ -188,7 +188,7 @@ class Gene():
 
 
     def promoter(self):
-        '''Returns the sequence of the promoter assciated with
+        """Returns the sequence of the promoter assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
 
         The promoter is defined as the sequence between the start codon
@@ -219,7 +219,7 @@ class Gene():
         >>> str(sg.stdgenes["TDH3"].promoter) == str(sg.sysgenes["YGR192C"].promoter)
         True
         >>>
-        '''
+        """
 
         pr = intergenic_sequence(self.upstream_gene().sys, self.sys)
         pr.id = self.upstream_gene().sys+"_"+self.sys
@@ -238,7 +238,7 @@ class Gene():
 
 
     def terminator(self):
-        '''Returns the sequence of the terminator assciated with
+        """Returns the sequence of the terminator assciated with
         a standard name (eg. CYC1) or a systematic name (eg. YJR048W).
 
         The promoter is defined as the sequence between the stop codon
@@ -271,7 +271,7 @@ class Gene():
         Gene PDX1/YGR193C
         >>> str(sg.stdgenes["PDX1"].terminator().seq) == str(sg.stdgenes["TDH3"].promoter().seq)
         True
-        '''
+        """
 
 
         tm = intergenic_sequence( self.sys, self.downstream_gene().sys )
@@ -290,7 +290,7 @@ class Gene():
 
 
     def tandem(self):
-        '''Returns True if a gene is expressed in the same direction on the chromosome as
+        """Returns True if a gene is expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
 
         ::
@@ -311,13 +311,13 @@ class Gene():
         out : bool
             Boolean; True or False
 
-        '''
+        """
         return self.sys[6] == self.upstream_gene().sys[6]
 
 
 
     def bidirectional(self):
-        '''Returns True if a gene is NOT expressed in the same direction on the chromosome as
+        """Returns True if a gene is NOT expressed in the same direction on the chromosome as
         the gene immediatelly upstream.
 
         ::
@@ -340,7 +340,7 @@ class Gene():
         -------
         out : bool
             Boolean; True or False
-        '''
+        """
         return not self.tandem()
 
     def deletion_cassettes(self):

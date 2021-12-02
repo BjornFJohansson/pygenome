@@ -1,36 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''This module provides access to the Saccharomyces cerevisiae genome from Python.
-   Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
-'''
+"""
+Access to the Saccharomyces cerevisiae genome from Python.
 
-import os            as _os
-import urllib        as _urllib
-#import sys           as _sys
-import calendar      as _calendar
-import datetime      as _datetime
-from   email.utils   import parsedate_to_datetime
-import logging       as _logging
-_module_logger = _logging.getLogger("pygenome."+__name__)
+Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.
+"""
+
+import os as _os
+import calendar as _calendar
+import datetime as _datetime
+from email.utils import parsedate_to_datetime
 from tqdm import tqdm
 import requests
 import pathlib
-
 import logging as _logging
+from pygenome._data import data_urls, data_files
 
-_module_logger = _logging.getLogger("pygenome." + __name__)
+_module_logger = _logging.getLogger("pygenome."+__name__)
 
-#from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
-#_pFA6_kanMX4 = _read(_plasmid) # AJ002680
+# from pygenome._pFA6a_kanMX4 import plasmid as _plasmid
+# _pFA6_kanMX4 = _read(_plasmid) # AJ002680
 
-from  pygenome._data import _data_urls, _data_files
-
-data_dir = _os.path.join( _os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
+data_dir = _os.path.join(_os.getenv("pygenome_data_dir"),
+                         "Saccharomyces_cerevisiae")
 
 def updater():
     _module_logger.info("checking online for updated data files.")
 
-    for url,fn in zip( _data_urls, _data_files):
+    for url, fn in zip(_data_urls, _data_files):
 
         path = pathlib.Path(data_dir).joinpath(fn)
 
@@ -41,9 +38,9 @@ def updater():
 
         response = requests.get(url, stream=True)
 
-        remote_last_mod = parsedate_to_datetime(response.headers.get('last-modified'))
+        remote_last_mod = parsedate_to_datetime(response.headers.get('last-modified') or 0)
 
-        if local_last_mod > remote_last_mod: # local file is newer! Should probably not happen!
+        if local_last_mod > remote_last_mod: # local file is newer! Should probably never happen!
             _module_logger.critical("local file %s %s is newer than remote file %s %s", fn, local_last_mod, url, remote_last_mod )
 
         if remote_last_mod > local_last_mod:
