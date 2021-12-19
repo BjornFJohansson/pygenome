@@ -27,7 +27,7 @@ hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
 logger.info('Logger started.')
 
-data_dir = Path(os.environ["pygenome_data_dir"])/"Saccharomyces_cerevisiae"
+data_dir = Path(os.environ["pygenome_data_dir"])/"S288C"
 data_dir.mkdir(parents=True, exist_ok=True)
 logger.info("data_dir set to:  %s", data_dir)
 
@@ -47,10 +47,10 @@ with zipfile.ZipFile(datafile, "r") as zf:
 
 config_dir = Path(os.environ["pygenome_config_dir"])
 
-sf = config_dir/"settings_Saccharomyces_cerevisiae.py"
+sf = config_dir/"chromosome_urls.py"
 
 if not sf.exists():
-    shutil.copy(data_dir/"settings_Saccharomyces_cerevisiae.py", config_dir)
+    shutil.copy(data_dir/"chromosome_urls.py", config_dir)
 
 
 pickles = """\

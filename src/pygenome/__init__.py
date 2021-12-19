@@ -22,7 +22,6 @@ from pathlib import Path as _Path
 from pydna._pretty import pretty_str as _pretty_str
 from send2trash import send2trash as _send2trash
 
-
 __author__ = "Björn Johansson"
 __copyright__ = "Copyright 2013-2021, Björn Johansson"
 __credits__ = ["Björn Johansson"]

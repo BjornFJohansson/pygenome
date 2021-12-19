@@ -1,2 +1,0 @@
-NOTE: valid [SEQ_INST.HistAssemblyMissing] TPA record tpg|BK006935.2| should have Seq-hist.assembly for PRIMARY block BIOSEQ: tpg|BK006935.2|: raw, dna len= 230218
-WARNING: valid [SEQ_FEAT.UndesiredGeneSynonym] gene synonym without gene locus or description FEATURE: Gene: YAR061W [tpg|BK006935.2|:218140-219145] [tpg|BK006935.2|: raw, dna len= 230218]
