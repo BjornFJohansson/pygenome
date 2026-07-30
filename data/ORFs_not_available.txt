@@ -1,0 +1,534 @@
+--------------------------------------------------------------------------		
+ORFs not available in the Yeast Deletion Collection  		
+--------------------------------------------------------------------------		
+ORF_name 	Gene_name                           	SGD_class
+======== 	========================            	=========
+YAL016C-A	                                    	Dubious
+YAL019W-A	                                    	Dubious
+YAL026C-A	                                    	Dubious
+YAL031W-A	                                    	Dubious
+YAL034C-B	YAL035C-A                           	Dubious
+YAL037C-B	                                    	Dubious
+YAL042C-A	YAL043C-A                           	Dubious
+YAL047W-A	                                    	Dubious
+YAL056C-A	YAL058C-A                           	Dubious
+YAL059C-A	                                    	Dubious
+YAL063C  	FLO9                                	Verified
+YAL063C-A	                                    	Uncharacterized
+YAL064W  	                                    	Verified
+YAL064W-B	                                    	Uncharacterized
+YAL068W-A	                                    	Dubious
+YAL069W  	                                    	Dubious
+YAR019W-A	                                    	Dubious
+YAR033W  	MST28                               	Verified
+YAR053W  	                                    	Dubious
+YAR060C  	                                    	Dubious
+YAR064W  	                                    	Uncharacterized
+YAR066W  	                                    	Uncharacterized
+YAR068W  	                                    	Uncharacterized
+YAR069C  	                                    	Dubious
+YAR070C  	                                    	Dubious
+YAR071W  	PHO11                               	Verified
+YAR073W  	IMD1                                	Dubious
+YAR075W  	                                    	Dubious
+YBL006W-A	                                    	Dubious
+YBL039C-A	                                    	Dubious
+YBL039W-B	YBL039W-A                           	Uncharacterized
+YBL059C-A	                                    	Uncharacterized
+YBL068W-A	                                    	Dubious
+YBL100W-C	YBL101W-C                           	Uncharacterized
+YBL107W-A	                                    	Dubious
+YBL108C-A	                                    	Uncharacterized
+YBL108W  	                                    	Dubious
+YBL109W  	                                    	Dubious
+YBL111C  	                                    	Uncharacterized
+YBL112C  	                                    	Uncharacterized
+YBL113C  	                                    	Uncharacterized
+YBL113W-A	                                    	Dubious
+YBR056C-B	                                    	Dubious
+YBR076C-A	                                    	Dubious
+YBR089C-A	NHP6B, YBR090C-A                    	Verified
+YBR103C-A	                                    	Dubious
+YBR109W-A	                                    	Dubious
+YBR121C-A	                                    	Dubious
+YBR126W-A	                                    	Dubious
+YBR126W-B	                                    	Dubious
+YBR131C-A	                                    	Dubious
+YBR141W-A	                                    	Dubious
+YBR191W-A	                                    	Dubious
+YBR201C-A	                                    	Uncharacterized
+YBR223W-A	                                    	Dubious
+YBR255C-A	                                    	Uncharacterized
+YBR298C-A	                                    	Uncharacterized
+YBR302C  	COS2                                	Verified
+YCL018W  	LEU2                                	Verified
+YCL048W-A	                                    	Uncharacterized
+YCL058W-A	                                    	Uncharacterized
+YCL065W  	                                    	Dubious
+YCL066W  	HMLALPHA1, ALPHA1                   	Verified
+YCL067C  	HMLALPHA2, ALPHA2                   	Verified
+YCL068C  	                                    	Uncharacterized
+YCL073C  	                                    	Uncharacterized
+YCR018C  	SRD1                                	Verified
+YCR018C-A	                                    	Dubious
+YCR024C-B	                                    	Uncharacterized
+YCR038C  	BUD5                                	Verified
+YCR038W-A	                                    	Dubious
+YCR039C  	MATALPHA2, ALPHA2                   	Verified
+YCR040W  	MATALPHA1, ALPHA1                   	Verified
+YCR041W  	                                    	Dubious
+YCR042C  	TAF2, TSM1, TAF150                  	Verified
+YCR045W-A	                                    	Dubious
+YCR047W-A	                                    	Dubious
+YCR081C-A	                                    	Dubious
+YCR096C  	HMRA2, A2                           	Verified
+YCR097W  	HMRA1, YCR097WB                     	Verified
+YCR097W-A	                                    	Dubious
+YCR104W  	PAU3                                	Verified
+YCR108C  	                                    	Uncharacterized
+YDL007C-A	                                    	Uncharacterized
+YDL022C-A	                                    	Dubious
+YDL025W-A	                                    	Dubious
+YDL086C-A	                                    	Dubious
+YDL114W-A	                                    	Dubious
+YDL159C-B	YDL159C-A                           	Dubious
+YDL185C-A	                                    	Dubious
+YDL228C  	                                    	Dubious
+YDL240C-A	                                    	Dubious
+YDL244W  	THI13                               	Verified
+YDL245C  	HXT15                               	Verified
+YDL246C  	SOR2                                	Uncharacterized
+YDL247W  	MPH2                                	Verified
+YDL247W-A	                                    	Dubious
+YDL248W  	COS7                                	Verified
+YDR012W  	RPL4B                               	Verified
+YDR014W-A	HED1                                	Verified
+YDR034C-A	                                    	Uncharacterized
+YDR038C  	ENA5                                	Verified
+YDR039C  	ENA2                                	Verified
+YDR040C  	ENA1, PMR2, HOR6                    	Verified
+YDR106W  	ARP10                               	Verified
+YDR118W-A	                                    	Dubious
+YDR119W-A	                                    	Uncharacterized
+YDR183C-A	                                    	Dubious
+YDR320W-B	                                    	Dubious
+YDR342C  	HXT7                                	Verified
+YDR343C  	HXT6                                	Verified
+YDR354C-A	                                    	Dubious
+YDR366C  	                                    	Uncharacterized
+YDR371C-A	                                    	Dubious
+YDR374W-A	                                    	Uncharacterized
+YDR381C-A	                                    	Verified
+YDR406W-A	YDR406C-A                           	Dubious
+YDR461C-A	                                    	Uncharacterized
+YDR464C-A	                                    	Dubious
+YDR510C-A	                                    	Dubious
+YDR524C-A	YDR524C-C                           	Dubious
+YDR524W-C	YDR524W-A                           	Uncharacterized
+YDR542W  	                                    	Uncharacterized
+YDR543C  	                                    	Dubious
+YDR544C  	                                    	Dubious
+YDR545C-A	                                    	Dubious
+YDR545W  	YRF1-1, YRF1                        	Verified
+YEL008C-A	                                    	Dubious
+YEL009C-A	                                    	Dubious
+YEL018C-A	                                    	Dubious
+YEL020C-B	                                    	Dubious
+YEL020W-A	TIM9                                	Verified
+YEL021W  	URA3                                	Verified
+YEL030C-A	                                    	Dubious
+YEL032C-A	                                    	Dubious
+YEL034C-A	                                    	Dubious
+YEL050W-A	                                    	Dubious
+YEL053W-A	                                    	Dubious
+YEL069C  	HXT13                               	Verified
+YEL070W  	DSF1                                	Uncharacterized
+YEL073C  	                                    	Uncharacterized
+YEL074W  	                                    	Dubious
+YEL075C  	                                    	Uncharacterized
+YEL075W-A	YEL076W-C                           	Dubious
+YEL076C  	                                    	Uncharacterized
+YEL076C-A	                                    	Uncharacterized
+YEL077C  	                                    	Uncharacterized
+YEL077W-A	                                    	Dubious
+YER006C-A	                                    	Dubious
+YER023C-A	                                    	Dubious
+YER076W-A	                                    	Dubious
+YER078W-A	                                    	Uncharacterized
+YER079C-A	                                    	Dubious
+YER084W-A	                                    	Dubious
+YER088C-A	                                    	Dubious
+YER088W-B	                                    	Dubious
+YER090C-A	                                    	Dubious
+YER100W  	UBC6, DOA2                          	Verified
+YER102W  	RPS8B                               	Verified
+YER107W-A	                                    	Dubious
+YER133W-A	                                    	Dubious
+YER137W-A	                                    	Dubious
+YER138W-A	                                    	Uncharacterized
+YER145C-A	                                    	Dubious
+YER147C-A	                                    	Dubious
+YER148W-A	                                    	Dubious
+YER152W-A	                                    	Dubious
+YER158W-A	                                    	Dubious
+YER165C-A	                                    	Dubious
+YER172C-A	                                    	Dubious
+YER188C-A	                                    	Uncharacterized
+YER189W  	                                    	Uncharacterized
+YER190C-A	                                    	Dubious
+YER190C-B	                                    	Uncharacterized
+YER190W  	YRF1-2, YRF1                        	Verified
+YFL012W-A	YFL013W-A                           	Dubious
+YFL015W-A	                                    	Dubious
+YFL017W-A	SMX2, YFL018W-A, SNP2               	Verified
+YFL021C-A	                                    	Dubious
+YFL031C-A	YFL030C-A                           	Dubious
+YFL034C-B	MOB2, YFL035C-A, YFL035C            	Verified
+YFL057C  	AAD16                               	Verified
+YFL058W  	THI5                                	Verified
+YFL059W  	SNZ3                                	Verified
+YFL061W  	                                    	Uncharacterized
+YFL062W  	COS4                                	Verified
+YFL064C  	                                    	Uncharacterized
+YFL065C  	                                    	Uncharacterized
+YFL066C  	                                    	Uncharacterized
+YFL067W  	                                    	Uncharacterized
+YFL068W  	                                    	Uncharacterized
+YFR009W-A	                                    	Dubious
+YFR010W-A	                                    	Dubious
+YFR034W-A	                                    	Dubious
+YFR036W-A	                                    	Dubious
+YFR052C-A	                                    	Dubious
+YGL014C-A	                                    	Dubious
+YGL041W-A	                                    	Dubious
+YGL052W  	                                    	Dubious
+YGL063C-A	                                    	Dubious
+YGL106W  	MLC1                                	Verified
+YGL123C-A	                                    	Dubious
+YGL182C  	                                    	Dubious
+YGL183C  	MND1                                	Verified
+YGL187C  	COX4                                	Verified
+YGL188C  	                                    	Dubious
+YGL189C  	RPS26A, RPS26                       	Verified
+YGL193C  	                                    	Uncharacterized
+YGL194C-A	                                    	Uncharacterized
+YGL204C  	                                    	Dubious
+YGL258W-A	                                    	Uncharacterized
+YGR031C-A	                                    	Dubious
+YGR068W-A	                                    	Dubious
+YGR240C-A	                                    	Uncharacterized
+YGR270C-A	                                    	Dubious
+YGR293C  	                                    	Dubious
+YGR294W  	                                    	Uncharacterized
+YGR296C-A	                                    	Dubious
+YGR296C-B	                                    	Dubious
+YGR296W  	YRF1-3, YRF1                        	Verified
+YHL002C-A	                                    	Dubious
+YHL006W-A	                                    	Dubious
+YHL018W  	                                    	Uncharacterized
+YHL019W-A	                                    	Dubious
+YHL030W-A	                                    	Dubious
+YHL034W-A	                                    	Dubious
+YHL046W-A	                                    	Dubious
+YHL048C-A	                                    	Uncharacterized
+YHL048W  	COS8                                	Verified
+YHL049C  	                                    	Uncharacterized
+YHL050C  	                                    	Uncharacterized
+YHL050W-A	                                    	Dubious
+YHR002W  	LEU5                                	Verified
+YHR027C  	RPN1, NAS1, HRD2                    	Verified
+YHR028W-A	                                    	Dubious
+YHR032C-A	                                    	Dubious
+YHR032W-A	                                    	Dubious
+YHR039C-A	VMA10, YHR039BC, YHR039C-B          	Verified
+YHR052W  	CIC1, NSA3                          	Verified
+YHR052W-A	                                    	Dubious
+YHR053C  	CUP1-1, CUP1                        	Verified
+YHR054C  	                                    	Uncharacterized
+YHR054W-A	                                    	Dubious
+YHR055C  	CUP1-2, CUP1                        	Verified
+YHR056C  	RSC30                               	Verified
+YHR056W-A	                                    	Dubious
+YHR063W-A	                                    	Dubious
+YHR069C-A	                                    	Dubious
+YHR070C-A	                                    	Dubious
+YHR071C-A	                                    	Dubious
+YHR073C-B	                                    	Dubious
+YHR073W-A	                                    	Dubious
+YHR079C-A	SAE3, YHR079BC, YHR079C-B           	Verified
+YHR099W  	TRA1                                	Verified
+YHR119W  	SET1, YTX1                          	Verified
+YHR131W-A	                                    	Dubious
+YHR137C-A	                                    	Dubious
+YHR144C  	DCD1                                	Verified
+YHR145C  	                                    	Dubious
+YHR165W-A	                                    	Dubious
+YHR173C  	                                    	Dubious
+YHR174W  	ENO2                                	Verified
+YHR175W  	CTR2                                	Verified
+YHR180C-B	                                    	Dubious
+YHR180W-A	                                    	Dubious
+YHR182C-A	                                    	Dubious
+YHR193C-A	                                    	Dubious
+YHR201C  	PPX1                                	Verified
+YHR208W  	BAT1, TWT1, ECA39                   	Verified
+YHR211W  	FLO5                                	Verified
+YHR212C  	                                    	Dubious
+YHR212W-A	                                    	Uncharacterized
+YHR213W  	                                    	Uncharacterized
+YHR213W-A	                                    	Uncharacterized
+YHR213W-B	                                    	Uncharacterized
+YHR214C-D	                                    	Uncharacterized
+YHR214C-E	                                    	Uncharacterized
+YHR214W  	                                    	Uncharacterized
+YHR214W-A	                                    	Dubious
+YHR215W  	PHO12, PHO10                        	Verified
+YHR216W  	IMD2, PUR5                          	Verified
+YHR217C  	                                    	Dubious
+YHR218W  	                                    	Uncharacterized
+YHR218W-A	                                    	Dubious
+YHR219C-A	                                    	Dubious
+YHR219W  	                                    	Uncharacterized
+YIL014C-A	YIL015C-A                           	Uncharacterized
+YIL020C-A	                                    	Dubious
+YIL021C-A	                                    	Dubious
+YIL029W-A	                                    	Dubious
+YIL030W-A	                                    	Dubious
+YIL047C-A	                                    	Dubious
+YIL066W-A	                                    	Dubious
+YIL068W-A	                                    	Dubious
+YIL071W-A	                                    	Dubious
+YIL082W  	                                    	Dubious
+YIL100C-A	                                    	Dubious
+YIL102C-A	                                    	Uncharacterized
+YIL105W-A	                                    	Dubious
+YIL115W-A	                                    	Dubious
+YIL142C-A	                                    	Dubious
+YIL151C  	                                    	Uncharacterized
+YIL156W-A	                                    	Dubious
+YIL156W-B	                                    	Uncharacterized
+YIL169C  	HPF1                                	Uncharacterized
+YIL171W-A	                                    	Dubious
+YIL172C  	                                    	Uncharacterized
+YIL176C  	                                    	Uncharacterized
+YIL177C  	                                    	Uncharacterized
+YIL177W-A	                                    	Dubious
+YIR017W-A	                                    	Dubious
+YIR020C-B	                                    	Dubious
+YIR020W-A	YIR020W-B                           	Dubious
+YIR023C-A	                                    	Dubious
+YIR030W-A	                                    	Dubious
+YIR036W-A	                                    	Dubious
+YIR040C  	                                    	Dubious
+YIR041W  	                                    	Uncharacterized
+YJL020W-A	                                    	Dubious
+YJL026C-A	                                    	Dubious
+YJL052C-A	                                    	Uncharacterized
+YJL077W-A	                                    	Dubious
+YJL127W-A	YJL127W-B                           	Dubious
+YJL133C-A	                                    	Uncharacterized
+YJL156W-A	                                    	Dubious
+YJL197C-A	                                    	Dubious
+YJL205C  	NCE101, YJL205C-A, YJL206C-A, NCE1  	Verified
+YJL219W  	HXT9                                	Verified
+YJL220W  	                                    	Dubious
+YJL221C  	FSP2                                	Verified
+YJL222W  	VTH2                                	Verified
+YJL222W-A	                                    	Dubious
+YJL222W-B	                                    	Dubious
+YJL223C  	PAU1                                	Verified
+YJL225C  	                                    	Uncharacterized
+YJL225W-A	                                    	Dubious
+YJR071W  	                                    	Dubious
+YJR132W  	NMD5, KAP119                        	Verified
+YJR136C  	                                    	Uncharacterized
+YJR138W  	IML1                                	Verified
+YJR140W-A	                                    	Dubious
+YJR155W  	AAD10                               	Verified
+YJR156C  	THI11                               	Verified
+YJR157W  	                                    	Dubious
+YJR158W  	HXT16                               	Verified
+YJR159W  	SOR1, SDH1                          	Verified
+YJR160C  	MPH3                                	Verified
+YJR161C  	COS5                                	Verified
+YJR162C  	                                    	Dubious
+YKL023C-A	                                    	Uncharacterized
+YKL065W-A	                                    	Uncharacterized
+YKL100W-A	                                    	Dubious
+YKL145W-A	                                    	Dubious
+YKL156C-A	                                    	Dubious
+YKL165C-A	                                    	Dubious
+YKL183C-A	                                    	Uncharacterized
+YKL219W  	COS9                                	Verified
+YKL223W  	                                    	Dubious
+YKL224C  	                                    	Uncharacterized
+YKL225W  	                                    	Dubious
+YKR075W-A	                                    	Dubious
+YKR095W-A	PCC1                                	Verified
+YLL019W-A	                                    	Dubious
+YLL022C  	HIF1                                	Verified
+YLL064C  	                                    	Uncharacterized
+YLL065W  	GIN11                               	Dubious
+YLL066C  	                                    	Uncharacterized
+YLL066W-A	                                    	Dubious
+YLL066W-B	                                    	Uncharacterized
+YLL067C  	                                    	Uncharacterized
+YLL067W-A	                                    	Dubious
+YLR120W-A	                                    	Dubious
+YLR146W-A	                                    	Uncharacterized
+YLR149C-A	                                    	Dubious
+YLR154C-G	                                    	Uncharacterized
+YLR154C-H	                                    	Uncharacterized
+YLR154W-A	YLR154W-C                           	Dubious
+YLR154W-B	                                    	Dubious
+YLR154W-C	TAR1, YLR154W-A                     	Verified
+YLR154W-E	                                    	Dubious
+YLR154W-F	                                    	Dubious
+YLR155C  	ASP3-1, ASP3                        	Verified
+YLR156C-A	                                    	Uncharacterized
+YLR156W  	                                    	Uncharacterized
+YLR157C  	ASP3-2, ASP3                        	Verified
+YLR157C-C	                                    	Uncharacterized
+YLR157W-D	YLR157W-A                           	Uncharacterized
+YLR157W-E	YLR157W-B, YLR157W-C                	Uncharacterized
+YLR158C  	ASP3-3, ASP3                        	Verified
+YLR159C-A	                                    	Uncharacterized
+YLR159W  	                                    	Uncharacterized
+YLR160C  	ASP3-4, ASP3                        	Verified
+YLR161W  	                                    	Uncharacterized
+YLR162W  	                                    	Uncharacterized
+YLR162W-A	                                    	Uncharacterized
+YLR163W-A	                                    	Dubious
+YLR222C-A	                                    	Dubious
+YLR245C  	CDD1                                	Verified
+YLR256W  	HAP1, CYP1                          	Verified
+YLR286W-A	                                    	Dubious
+YLR299C-A	                                    	Dubious
+YLR301W  	                                    	Uncharacterized
+YLR302C  	                                    	Dubious
+YLR347W-A	                                    	Dubious
+YLR364C-A	                                    	Dubious
+YLR399W-A	                                    	Dubious
+YLR411W  	CTR3                                	Verified
+YLR437C-A	                                    	Dubious
+YLR462W  	                                    	Uncharacterized
+YLR463C  	                                    	Dubious
+YLR464W  	                                    	Uncharacterized
+YLR465C  	BSC3                                	Dubious
+YLR466C-A	                                    	Dubious
+YLR466C-B	                                    	Uncharacterized
+YLR466W  	YRF1-4, YRF1                        	Verified
+YLR467C-A	                                    	Dubious
+YLR467W  	YRF1-5, YRF1                        	Verified
+YML009C-A	YML010W-B, YML010C-B                	Dubious
+YML009W-B	YML010W-A                           	Dubious
+YML012C-A	YML013C-A                           	Dubious
+YML031C-A	YML032C-A                           	Dubious
+YML034C-A	YML035C-A                           	Dubious
+YML047W-A	YML048W-A                           	Dubious
+YML057C-A	YML058C-A                           	Dubious
+YML094C-A	YML095C-A                           	Dubious
+YML099W-A	YML100W-A                           	Dubious
+YML101C-A	YML102C-A                           	Dubious
+YML116W-A	YML117W-A                           	Dubious
+YML132W  	COS3                                	Verified
+YML133C  	                                    	Uncharacterized
+YML133W-A	                                    	Dubious
+YML133W-B	                                    	Dubious
+YMR013C-A	                                    	Dubious
+YMR030W-A	                                    	Uncharacterized
+YMR046W-A	                                    	Dubious
+YMR122W-A	                                    	Uncharacterized
+YMR141W-A	                                    	Dubious
+YMR158C-A	YMR158C-B                           	Uncharacterized
+YMR158W-B	YMR158W-A                           	Dubious
+YMR212C  	EFR3                                	Verified
+YMR272W-A	                                    	Dubious
+YMR307C-A	                                    	Dubious
+YMR321C  	                                    	Uncharacterized
+YMR323W  	ERR3                                	Verified
+YMR324C  	                                    	Dubious
+YMR325W  	                                    	Uncharacterized
+YNL017C  	                                    	Dubious
+YNL019C  	                                    	Uncharacterized
+YNL033W  	                                    	Uncharacterized
+YNL048W  	ALG11                               	Verified
+YNL067W-A	YNL067W-B                           	Dubious
+YNL097C-B	YNL097C-A                           	Uncharacterized
+YNL097W-A	                                    	Dubious
+YNL103W-A	                                    	Dubious
+YNL144W-A	                                    	Dubious
+YNL174W  	                                    	Dubious
+YNL186W  	UBP10, DOT4                         	Verified
+YNL337W  	                                    	Dubious
+YNL339W-A	                                    	Dubious
+YNL339W-B	                                    	Dubious
+YNR001W-A	                                    	Dubious
+YNR003W-A	                                    	Dubious
+YNR034W-A	                                    	Uncharacterized
+YNR075C-A	                                    	Uncharacterized
+YNR076W  	PAU6                                	Verified
+YNR077C  	                                    	Dubious
+YOL083C-A	                                    	Dubious
+YOL085W-A	                                    	Dubious
+YOL155W-A	                                    	Uncharacterized
+YOL156W  	HXT11, LGT3                         	Verified
+YOL157C  	                                    	Uncharacterized
+YOL161C  	                                    	Uncharacterized
+YOL165C  	AAD15                               	Verified
+YOL166W-A	                                    	Uncharacterized
+YOR008W-B	                                    	Dubious
+YOR011W-A	                                    	Uncharacterized
+YOR032W-A	                                    	Uncharacterized
+YOR072W-A	                                    	Dubious
+YOR072W-B	                                    	Uncharacterized
+YOR073W-A	                                    	Dubious
+YOR108C-A	                                    	Dubious
+YOR161W-A	                                    	Dubious
+YOR161W-B	                                    	Dubious
+YOR186C-A	                                    	Dubious
+YOR192C-C	                                    	Uncharacterized
+YOR231C-A	                                    	Dubious
+YOR314W-A	                                    	Dubious
+YOR329W-A	                                    	Dubious
+YOR335W-A	                                    	Dubious
+YOR381W-A	                                    	Uncharacterized
+YOR387C  	                                    	Uncharacterized
+YOR388C  	FDH1                                	Verified
+YOR389W  	                                    	Uncharacterized
+YOR390W  	                                    	Uncharacterized
+YOR391C  	HSP33                               	Uncharacterized
+YOR392W  	                                    	Dubious
+YOR393W  	ERR1                                	Verified
+YOR394C-A	                                    	Uncharacterized
+YOR394W  	                                    	Uncharacterized
+YOR396C-A	                                    	Dubious
+YOR396W  	YRF1-8                              	Uncharacterized
+YPL135C-A	                                    	Dubious
+YPL222C-A	                                    	Dubious
+YPL250W-A	                                    	Dubious
+YPL278C  	                                    	Uncharacterized
+YPL279C  	                                    	Uncharacterized
+YPL280W  	HSP32                               	Uncharacterized
+YPL281C  	ERR2                                	Verified
+YPL282C  	                                    	Uncharacterized
+YPL283C  	YRF1-7, YRF1                        	Verified
+YPL283W-A	                                    	Dubious
+YPL283W-B	                                    	Dubious
+YPR002C-A	                                    	Dubious
+YPR016W-A	                                    	Dubious
+YPR036W-A	                                    	Verified
+YPR074W-A	                                    	Dubious
+YPR080W  	TEF1, EF-1 alpha                    	Verified
+YPR081C  	GRS2                                	Verified
+YPR102C  	RPL11A                              	Verified
+YPR145C-A	                                    	Uncharacterized
+YPR160C-A	                                    	Dubious
+YPR160W-A	                                    	Dubious
+YPR169W-A	                                    	Dubious
+YPR170W-A	                                    	Dubious
+YPR170W-B	                                    	Dubious
+YPR202W  	                                    	Uncharacterized
+YPR203W  	                                    	Uncharacterized
+YPR204C-A	                                    	Dubious
+YPR204W  	                                    	Uncharacterized

@@ -1,0 +1,16 @@
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr01.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr02.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr03.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr04.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr05.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr06.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr07.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr08.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr09.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr10.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr11.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr12.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr13.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr14.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr15.gbf
+http://downloads.yeastgenome.org/sequence/S288C_reference/NCBI_genome_source/chr16.gbf

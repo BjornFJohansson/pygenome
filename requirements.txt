@@ -1,3 +1,0 @@
-appdirs>=1.4.3
-pydna>=4.0.0
-requests>=2.23

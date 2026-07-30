@@ -4,7 +4,18 @@
 test pygenome
 '''
 import pytest
+from pathlib import Path
 import requests_mock as rm_module
+from tempfile import TemporaryDirectory
+import shutil
+import io
+import os
+from urllib.parse import urlparse as up
+from os.path import basename as bn
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
+#  https://realpython.com/python-mock-library
 
 
 @pytest.fixture
@@ -15,247 +26,151 @@ def requests_mock(request):
     return m
 
 
-def test_update(requests_mock):
-    import shutil, io, pathlib, os
-    from pygenome.update import updater
-    from pygenome._data import  _data_files, _data_urls
-    data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
-    tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
-    try:
-        shutil.rmtree(tmp_data_dir)
-    except FileNotFoundError:
-        pass
+def test_check_and_download(requests_mock, monkeypatch):
+
+    def Bio_SeqIO_read(pth, fmat):
+        result = SeqRecord(Seq("GATC"))
+        return result   
+
+    monkeypatch.setattr("Bio.SeqIO.read",
+                        Bio_SeqIO_read,
+                        raising=True)
+    
+    from pygenome.saccharomyces_cerevisiae.S288C import check_data_files
+    from pygenome.saccharomyces_cerevisiae.S288C import update_data_files
+    from pygenome.saccharomyces_cerevisiae.S288C import data_dir
+    from pygenome.saccharomyces_cerevisiae.S288C import chromosome_urls
+
+    tmp_data_dir = Path(TemporaryDirectory().name) # tempdir for data files
+    
     shutil.copytree(data_dir, tmp_data_dir)
-    # set local data file to be really old.... Saturday 1st January 2000 12:00:00 AM
+    
+    # set local data file to be really old.... 
+    # Saturday 1st January 2000 12:00:00 AM   =  946684800
     # new files should be downloaded
-    for fn, url in zip(_data_files,_data_urls):
-        path = pathlib.Path( os.path.join(data_dir, fn) )
-        os.utime(str(path), times=(path.stat().st_atime, 946684800))  #946684800 = Saturday 1st January 2000 12:00:00 AM
-        flo = io.BytesIO(b"some text data")  # These files will be deemed newer and downloaded
+
+    chromosome_urls = chromosome_urls.splitlines()
+
+    for url in chromosome_urls:
+
+        fn = bn(up(url).path)
+        gb_pth = data_dir/fn
+        fa_pth = gb_pth.with_suffix(".fasta")
+        fe_pth = fa_pth.with_name(f"{fa_pth.stem}_feature_tuple.pickle")
+
+        os.utime(fa_pth, times=(fa_pth.stat().st_atime, 946684800))
+
+        flo = io.BytesIO(b"some text data") # mock remote file is newer
         requests_mock.get(url,
-                          headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
-                                    'content-length' : "100"},
-                          body = flo)
-    updater()
+                          headers={  # 978307200
+                           'last-modified': 'Mon, 01 Jan 2001 00:00:00 GMT',
+                           'content-length': "100"},
+                          body=flo)
 
-    # set local data file to be the same age remote
-    # local files should be kept
-    for fn, url in zip(_data_files,_data_urls):
+    check_data_files()
+    
+    update_data_files()
 
-        path = pathlib.Path( os.path.join(data_dir, fn) )
-        os.utime(str(path), times=(path.stat().st_atime, 978307200))
-        flo = io.BytesIO(b"some text data that will not be used")
-        requests_mock.get(url,
-                          headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
-                                    'content-length' : "100"},
-                          body = flo)
-    updater()
-
-    # remove local data files
-    # new files should be downloaded
-    for fn, url in zip(_data_files,_data_urls):
-        path = pathlib.Path( os.path.join(data_dir, fn) )
-        path.unlink()
-        flo = io.BytesIO(b"some text data that will be used")
-        requests_mock.get(url,
-                          headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
-                                    'content-length' : "100"},
-                          body = flo)
-    updater()
-
-    # set local files newer than remote
-    # local files should be kept
-    # a critical warning should be written to log
-
-    for fn, url in zip(_data_files,_data_urls):
-        path = pathlib.Path( os.path.join(data_dir, fn) )
-
-        flo = io.BytesIO(b"some text data that will not be used")
-        requests_mock.get(url,
-                          headers={'last-modified'  : 'Sat, 01 Jan 2000 00:00:00 GMT', #978307200
-                                    'content-length' : "100"},
-                          body = flo)
-    updater()
     shutil.rmtree(data_dir)
     shutil.copytree(tmp_data_dir, data_dir)
     shutil.rmtree(tmp_data_dir)
 
 
-def test_pretty():
-    from pygenome._pretty import pretty_str
-    from unittest.mock import MagicMock
-    pp = MagicMock()
-    x=pretty_str("abc")
-    x._repr_pretty_(pp, None)
-    pp.text.assert_any_call("abc")
+def test_Gene():
+    from pygenome.saccharomyces_cerevisiae.S288C import gene_dicts
+    genes, stdgenes = gene_dicts()
 
+    g = genes["YGR192C"]
+    s = stdgenes["TDH3"]
+    assert g == s
 
-def test_names():
-    from pygenome.standard_name    import _standard_name
-    from pygenome.systematic_name import _systematic_name
-    assert _systematic_name("TDH3") == "YGR192C"
-    assert _systematic_name("YGR192C") == "YGR192C"
     with pytest.raises(KeyError):
-        assert _systematic_name("YGR192W")
+        assert genes["NOGENE"]
     with pytest.raises(KeyError):
-        _systematic_name("NOGENE")
-    assert _standard_name("YGR192C") == "TDH3"
-    assert _standard_name("YGR192W") == None
-    assert _standard_name("YPR078C") == None
-    with pytest.raises(ValueError):
-        _standard_name("NOGENE")
+        assert stdgenes["NOGENE"]
+
+    tp = ("ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATATTACATA"
+          "TAATACATATCACATAGGAAGCAACAGGCGCGTTGGACTTTTAATTTTCGAGGACCGCGAA"
+          "TCCTTACATCACACCCAATCCCCCACAAGTGATCCCCCACACACCATAGCTTCAAAATGTT"
+          "TCTACTCCTTTTTTACTCTTCCAGATTTTCTCGGACTCCGCGCATCGCCGTACCACTTCAA"
+          "AACACCCAAGCACAGCATACTAAATTTCCCCTCTTTCTTCCTCTAGGGTGTCGTTAATTAC"
+          "CCGTACTAAAGGTTTGGAAAAGAAAAAAGAGACCGCCTCGTTTCTTTTTCTTCGTCGAAAA"
+          "AGGCAATAAAAATTTTTATCACGTTTCTTTTTCTTGAAAATTTTTTTTTTTGATTTTTTTC"
+          "TCTTTCGATGACCTCCCATTGATATTTAAGTTAATAAACGGTCTTCAATTTCTCAAGTTTC"
+          "AGTTTCATTTTTCTTGTTCTATTACAACTTTTTTTACTTCTTGCTCATTAGAAAGAAAGCA"
+          "TAGCAATCTAATCTAAGTTTTAATTACAAA")
+    s1 = genes["YPR079W"].terminator
+    s2 = stdgenes["TEF1"].promoter
+    s3 = genes["YPR080W"].promoter
+    assert tp.lower() == str(s1.seq).lower()
+    assert str(s1.seq).lower() == str(s2.seq).lower()
+    assert str(s2.seq).lower() == str(s3.seq).lower()
+
+    tp = ("TGTTTAAAGATTACGGATATTTAACTTACTTAGAATAATGCCATTTTTTTGAGTTATAATA"
+          "ATCCTACGTTAGTGTGAGCGGGATTTAAACTGTGAGGACCTTAATACATTCAGACACTTCT"
+          "GCGGTATCACCCTACTTATTCCCTTCGAGATTATATCTAGGAACCCATCAGGTTGGTGGAA"
+          "GATTACCCGTTCTAAGACTTTTCAGCTTCCTCTATTGATGTTACACCTGGACACCCCTTTT"
+          "CTGGCATCCAGTTTTTAATCTTCAGTGGCATGTGAGATTCTCCGAAATTAATTAAAGCAAT"
+          "CACACAATTCTCTCGGATACCACCTCGGTTGAAACTGACAGGTGGTTTGTTACGCATGCTA"
+          "ATGCAAAGGAGCCTATATACCTTTGGCTCGGCTGCTGTAACAGGGAATATAAAGGGCAGCA"
+          "TAATTTAGGAGTTTAGTGAACTTGCAACATTTACTATTTTCCCTTCTTACGTAAATATTTT"
+          "TCTTTTTAATTCTAAATCAATCTTTTTCAATTTTTTGTTTGTATTCTTTTCTTGCTTAAAT"
+          "CTATAACTACAAAAAACACATACATAAACTAAAA")    
+
+    DET1 = stdgenes["DET1"]
+    TPI1 = stdgenes["TPI1"]
+    VMS1 = stdgenes["VMS1"]
+    assert tp == str(TPI1.promoter.seq)
+    assert DET1.terminator.seq == TPI1.promoter.seq
+    assert TPI1.terminator.rc().seq == VMS1.terminator.seq
+    assert stdgenes["TEF1"].promoter.description == 'BK006949.2 REGION: 700015..700593'
+    assert stdgenes["TPI1"].promoter.description == 'BK006938.2 REGION: complement(556473..557055)'
 
 
-def test_TEF1():
-    from pygenome import saccharomyces_cerevisiae as sg
-    tp = 'ACAATGCATACTTTGTACGTTCAAAATACAATGCAGTAGATATATTTATGCATATTACATATAATACATATCACATAGGAAGCAACAGGCGCGTTGGACTTTTAATTTTCGAGGACCGCGAATCCTTACATCACACCCAATCCCCCACAAGTGATCCCCCACACACCATAGCTTCAAAATGTTTCTACTCCTTTTTTACTCTTCCAGATTTTCTCGGACTCCGCGCATCGCCGTACCACTTCAAAACACCCAAGCACAGCATACTAAATTTCCCCTCTTTCTTCCTCTAGGGTGTCGTTAATTACCCGTACTAAAGGTTTGGAAAAGAAAAAAGAGACCGCCTCGTTTCTTTTTCTTCGTCGAAAAAGGCAATAAAAATTTTTATCACGTTTCTTTTTCTTGAAAATTTTTTTTTTTGATTTTTTTCTCTTTCGATGACCTCCCATTGATATTTAAGTTAATAAACGGTCTTCAATTTCTCAAGTTTCAGTTTCATTTTTCTTGTTCTATTACAACTTTTTTTACTTCTTGCTCATTAGAAAGAAAGCATAGCAATCTAATCTAAGTTTTAATTACAAA'
-    s1 = sg.sysgenes["YPR079W"].terminator()
-    s2 = sg.stdgenes["TEF1"].promoter()
-    s3 = sg.sysgenes["YPR080W"].promoter()
-    assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
+    assert len(stdgenes["FUN26"].locus()) == 3554
+    assert len(stdgenes["FUN26"].cds) == 1554
+    FUN26 = stdgenes["FUN26"]
+    assert FUN26.sysname == 'YAL022C'
+    assert FUN26.pred.sysname == 'YAL023C'
+    assert FUN26.succ.sysname == 'YAL021C'
+
+    assert str(FUN26.promoter.seq)   in str(FUN26.locus().seq)
+    assert str(FUN26.terminator.seq) in str(FUN26.locus().seq)
+    assert str(stdgenes["PMT2"].promoter.seq)    in str(stdgenes["PMT2"].locus().seq)
+    assert str(stdgenes["LTE1"].terminator.seq)  in str(stdgenes["LTE1"].locus().seq)
+
+    assert str(stdgenes["DEP1"].promoter.seq) == str(stdgenes["SYN8"].promoter.seq.reverse_complement())
+    assert str(stdgenes["SPO7"].promoter.seq) == str(stdgenes["MDM10"].promoter.seq.reverse_complement())
+
+    assert str(stdgenes["FUN14"].terminator.seq) == str(stdgenes["ERP2"].terminator.seq.reverse_complement())
+    assert str(stdgenes["CYS3"].promoter.seq) == str(stdgenes["DEP1"].terminator.seq)
+
+    assert str(stdgenes["CCR4"].promoter.seq) == str(stdgenes["ATS1"].terminator.seq)
 
 
-def test_TPI1():
-    from pygenome import saccharomyces_cerevisiae as sg
-    tp = 'TGTTTAAAGATTACGGATATTTAACTTACTTAGAATAATGCCATTTTTTTGAGTTATAATAATCCTACGTTAGTGTGAGCGGGATTTAAACTGTGAGGACCTTAATACATTCAGACACTTCTGCGGTATCACCCTACTTATTCCCTTCGAGATTATATCTAGGAACCCATCAGGTTGGTGGAAGATTACCCGTTCTAAGACTTTTCAGCTTCCTCTATTGATGTTACACCTGGACACCCCTTTTCTGGCATCCAGTTTTTAATCTTCAGTGGCATGTGAGATTCTCCGAAATTAATTAAAGCAATCACACAATTCTCTCGGATACCACCTCGGTTGAAACTGACAGGTGGTTTGTTACGCATGCTAATGCAAAGGAGCCTATATACCTTTGGCTCGGCTGCTGTAACAGGGAATATAAAGGGCAGCATAATTTAGGAGTTTAGTGAACTTGCAACATTTACTATTTTCCCTTCTTACGTAAATATTTTTCTTTTTAATTCTAAATCAATCTTTTTCAATTTTTTGTTTGTATTCTTTTCTTGCTTAAATCTATAACTACAAAAAACACATACATAAACTAAAA'
-    s1 = sg.sysgenes["YDR051C"].terminator()
-    s2 = sg.stdgenes["TPI1"].promoter()
-    s3 = sg.sysgenes["YDR050C"].promoter()
-    assert tp.lower() == str(s1.seq).lower() == str(s2.seq).lower() == str(s3.seq).lower()
+    assert stdgenes["TPI1"].tandem 
+    assert not stdgenes["TPI1"].divergent 
+    assert not stdgenes["GAL1"].tandem 
+    assert stdgenes["GAL1"].divergent 
 
 
-def test_TEF1_genbank_accession():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert sg.stdgenes["TEF1"].promoter().description == 'BK006949.2 REGION: 700015..700593'
+    assert str(stdgenes["CLN3"].promoter.seq) in str(stdgenes["CLN3"].locus(2000, 2000).seq)
+    assert str(stdgenes["CLN3"].terminator.seq) in str(stdgenes["CLN3"].locus(2000, 2000).seq)
 
+    assert str(stdgenes["CYC3"].terminator.seq) in str(stdgenes["CYC3"].locus(2000, 2000).seq)
 
-def test_TPI1_genbank_accession():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert sg.stdgenes["TPI1"].promoter().description == 'BK006938.2 REGION: complement(556473..557055)'
+    assert str(stdgenes["CYC3"].promoter.seq)    in str(stdgenes["CYC3"].locus(2500,2500).seq)
+    assert str(stdgenes["CYC3"].terminator.seq)  == str(stdgenes["CLN3"].promoter.seq)
+    assert str(stdgenes["JEN1"].promoter.seq)    == str(stdgenes["SRY1"].promoter.seq.reverse_complement())
+    assert str(stdgenes["OSM1"].promoter.seq)    == str(stdgenes["ISY1"].terminator.seq)
+    assert str(stdgenes["CYC1"].terminator.seq)  in str(stdgenes["CYC1"].locus().seq)
+    assert str(stdgenes["UTR1"].terminator.seq)  in str(stdgenes["UTR1"].locus().seq)
+    assert str(stdgenes["CDC24"].promoter.seq)   in str(stdgenes["CDC24"].locus().seq)
+    assert str(stdgenes["CDC24"].terminator.seq) in str(stdgenes["CDC24"].locus().seq)
 
+    assert stdgenes["TDH3"].gfp_cassette_kanmx.useguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
 
-def test_fun26():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert len(sg.stdgenes["FUN26"].locus()) == 3554
-    assert len(sg.stdgenes["FUN26"].cds())   == 1554
-    assert sg.stdgenes["FUN26"].sys == 'YAL022C'
-    assert sg.stdgenes["FUN26"].upstream_gene().sys == 'YAL021C'
-    assert sg.stdgenes["FUN26"].upstream_gene().sys == 'YAL021C'
-    assert sg.stdgenes["FUN26"].downstream_gene().sys == 'YAL023C'
-
-    assert str(  sg.stdgenes["FUN26"].promoter().seq)   in str(sg.stdgenes["FUN26"].locus().seq)
-    assert str(  sg.stdgenes["FUN26"].terminator().seq) in str(sg.stdgenes["FUN26"].locus().seq)
-    assert str(  sg.stdgenes["PMT2"].promoter().seq)    in str(sg.stdgenes["PMT2"].locus().seq)
-    assert str(  sg.stdgenes["LTE1"].terminator().seq)  in str(sg.stdgenes["LTE1"].locus().seq)
-
-
-
-def test_promoter_promoter():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert str(sg.stdgenes["DEP1"].promoter().seq) == str(sg.stdgenes["SYN8"].promoter().seq.reverse_complement())
-    assert str(sg.stdgenes["SPO7"].promoter().seq) == str(sg.stdgenes["MDM10"].promoter().seq.reverse_complement())
-
-
-def test_terminator_terminator():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert str(sg.stdgenes["FUN14"].terminator().seq) == str(sg.stdgenes["ERP2"].terminator().seq.reverse_complement())
-
-
-def test_promoter_terminator():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert str(sg.stdgenes["CYS3"].promoter().seq) == str(sg.stdgenes["DEP1"].terminator().seq)
-
-
-def test_terminator_promoter():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert str(sg.stdgenes["CCR4"].promoter().seq) == str(sg.stdgenes["ATS1"].terminator().seq)
-
-
-def test_tandem_bidirectional():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert sg.stdgenes["TPI1"].tandem() == (not sg.stdgenes["TPI1"].bidirectional())
-    assert sg.stdgenes["GAL1"].tandem() == (not sg.stdgenes["GAL1"].bidirectional())
-
-
-def test_misc():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert str(sg.stdgenes["CLN3"].promoter().seq) in str(sg.stdgenes["CLN3"].locus(2000, 2000).seq)
-    assert str(sg.stdgenes["CLN3"].terminator().seq) in str(sg.stdgenes["CLN3"].locus(2000, 2000).seq)
-
-    assert str(sg.stdgenes["CYC3"].terminator().seq) in str(sg.stdgenes["CYC3"].locus(2000, 2000).seq)
-
-    assert str(sg.stdgenes["CYC3"].promoter().seq)    in str(sg.stdgenes["CYC3"].locus(2500,2500).seq)
-    assert str(sg.stdgenes["CYC3"].terminator().seq)  == str(sg.stdgenes["CLN3"].promoter().seq)
-    assert str(sg.stdgenes["JEN1"].promoter().seq)    == str(sg.stdgenes["SRY1"].promoter().seq.reverse_complement())
-    assert str(sg.stdgenes["OSM1"].promoter().seq)    == str(sg.stdgenes["ISY1"].terminator().seq)
-    assert str(sg.stdgenes["CYC1"].terminator().seq)  in str(sg.stdgenes["CYC1"].locus().seq)
-    assert str(sg.stdgenes["UTR1"].terminator().seq)  in str(sg.stdgenes["UTR1"].locus().seq)
-    assert str(sg.stdgenes["CDC24"].promoter().seq)   in str(sg.stdgenes["CDC24"].locus().seq)
-    assert str(sg.stdgenes["CDC24"].terminator().seq) in str(sg.stdgenes["CDC24"].locus().seq)
-
-    from pygenome.intergenic import intergenic_sequence
-    intseq = intergenic_sequence("YAL021C","YAL023C")
-    assert str( intseq.seq).lower() in str(sg.stdgenes["FUN26"].locus().seq).lower()
-
-
-    with pytest.raises(Exception):
-        intergenic_sequence("YAL021C","YBL023C")
-
-
-
-
-
-def test_gfp():
-    from pygenome import saccharomyces_cerevisiae as sg
-    assert sg.stdgenes["TDH3"].gfp_cassette().seguid() == "IJ3DVwFHTUZJq3uFO5ozwBULyME"
-
-def test_repr():
-    from unittest.mock import MagicMock
-    from pygenome import saccharomyces_cerevisiae as sg
-    pp = MagicMock()
-    s = sg.stdgenes["CYC1"]
-    s._repr_pretty_(pp, None)
-    pp.text.assert_any_call("Gene {}/{}".format(s.std, s.sys))
-
-    assert s._repr_html_() == "<a href='http://www.yeastgenome.org/locus/YJR048W' target='_blank'>Gene CYC1/YJR048W</a>"
-    assert len(s) == 330
-    assert s.short_description() == "Cytochrome c, isoform 1; also known as iso-1-cytochrome c; electron carrier of mitochondrial intermembrane space that transfers electrons from ubiquinone-cytochrome c oxidoreductase to cytochrome c oxidase during cellular respiration; CYC1 has a paralog, CYC7, that arose from the whole genome duplication; human homolog CYC1 can complement yeast null mutant; mutations in human CYC1 cause insulin-responsive hyperglycemia"
-
-
-def test_pickle():
-    import shutil, pathlib, os
-    data_dir = os.path.join(os.getenv("pygenome_data_dir"), "Saccharomyces_cerevisiae")
-    tmp_data_dir = os.path.join(os.getenv("pygenome_data_dir"), "temp") # copy all data files to another directory
-    try:
-        shutil.rmtree(tmp_data_dir)
-    except FileNotFoundError:
-        pass
-    shutil.copytree(data_dir, tmp_data_dir)
-    pathlib.Path(data_dir).joinpath("systematic_to_description.pickle").unlink()
-
-    from pygenome._pickle_primers import pickle_primers
-    pickle_primers()
-
-    from pygenome._pickle_lists   import _pickle_lists
-    _pickle_lists()
-
-    from pygenome._pickle_primers import pickle_orfs_not_deleted
-    pickle_orfs_not_deleted()
-
-    from pygenome._pickle_genes   import _pickle_genes
-    _pickle_genes()
-    shutil.rmtree(data_dir)
-    shutil.copytree(tmp_data_dir, data_dir)
-    shutil.rmtree(tmp_data_dir)
-
-def test_kanmx4():
-    from pygenome import saccharomyces_cerevisiae as sg
-
-    s = sg.stdgenes["CYC1"].deletion_loci()[0]
-
-
-
-
+    s = stdgenes["CYC1"].cassette_integration_locus()
 
     text = '''
     gaggcaccagcgtcagcattttcaaaggtgtgttcttcgtcagacatgttttagtgtgtgaatgaaataggtgtatgttttctttttgctagacaataattaggaacaaggtaagggaactaaagtgtagaataagattaaaaaagaagaacaagttgaaaaggcaagttgaaatttcaagaaaaaagtcaattgaagtacagtaaattgacctgaatatatctgagttccgacaacaatgagtttaccaaagagaacaatggaataggaaactttgaacgaagaaaggaaagcaggaaaggaaaaaatttttaggctcgagaacaatagggcgaaaaaacaggcaacgaacgaacaatggaaaaacgaaaaaaaaaaaaaaaaacacagaaaagaatgcagaaagatgtcaactgaaaaaaaaaaaggtgaacacaggaaaaaaaataaaaaaaaaaaaaaaaaaaggaggacgaaacaaaaaagtgaaaaaaaatgaaaatttttttggaaaaccaagaaatgaattatatttccgtgtgagacgacatcgtcgaatatgattcagggtaacagtattgatgtaatcaatttcctacctgaatctaaaattcccgggagcaagatcaagatgttttcaccgatctttccggtctctttggccggggtttacggacgatggcagaagaccaaagcgccagttcatttggcgagcgttggttggtggatcaagcccacgcgtaggcaatcctcgagcagatccgccaggcgtgtatatatagcgtggatggccaggcaactttagtgctgacacatacaggcatatatatatgtgtgcgacgacacatgatcatatggcatgcatgtgctctgtatgtatataaaactcttgttttcttcttttctctaaatattctttccttatacattaggacctttgcagcataaattactatac
@@ -290,3 +205,70 @@ def test_kanmx4():
     text = "".join([c.strip() for c in text])
 
     assert text.lower() == str(s.seq).lower()
+    
+    
+def test_repr():
+    from unittest.mock import MagicMock
+    from pygenome.saccharomyces_cerevisiae.S288C import gene_dicts
+    genes, stdgenes = gene_dicts()
+    s = stdgenes["CYC1"]
+    pp = MagicMock()
+    s._repr_pretty_(pp, None)
+    pp.text.assert_any_call("Gene {}/{}".format(s.stdname, s.sysname))
+
+    assert s._repr_html_() == "<a href='http://www.yeastgenome.org/locus/YJR048W' target='_blank'>Gene CYC1/YJR048W</a>"
+    assert len(s) == 330
+    assert s.short_description == "Cytochrome c, isoform 1; also known as iso-1-cytochrome c; electron carrier of mitochondrial intermembrane space that transfers electrons from ubiquinone-cytochrome c oxidoreductase to cytochrome c oxidase during cellular respiration; CYC1 has a paralog, CYC7, that arose from the whole genome duplication; human homolog CYC1 can complement yeast null mutant; mutations in human CYC1 cause insulin-responsive hyperglycemia"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # # set local data file to be the same age remote
+    # # local files should be kept
+    # for fn, url in zip(_data_files,_data_urls):
+
+    #     path = pathlib.Path( os.path.join(data_dir, fn) )
+    #     os.utime(str(path), times=(path.stat().st_atime, 978307200))
+    #     flo = io.BytesIO(b"some text data that will not be used")
+    #     requests_mock.get(url,
+    #                       headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
+    #                                 'content-length' : "100"},
+    #                       body = flo)
+    # updater()
+
+    # # remove local data files
+    # # new files should be downloaded
+    # for fn, url in zip(_data_files,_data_urls):
+    #     path = pathlib.Path( os.path.join(data_dir, fn) )
+    #     path.unlink()
+    #     flo = io.BytesIO(b"some text data that will be used")
+    #     requests_mock.get(url,
+    #                       headers={'last-modified'  : 'Mon, 01 Jan 2001 00:00:00 GMT', #978307200
+    #                                 'content-length' : "100"},
+    #                       body = flo)
+    # updater()
+
+    # # set local files newer than remote
+    # # local files should be kept
+    # # a critical warning should be written to log
+
+    # for fn, url in zip(_data_files,_data_urls):
+    #     path = pathlib.Path( os.path.join(data_dir, fn) )
+
+    #     flo = io.BytesIO(b"some text data that will not be used")
+    #     requests_mock.get(url,
+    #                       headers={'last-modified'  : 'Sat, 01 Jan 2000 00:00:00 GMT', #978307200
+    #                                 'content-length' : "100"},
+    #                       body = flo)
+    # updater()

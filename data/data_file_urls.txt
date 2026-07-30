@@ -1,0 +1,3 @@
+http://yeastdeletion-sgtc.yeastgenome.org/Deletion_primers_PCR_sizes.txt
+http://yeastdeletion-sgtc.yeastgenome.org/ORFs_not_available.txt
+http://yeastdeletion-sgtc.yeastgenome.org/kanmx4.txt
