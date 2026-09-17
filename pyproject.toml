@@ -1,0 +1,23 @@
+[project]
+name = "pygenome"
+version = "0.1.0"
+description = "Offline accession and coordinate lookup for the S288C yeast genome"
+readme = "README.md"
+authors = [{ name = "BjornFJohansson", email = "bjornjobb@gmail.com" }]
+requires-python = ">=3.12.7"
+dependencies = []
+
+[dependency-groups]
+dev = ["biopython>=1.85,<2", "pytest>=8,<10"]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+source-include = ["scripts/**", "tests/**", "plan.md"]
+source-exclude = ["data/**", "**/__pycache__/**", "**/*.pyc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]

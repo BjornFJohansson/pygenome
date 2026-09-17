@@ -1,8 +1,0 @@
-name: readthedocsenv
-channels:
-- defaults
-- conda-forge
-- BjornFJohansson
-dependencies:
-- python=3.8
-- numpydoc>=0.6.0
