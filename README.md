@@ -1,10 +1,9 @@
 # Pygenome
 
 Offline accession and coordinate lookup for the sixteen nuclear chromosomes of
-*S. cerevisiae* S288C. Returns GenBank region strings, not DNA sequence objects.
-Chromosome sequences are retained only as development inputs and are excluded
-from both wheels and source distributions. Runtime uses only the Python standard
-library and never downloads data or writes a cache.
+*S. cerevisiae* S288C. Returns GenBank region strings compatible with pydna and 
+pydna-utils for quicker access by caching downloaded sequences.
+
 
 Requires Python 3.12.7 or newer. Install from this checkout with `pip install .`.
 For development, run `uv sync --frozen`, then `uv run pytest`.
@@ -20,7 +19,7 @@ assert genbanklink(cds("ACT1")) == "https://www.ncbi.nlm.nih.gov/nuccore/BK00694
 ```
 
 All lookup functions accept `name` and optional `genome="S288C"`. Names may be
-systematic names, standard names, or unambiguous synonyms; lookup ignores case
+systematic names, standard names, or synonyms; lookup ignores case
 and surrounding whitespace. Only the exact genome identifier `S288C` is supported.
 
 | Function | Result |
@@ -42,6 +41,7 @@ both genes' bases and use the requested gene's orientation, regardless of the
 neighbor's strand. Only genes with annotated CDS features count as neighbors;
 use their full gene boundaries, not CDS boundaries. Noncoding RNA annotations
 do not interrupt these intervals, even when they overlap a gene or span the gap.
+
 For example, GAL1 and GAL10 share `278353..279020` on `BK006936.2`:
 `promoter("GAL1")` returns the forward interval and `promoter("GAL10")` its
 complement. Noncoding genes remain available to all lookup functions, but their
@@ -60,9 +60,10 @@ raise `ValueError`. Incorrect types, including boolean flank lengths, raise
 `genbanklink` accepts exact intervals, joins, and complements of either. Joined
 intervals must be ascending and disjoint. It emits reverse-strand segments in
 biological order with strand code `2` (`1` for the forward strand), following
-the URL convention specified in `plan.md`. Live verification of joined-region
-rendering on NCBI was blocked by NCBI's browser challenge during implementation;
-the URL construction is tested locally, but remote rendering is not verified.
+the URL convention specified in `plan.md`. 
+
+Live verification of joined-region rendering on NCBI was blocked by NCBI's browser 
+challenge during implementation; the URL construction is tested locally.
 
 ## Data and regeneration
 
