@@ -1,7 +1,7 @@
 # Pygenome
 
-Offline accession and coordinate lookup for the sixteen nuclear chromosomes of
-*S. cerevisiae* S288C. Returns GenBank region strings compatible with pydna and 
+Offline Genbank accession number and coordinate lookup for the sixteen nuclear chromosomes of
+*S. cerevisiae* S288C. Returns GenBank region strings compatible with pydna or 
 pydna-utils for quicker access by caching downloaded sequences.
 
 
@@ -11,16 +11,17 @@ For development, run `uv sync --frozen`, then `uv run pytest`.
 ```python
 from pygenome import gene, cds, locus, promoter, terminator, genbanklink
 
-assert gene("ACT1") == "BK006940.2 REGION: complement(53260..54696)"
-assert cds("ACT1") == "BK006940.2 REGION: complement(join(53260..54377,54687..54696))"
-assert locus("ACT1") == "BK006940.2 REGION: complement(52260..55696)"
+assert gene("ACT1") == "BK006940.2 REGION: complement(53260..54696)"  # Has an intron.
+assert cds("ACT1") == "BK006940.2 REGION: complement(join(53260..54377,54687..54696))" # Intron removed.
+assert locus("ACT1") == "BK006940.2 REGION: complement(52260..55696)"  # 1000 bp upstream and 1000 bp downstream.
 assert promoter("ACT1") == terminator("YPT1") == "BK006940.2 REGION: complement(54697..55365)"
+
 assert genbanklink(cds("ACT1")) == "https://www.ncbi.nlm.nih.gov/nuccore/BK006940.2?location=54687:54696:2,53260:54377:2"
 ```
 
 All lookup functions accept `name` and optional `genome="S288C"`. Names may be
 systematic names, standard names, or synonyms; lookup ignores case
-and surrounding whitespace. Only the exact genome identifier `S288C` is supported.
+and surrounding whitespace. Only the exact genome identifier `S288C` is supported at this point.
 
 | Function | Result |
 | --- | --- |
@@ -44,7 +45,9 @@ do not interrupt these intervals, even when they overlap a gene or span the gap.
 
 For example, GAL1 and GAL10 share `278353..279020` on `BK006936.2`:
 `promoter("GAL1")` returns the forward interval and `promoter("GAL10")` its
-complement. Noncoding genes remain available to all lookup functions, but their
+complement. 
+
+Noncoding genes remain available to all lookup functions, but their
 promoter/terminator neighbors are also selected from coding genes.
 A coding neighbor crossing the requested gene boundary blocks that side;
 a gene wholly contained within the requested gene does not alter its external
@@ -65,7 +68,7 @@ the URL convention specified in `plan.md`.
 Live verification of joined-region rendering on NCBI was blocked by NCBI's browser 
 challenge during implementation; the URL construction is tested locally.
 
-## Data and regeneration
+## Data and regeneration to make a new release
 
 The authoritative inputs are `data/chr01.gbf` through `data/chr16.gbf`. Their
 source URLs are retained in `data/chromosome_urls.txt`. The generated
@@ -74,8 +77,7 @@ checksum, chromosome length, gene strand and intervals, CDS intervals, aliases,
 and an annotation audit. It contains no nucleotide or protein sequences.
 
 The current snapshot has 6,424 genes and 6,001 CDS features; 423 genes have no
-CDS. Every input gene is accounted for. There are no systematic-name chromosome
-or strand mismatches and no multiple distinct CDS locations in this snapshot.
+CDS.
 
 From a checkout containing the source GenBank files:
 
